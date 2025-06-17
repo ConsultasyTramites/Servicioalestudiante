@@ -67,7 +67,135 @@
         -->
     </div>
 
+    <!-- BUSCADOR FUNCIONAL INSERTADO AQUÍ -->
+    <div class="search-wrapper" style="background-color: #0d1b2a; padding: 20px 0;">
+        <div class="wrapper" style="background-color: #0d1b2a; max-width: 1200px; margin: 0 auto; padding: 20px; box-sizing: border-box;">
+            <h2 class="heading2 header-title" id="search-title" style="color: white; text-align: center;">¿QUÉ INFORMACIÓN ESTÁS BUSCANDO?</h2>
+            <div class="search-form" style="position: relative;" autocomplete="off">
+                <input id="search" type="text" placeholder="Busca aquí" autocomplete="off" 
+                       style="width: 100%; padding: 10px 40px 10px 20px; border-radius: 25px; border: none;">
+                <i class="fas fa-search" style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: #0d1b2a;"></i>
+                
+                <!-- Contenedor de resultados -->
+                <div id="search-results" style="position: absolute; width: 100%; background: white; border-radius: 0 0 10px 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); z-index: 1000; display: none;">
+                    <div id="results-container" style="padding: 10px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Resto de tu contenido HTML existente -->
+    <!-- ... -->
+
+    <!-- Script del buscador al final del body -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('search');
+        const searchResults = document.getElementById('search-results');
+        const resultsContainer = document.getElementById('results-container');
+        
+        // Base de datos de búsqueda (simulada)
+        const searchDatabase = [
+            { title: "Tutorial Pagos Virtuales", url: "Matricula.html", description: "Guía para realizar pagos virtuales en el sistema" },
+            { title: "Cómo realizar trámites virtuales", url: "Como-Realizar-Tramites-Virtuales.html", description: "Procedimiento para trámites en línea" },
+            { title: "Acceso a correo institucional", url: "Ingresarcorreoinstitucional.html", description: "Instrucciones para ingresar al correo estudiantil" },
+            { title: "Canales de pago", url: "/es_ES/canales-de-pagos-", description: "Métodos de pago disponibles" },
+            { title: "Guía del egresado", url: "Guia-del-Egresado.html", description: "Información para estudiantes egresados" },
+            { title: "Mallas curriculares", url: "MallasCurriculares.html", description: "Plan de estudios de las carreras" }
+        ];
+        
+        // Función para buscar coincidencias
+        function search(query) {
+            if (query.length < 2) {
+                searchResults.style.display = 'none';
+                return;
+            }
+            
+            const results = searchDatabase.filter(item => 
+                item.title.toLowerCase().includes(query.toLowerCase()) || 
+                item.description.toLowerCase().includes(query.toLowerCase())
+            );
+            
+            displayResults(results);
+        }
+        
+        // Función para mostrar resultados
+        function displayResults(results) {
+            resultsContainer.innerHTML = '';
+            
+            if (results.length === 0) {
+                resultsContainer.innerHTML = '<div style="padding: 10px;">No se encontraron resultados</div>';
+                searchResults.style.display = 'block';
+                return;
+            }
+            
+            results.forEach(result => {
+                const resultItem = document.createElement('a');
+                resultItem.href = result.url;
+                resultItem.style.display = 'block';
+                resultItem.style.padding = '10px';
+                resultItem.style.textDecoration = 'none';
+                resultItem.style.color = '#333';
+                resultItem.style.borderBottom = '1px solid #eee';
+                
+                resultItem.innerHTML = `
+                    <div style="font-weight: bold;">${result.title}</div>
+                    <div style="font-size: 0.9em; color: #666;">${result.description}</div>
+                `;
+                
+                resultItem.addEventListener('mouseover', () => {
+                    resultItem.style.backgroundColor = '#f5f5f5';
+                });
+                
+                resultItem.addEventListener('mouseout', () => {
+                    resultItem.style.backgroundColor = 'transparent';
+                });
+                
+                resultsContainer.appendChild(resultItem);
+            });
+            
+            searchResults.style.display = 'block';
+        }
+        
+        // Event listeners
+        searchInput.addEventListener('input', () => {
+            search(searchInput.value);
+        });
+        
+        searchInput.addEventListener('focus', () => {
+            if (searchInput.value.length >= 2) {
+                searchResults.style.display = 'block';
+            }
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!searchResults.contains(e.target)) {
+                searchResults.style.display = 'none';
+            }
+        });
+    });
+    </script>
+
+    <!-- Tus otros scripts existentes -->
+    <script defer type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.selection/1.0.1/jquery.selection.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.10.0/js/md5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/pdf.min.js"></script>
+    <!-- To show URLs in iframe -->
+    <script src="https://static.helpjuice.com/assets/template-ac5762484172e351a5f18410317060e84937bca7ebf92c7f499fc688f7706db6.js"></script>
+    <script defer src='/assets/easyxdm/easyxdm.min.js'></script>
+    <script defer src='/assets/questions_widget.js'></script>
+
+    <!-- Helpjuice JavaScript files -->
+    <script src="https://static.helpjuice.com/assets/knowledge/responsivemenu-86a17116950142b41426c04b0f042c7bcdf0519b7f4e7a9fe1e9d67b48f9b46b.js"></script>
+    <script src="https://static.helpjuice.com/assets/jquery.typewatch-14c782b50fde070c995ed3582b19df3e16cd2bf989f259f7b82121913d6b7210.js"></script>
+    <script src="https://static.helpjuice.com/assets/knowledge/questions-5f7c86b585e58e01f6b6cb825fcb20b7c719be6b7aaa7b9f1f27cc29c5ae68c2.js"></script>
+    <script src="https://static.helpjuice.com/assets/knowledge/contactform-393ba587d203d199f34f03466f29c99af7d0cc9eb653a05c60d4977502eb9e89.js"></script>
+    <script src="https://static.helpjuice.com/assets/knowledge/follow_unfollow-0de54e775b4e5390a7dc74bfe49c89805ed38cd21e1907e00ac897803e04e987.js"></script>
+    <script src="https://static.helpjuice.com/assets/knowledge/click_to_zoom-198b3ad49b3a70b7e792cbcd2a887514be80a01b43b64a55b9a4ce337a8e7f13.js"></script>
+    <script src="https://static.helpjuice.com/assets/knowledge/decision_trees-ab5fc72b8dc6f02b58a0ab4bd3cd074a7d879215719c6505d1dd45df0bc112e6.js"></script>
+    <script src="/theme.js"></script>
+    <script src="https://static.helpjuice.com/helpjuice_production/uploads/account/12017/main_js_12017-32dd4b5071de7cfb735c1b907ed5ffbfcfba90cbabea88a9e21fad6401444728.js">
+</script>
 
 
     <!-- Aquí iría el resto de tu contenido HTML existente -->
@@ -142,14 +270,8 @@
         <!-- question and category page header -->
 
  <!----------------------------------ENCABEZADO_HEADER_BANNER------------------------------------------->
-<div class="search-wrapper" style="background-color: #0d1b2a; padding: 20px 0;">
-    <div class="wrapper" style="background-color: #0d1b2a; max-width: 1200px; margin: 0 auto; padding: 20px; box-sizing: border-box;" data-helpjuice-element="Search Wrapper" data-helpjuice-attributes="visibility,background">
-        <h2 class="heading2 header-title" id="search-title" style="color: white; text-align: center;" data-helpjuice-element="Search Title" data-helpjuice-attributes="font_size,color,text">¿QUÉ INFORMACIÓN ESTÁS BUSCANDO?</h2>
-        <div class="search-form" style="position: relative;" autocomplete="off">
-            <input id="search" type="text" placeholder="Busca aquí" autocomplete="off" 
-                   style="width: 100%; padding: 10px 40px 10px 20px; border-radius: 25px; border: none;"
-                   data-helpjuice-element="Search placeholder" 
-                   data-helpjuice-attributes="placeholder,font_size,color">
+
+<!-- Agrega este script al final del body, antes del cierre </body> -->
 
 <!----------------------------------------CIRCULO------------------------------------------------------------->
          <!--<img class="logo-header" 
@@ -168,7 +290,7 @@
 
 
     <!-- BUSCADOR----------------------------------------------------------------------------- -->
-    <i class="fas fa-search" style="position: relative; right: 15px; top: 50%; transform: translateY(-50%); color: #0d1b2a;"></i>
+   <i class="fas fa-search" style="position: relative; right: 15px; top: 50%; transform: translateY(-50%); color: #0d1b2a;"></i>
             
             <div id="search_results">
                 <div>
@@ -196,7 +318,9 @@
     </div>
 </div>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
+
+
 
 
 
@@ -273,7 +397,143 @@
                 
             </ul>
             
-     <!--------------------------------------------envcuesta de caritas-------------------------->       
+     <!--------------------------------------------envcuesta de caritas-------------------------->      
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('search');
+    const searchResults = document.getElementById('search-results');
+    const resultsContainer = document.getElementById('results-container');
+    
+    // Base de datos de búsqueda (simulada)
+    const searchDatabase = [
+        { title: "Tutorial Pagos Virtuales", url: "Matricula.html", description: "Guía para realizar pagos virtuales en el sistema" },
+        { title: "Cómo realizar trámites virtuales", url: "Como-Realizar-Tramites-Virtuales.html", description: "Procedimiento para trámites en línea" },
+        { title: "Acceso a correo institucional", url: "Ingresarcorreoinstitucional.html", description: "Instrucciones para ingresar al correo estudiantil" },
+        { title: "Canales de pago", url: "/es_ES/canales-de-pagos-", description: "Métodos de pago disponibles" },
+        { title: "Guía del egresado", url: "Guia-del-Egresado.html", description: "Información para estudiantes egresados" },
+        { title: "Mallas curriculares", url: "MallasCurriculares.html", description: "Plan de estudios de las carreras" }
+    ];
+    
+    // Función para buscar coincidencias
+    function search(query) {
+        if (query.length < 2) {
+            searchResults.style.display = 'none';
+            return;
+        }
+        
+        const results = searchDatabase.filter(item => 
+            item.title.toLowerCase().includes(query.toLowerCase()) || 
+            item.description.toLowerCase().includes(query.toLowerCase())
+        );
+        
+        displayResults(results);
+    }
+    
+    // Función para mostrar resultados
+    function displayResults(results) {
+        resultsContainer.innerHTML = '';
+        
+        if (results.length === 0) {
+            resultsContainer.innerHTML = '<div style="padding: 10px;">No se encontraron resultados</div>';
+            searchResults.style.display = 'block';
+            return;
+        }
+        
+        results.forEach(result => {
+            const resultItem = document.createElement('a');
+            resultItem.href = result.url;
+            resultItem.style.display = 'block';
+            resultItem.style.padding = '10px';
+            resultItem.style.textDecoration = 'none';
+            resultItem.style.color = '#333';
+            resultItem.style.borderBottom = '1px solid #eee';
+            
+            resultItem.innerHTML = `
+                <div style="font-weight: bold;">${result.title}</div>
+                <div style="font-size: 0.9em; color: #666;">${result.description}</div>
+            `;
+            
+            resultItem.addEventListener('mouseover', () => {
+                resultItem.style.backgroundColor = '#f5f5f5';
+            });
+            
+            resultItem.addEventListener('mouseout', () => {
+                resultItem.style.backgroundColor = 'transparent';
+            });
+            
+            resultsContainer.appendChild(resultItem);
+        });
+        
+        searchResults.style.display = 'block';
+    }
+    
+    // Event listeners
+    searchInput.addEventListener('input', () => {
+        search(searchInput.value);
+    });
+    
+    searchInput.addEventListener('focus', () => {
+        if (searchInput.value.length >= 2) {
+            searchResults.style.display = 'block';
+        }
+    });
+    
+    document.addEventListener('click', (e) => {
+        if (!searchResults.contains(e.target) {
+            searchResults.style.display = 'none';
+        }
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
   <!--------  </article>
     
     <footer id="footer-article">
@@ -422,5 +682,6 @@
     <script src="https://static.helpjuice.com/helpjuice_production/uploads/account/12017/main_js_12017-32dd4b5071de7cfb735c1b907ed5ffbfcfba90cbabea88a9e21fad6401444728.js"></script>
     <!-- End of Helpjuice JavaScript files -->
 
-  <script src="https://static.helpjuice.com/assets/helpjuice-251a8e6285deaaa907a544c1c733033a8b824623c59dadcdb8bc6f725e0bfee9.js"></script><script src="https://static.helpjuice.com/assets/knowledge/glossary-46fe931d51673faa23464c4f518fc7632816d8c5cb231f1a738a566c231cc8c4.js"></script></body>
+  <script src="https://static.helpjuice.com/assets/helpjuice-251a8e6285deaaa907a544c1c733033a8b824623c59dadcdb8bc6f725e0bfee9.js"></script><script src="https://static.helpjuice.com/assets/knowledge/glossary-46fe931d51673faa23464c4f518fc7632816d8c5cb231f1a738a566c231cc8c4.js"></script>
+</body>
 </html>
