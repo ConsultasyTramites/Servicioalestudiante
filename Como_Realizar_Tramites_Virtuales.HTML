@@ -1,62 +1,140 @@
 <!DOCTYPE html>
-<html class="no-js" lang="es_ES">
+<html lang="es">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto Carrion</title>
-    <style>
-        .header-container {
-            position: relative;
-            width: 100%;
-            height: 200px; /* Altura deseada para el encabezado */
-            overflow: hidden;
-        }
+  <meta charset="UTF-8">
+  <title>Header con Buscador Separado</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-      .header-image {
-            position: absolute;  /* Corregido: absolute en lugar de cover */
-            width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(to right, rgba(0,128,128,0.7), transparent),
-                url('https://scontent.flim2-5.fna.fbcdn.net/v/t39.30808-6/507211490_1924138638440123_8548703318273720366_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGODAvjT5WjZ8eDgVhNXOwSqpYUL64q0OyqlhQvrirQ7OGy-9JFdUyUn5jcXF1UETlMq_KV4zdIyUPRRP-2vqyY&_nc_ohc=frA4c_9uiegQ7kNvwHrrcLS&_nc_oc=AdlTA7hDd7cl2vLJnXo-SquLrpCmcByGg8waJ5VJ7uz2uAbAColrga0U2vqZcDQ13T4&_nc_zt=23&_nc_ht=scontent.flim2-5.fna&_nc_gid=KUWTFx0aFKW4ZeSA77hmbQ&oh=00_AfPdaGcgBeVC3qLqVgXnkBNrV_ee1774FgpIYTIOK2vp8Q&oe=6853BE9C');
-            background-size: 1900px 200px;
-            background-position: center;  /* Corregido: center en lugar de relative */
-            background-repeat: no-repeat;
-        }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0d1b2a;
+      color: white;
+    }
 
-        /* Si necesitas incluir el logo y título nuevamente */
-        .header-content {
-            position: absolute;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            z-index: 2;
-        }
+    /* Estilos para el header con imagen */
+    .header-container {
+      position: relative;
+      width: 100%;
+      height: 400px; /* Altura fija para el contenedor */
+      overflow: hidden;
+    }
 
-        .header-title {
-            margin: 0;
-            font-size: 2.5em;
-            font-weight: bold;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-        }
+    .header-image {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+      display: block;
+    }
 
-        .logo-header {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-        }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    /* Estilos para el contenedor del buscador (nuevo) */
+    .search-container {
+      background-color: transparent; /* Cambiado a transparente */
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      margin-top: -100px; /* Ajusta este valor según necesites */
+    }
+
+    .search-wrapper {
+      background: rgba(13, 27, 42, 0.7); /* Ajusta la opacidad aquí (0.7) */
+      padding: 20px;
+      width: 100%;
+      max-width: 800px;
+      border-radius: 15px;
+      text-align: center;
+      backdrop-filter: blur(5px); /* Efecto de desenfoque para mejor legibilidad */
+    }
+
+    .search-title {
+      margin-bottom: 15px;
+      font-size: 24px;
+      color: white;
+    }
+
+    .search-form {
+      position: relative;
+    }
+
+    .search-form input {
+      width: 100%;
+      padding: 12px 40px 12px 20px;
+      border-radius: 25px;
+      border: none;
+      background-color: rgba(255, 255, 255, 0.9);
+      color: black;
+    }
+
+    .search-form i {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #0d1b2a;
+    }
+
+    #search-results {
+      position: absolute;
+      width: 100%;
+      background: white;
+      color: black;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 1000;
+      display: none;
+      text-align: left;
+    }
+
+    #search-results div {
+      padding: 10px;
+    }
+  </style>
 </head>
+<body>
 
+<!-- Header con imagen -->
+<div class="header-container">
+  <img class="header-image" src="https://scontent.flim2-1.fna.fbcdn.net/v/t39.30808-6/508725564_1927166634803990_7706481391653823558_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGi_9oFaC8vSLsTJ1vnnuVK5M9gz1_xhwPkz2DPX_GHA6l_U4iGvTK8EGpkYOpcvWZiKUJU3VFpEk1sk9b3xgj8&_nc_ohc=Z9GtYQx-yI4Q7kNvwEjmcEt&_nc_oc=AdngWep-ahK68NbMRCYn8TT0H8cXLsjtMLNPP8mX1EPQo1tpECRHXQ1qOLwUcLBkj9I&_nc_zt=23&_nc_ht=scontent.flim2-1.fna&_nc_gid=Fu_SFc4VQJ0hn2wXmpUtxw&oh=00_AfPPs95k1cQYT8vguzf46kY-GVfdh-c8HA4JXxHEu7h3JQ&oe=6858C10D" alt="Encabezado">
+</div>
 
+<!-- Contenedor separado para el buscador -->
+<div class="search-container">
+  <div class="search-wrapper">
+    <h2 class="search-title">¿QUÉ INFORMACIÓN ESTÁS BUSCANDO?</h2>
+    <div class="search-form" autocomplete="off">
+      <input id="search" type="text" placeholder="Busca aquí" autocomplete="off">
+      <i class="fas fa-search"></i>
+      <div id="search-results">
+        <div id="results-container"></div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<script>
+  const searchInput = document.getElementById('search');
+  const resultsContainer = document.getElementById('results-container');
+  const searchResultsBox = document.getElementById('search-results');
+
+  searchInput.addEventListener('input', function () {
+    const query = this.value.trim().toLowerCase();
+    if (query.length > 0) {
+      resultsContainer.innerHTML = `<p>Mostrando resultados para: <strong>${query}</strong></p>`;
+      searchResultsBox.style.display = 'block';
+    } else {
+      searchResultsBox.style.display = 'none';
+    }
+  });
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <!-- Aquí iría el resto de tu contenido HTML existente -->
 
@@ -161,36 +239,7 @@
 
 
  <body>
-    <!-- Header -->
-    <div class="header-container">
-        <div class="header-image"></div>
-    </div>
-
-    <!-- Buscador -->
-    <div class="search-wrapper" style="background-color: #0d1b2a; padding: 20px 0;">
-        <div class="wrapper" style="background-color: #0d1b2a; padding: 20px 0;">
-
-           <h2 class="heading2 header-title" id="search-title" style="color: white; text-align: center;" data-helpjuice-element="Search Title" data-helpjuice-attributes="font_size,color,text">¿QUÉ INFORMACIÓN ESTÁS BUSCANDO?</h2>
-            <div class="search-form"style="position: relative;"  autocomplete="off">
-
-                <input id="search" type="text" placeholder="Busca aquí" autocomplete="off"
- 			style="width: 100%; padding: 10px 40px 10px 20px; border-radius: 25px; border: none;"
-                   data-helpjuice-element="Search placeholder" 
-                   data-helpjuice-attributes="placeholder,font_size,color">
-<!---------------------------------PARTE DEL BUSCADOR DONDE SE INGRESE LO A BUSCAR ---------------------------------------->
-                <i class="fas fa-search" style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: #0d1b2a;"></i>
-                
-                <!-- Contenedor de resultados -->
-                <div id="search-results" style="position: absolute; width: 100%; background: white; border-radius: 0 0 10px 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); z-index: 1000; display: none;">
-                    <div id="results-container" style="padding: 10px;"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Contenido principal -->
-    <main id="main-content">
-        <div class="content_for_layout">
+    
             <!-- Breadcrumbs --------------------------->
 
 
@@ -260,13 +309,14 @@
             </ul>
             
         <!--------------------------------------------envcuesta de caritas-------------------------->       
-    </article>
+     <!--------</article>
     
     <footer id="footer-article">
                 
                 <div class="rating-form-container" data-helpjuice-element="Rating Form Container" data-helpjuice-attributes="visibility,background">
-                    <div class="rating-form-white-container">
-                        <span class="rating-question" id="footer-question" data-helpjuice-element="Rating Question Span" data-helpjuice-attributes="font_size,color">¿La información te ayudó a resolver tu consulta?</span>
+                    <div class="rating-form-white-container">--------->
+
+                       <!---- <span class="rating-question" id="footer-question" data-helpjuice-element="Rating Question Span" data-helpjuice-attributes="font_size,color">¿La información te ayudó a resolver tu consulta?</span>
                         <p id="footer-response" style="display:none" data-helpjuice-element="Rating Response Paragraph" data-helpjuice-attributes="font_size,color">Tu opinión nos ayuda a mejorar la información que brindamos.</p>
 
                         <form accept-charset="UTF-8" action="/questions/2154420/feedbacks" class="new_feedback rating-form" id="new_feedback" method="post" data-helpjuice-element="Feedback Form" data-helpjuice-attributes="font_size,color">
@@ -302,7 +352,7 @@
                                     <div class="thumb-up" data-helpjuice-element="Thumbs Up No" data-helpjuice-attributes="visibility,background">
                                         NO
                                     </div>
-                                </a>
+                                </a>--->
                             <!--------------------------------------------------------------fin de la carita de encuesta ------------> 
                             <!--<p>909 out of <span>1524</span> found this helpful.</p>-->
                         </form>
@@ -320,44 +370,61 @@
         </div>
     </main>
     <!--Prueba Footer-------------------------------------------------------------------->
+
+
+
+<!-- Footer ------------------------------------------------------------------------------------------------>
     <div class="footer">
-        <div class="footer-left">
-            <a href="https://www.acarrion.edu.pe/" class="card2">
-                <img width="111.36px" src="https://www.acarrion.edu.pe/wp-content/uploads/2023/09/63951235c7969e4beeb83e89_carrion-logo-dark.svg" alt="Logo Instituto Carrion">
-            </a>
-            <span class="footer-left-rights">
-                © 2025 Instituto CARRION.<br/> Todos los derechos reservados.
-            </span>
-        </div>
+     <div class="footer-left">
+  <a href="https://www.acarrion.edu.pe/" class="card2">
+    <img width="111.36px" src="https://www.acarrion.edu.pe/wp-content/uploads/2023/09/63951235c7969e4beeb83e89_carrion-logo-dark.svg" alt="Logo Instituto Carrion">
+  </a>
+  <span class="footer-left-rights">
+    © 2025 Instituto CARRION.<br/> Todos los derechos reservados.
+  </span>
+</div>
 
         <div class="footer-right">
             <span class="footer-right-question">Si el motivo de tu consulta no fue resuelto, puedes comunicarte a:</span>
             <div class="footer-right-row">
-                <img class="footer-right-row-icon" src="https://static.helpjuice.com/helpjuice_production/uploads/upload/image/14255/3184049/1685552418116-social_whatsapp.png" width="22px" alt="WhatsApp">
-                <a target="_blank" href="https://api.whatsapp.com/send?phone=51933631733">933 631 733</a>
+                <img class="footer-right-row-icon" src="https://static.helpjuice.com/helpjuice_production/uploads/upload/image/14255/3184049/1685552418116-social_whatsapp.png" width="22px">
+                <a target="_blank" href="https://api.whatsapp.com/send?phone=51933631733" class="footer-right-row-text"> 933 631 733</a>
             </div>
-            <span class="footer-right-schedule">De lunes a viernes de 8:00 a.m. a 9:00 p.m. Sábados de 8:00 a.m. a 6:00 p.m.</span>
-            
-            <div class="Comunidad-Carrión">
-                <span class="footer-right-question">
-                    Tenemos una Comunidad Facebook especialmente diseñado para ti. ¡Únete ahora mismo!
-                </span>
-                <div class="footer-right-row">
-                    <img class="footer-right-row-icon" src="https://images.icon-icons.com/2657/PNG/256/facebook_icon_161067.png" width="22px" alt="Facebook">
-                    <a target="_blank" href="https://www.facebook.com/groups/1830554624395062/?ref=share&mibextid=NSMWBT" style="text-decoration: none; font-weight: bold; color: #1877f2;">Comunidad Carrión</a>
-                </div>
+            <!--<div class="footer-right-row">
+                <img class="footer-right-row-icon" src="https://static.helpjuice.com/helpjuice_production/uploads/upload/image/14255/2928846/social_phoneolid.svg">
+                <a href="#" class="footer-right-row-text">(01) 610 6400</a>
+            </div>-->
+            <span class="footer-right-schedule">De lunes a viernes de 7:00 a.m. a 10:00 p.m. Sábados de 8:00 a.m. a 6:00 p.m.
+
+<!--<br />
+
+<p style="text-align: center; font-size: 13px; opacity: 0.7; margin: 16px 0; display: inline-block; width: 100%;">
+    <a style="font-weight: 700; color: black; text-decoration: none;" href="https://helpjuice.com/?utm_campaign=customer_kb">
+        Knowledge Base Software powered by Helpjuice
+    </a>
+</p>-->             
+        <div class="Comunidad-Carrión">
+  <span class="footer-right-question">
+    Tenemos una Comunidad Facebook especialmente diseñado para ti. ¡Únete ahora mismo!
+  </span>
+  <div class="footer-right-row" style="display: flex; align-items: center; gap: 8px; white-space: nowrap;">
+    <img class="footer-right-row-icon" src="https://images.icon-icons.com/2657/PNG/256/facebook_icon_161067.png" width="22px">
+    <a target="_blank" href="https://www.facebook.com/groups/1830554624395062/?ref=share&mibextid=NSMWBT" style="text-decoration: none; font-weight: bold; color: #1877f2; white-space: nowrap;">Comunidad Carrión</a>
+  </div>
+</div>
             </div>
         </div>
     </div>
-
-    <!-- Scripts -->
+    
+    <!-- Scripts ---------------------------------------------------------------------------------->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const searchInput = document.getElementById('search');
         const searchResults = document.getElementById('search-results');
         const resultsContainer = document.getElementById('results-container');
         
-        // Base de datos de búsqueda
+       
+    <!-- ------------------------------------Base de datos de búsqueda------------------------------------------->
         const searchDatabase = [
             { title: "Tutorial Pagos Virtuales", url: "Matricula.html", description: "Guía para realizar pagos virtuales en el sistema" },
             { title: "Cómo realizar trámites virtuales", url: "Como-Realizar-Tramites-Virtuales.html", description: "Procedimiento para trámites en línea" },
