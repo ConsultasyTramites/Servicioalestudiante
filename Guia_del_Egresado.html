@@ -8,20 +8,22 @@
         .header-container {
             position: relative;
             width: 100%;
-            height: 200px; /* Altura deseada para el encabezado */
+            height: 200px; /* Altura fija para el encabezado */
+            min-height: 150px; /* Altura mínima para móviles */
             overflow: hidden;
         }
 
-      .header-image {
-            position: absolute;  /* Corregido: absolute en lugar de cover */
+        .header-image {
+            position: absolute;
             width: 100%;
             height: 100%;
             background: 
-                linear-gradient(to right, rgba(0,128,128,0.7), transparent),
-                url('https://scontent.flim2-5.fna.fbcdn.net/v/t39.30808-6/507211490_1924138638440123_8548703318273720366_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGODAvjT5WjZ8eDgVhNXOwSqpYUL64q0OyqlhQvrirQ7OGy-9JFdUyUn5jcXF1UETlMq_KV4zdIyUPRRP-2vqyY&_nc_ohc=frA4c_9uiegQ7kNvwHrrcLS&_nc_oc=AdlTA7hDd7cl2vLJnXo-SquLrpCmcByGg8waJ5VJ7uz2uAbAColrga0U2vqZcDQ13T4&_nc_zt=23&_nc_ht=scontent.flim2-5.fna&_nc_gid=KUWTFx0aFKW4ZeSA77hmbQ&oh=00_AfPdaGcgBeVC3qLqVgXnkBNrV_ee1774FgpIYTIOK2vp8Q&oe=6853BE9C');
-            background-size: 1900px 200px;
-            background-position: center;  /* Corregido: center en lugar de relative */
+                linear-gradient(to right, #006464, #006464), /* Gradiente sólido sin transparencia */
+                url('https://scontent.flim2-1.fna.fbcdn.net/v/t39.30808-6/508725564_1927166634803990_7706481391653823558_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGi_9oFaC8vSLsTJ1vnnuVK5M9gz1_xhwPkz2DPX_GHA6l_U4iGvTK8EGpkYOpcvWZiKUJU3VFpEk1sk9b3xgj8&_nc_ohc=Z9GtYQx-yI4Q7kNvwEjmcEt&_nc_oc=AdngWep-ahK68NbMRCYn8TT0H8cXLsjtMLNPP8mX1EPQo1tpECRHXQ1qOLwUcLBkj9I&_nc_zt=23&_nc_ht=scontent.flim2-1.fna&_nc_gid=KGaknDwfCnVK1TxoymyJCQ&oh=00_AfMzl9cQhosgl1idqITEEHEYKq6hAtob0l1BQn-Lk8mWDA&oe=6857E00D');
+            background-size: cover; /* Cubrirá todo el espacio disponible */
+            background-position: center center; /* Centrado horizontal y vertical */
             background-repeat: no-repeat;
+            background-blend-mode: overlay; /* Mezcla el gradiente con la imagen */
         }
 
         /* Si necesitas incluir el logo y título nuevamente */
@@ -54,20 +56,6 @@
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
-<body>
-    <div class="header-container">
-        <div class="header-image"></div>
-        <!-- Descomenta si necesitas el contenido sobre la imagen -->
-        <!--
-        <div class="header-content">
-            <img class="logo-header" src="tu-imagen-de-perfil.jpg">
-            <h1 class="header-title">CONTACTO CARRION</h1>
-        </div>
-        -->
-    </div>
-
-
 
 
     <!-- Aquí iría el resto de tu contenido HTML existente -->
@@ -168,78 +156,45 @@
             </div>
 <!--END_COMPONENT_NAVIGATION_SECTION-->
     
-    
+      <!--------------------baner del buscador -------------------------------------------------------->      
+ 
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
 
- <!----------------------------------ENCABEZADO_HEADER_BANNER------------------------------------------->
-<div class="search-wrapper" style="background-color: #0d1b2a; padding: 20px 0;">
-    <div class="wrapper" style="background-color: #0d1b2a; max-width: 1200px; margin: 0 auto; padding: 20px; box-sizing: border-box;" data-helpjuice-element="Search Wrapper" data-helpjuice-attributes="visibility,background">
-        <h2 class="heading2 header-title" id="search-title" style="color: white; text-align: center;" data-helpjuice-element="Search Title" data-helpjuice-attributes="font_size,color,text">¿QUÉ INFORMACIÓN ESTÁS BUSCANDO?</h2>
-        <div class="search-form" style="position: relative;" autocomplete="off">
-            <input id="search" type="text" placeholder="Busca aquí" autocomplete="off" 
-                   style="width: 100%; padding: 10px 40px 10px 20px; border-radius: 25px; border: none;"
+<body>
+    <!-- Header -->
+    <div class="header-container">
+        <div class="header-image"></div>
+    </div>
+
+    <!-- Buscador -->
+    <div class="search-wrapper" style="background-color: #0d1b2a; padding: 20px 0;">
+        <div class="wrapper" style="background-color: #0d1b2a; padding: 20px 0;">
+
+           <h2 class="heading2 header-title" id="search-title" style="color: white; text-align: center;" data-helpjuice-element="Search Title" data-helpjuice-attributes="font_size,color,text">¿QUÉ INFORMACIÓN ESTÁS BUSCANDO?</h2>
+            <div class="search-form"style="position: relative;"  autocomplete="off">
+
+                <input id="search" type="text" placeholder="Busca aquí" autocomplete="off"
+ 			style="width: 100%; padding: 10px 40px 10px 20px; border-radius: 25px; border: none;"
                    data-helpjuice-element="Search placeholder" 
                    data-helpjuice-attributes="placeholder,font_size,color">
-
-<!----------------------------------------CIRCULO------------------------------------------------------------->
-         <!--<img class="logo-header" 
-    src="https://ugc.production.linktr.ee/c150853f-f3d4-47aa-8a99-1605e440154e_WhatsApp-Image-2025-01-07-at-4.12.16-AM.jpeg?io=true&size=avatar-v3_0" 
-    style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; box-shadow: 2px 6px 8px rgba(0, 0, 0, 0.2);">
-</a>---->
-<!----------------------------------------------------------------------------------------------------------->        
-          <!-----<h2 id="logo-sise" data-helpjuice-element="Logo C" data-helpjuice-attributes="font_size,color"> 
-                        <!--<span style="margin-right:24px; vertical-align: sub;"><img style="max-height: 24px;" src="https://scontent.flim2-6.fna.fbcdn.net/v/t39.30808-6/506410584_1922412321946088_2073086972235835171_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHUkb7njnIpeziW382Hq6I_0VjPq-cTyhXRWM-r5xPKFUsu4bmIU2YuSBtRMh9sPwbVodIUr6Ol6bR8f0cloIDI&_nc_ohc=e4PGdoogiqQQ7kNvwEVA5vL&_nc_oc=AdlN97DPH2CDfrOC2IMWLTuTx-ATFwoFBxSBtvzxTn5co62qlCP7p5ATjOy8oBBHry0&_nc_zt=23&_nc_ht=scontent.flim2-6.fna&_nc_gid=TyNPOk2rPGLKOk70XAQK9g&oh=00_AfPNNQDv1B8YumMit2L0fOPmVVPMyRtQCXmMUWhd8TApNg&oe=68514009"/></span>
-                    CONTACTO CARRION </h2></a>--->
-       
-    
-
-</div>
-<!-------------------------------------------BUSCADOR---------------------------------------------------->
-
-
-    <!-- BUSCADOR----------------------------------------------------------------------------- -->
-    <i class="fas fa-search" style="position: relative; right: 15px; top: 50%; transform: translateY(-50%); color: #0d1b2a;"></i>
-            
-            <div id="search_results">
-                <div>
-                    <div class="page_title">
-                        <div>
-                            <h1 id="search-result-title"></h1>
-                        </div>
-                    </div>
-                    <div id="results">
-                        <div class="grid grid_is_centered page_is_list">
-                            <div class="grid_item page_content">
-                                <ul class="list search-results"></ul>
-                                <div class="show_all_results" style="display: block"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hidden" id="no-results">
-                        <div class="no-results-wrap js_equalise_is_landing">
-                            <!-- if no results found => show contact form -->
-                        </div>
-                    </div>
+<!---------------------------------PARTE DEL BUSCADOR DONDE SE INGRESE LO A BUSCAR ---------------------------------------->
+                <i class="fas fa-search" style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: #0d1b2a;"></i>
+                
+                <!-- Contenedor de resultados -->
+                <div id="search-results" style="position: absolute; width: 100%; background: white; border-radius: 0 0 10px 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); z-index: 1000; display: none;">
+                    <div id="results-container" style="padding: 10px;"></div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<!--END_COMPONENT_HEADER_BANNER-->
-        
-        <!-- end of question and category page header -->
-        
-    
-
-   
+    <!-- Contenido principal -->
     <main id="main-content">
         <div class="content_for_layout">
-            <!--START_COMPONENT_BREADCRUMBS_CONTAINER_A-->
-<div class="bread-crumbs-container" data-helpjuice-component="Breadcrumbs Container A" data-helpjuice-element="Container" data-helpjuice-attributes="visibility,background">
-    <div class="bread-crumbs">
+            <!-- Breadcrumbs --------------------------->
 
 
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
 
        <!--ICONO DE HOME LA CASITA ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
           <a href="index.html"> 
@@ -414,49 +369,91 @@
         </div>
     </div>
     
-    <!--Fin prueba footer
-    <footer>
-        <div class="wrapper">
+    <!--Fin prueba footer------------------------------------------------>
+    <!-- Scripts ---------------------------------------------------------------------------------->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('search');
+        const searchResults = document.getElementById('search-results');
+        const resultsContainer = document.getElementById('results-container');
+        
+       
+    <!-- ------------------------------------Base de datos de búsqueda------------------------------------------->
+        const searchDatabase = [
+            { title: "Tutorial Pagos Virtuales", url: "Matricula.html", description: "Guía para realizar pagos virtuales en el sistema" },
+            { title: "Cómo realizar trámites virtuales", url: "Como-Realizar-Tramites-Virtuales.html", description: "Procedimiento para trámites en línea" },
+            { title: "Acceso a correo institucional", url: "Ingresarcorreoinstitucional.html", description: "Instrucciones para ingresar al correo estudiantil" },
+            { title: "Canales de pago", url: "/es_ES/canales-de-pagos-", description: "Métodos de pago disponibles" },
+            { title: "Guía del egresado", url: "Guia-del-Egresado.html", description: "Información para estudiantes egresados" },
+            { title: "Mallas curriculares", url: "MallasCurriculares.html", description: "Plan de estudios de las carreras" }
+        ];
+        
+        // Función para buscar coincidencias
+        function search(query) {
+            if (query.length < 2) {
+                searchResults.style.display = 'none';
+                return;
+            }
             
-            <div class="socket">
-                <div class="column social">
-                    <a href="https://www.facebook.com/instituto.sise" class="social"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/instituto.sise/"><i class="fab fa-instagram"></i></a>
-                </div>
-                <div class="column privacy">  
-                    <a href="https://help.helpjuice.com/privacy-policy">Privacy Policy</a><i class="far fa-minus fa-rotate-90"></i><a href="https://help.helpjuice.com/terms-of-service">Terms of Service</a>
-                </div>
-                <div class="column copyright">
-                    <p>©2025 CARRION. All Rights reserved.</p>
-                </div>
-                <div class="column powered">
-                    <p><a href='https://helpjuice.com'>Knowledge Base Software</a> by Helpjuice</p>
-                </div>
-            </div>
+            const results = searchDatabase.filter(item => 
+                item.title.toLowerCase().includes(query.toLowerCase()) || 
+                item.description.toLowerCase().includes(query.toLowerCase())
+            );
             
-        </div>
-    </footer>-->
-    
-    
-    <script defer type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.selection/1.0.1/jquery.selection.min.js"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.10.0/js/md5.min.js" ></script>
+            displayResults(results);
+        }
+        
+        // Función para mostrar resultados
+        function displayResults(results) {
+            resultsContainer.innerHTML = '';
+            
+            if (results.length === 0) {
+                resultsContainer.innerHTML = '<div style="padding: 10px;">No se encontraron resultados</div>';
+                searchResults.style.display = 'block';
+                return;
+            }
+            
+            results.forEach(result => {
+                const resultItem = document.createElement('a');
+                resultItem.href = result.url;
+                resultItem.style.display = 'block';
+                resultItem.style.padding = '10px';
+                resultItem.style.textDecoration = 'none';
+                resultItem.style.color = '#333';
+                resultItem.style.borderBottom = '1px solid #eee';
+                
+                resultItem.innerHTML = `
+                    <div style="font-weight: bold;">${result.title}</div>
+                    <div style="font-size: 0.9em; color: #666;">${result.description}</div>
+                `;
+                
+                resultsContainer.appendChild(resultItem);
+            });
+            
+            searchResults.style.display = 'block';
+        }
+        
+        // Event listeners
+        searchInput.addEventListener('input', () => {
+            search(searchInput.value);
+        });
+        
+        searchInput.addEventListener('focus', () => {
+            if (searchInput.value.length >= 2) {
+                searchResults.style.display = 'block';
+            }
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!searchResults.contains(e.target)) {
+                searchResults.style.display = 'none';
+            }
+        });
+    });
+    </script>
+
+    <!-- Scripts externos -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/pdf.min.js"></script>
-    <!-- To show URLs in iframe -->
-    <script src="https://static.helpjuice.com/assets/template-ac5762484172e351a5f18410317060e84937bca7ebf92c7f499fc688f7706db6.js"></script>
-    <script defer src='/assets/easyxdm/easyxdm.min.js'></script>
-    <script defer src='/assets/questions_widget.js'></script>
-
-    <!-- Helpjuice JavaScript files -->
-    <script src="https://static.helpjuice.com/assets/knowledge/responsivemenu-86a17116950142b41426c04b0f042c7bcdf0519b7f4e7a9fe1e9d67b48f9b46b.js"></script>
-    <script src="https://static.helpjuice.com/assets/jquery.typewatch-14c782b50fde070c995ed3582b19df3e16cd2bf989f259f7b82121913d6b7210.js"></script>
-    <script src="https://static.helpjuice.com/assets/knowledge/questions-5f7c86b585e58e01f6b6cb825fcb20b7c719be6b7aaa7b9f1f27cc29c5ae68c2.js"></script>
-    <script src="https://static.helpjuice.com/assets/knowledge/contactform-393ba587d203d199f34f03466f29c99af7d0cc9eb653a05c60d4977502eb9e89.js"></script>
-    <script src="https://static.helpjuice.com/assets/knowledge/follow_unfollow-0de54e775b4e5390a7dc74bfe49c89805ed38cd21e1907e00ac897803e04e987.js"></script>
-    <script src="https://static.helpjuice.com/assets/knowledge/click_to_zoom-198b3ad49b3a70b7e792cbcd2a887514be80a01b43b64a55b9a4ce337a8e7f13.js"></script>
-    <script src="https://static.helpjuice.com/assets/knowledge/decision_trees-ab5fc72b8dc6f02b58a0ab4bd3cd074a7d879215719c6505d1dd45df0bc112e6.js"></script>
-    <script src="/theme.js"></script>
-    <script src="https://static.helpjuice.com/helpjuice_production/uploads/account/12017/main_js_12017-32dd4b5071de7cfb735c1b907ed5ffbfcfba90cbabea88a9e21fad6401444728.js"></script>
-    <!-- End of Helpjuice JavaScript files -->
-
-  <script src="https://static.helpjuice.com/assets/helpjuice-251a8e6285deaaa907a544c1c733033a8b824623c59dadcdb8bc6f725e0bfee9.js"></script><script src="https://static.helpjuice.com/assets/knowledge/glossary-46fe931d51673faa23464c4f518fc7632816d8c5cb231f1a738a566c231cc8c4.js"></script></body>
+</body>
 </html>
