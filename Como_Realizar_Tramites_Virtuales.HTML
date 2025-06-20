@@ -3,101 +3,108 @@
 <head>
   <meta charset="UTF-8">
   <title>CONTACTO CARRION - Instituto Carrión</title>
-  <link rel="stylesheet" href="https://ugc.production.linktr.ee/c150853f-f3d4-47aa-8a99-1605e440154e_WhatsApp-Image-2025-01-07-at-4.12.16-AM.jpeg?io=true&size=avatar-v3_0">
+  <link rel="shortcut icon" href="https://ugc.production.linktr.ee/c150853f-f3d4-47aa-8a99-1605e440154e_WhatsApp-Image-2025-01-07-at-4.12.16-AM.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #0d1b2a;
-      color: white;
-    }
-
-    /* Estilos para el header con imagen */
-    .header-container {
-      position: relative;
-      width: 100%;
-      height: 280px; /* Altura fija para el contenedor */
-      overflow: hidden;
-    }
-
-    .header-image {
-      width: 100%;
-      height: 100%;
-      object-fit: fill;
-      display: block;
-    }
-
-    /* Estilos para el contenedor del buscador (nuevo) */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background-color: #0d1b2a; color: white; }
+    .header-container { width: 100%; height: 280px; overflow: hidden; }
+    .header-container img { width: 100%; height: 100%; object-fit: fill; display: block; }
     .search-container {
-      background-color: transparent; /* Cambiado a transparente */
+      background-color: transparent;
       padding: 40px 20px;
       display: flex;
       justify-content: center;
       align-items: center;
-      position: relative;
-      margin-top: -100px; /* Ajusta este valor según necesites */
+      margin-top: -100px;
     }
-
     .search-wrapper {
-      background: rgba(13, 27, 42, 0.7); /* Ajusta la opacidad aquí (0.7) */
+      background: rgba(13, 27, 42, 0.7);
       padding: 20px;
-      width: 100%;
-      max-width: 800px;
+      width: 100%; max-width: 800px;
       border-radius: 15px;
       text-align: center;
-      backdrop-filter: blur(5px); /* Efecto de desenfoque para mejor legibilidad */
+      backdrop-filter: blur(5px);
     }
-
-    .search-title {
-      margin-bottom: 15px;
-      font-size: 24px;
-      color: white;
-    }
-
-    .search-form {
-      position: relative;
-    }
-
-    .search-form input {
+    .search-wrapper input {
       width: 100%;
       padding: 12px 40px 12px 20px;
       border-radius: 25px;
       border: none;
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: rgba(255,255,255,0.9);
       color: black;
     }
-
-    .search-form i {
-      position: absolute;
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #0d1b2a;
+    .search-wrapper i { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: #0d1b2a; }
+    .flex-container {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-start;
+      max-width: 1200px;
+      margin: 20px auto;
+      gap: 20px;
     }
-
-    #search-results {
-      position: absolute;
+    .video-box { flex: 1; max-width: 560px; }
+    .video-box iframe { width: 100%; height: 315px; }
+    .encuesta-container {
+      font-family: Arial, sans-serif;
+      width: 350px;
+      padding: 20px;
+      background-color: white;
+      color: #333;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 20px;
+    }
+    .pregunta { font-size: 18px; margin-bottom: 15px; font-weight: bold; }
+    .opciones { display: flex; justify-content: space-between; margin-bottom: 15px; }
+    .opcion {
+      flex: 1;
+      margin: 0 5px;
+      padding: 10px 20px;
+      text-align: center;
+      border: 2px solid #4CAF50;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+    .opcion:hover { background-color: #f0f0f0; }
+    .opcion.seleccionada { background-color: #4CAF50; color: white; }
+    .enviar-btn {
       width: 100%;
-      background: white;
-      color: black;
-      border-radius: 0 0 10px 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      z-index: 1000;
-      display: none;
-      text-align: left;
-    }
-
-    #search-results div {
       padding: 10px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
     }
+    .enviar-btn:hover { background-color: #45a049; }
+    .mensaje { margin-top: 15px; padding: 10px; border-radius: 5px; display: none; }
+    .mensaje.exito { background-color: #dff0d8; color: #3c763d; }
+    .mensaje.error { background-color: #f2dede; color: #a94442; }
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 20px;
+      background: #111;
+      color: #ccc;
+    }
+    .footer-left img { width: 111px; }
+    .footer a { color: #ccc; text-decoration: none; }
+    .footer-right { flex: 1; padding-left: 20px; }
+    .footer-right-row { display: flex; align-items: center; gap: 8px; margin: 8px 0; }
+    .footer-right-row img { width: 22px; }
   </style>
 </head>
 <body>
+
 
 <!-- Header con imagen -->
 <div class="header-container">
@@ -255,6 +262,8 @@
           <a href="index.html"> 
                 <img src="https://images.freeimages.com/fic/images/icons/1580/devine_icons_part_2/512/home.png" width="20px" data-helpjuice-element="Bread Crumb Image" data-helpjuice-attributes="font_size,color">
             </a>
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->  
+
  <!-------------------------------------slash--------------------------------------------------->
             <img src="https://docs.cientifica.edu.pe/marketing/sise/helpjuice/Link.png" height="14px" data-helpjuice-element="Bread Crumb Image" data-helpjuice-attributes="font_size,color">
  <!----------------------------------------------------------------------------------------->           
@@ -273,108 +282,159 @@
                 
     </div>
 </div>
-
+<!-- Artículo ------------------------------------------------>
+            <div class="wrapper" id="content-article">
+                <article class="article article-question">
+                    <header>
+                        <div class="title">
+                            <h1>¿Cómo realizar tus tramites virtuales?</h1>
+                        </div>
+                    </header>
+                    
+                <!---<div class="fr-view">
+                        <p>Trámite que permite poner en pausa tu carrera, recuerda siempre verificar los requisitos, consideraciones y tiempo de atención. Mira el tutorial y realiza el trámite correctamente.</p>--->
 <!--END_COMPONENT_BREADCRUMBS_CONTAINER_A-->
 
 <!--Prueba-->
 <!--START_COMPONENT_ARTICLE_FEEDBACK_WRAPPER-->
-<div class="wrapper" id="content-article" data-helpjuice-component="Article Feedback Wrapper" data-helpjuice-element="Container" data-helpjuice-attributes="visibility,background">
-    <article class="article article-question" data-controller="feedbacks" data-feedbacks-load-form-value="/admin/feedbacks/comments/new?question_id=2154420" data-helpjuice-element="Question Article" data-helpjuice-attributes="font_size,color">
-            <header data-helpjuice-element="Article Header" data-helpjuice-attributes="font_size,color">
-                <div class="title" data-helpjuice-element="Article Title" data-helpjuice-attributes="visibility,background">
-                    
-                    <h1 data-helpjuice-element="Article Title H" data-helpjuice-attributes="font_size,color">¿Cómo realizar tus tramites virtuales?</h1>
-                    
-                </div>
-                
-            </header>
-            
+           
           <div class="fr-view" data-action="mouseup->feedbacks#update" data-controller="glossary" data-glossary-url-value="/glossary_terms.json" data-helpjuice-element="Question Article Content" data-helpjuice-attributes="visibility,background">
   <div class="helpjuice-article-body-content helpjuice-editor-content">
     <p class="MsoNormal" style="line-height:normal;margin-bottom:0cm;">Te compartimos un instructivo para tus tramites virtuales de <span style="color:black;"><span style="mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;"><strong>Carrion net</strong></span></span>.</p>
+ <p class="MsoNormal" style="line-height:normal;margin-bottom:0cm;">
+<p>Pasos para registrar tu trámite:</p>
+<ol>
+  <li>1. Ingresar a su CarriónNet con su usuario y contraseña (<a href="https://intranet.uwiener.edu.pe/sso.asp">https://intranet.uwiener.edu.pe/sso.asp</a>)</li>
+  <li>2. Dirigirse a la opción Trámite académico / trámites diversos</li>
+  <li>3. Hacer clic en el botón "Registrar"</li>
+  <li>4. En la opción "Trámites" Seleccionar el trámite requerido</li>
+  <li>5. Hacer clic en el botón "Nuevo"</li>
+  <li>6. Adjuntar los documentos requeridos</li>
+  <li>7. Revisar que su trámite se encuentre en "Pendiente de pago"</li>
+  <li>8. Esperar el envío del documento al correo registrado</li>
+</ol>
+
+<p><strong>Modalidad de pago:</strong> ÚNICOS AFILIADOS Banco Scotiabank o BCP (no agente) YAPE</p>
+
+<ul class="sangria">
+  <li>Indicar Pago al Instituto Carrión</li>
+  <li>Servicio de Trámites Académicos</li>
+  <li>Brindar tu Código de alumno en MAYÚSCULAS</li>
+</ul>
+
+<style>
+  .sangria {
+    margin-left: 30px; /* Ajusta la cantidad de sangría aquí */
+  }
+
+</style>
+<p>
+</p>
+   <!--------------------------------video de youtube--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+<div class="flex-container">
+    <div class="video-box">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/RgMM4RJK-g8?si=9mgzFdK4HtS1XQua" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+	
+
+<!-----------------------------------------envcuesta de caritas-------------------------------------------------->         
+ 
+    <!-- Contenido del artículo -->
+</article>
     
-    <figure class="media">
-<!-- --  VIDEO DE YOUTUBE -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-      <div data-oembed-url="https://www.youtube.com/embed/RgMM4RJK-g8?si=W1LUFK60iqWr0hCy">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/RgMM4RJK-g8?si=W1LUFK60iqWr0hCy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
-    </figure>
+<footer id="footer-article">  
+             
+    <div class="encuesta-container">
+        <div class="pregunta">¿La información te ayudó a resolver tu consulta ? </div>
+<style>
+  .pregunta {
+    text-align: center;
+  }
+</style>
 
-  </div>
-</div>
-            
-            <ul class="tags" data-helpjuice-element="Article Tags" data-helpjuice-attributes="visibility">
-                <!-----------link que va debajo del video ------------------>
-                   <!--<li><a href="/contact-us##search_query=clases virtuales" data-helpjuice-element="Tag Link" data-helpjuice-attributes="font_size,color">clases virtuales</a></li>---->
-                
-                    <!--<<li><a href="/contact-us##search_query=microsoft teams" data-helpjuice-element="Tag Link" data-helpjuice-attributes="font_size,color">microsoft teams</a></li>---->
-                
-            </ul>
-            
-        <!--------------------------------------------envcuesta de caritas-------------------------->       
-     <!--------</article>
-    
-    <footer id="footer-article">
-                
-                <div class="rating-form-container" data-helpjuice-element="Rating Form Container" data-helpjuice-attributes="visibility,background">
-                    <div class="rating-form-white-container">--------->
-
-                       <!---- <span class="rating-question" id="footer-question" data-helpjuice-element="Rating Question Span" data-helpjuice-attributes="font_size,color">¿La información te ayudó a resolver tu consulta?</span>
-                        <p id="footer-response" style="display:none" data-helpjuice-element="Rating Response Paragraph" data-helpjuice-attributes="font_size,color">Tu opinión nos ayuda a mejorar la información que brindamos.</p>
-
-                        <form accept-charset="UTF-8" action="/questions/2154420/feedbacks" class="new_feedback rating-form" id="new_feedback" method="post" data-helpjuice-element="Feedback Form" data-helpjuice-attributes="font_size,color">
-                            <input name="authenticity_token" type="hidden" value="W7fIKyhlMGSYY6ZpNZ0EjAuXfvwpXGjx8KK7p9liJk0=" style="display: none" data-helpjuice-element="Feedback Input" data-helpjuice-attributes="placeholder,font_size,color">
-                            <input id="feedback_score" name="feedback[score]" type="hidden" value="0" style="display: none" data-helpjuice-element="Feedback Score Input" data-helpjuice-attributes="placeholder,font_size,color">
-                            
-                               <a id="yes" class="response feedback like rating-option" data-helpjuice-element="Yes Response Link" data-helpjuice-attributes="font_size,color">
-                                   <svg class="check" xmlns="http://www.w3.org/2000/svg" width="58" height="57" viewBox="0 0 58 57" fill="none" style="
-                                        display: block;
-                                    " data-helpjuice-element="Yes Check Icon" data-helpjuice-attributes="font_size,color">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6.94253 10.6209C14.4324 1.87932 26.8295 -1.6173 37.7863 1.91905L37.7763 1.90912C49.1205 5.57461 57.0971 16.5015 57.1667 28.4814V28.5311C57.1567 30.1205 57.0276 31.6602 56.7892 33.1005C54.9217 44.3056 46.051 53.514 34.7069 56.0173C32.6407 56.4742 30.5646 56.6928 28.5083 56.6928C18.9323 56.6928 9.8034 51.9048 4.58827 43.7195C-1.93808 33.478 -0.974528 19.8591 6.94253 10.6209ZM28.6672 1.49191C19.3794 1.49191 10.3994 6.44876 5.54189 14.7135C-0.0904403 24.3093 0.763847 36.6369 7.64781 45.3884C14.8099 54.4875 27.2567 58.1331 37.9154 54.259C48.3258 50.4743 55.3985 40.4017 55.6071 29.1271V28.7695V28.7397C55.6071 27.3391 55.4978 25.9782 55.3091 24.6868C53.67 13.74 45.3258 4.69052 34.5578 2.16739C32.6009 1.71045 30.6242 1.49191 28.6672 1.49191ZM28.6173 36.1601C24.0578 36.1601 19.7665 33.7561 17.3924 29.8423H17.4023C17.2831 29.6436 17.2732 29.435 17.3825 29.2463C17.5215 28.988 17.8593 28.7993 18.197 28.7993C18.4454 28.7794 18.6838 28.8986 18.803 29.0973C20.9188 32.584 24.5247 34.7296 28.4485 34.829C32.5312 34.9382 36.4053 32.7727 38.5509 29.1867C38.7396 28.8788 39.1171 28.7794 39.4251 28.7794C39.7131 28.7794 39.9416 28.8887 40.0409 29.0675C40.0906 29.1569 40.1601 29.3357 40.0111 29.584C37.6271 33.5773 33.3258 36.1005 28.7961 36.1601H28.6173ZM15.8333 26.0974C16.7074 26.0974 17.4127 25.3921 17.4127 24.5279C17.4127 23.6637 16.7074 22.9485 15.8333 22.9485C14.9591 22.9485 14.2538 23.6538 14.2538 24.5279C14.2538 25.4021 14.9591 26.0974 15.8333 26.0974ZM42.3658 24.5279C42.3658 25.3921 41.6606 26.0974 40.7864 26.0974C39.9123 26.0974 39.207 25.4021 39.207 24.5279C39.207 23.6538 39.9123 22.9485 40.7864 22.9485C41.6606 22.9485 42.3658 23.6637 42.3658 24.5279Z" fill="#231F20" data-helpjuice-element="Yes Check Path" data-helpjuice-attributes="font_size,color"></path>
-                                    </svg>
-                                    <svg id="check-yes" xmlns="http://www.w3.org/2000/svg" width="58" height="57" viewBox="0 0 58 57" fill="none" style="
-                                        display: none;
-                                    " data-helpjuice-element="Yes Check Yes Icon" data-helpjuice-attributes="font_size,color">
-                                      <path d="M28.9738 56.0701C44.1647 56.0701 56.4793 43.7821 56.4793 28.624C56.4793 13.466 44.1647 1.17796 28.9738 1.17796C13.7829 1.17796 1.46826 13.466 1.46826 28.624C1.46826 43.7821 13.7829 56.0701 28.9738 56.0701Z" fill="#E5F2FD" data-helpjuice-element="Yes Check Yes Path" data-helpjuice-attributes="font_size,color"></path>
-                                      <path fill-rule="evenodd" clip-rule="evenodd" d="M6.94253 10.6209C14.4324 1.87932 26.8295 -1.6173 37.7863 1.91905L37.7763 1.90912C49.1205 5.57461 57.0971 16.5015 57.1667 28.4814V28.5311C57.1567 30.1205 57.0276 31.6602 56.7892 33.1005C54.9217 44.3056 46.051 53.514 34.7069 56.0173C32.6407 56.4742 30.5646 56.6928 28.5083 56.6928C18.9323 56.6928 9.8034 51.9048 4.58827 43.7195C-1.93808 33.478 -0.974528 19.8591 6.94253 10.6209ZM28.6672 1.49191C19.3794 1.49191 10.3994 6.44876 5.54189 14.7135C-0.0904403 24.3093 0.763847 36.6369 7.64781 45.3884C14.8099 54.4875 27.2567 58.1331 37.9154 54.259C48.3258 50.4743 55.3985 40.4017 55.6071 29.1271V28.7695V28.7397C55.6071 27.3391 55.4978 25.9782 55.3091 24.6868C53.67 13.74 45.3258 4.69052 34.5578 2.16739C32.6009 1.71045 30.6242 1.49191 28.6672 1.49191ZM28.6173 36.1601C24.0578 36.1601 19.7665 33.7561 17.3924 29.8423H17.4023C17.2831 29.6436 17.2732 29.435 17.3825 29.2463C17.5215 28.988 17.8593 28.7993 18.197 28.7993C18.4454 28.7794 18.6838 28.8986 18.803 29.0973C20.9188 32.584 24.5247 34.7296 28.4485 34.829C32.5312 34.9382 36.4053 32.7727 38.5509 29.1867C38.7396 28.8788 39.1171 28.7794 39.4251 28.7794C39.7131 28.7794 39.9416 28.8887 40.0409 29.0675C40.0906 29.1569 40.1601 29.3357 40.0111 29.584C37.6271 33.5773 33.3258 36.1005 28.7961 36.1601H28.6173ZM15.8333 26.0974C16.7074 26.0974 17.4127 25.3921 17.4127 24.5279C17.4127 23.6637 16.7074 22.9485 15.8333 22.9485C14.9591 22.9485 14.2538 23.6538 14.2538 24.5279C14.2538 25.4021 14.9591 26.0974 15.8333 26.0974ZM42.3658 24.5279C42.3658 25.3921 41.6606 26.0974 40.7864 26.0974C39.9123 26.0974 39.207 25.4021 39.207 24.5279C39.207 23.6538 39.9123 22.9485 40.7864 22.9485C41.6606 22.9485 42.3658 23.6637 42.3658 24.5279Z" fill="#0078E8" data-helpjuice-element="Yes Check Yes Path" data-helpjuice-attributes="font_size,color"></path>
-                                    </svg>
-                                    <div class="thumb-up" data-helpjuice-element="Thumbs Up Yes" data-helpjuice-attributes="visibility,background">
-                                        SÍ
-                                    </div>
-                                </a>
-                                
-                                <a onclick="clickNo()" id="no" class="response feedback like rating-option" data-helpjuice-element="No Response Link" data-helpjuice-attributes="font_size,color">
-                                   <svg class="check" xmlns="http://www.w3.org/2000/svg" width="58" height="57" viewBox="0 0 58 57" fill="none" data-helpjuice-element="No Check Icon" data-helpjuice-attributes="font_size,color">
-                                      <path fill-rule="evenodd" clip-rule="evenodd" d="M7.50175 10.6201C14.9911 1.87922 27.3873 -1.61714 38.3433 1.91895H38.3333C49.6866 5.58418 57.6527 16.5103 57.7223 28.4893V28.5291C57.7123 30.1183 57.5832 31.6579 57.3448 33.0982C55.4774 44.3025 46.6074 53.5102 35.2641 56.0133C33.208 56.4702 31.1221 56.6887 29.066 56.6887C19.4808 56.6887 10.3624 51.9011 5.14766 43.7164C-1.38816 33.4657 -0.414736 19.8577 7.50175 10.6201ZM29.2249 1.49184C19.9277 1.49184 10.9484 6.44834 6.10121 14.7125C0.469285 24.3076 1.31358 36.6343 8.20698 45.3851C15.3686 54.4836 27.8144 58.129 38.4724 54.2552C48.882 50.4807 55.9542 40.4088 56.1628 29.135V28.7774V28.7377C56.1628 27.3371 56.0535 25.9763 55.8648 24.6851C54.2259 13.7391 45.8823 4.69022 35.1151 2.16728C33.1583 1.71036 31.1817 1.49184 29.2249 1.49184ZM18.8648 36.078C18.5867 36.078 18.3781 35.9787 18.2788 35.8098H18.2689C18.2192 35.7304 18.1596 35.5516 18.2987 35.3231C20.6726 31.35 24.9636 28.837 29.5128 28.7674C34.1316 28.688 38.5021 31.1017 40.9058 35.0549C41.0151 35.2238 41.025 35.4225 40.9257 35.6012C40.7668 35.8893 40.3893 36.0482 40.0913 36.0482C39.8331 36.0582 39.6146 35.9588 39.5053 35.7701C37.4095 32.3135 33.8336 30.168 29.9499 30.019C25.8774 29.86 21.9738 32.0055 19.7886 35.6211L19.7489 35.6807C19.58 35.9588 19.1926 36.078 18.8748 36.078H18.8648ZM16.7693 26.0955C17.6415 26.0955 18.3486 25.3884 18.3486 24.5162C18.3486 23.644 17.6415 22.9369 16.7693 22.9369C15.8971 22.9369 15.19 23.644 15.19 24.5162C15.19 25.3884 15.8971 26.0955 16.7693 26.0955ZM43.3096 24.5262C43.3096 25.3904 42.6043 26.0956 41.7302 26.0956C40.8562 26.0956 40.1509 25.3904 40.1509 24.5262C40.1509 23.6621 40.8562 22.9568 41.7302 22.9568C42.6043 22.9568 43.3096 23.6621 43.3096 24.5262Z" fill="#231F20" data-helpjuice-element="No Check Path" data-helpjuice-attributes="font_size,color"></path>
-                                    </svg>
-                                    
-                                    <svg id="check-no" xmlns="http://www.w3.org/2000/svg" width="58" height="57" viewBox="0 0 58 57" fill="none" data-helpjuice-element="No Check No Icon" data-helpjuice-attributes="font_size,color">
-                                      <path d="M29.5274 56.0662C44.7171 56.0662 57.0309 43.779 57.0309 28.6221C57.0309 13.4651 44.7171 1.17796 29.5274 1.17796C14.3376 1.17796 2.0238 13.4651 2.0238 28.6221C2.0238 43.779 14.3376 56.0662 29.5274 56.0662Z" fill="#FFE7ED" data-helpjuice-element="No Check Path" data-helpjuice-attributes="font_size,color"></path>
-                                      <path fill-rule="evenodd" clip-rule="evenodd" d="M7.50175 10.6201C14.9911 1.87922 27.3873 -1.61714 38.3433 1.91895H38.3333C49.6866 5.58418 57.6527 16.5103 57.7223 28.4893V28.5291C57.7123 30.1183 57.5832 31.6579 57.3448 33.0982C55.4774 44.3025 46.6074 53.5102 35.2641 56.0133C33.208 56.4702 31.1221 56.6887 29.066 56.6887C19.4808 56.6887 10.3624 51.9011 5.14766 43.7164C-1.38816 33.4657 -0.414736 19.8577 7.50175 10.6201ZM29.2249 1.49184C19.9277 1.49184 10.9484 6.44834 6.10121 14.7125C0.469285 24.3076 1.31358 36.6343 8.20698 45.3851C15.3686 54.4836 27.8144 58.129 38.4724 54.2552C48.882 50.4807 55.9542 40.4088 56.1628 29.135V28.7774V28.7377C56.1628 27.3371 56.0535 25.9763 55.8648 24.6851C54.2259 13.7391 45.8823 4.69022 35.1151 2.16728C33.1583 1.71036 31.1817 1.49184 29.2249 1.49184ZM18.8648 36.078C18.5867 36.078 18.3781 35.9787 18.2788 35.8098H18.2689C18.2192 35.7304 18.1596 35.5516 18.2987 35.3231C20.6726 31.35 24.9636 28.837 29.5128 28.7674C34.1316 28.688 38.5021 31.1017 40.9058 35.0549C41.0151 35.2238 41.025 35.4225 40.9257 35.6012C40.7668 35.8893 40.3893 36.0482 40.0913 36.0482C39.8331 36.0582 39.6146 35.9588 39.5053 35.7701C37.4095 32.3135 33.8336 30.168 29.9499 30.019C25.8774 29.86 21.9738 32.0055 19.7886 35.6211L19.7489 35.6807C19.58 35.9588 19.1926 36.078 18.8748 36.078H18.8648ZM16.7693 26.0955C17.6415 26.0955 18.3486 25.3884 18.3486 24.5162C18.3486 23.644 17.6415 22.9369 16.7693 22.9369C15.8971 22.9369 15.19 23.644 15.19 24.5162C15.19 25.3884 15.8971 26.0955 16.7693 26.0955ZM43.3096 24.5262C43.3096 25.3904 42.6043 26.0956 41.7302 26.0956C40.8562 26.0956 40.1509 25.3904 40.1509 24.5262C40.1509 23.6621 40.8562 22.9568 41.7302 22.9568C42.6043 22.9568 43.3096 23.6621 43.3096 24.5262Z" fill="#FF0E49" data-helpjuice-element="No Check Path" data-helpjuice-attributes="font_size,color"></path>
-                                    </svg>
-                                    <div class="thumb-up" data-helpjuice-element="Thumbs Up No" data-helpjuice-attributes="visibility,background">
-                                        NO
-                                    </div>
-                                </a>--->
-                            <!--------------------------------------------------------------fin de la carita de encuesta ------------> 
-                            <!--<p>909 out of <span>1524</span> found this helpful.</p>-->
-                        </form>
-                    </div>
-                </div>
-                
-                <!--<div class="right">
-                    <a class="enable-feedback" data-action="click->feedbacks#showFeedbackForm"><i class="far fa-comment-alt-check"></i>Give feedback about this article</a>
-                </div> -->
-    </footer>
-</div>
-<!--END_COMPONENT_ARTICLE_FEEDBACK_WRAPPER-->
-<!--FinPrueba-->
-
+        <div class="opciones">
+            <div class="opcion" onclick="seleccionarOpcion(this, 'Sí')">Sí</div>
+            <div class="opcion" onclick="seleccionarOpcion(this, 'No')">No</div>
         </div>
-    </main>
-    <!--Prueba Footer-------------------------------------------------------------------->
+        <button class="enviar-btn" onclick="enviarRespuesta()">Enviar respuesta</button>
+        <div id="mensaje" class="mensaje"></div>
+    </div>
+</div>
+    <script>
+        let respuestaSeleccionada = null;
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwuPPps662NeC3nw45_XHzjKd_FDltSArFg0k1x237fq0CnpRDY57n2l65F7LAnSJ1q/exec';
 
+        function seleccionarOpcion(elemento, respuesta) {
+            // Remover selección previa
+            document.querySelectorAll('.opcion').forEach(op => {
+                op.classList.remove('seleccionada');
+            });
+            
+            // Seleccionar nueva opción
+            elemento.classList.add('seleccionada');
+            respuestaSeleccionada = respuesta;
+        }
 
+        function enviarRespuesta() {
+            const mensajeDiv = document.getElementById('mensaje');
+            
+            if (!respuestaSeleccionada) {
+                mostrarMensaje('Por favor selecciona una opción', 'error');
+                return;
+            }
+            
+         <!-- Mostrar mensaje de carga--->
+            mostrarMensaje('Enviando respuesta...', 'exito');
+            
+          <!-- Enviar datos a Google Sheets---->
+            fetch(scriptURL, {
+                method: 'POST',
+                body: new URLSearchParams({
+                    'respuesta': respuestaSeleccionada,
+                    'fecha': new Date().toLocaleString(),
+                    'pagina': window.location.href
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    mostrarMensaje('¡Gracias por tu respuesta!', 'exito');
+                    // Opcional: resetear selección después de enviar
+                    setTimeout(() => {
+                        document.querySelectorAll('.opcion').forEach(op => {
+                            op.classList.remove('seleccionada');
+                        });
+                        respuestaSeleccionada = null;
+                        mensajeDiv.style.display = 'none';
+                    }, 3000);
+                } else {
+                    throw new Error('Error en la respuesta del servidor');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                mostrarMensaje('Hubo un error al enviar tu respuesta. Por favor intenta nuevamente.', 'error');
+            });
+        }
+
+        function mostrarMensaje(texto, tipo) {
+            const mensajeDiv = document.getElementById('mensaje');
+            mensajeDiv.textContent = texto;
+            mensajeDiv.className = 'mensaje ' + tipo;
+            mensajeDiv.style.display = 'block';
+        }
+   </script>
+                
+                    <div class="thumb-up" data-helpjuice-element="Thumbs Up No" data-helpjuice-attributes="visibility,background">
+                         </div>
+                </a>
+            </form>
+        </div>
+    </div>
+
+</div>
+  <!--------------------------------------------------------------fin de la carita de encuesta ------------>    <!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
 <!-- Footer ------------------------------------------------------------------------------------------------>
     <div class="footer">
