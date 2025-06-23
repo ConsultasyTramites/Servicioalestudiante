@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- ... (mantener todo el head original) ... -->
   <meta charset="UTF-8">
   <title>CONTACTO CARRION - Instituto Carrión</title>
   <link rel="stylesheet" href="https://scontent.flim2-6.fna.fbcdn.net/v/t39.30808-6/506410584_1922412321946088_2073086972235835171_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHUkb7njnIpeziW382Hq6I_0VjPq-cTyhXRWM-r5xPKFUsu4bmIU2YuSBtRMh9sPwbVodIUr6Ol6bR8f0cloIDI&_nc_ohc=Z0rcG0LDz00Q7kNvwF2hlpU&_nc_oc=Admf_naPlYPAgShVuDS-voqvW6qHUvpwKg6lV_LhUPPbWAdRjXje2FXsZ_tM-AlKqxs&_nc_zt=23&_nc_ht=scontent.flim2-6.fna&_nc_gid=-XtZrKE6J_1HikVdEhbsHg&oh=00_AfNV9_jiCAwAnitbsFWSKtH3YhDL0mGFALU7li6t8-cI4A&oe=6858F0C9">
   <style>
+<style>
     * {
       margin: 0;
       padding: 0;
@@ -95,7 +97,89 @@
     #search-results div {
       padding: 10px;
     }
+    /* Estilos para el contenedor principal centrado */
+    .faq-container {
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    /* Estilos para la cuadrícula de preguntas frecuentes */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 1000px;
+      width: 100%;
+    }
+    
+    /* Estilos para cada cuadrado de pregunta */
+    .faq-square {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      aspect-ratio: 1/1; /* Mantiene la proporción cuadrada */
+    }
+    
+    .faq-square:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    
+    /* Contenedor de imagen ajustado perfectamente */
+    .faq-image-container {
+      width: 100%;
+      height: 70%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f5f5f5;
+    }
+    
+.faq-image {
+  width: 100%;
+  height: 95%;
+  object-fit: contain;
+  padding: 0;
+}
+
+    
+    /* Contenedor de texto */
+    .faq-text {
+      height: 30%;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    
+    /* Responsive para pantallas más pequeñas */
+    @media (max-width: 900px) {
+      .faq-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+      }
+    }
+    
+    @media (max-width: 500px) {
+      .faq-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(8, 1fr);
+      }
+    }
   </style>
+
 <!-----------------------------------------CHAT BOT TEMPORAL-------------------------------------------------->
 <script>
 (function() {
@@ -419,311 +503,97 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
 <div class="popular-questions-container" data-helpjuice-component="Popular Questions Container" data-helpjuice-element="Container" data-helpjuice-attributes="visibility,background">
     <div class="popular-questions">
         <span class="popular-questions-title" data-helpjuice-element="Span Popular Questions Title" data-helpjuice-attributes="font_size,color,text">
-            Preguntas frecuentes
+            Preguntas frecuentes:
         </span>
-        <div class="popular-questions-list">
-             
-                
-       
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!--primer LINK DE PREGUNTAS FRECUENTES 	---------------------------------------------------------------------------------------->               
- <style>
-  .popular-questions-item-name {
-    font-size: 20px !important;
-  }
-</style>
-
-<a href="Como_Realizar_Tramites_Virtuales.HTML" 
-   class="popular-questions-item" 
-   data-helpjuice-element="Link Popular Questions Item" 
-   data-helpjuice-attributes="font_size,color" 
-   </a>
-  <img src="https://static.helpjuice.com/helpjuice_production/uploads/upload/image/14255/2929248/Data-display.svg">
-  <span class="popular-questions-item-name" 
-        data-helpjuice-element="Span Popular Questions Item Name" 
-        data-helpjuice-attributes="font_size,color">
-    Como Realizar Tramites Virtuales
-  </span>
-</a>
-            
-       
-
-
-
-
-
-
-
-
-
-
-        
-                 
-  <!--SEGUNDO LINK DE PREGUNTAS FRECUENTES 	----------------------------------------------------------------------------->              
-            
- 
-                              <a href="Pagos_Virtuales.html" 
-   class="popular-questions-item" 
-   data-helpjuice-element="Link Popular Questions Item" 
-   data-helpjuice-attributes="font_size,color" 
-   <!--target="_blank"--->
-    <img src="https://static.helpjuice.com/helpjuice_production/uploads/upload/image/14255/2929248/Data-display.svg">
-    <span class="popular-questions-item-name" data-helpjuice-element="Span Popular Questions Item Name" data-helpjuice-attributes="font_size,color">
-         Como Realizar mis Pagos Virtuales
-    </span>
-</a>     
-                
-            
-                          
-        <!--TERCER LINK DE PREGUNTAS FRECUENTES ----------------------------------------------------------------->            
-            
-             
-
-                  <a href="Ingresarcorreoinstitucional.html" 
-   class="popular-questions-item" 
-   data-helpjuice-element="Link Popular Questions Item" 
-   data-helpjuice-attributes="font_size,color" 
-   <!--target="_blank">
-    <img src="https://static.helpjuice.com/helpjuice_production/uploads/upload/image/14255/2929248/Data-display.svg">
-    <span class="popular-questions-item-name" data-helpjuice-element="Span Popular Questions Item Name" data-helpjuice-attributes="font_size,color">
-        Ingresar Correo Institucional
-    </span>
-</a>
-                
-           
-
-
-
-
-
-
-
-
-
-                
-            <!--Aprende a ingresar a tus clases virrtuales----------------------------------------------------- -->     
-            
-                
-                          <a href="Aprende_a_ingresar_a_tus_clases virtuales.html" 
-   class="popular-questions-item" 
-   data-helpjuice-element="Link Popular Questions Item" 
-   data-helpjuice-attributes="font_size,color" 
-   <!--target="_blank">
-    <img src="https://static.helpjuice.com/helpjuice_production/uploads/upload/image/14255/2929248/Data-display.svg">
-    <span class="popular-questions-item-name" data-helpjuice-element="Span Popular Questions Item Name" data-helpjuice-attributes="font_size,color">
-        Aprende a ingresar a tus clases virtuales
-    </span>
-</a>
-
-
-
-
-
-
-
-      <!-----------GUIA DEL EGRESADO-------------------------------------------------------------------->
-           
-                
-
-          <a href="Guia_del_Egresado.html" 
-   class="popular-questions-item" 
-   data-helpjuice-element="Link Popular Questions Item" 
-   data-helpjuice-attributes="font_size,color" 
-   <!--target="_blank"--->
-    <img src="https://static.helpjuice.com/helpjuice_production/uploads/upload/image/14255/2929248/Data-display.svg">
-    <span class="popular-questions-item-name" data-helpjuice-element="Span Popular Questions Item Name" data-helpjuice-attributes="font_size,color">
-        Guia del Egresado
-    </span>
-</a>
-           
-
-
-
-
-
-                
-         <!--MALLAS CURRICULARES---------------------------------------------------------------------->         
-                 
-                
-           <a href="MallasCurriculares.html" 
-   class="popular-questions-item" 
-   data-helpjuice-element="Link Popular Questions Item" 
-   data-helpjuice-attributes="font_size,color" 
-   <!--target="_blank">
-    <img src="https://static.helpjuice.com/helpjuice_production/uploads/upload/image/14255/2929248/Data-display.svg">
-    <span class="popular-questions-item-name" data-helpjuice-element="Span Popular Questions Item Name" data-helpjuice-attributes="font_size,color">
-        Mallas Curriculares
-    </span>
-</a>       
-                
-            
-             
-                
-                    <a href="Atencion_al_Estudiante.html" 
-   class="popular-questions-item" 
-   data-helpjuice-element="Link Popular Questions Item" 
-   data-helpjuice-attributes="font_size,color" 
-   <!--target="_blank">
-    <img src="https://static.helpjuice.com/helpjuice_production/uploads/upload/image/14255/2929248/Data-display.svg">
-    <span class="popular-questions-item-name" data-helpjuice-element="Span Popular Questions Item Name" data-helpjuice-attributes="font_size,color">
-        Atencion al Estudiante
-    </span>
-</a>       
-            
-               
-            <!--COMO VERIFICAR MUI HORARIO--------------------------->     
-                
-                    <a href="Horario_de_Clases.html"
- class="popular-questions-item" 
-data-helpjuice-element="Link Popular Questions Item" 
-data-helpjuice-attributes="font_size,color">
-<!--target="_blank"--->
-                        <img src="https://static.helpjuice.com/helpjuice_production/uploads/upload/image/14255/2929248/Data-display.svg">
-                        <span class="popular-questions-item-name" data-helpjuice-element="Span Popular Questions Item Name" data-helpjuice-attributes="font_size,color">¿Cómo verificar mi horario?
-		</span>
-        </a>
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
+        <!--<div class="popular-questions-list">-->
+       </div>      
+         
+  <!--primer LINK DE PREGUNTAS FRECUENTES 	---------------------------------------------------------------------------------------->          
+  <!-- Contenedor de preguntas frecuentes -->
+  <div class="faq-container">
+    <div class="faq-grid">
+      <!-- Cuadrado 1 -->
+      <a href="Como_Realizar_Tramites_Virtuales.HTML" class="faq-square">
+        <div class="faq-image-container">
+          <img src="https://static.eldiario.es/clip/8bdffad1-b2d1-4de4-89c9-c781b24084e2_16-9-discover-aspect-ratio_default_0.jpg" alt="Trámites virtuales" class="faq-image">
         </div>
+        <div class="faq-text">Como Realizar Tramites Virtuales</div>
+      </a>
+      
+      <!-- Cuadrado 2 -->
+      <a href="Pagos_Virtuales.html" class="faq-square">
+        <div class="faq-image-container">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxKQDmMmz3cFHLrYXKYiK_E8vl1lQFgzQK-Q&s" alt="Pagos virtuales" class="faq-image">
+        </div>
+        <div class="faq-text">Como Realizar mis Pagos Virtuales</div>
+      </a>
+      
+      <!-- Cuadrado 3 -->
+      <a href="Ingresarcorreoinstitucional.html" class="faq-square">
+        <div class="faq-image-container">
+          <img src="https://images.icon-icons.com/1488/PNG/512/5382-outlook_102516.png" alt="Correo institucional" class="faq-image">
+        </div>
+        <div class="faq-text">Ingresar Correo Institucional</div>
+      </a>
+      
+      <!-- Cuadrado 4 -->
+      <a href="Aprende_a_ingresar_a_tus_clases virtuales.html" class="faq-square">
+        <div class="faq-image-container">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkUvTZxISQtbPJtTCOBD15p5BblIzXQSHFdg&s" alt="Clases virtuales" class="faq-image">
+        </div>
+        <div class="faq-text">Aprende a ingresar a tus clases virtuales</div>
+      </a>
+      
+      <!-- Cuadrado 5 -->
+      <a href="Guia_del_Egresado.html" class="faq-square">
+        <div class="faq-image-container">
+          <img src="https://www.acarrion.edu.pe/wp-content/uploads/2023/09/64405e95b11568f875c6a240_img-grid-right.png" alt="Guía egresado" class="faq-image">
+        </div>
+        <div class="faq-text">Guia del Egresado</div>
+      </a>
+      
+      <!-- Cuadrado 6 -->
+      <a href="MallasCurriculares.html" class="faq-square">
+        <div class="faq-image-container">
+          <img src="https://www.acarrion.edu.pe/wp-content/uploads/2023/09/6435800dbcb5605656f15755_Group-8750.png" alt="Mallas curriculares" class="faq-image">
+        </div>
+        <div class="faq-text">Mallas Curriculares</div>
+      </a>
+      
+      <!-- Cuadrado 7 -->
+      <a href="Atencion_al_Estudiante.html" class="faq-square">
+        <div class="faq-image-container">
+          <img src="https://www.acarrion.edu.pe/wp-content/uploads/2025/04/Home-Enfermeria-3.png" alt="Atención al estudiante" class="faq-image">
+        </div>
+        <div class="faq-text">Atencion al Estudiante</div>
+      </a>
+      
+      <!-- Cuadrado 8 -->
+      <a href="Horario_de_Clases.html" class="faq-square">
+        <div class="faq-image-container">
+          <img src="https://m.media-amazon.com/images/I/51acnSGldCL.png" alt="Horario de clases" class="faq-image">
+        </div>
+        <div class="faq-text">¿Cómo verificar mi horario?</div>
+      </a>
     </div>
-</div>
-
-
-
+  </div>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                  
+            
+                
+            
+           
 <!--START_COMPONENT_ALL_CATEGORIES_CONTAINER-->
 <!-- Categorías -->
 
