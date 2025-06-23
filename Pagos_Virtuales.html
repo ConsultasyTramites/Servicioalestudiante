@@ -1,110 +1,209 @@
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>CONTACTO CARRION - Instituto Carrión</title>
-  <link rel="shortcut icon" href="https://ugc.production.linktr.ee/c150853f-f3d4-47aa-8a99-1605e440154e_WhatsApp-Image-2025-01-07-at-4.12.16-AM.jpeg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://scontent.flim2-6.fna.fbcdn.net/v/t39.30808-6/506410584_1922412321946088_2073086972235835171_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHUkb7njnIpeziW382Hq6I_0VjPq-cTyhXRWM-r5xPKFUsu4bmIU2YuSBtRMh9sPwbVodIUr6Ol6bR8f0cloIDI&_nc_ohc=Z0rcG0LDz00Q7kNvwF2hlpU&_nc_oc=Admf_naPlYPAgShVuDS-voqvW6qHUvpwKg6lV_LhUPPbWAdRjXje2FXsZ_tM-AlKqxs&_nc_zt=23&_nc_ht=scontent.flim2-6.fna&_nc_gid=-XtZrKE6J_1HikVdEhbsHg&oh=00_AfNV9_jiCAwAnitbsFWSKtH3YhDL0mGFALU7li6t8-cI4A&oe=6858F0C9">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; background-color: #0d1b2a; color: white; }
-    .header-container { width: 100%; height: 280px; overflow: hidden; }
-    .header-container img { width: 100%; height: 100%; object-fit: fill; display: block; }
+<!----------------------------------------------------------codigo de la encuesta formato--------------------------------------->
+.contenedor-principal {
+    display: flex;
+    justify-content: flex-end; /* Alinea el contenido a la derecha */
+    padding: 20px;
+    /* Opcional: añade un ancho máximo al contenedor principal si es necesario */
+    max-width: 1200px;
+    margin: 0 auto; /* Centra el contenedor principal si tiene max-width */
+}
+
+.encuesta-container {
+    font-family: Arial, sans-serif;
+    width: 350px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: white;
+    color: #333;
+    margin-left: 20px; /* Mantiene el espacio a la izquierda del contenedor */
+    margin-right: 0; /* Elimina cualquier margen derecho */
+    /* Añade posición sticky si quieres que siga al hacer scroll */
+    position: sticky;
+    top: 20px;
+    /* Asegura que no afecte el flujo del contenido principal */
+    align-self: flex-start;
+}
+    .pregunta {
+      font-size: 18px;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+    .opciones {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+    .opcion {
+      padding: 10px 20px;
+      border: 2px solid #4CAF50;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: center;
+      flex: 1;
+      margin: 0 5px;
+      transition: all 0.3s;
+    }
+    .opcion:hover {
+      background-color: #f0f0f0;
+    }
+    .opcion.seleccionada {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .enviar-btn {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+    }
+    .enviar-btn:hover {
+      background-color: #45a049;
+    }
+    .mensaje {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 5px;
+      display: none;
+    }
+    .exito {
+      background-color: #dff0d8;
+      color: #3c763d;
+    }
+    .error {
+      background-color: #f2dede;
+      color: #a94442;
+    }
+<!------------------------------------------------------------------------------------------------------------------------->
+     * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0d1b2a;
+      color: white;
+    }
+
+    /* Estilos para el header con imagen */
+    .header-container {
+      position: relative;
+      width: 100%;
+      height: 280px; /* Altura fija para el contenedor */
+      overflow: hidden;
+    }
+
+    .header-image {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+      display: block;
+    }
+
+    /* Estilos para el contenedor del buscador (nuevo) */
     .search-container {
-      background-color: transparent;
+      background-color: transparent; /* Cambiado a transparente */
       padding: 40px 20px;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: -100px;
+      position: relative;
+      margin-top: -100px; /* Ajusta este valor según necesites */
     }
+
     .search-wrapper {
-      background: rgba(13, 27, 42, 0.7);
+      background: rgba(13, 27, 42, 0.7); /* Ajusta la opacidad aquí (0.7) */
       padding: 20px;
-      width: 100%; max-width: 800px;
+      width: 100%;
+      max-width: 800px;
       border-radius: 15px;
       text-align: center;
-      backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px); /* Efecto de desenfoque para mejor legibilidad */
     }
-    .search-wrapper input {
+
+    .search-title {
+      margin-bottom: 15px;
+      font-size: 24px;
+      color: white;
+    }
+
+    .search-form {
+      position: relative;
+    }
+
+    .search-form input {
       width: 100%;
       padding: 12px 40px 12px 20px;
       border-radius: 25px;
       border: none;
-      background-color: rgba(255,255,255,0.9);
+      background-color: rgba(255, 255, 255, 0.9);
       color: black;
     }
-    .search-wrapper i { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: #0d1b2a; }
-    .flex-container {
-      display: flex;
-      justify-content: flex-end;
-      align-items: flex-start;
-      max-width: 1200px;
-      margin: 20px auto;
-      gap: 20px;
+
+    .search-form i {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #0d1b2a;
     }
-    .video-box { flex: 1; max-width: 560px; }
-    .video-box iframe { width: 100%; height: 315px; }
-    .encuesta-container {
-      font-family: Arial, sans-serif;
-      width: 350px;
-      padding: 20px;
-      background-color: white;
-      color: #333;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 20px;
-    }
-    .pregunta { font-size: 18px; margin-bottom: 15px; font-weight: bold; }
-    .opciones { display: flex; justify-content: space-between; margin-bottom: 15px; }
-    .opcion {
-      flex: 1;
-      margin: 0 5px;
-      padding: 10px 20px;
-      text-align: center;
-      border: 2px solid #4CAF50;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s, color 0.3s;
-    }
-    .opcion:hover { background-color: #f0f0f0; }
-    .opcion.seleccionada { background-color: #4CAF50; color: white; }
-    .enviar-btn {
+
+    #search-results {
+      position: absolute;
       width: 100%;
+      background: white;
+      color: black;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+     z-index: 1000;
+      display: none;
+      text-align: left;
+      margin-top: 5px;
+    }
+	.search-result-item:hover {
+      background-color: #f5f5f5;
+    }
+
+    .search-result-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .search-result-desc {
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    .no-results {
+      padding: 15px;
+      color: #666;
+      text-align: center;
+    }
+    #search-results div {
       padding: 10px;
-      font-size: 16px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+	border-bottom: 1px solid #eee;
+      text-decoration: none;
+      display: block;
+      color: #333;
+      transition: background-color 0.2s;
     }
-    .enviar-btn:hover { background-color: #45a049; }
-    .mensaje { margin-top: 15px; padding: 10px; border-radius: 5px; display: none; }
-    .mensaje.exito { background-color: #dff0d8; color: #3c763d; }
-    .mensaje.error { background-color: #f2dede; color: #a94442; }
-    .footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 20px;
-      background: #111;
-      color: #ccc;
-    }
-    .footer-left img { width: 111px; }
-    .footer a { color: #ccc; text-decoration: none; }
-    .footer-right { flex: 1; padding-left: 20px; }
-    .footer-right-row { display: flex; align-items: center; gap: 8px; margin: 8px 0; }
-    .footer-right-row img { width: 22px; }
   </style>
 </head>
 <body>
-
 
 
 <!-- Header con imagen -->
@@ -127,19 +226,99 @@
 </div>
 
 <script>
-  const searchInput = document.getElementById('search');
-  const resultsContainer = document.getElementById('results-container');
-  const searchResultsBox = document.getElementById('search-results');
+  document.addEventListener('DOMContentLoaded', function() {
+ <!------------------------------------------------Base de datos de búsqueda--------------------------->
+      const searchDatabase = [
+        { title: "Tutorial Pagos Virtuales", url: "Matricula.html", description: "Guía para realizar pagos virtuales en el sistema" },
+        { title: "Cómo realizar trámites virtuales", url: "Como-Realizar-Tramites-Virtuales.html", description: "Procedimiento para trámites en línea" },
+        { title: "Acceso a correo institucional", url: "Ingresarcorreoinstitucional.html", description: "Instrucciones para ingresar al correo institucional" },
+        { title: "Aprende a ingresar a tus clases virtuales", url: "Aprende_a_ingresar_a_tus_clases virtuales.html", description: "Aprende a ingresar a tus clases virtuales" },
+        { title: "Guía del egresado", url: "Guia_del_Egresado.html", description: "Guía del Egresado" },
+        { title: "Mallas curriculares", url: "MallasCurriculares.html", description: "Mallas curriculares" },
+        { title: "Atencion al Estudiante", url: "Atencion_al_Estudiante.html", description: "Atencion al Estudiante" },
+        { title: "¿Cómo verificar mi horario?", url: "Horario_de_Clases.html", description: "Cómo verificar mi horario" }
+      ];
 
-  searchInput.addEventListener('input', function () {
-    const query = this.value.trim().toLowerCase();
-    if (query.length > 0) {
-      resultsContainer.innerHTML = `<p>Mostrando resultados para: <strong>${query}</strong></p>`;
-      searchResultsBox.style.display = 'block';
-    } else {
-      searchResultsBox.style.display = 'none';
-    }
-  });
+      // Elementos del DOM
+      const searchInput = document.getElementById('searchInput');
+      const searchResults = document.getElementById('search-results');
+
+      // Función de búsqueda optimizada
+      function search(query) {
+        query = query.trim().toLowerCase();
+        
+        if (query.length < 2) {
+          searchResults.style.display = 'none';
+          return;
+        }
+        
+        // Dividir la consulta en palabras clave
+        const keywords = query.split(' ').filter(word => word.length > 0);
+        
+        const results = searchDatabase.filter(item => {
+          const title = item.title.toLowerCase();
+          const description = item.description.toLowerCase();
+          
+          // Verificar si todas las palabras clave coinciden en título o descripción
+          return keywords.every(keyword => 
+            title.includes(keyword) || description.includes(keyword)
+          );
+        });
+        
+        displayResults(results);
+      }
+
+      // Mostrar resultados
+      function displayResults(results) {
+        searchResults.innerHTML = '';
+        
+        if (results.length === 0) {
+          searchResults.innerHTML = '<div class="no-results">No se encontraron resultados</div>';
+          searchResults.style.display = 'block';
+          return;
+        }
+        
+        results.forEach(result => {
+          const resultItem = document.createElement('a');
+          resultItem.href = result.url;
+          resultItem.className = 'search-result-item';
+          
+          resultItem.innerHTML = `
+            <div class="search-result-title">${result.title}</div>
+            <div class="search-result-desc">${result.description}</div>
+          `;
+          
+          searchResults.appendChild(resultItem);
+        });
+        
+        searchResults.style.display = 'block';
+      }
+
+      // Event listeners
+      searchInput.addEventListener('input', function(e) {
+        search(e.target.value);
+      });
+      
+      searchInput.addEventListener('focus', function() {
+        if (searchInput.value.length >= 2) {
+          search(searchInput.value);
+        }
+      });
+      
+      // Ocultar resultados al hacer clic fuera
+      document.addEventListener('click', function(e) {
+        if (e.target !== searchInput && !searchResults.contains(e.target)) {
+          searchResults.style.display = 'none';
+        }
+      });
+      
+      // Manejar tecla Escape
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          searchResults.style.display = 'none';
+        }
+      });
+    });
 </script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -445,9 +624,9 @@
         
        
     <!-- ------------------------------------Base de datos de búsqueda------------------------------------------->
-        const searchDatabase = [
-            { title: "Tutorial Pagos Virtuales", url: "Matricula.html", description: "Guía para realizar pagos virtuales en el sistema" },
-            { title: "Cómo realizar trámites virtuales", url: "Como-Realizar-Tramites-Virtuales.html", description: "Procedimiento para trámites en línea" },
+       const searchDatabase = [
+            { title: "Tutorial Pagos Virtuales", url: "Pagos_Virtuales.html", description: "Guía para realizar pagos virtuales en el sistema" },
+            { title: "Cómo realizar trámites virtuales", url: "Como_Realizar_Tramites_Virtuales.HTML", description: "Procedimiento para trámites en línea" },
             { title: "Acceso a correo institucional", url: "Ingresarcorreoinstitucional.html", description: "Instrucciones para ingresar al correo institucional" },
             { title: "Aprende a ingresar a tus clases virtuales", url: "Aprende_a_ingresar_a_tus_clases virtuales.html", description: "Aprende a ingresar a tus clases virtuales" },
             { title: "Guía del egresado", url: "Guia_del_Egresado.html", description: "Guia del Egresado" },

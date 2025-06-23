@@ -87,7 +87,7 @@
       color: #a94442;
     }
 <!------------------------------------------------------------------------------------------------------------------------->
-    * {
+     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -169,13 +169,37 @@
       color: black;
       border-radius: 0 0 10px 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      z-index: 1000;
+     z-index: 1000;
       display: none;
       text-align: left;
+      margin-top: 5px;
+    }
+	.search-result-item:hover {
+      background-color: #f5f5f5;
     }
 
+    .search-result-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .search-result-desc {
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    .no-results {
+      padding: 15px;
+      color: #666;
+      text-align: center;
+    }
     #search-results div {
       padding: 10px;
+	border-bottom: 1px solid #eee;
+      text-decoration: none;
+      display: block;
+      color: #333;
+      transition: background-color 0.2s;
     }
   </style>
 </head>
@@ -806,8 +830,8 @@ document.addEventListener('DOMContentLoaded', function() {
        
     <!-- ------------------------------------Base de datos de búsqueda------------------------------------------->
         const searchDatabase = [
-            { title: "Tutorial Pagos Virtuales", url: "Matricula.html", description: "Guía para realizar pagos virtuales en el sistema" },
-            { title: "Cómo realizar trámites virtuales", url: "Como-Realizar-Tramites-Virtuales.html", description: "Procedimiento para trámites en línea" },
+            { title: "Tutorial Pagos Virtuales", url: "Pagos_Virtuales.html", description: "Guía para realizar pagos virtuales en el sistema" },
+            { title: "Cómo realizar trámites virtuales", url: "Como_Realizar_Tramites_Virtuales.HTML", description: "Procedimiento para trámites en línea" },
             { title: "Acceso a correo institucional", url: "Ingresarcorreoinstitucional.html", description: "Instrucciones para ingresar al correo institucional" },
             { title: "Aprende a ingresar a tus clases virtuales", url: "Aprende_a_ingresar_a_tus_clases virtuales.html", description: "Aprende a ingresar a tus clases virtuales" },
             { title: "Guía del egresado", url: "Guia_del_Egresado.html", description: "Guia del Egresado" },
