@@ -201,6 +201,128 @@
       color: #333;
       transition: background-color 0.2s;
     }
+<!----------------------------------------------------------------------------------->
+ body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .main-container {
+            display: flex;
+            min-height: calc(100vh - 80px);
+        }
+        
+        .sidebar {
+            width: 250px;
+            background-color: #f0f0f0;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        
+        .sidebar h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        .menu-item {
+            margin-bottom: 10px;
+        }
+        
+        .menu-title {
+            padding: 10px;
+            background-color: #ddd;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+        
+        .menu-title:hover {
+            background-color: #ccc;
+        }
+        
+        .submenu {
+            display: none;
+            padding-left: 15px;
+            margin-top: 5px;
+        }
+        
+        .submenu a {
+            display: block;
+            padding: 8px 10px;
+            color: #333;
+            text-decoration: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .submenu a:hover {
+            background-color: #ddd;
+        }
+        
+        .content {
+            flex: 1;
+            padding: 30px;
+            background-color: white;
+        }
+        
+        h1 {
+            color: #333;
+            margin: 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f0f0f0;
+        }
+        
+        .faq {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        .empty-state {
+            text-align: center;
+            color: #888;
+            padding: 50px;
+            font-size: 18px;
+        }
+.menu-item a.active {
+        background-color: black;
+        color: white;
+        font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -393,38 +515,302 @@
 
 <!-----------------------------------zona del PDF---------------------------------------------------------------------------------------------->
 
-<div class="wrapper" id="content-article" data-helpjuice-component="Article Feedback Wrapper" data-helpjuice-element="Container" data-helpjuice-attributes="visibility,background">
-    <article class="article article-question" data-controller="feedbacks" data-feedbacks-load-form-value="/admin/feedbacks/comments/new?question_id=2553972" data-helpjuice-element="Question Article" data-helpjuice-attributes="font_size,color">
-            <header data-helpjuice-element="Article Header" data-helpjuice-attributes="font_size,color">
-                <div class="title" data-helpjuice-element="Article Title" data-helpjuice-attributes="visibility,background">
-                    
-                    <h1 data-helpjuice-element="Article Title H" data-helpjuice-attributes="font_size,color">Guía del Egresado</h1>
-                    
-                </div>
-                
-            </header>
-            
-            <div class="fr-view" data-action="mouseup->feedbacks#update" data-controller="glossary" data-glossary-url-value="/glossary_terms.json" data-helpjuice-element="Question Article Content" data-helpjuice-attributes="visibility,background"><div class="helpjuice-article-body-content helpjuice-editor-content"><p> </p>
-<!---------------------------------pdf------------------------------------------->
+    <!-- Contenedor principal con menú lateral y contenido -->
+<div class="main-container">
+    <!-- Menú lateral -->
+    <div class="sidebar">
+        <div class="menu-item">
+            <div class="menu-title" onclick="toggleSubmenu(this)">Conoce tu malla</div>
+            <div class="submenu">
+                <a href="#" onclick="showContent('malla-asignatura')">MALLA POR ASIGNATURA alumnos matriculados hasta 2013-2.</a>
+                <a href="#" onclick="showContent('malla-dcb')">Malla DCB - Modular (Si iniciaste a estudiar en el 2014 al 2018-2)</a>
+                <a href="#" onclick="showContent('Malla-Licenciamiento')">Malla Licenciamiento (Si iniciaste a estudiar en el 2019 a la actualidad)</a>
+            </div>
+        </div>
+        
+        <div class="menu-item">
+            <div class="menu-title" onclick="toggleSubmenu(this)">Trámite de título profesional</div>
+            <div class="submenu">
+                <a href="#" onclick="showContent('titulo-profesional')">Normativas</a>
+                <a href="#" onclick="showContent('requisitos-titulo')">Requisitos</a>
+                <a href="#" onclick="showContent('procedimiento-titulo')">Procedimiento</a>
+            </div>
+        </div>
+        
+        <div class="menu-item">
+            <div class="menu-title" onclick="toggleSubmenu(this)">Preguntas generales</div>
+            <div class="submenu">
+                <a href="#" onclick="showContent('documentacion')">Documentación</a>
+                <a href="#" onclick="showContent('plazos')">Plazos</a>
+                <a href="#" onclick="showContent('costos')">Costos</a>
+            </div>
+        </div>
+    </div>
+  
+    <!-- Contenido principal -->
+    <div class="content">
+        <!-- Estado vacío inicial -->
+        <div id="empty-content" class="empty-state">
+            Seleccione una opción del menú para ver la información correspondiente
+        </div>
+        
+        <!-- Contenido para Malla por Asignatura -->
+        <div id="malla-asignatura" class="content-section" style="display: none;">
+            <h2>Requisitos para iniciar el trámite para obtener tu título profesional</h2>
+            <table>
+                <tr>
+                    <th colspan="3">
+                        Debes contar con el DIPLOMA DE EGRESADO MALLA ASIGNATURAS Y DCB 
+                        (<a href="URL_DEL_ENLACE_AQUI" target="_blank">haz clic para saber cómo tramitar tu diploma de egresado</a>)
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="3">
+                        Debes contar con el CERTIFICADO DE INGLÉS nivel A2 y expedido por el centro de idiomas del instituto (<a href="URL_DEL_ENLACE_AQUI" target="_blank">has click para mayor información https://www.acarrion.edu.pe/idiomas/</a>)
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="3">
+                        Debes contar con el ACTA DE APROBACIÓN del Programa Especial de Titulación - PET (conoce acerca del programa de titulación -PET(<a href="URL_DEL_ENLACE_AQUI" target="_blank">https://producto.acarrion.edu.pe/titulacionpet-2/)</a>)
+                    </th>
+                </tr>
+            </table>
 
-<!----<iframe style="https://documentcloud.adobe.com/gsuiteintegration/index.html?state=%7B%22ids%22%3A%5B%221w_o3DUER4N6Ob96fbP-cVNSTsvAchz4B%22%5D%2C%22action%22%3A%22open%22%2C%22userId%22%3A%22114345103028694559078%22%2C%22resourceKeys%22%3A%7B%7D%7D" frameborder="0" data-embedded-iframe="true"></iframe></div></div>----->
+            <h2>¿CÓMO TRAMITO MI TÍTULO PROFESIONAL?</h2>
+            <p>Una vez que cuentes con todos los requisitos, podrás iniciar con el trámite:</p>
+            <ol>
+                <li>Ingresar a su CarriónNet con su usuario y contraseña (<a href="https://intranet.uwiener.edu.pe/sso.asp" target="_blank">https://intranet.uwiener.edu.pe/sso.asp</a>)</li>
+                <li>Dirigirse a la opción Trámite académico / trámites diversos</li>
+                <li>Hacer clic en el botón "Registrar"</li>
+                <li>Selecciona tu carrera</li>
+                <li>En la opción "Trámites" seleccionar el trámite requerido: TÍTULO PROFESIONAL TÉCNICO MALLA ASIGNATURAS Y DCB</li>
+                <li>Selecciona la sede: 7818 - Av. Arequipa 351 – 365 Lima</li>
+                <li>Adjuntar los documentos requeridos</li>
+                <li>Dar clic en CONTINUAR y listo, se realizó tu solicitud de trámite</li>
+                <li>A partir de las 24 horas, revisar en SEGUIMIENTO que su trámite se encuentre en "Pendiente de pago"</li>
+            </ol>
 
-
-
-<embed 
-    src="https://drive.google.com/file/d/1w_o3DUER4N6Ob96fbP-cVNSTsvAchz4B/preview" 
-    type="application/pdf" 
-    width="100%" 
-    height="500px">
-            
-            <ul class="tags" data-helpjuice-element="Article Tags" data-helpjuice-attributes="visibility">
-
-
-
-              <!--- --------------------------------------------re visar este link es del cuadrado --------------->
-                    <li><a href="/contact-us##search_query=Guía del Egresado" data-helpjuice-element="Tag Link" data-helpjuice-attributes="font_size,color">Guía del Egresado</a></li>
-                
+            <h2>¿CÓMO DEBO DE PAGAR MI TÍTULO?</h2>
+            <p>Cuando tu solicitud de trámite se encuentre <strong>PENDIENTE DE PAGO</strong>, podrás dirigirte a los siguientes bancos:</p>
+            <ul>
+                <li>ÚNICOS AFILIADOS: Banco Scotiabank, BCP, YAPE (no agente)</li>
+                <li>Indica: Pago al Instituto Carrión</li>
+                <li>Servicio: Trámites Académicos</li>
+                <li>Brindar tu Código de alumno en MAYÚSCULA</li>
             </ul>
+
+            <h2>¿CUÁNDO ME ENTREGAN MI TÍTULO PROFESIONAL?</h2>
+            <p>Después de tu pago, debes acercarte a la sede a dejar los documentos que cargaste en CarriónNet. Recuerda que en la oficina llenarás la <strong>DECLARACIÓN JURADA</strong>.</p>
+            <p>Luego de dejar los documentos, el plazo de atención para la entrega de tu <strong>DIPLOMA DE EGRESADO</strong> es de <strong>120 días hábiles</strong>. Se te enviará el documento virtual a tu correo institucional; también podrás recogerlo en físico acercándote a la sede.</p>
+
+            <p><strong>Oficina de Grados y Títulos</strong><br>
+            Ubicada en Av. Arequipa 351, Lima (1er piso)<br>
+            Horario de atención: De lunes a viernes, de 9:00 a.m. a 1:00 p.m. y de 2:00 p.m. a 5:45 p.m.<br>
+            Correo: <a href="mailto:gradosytitulos@acarrion.edu.pe">gradosytitulos@acarrion.edu.pe</a>
+            </p>  
+        </div>
+        
+        <!-- Contenido para Malla DCB -->
+        <div id="malla-dcb" class="content-section" style="display: none;">
+            <h2>Requisitos para iniciar el trámite para obtener tu titulo profesional </h2>
+            <table>
+                <tr>
+                    <th colspan="3">
+                        Debes contar con el DIPLOMA DE EGRESADO MALLA ASIGNATURAS Y DCB 
+                        (<a href="URL_DEL_ENLACE_AQUI" target="_blank">has click para saber como tramitar tu diploma de egresado</a>)
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="3">
+                        Debes contar con el CERTIFICADO DE INGLÉS nivel A2 y expedido por el centro de idiomas del instituto  (<a href="URL_DEL_ENLACE_AQUI" target="_blank">has click para mayor información https://www.acarrion.edu.pe/idiomas/</a>)
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="3">
+                        Debes contar con el ACTA DE APROBACIÓN del Programa Especial de Titulación - PET (<a href="https://producto.acarrion.edu.pe/titulacionpet-2/" target="_blank">conoce acerca del programa de titulación -PET </a>)
+                    </th>
+                </tr>
+            </table>
+
+            <h2>¿CÓMO TRAMITO MI TÍTULO PROFESIONAL?</h2>
+            <p>Una vez que cuentes con todos los requisitos, podrás iniciar con el trámite:</p>
+            <ol>
+                <li>Ingresar a su CarriónNet con su usuario y contraseña (<a href="https://intranet.uwiener.edu.pe/sso.asp" target="_blank">https://intranet.uwiener.edu.pe/sso.asp</a>)</li>
+                <li>Dirigirse a la opción Trámite académico / trámites diversos</li>
+                <li>Hacer clic en el botón "Registrar"</li>
+                <li>Selecciona tu carrera</li>
+                <li>En la opción "Trámites" seleccionar el trámite requerido: TÍTULO PROFESIONAL TÉCNICO MALLA ASIGNATURAS Y DCB</li>
+                <li>Selecciona la sede: 7818 - Av. Arequipa 351 – 365 Lima</li>
+                <li>Adjuntar los documentos requeridos</li>
+                <li>Dar clic en CONTINUAR y listo, se realizó tu solicitud de trámite</li>
+                <li>A partir de las 24 horas, revisar en SEGUIMIENTO que su trámite se encuentre en "Pendiente de pago"</li>
+            </ol>
+
+            <h2>¿CÓMO DEBO DE PAGAR MI TÍTULO?</h2>
+            <p>Cuando tu solicitud de trámite se encuentre <strong>PENDIENTE DE PAGO</strong>, podrás dirigirte a los siguientes bancos:</p>
+            <ul>
+                <li>ÚNICOS AFILIADOS: Banco Scotiabank, BCP, YAPE (no agente)</li>
+                <li>Indica: Pago al Instituto Carrión</li>
+                <li>Servicio: Trámites Académicos</li>
+                <li>Brindar tu Código de alumno en MAYÚSCULA</li>
+            </ul>
+
+            <h2>¿CUÁNDO ME ENTREGAN MI TÍTULO PROFESIONAL?</h2>
+            <p>Después de tu pago, debes acercarte a la sede a dejar los documentos que cargaste en CarriónNet. Recuerda que en la oficina llenarás la <strong>DECLARACIÓN JURADA</strong>.</p>
+            <p>Luego de dejar los documentos, el plazo de atención para la entrega de tu <strong>DIPLOMA DE EGRESADO</strong> es de <strong>120 días hábiles</strong>. Se te enviará el documento virtual a tu correo institucional; también podrás recogerlo en físico acercándote a la sede.</p>
+
+            <p><strong>Oficina de Grados y Títulos</strong><br>
+            Ubicada en Av. Arequipa 351, Lima (1er piso)<br>
+            Horario de atención: De lunes a viernes, de 9:00 a.m. a 1:00 p.m. y de 2:00 p.m. a 5:45 p.m.<br>
+            Correo: <a href="mailto:gradosytitulos@acarrion.edu.pe">gradosytitulos@acarrion.edu.pe</a>
+            </p>
+        </div>
+        
+        <!-- Contenido para Malla-Licenciamiento -->
+        <div id="Malla-Licenciamiento" class="content-section" style="display: none;">
+            <h2>Requisitos para iniciar el trámite para obtener tu titulo profesional </h2>
+            <table>
+                <tr>
+                    <th colspan="3">
+                        Debes contar con el DIPLOMA DE EGRESADO MALLA ASIGNATURAS Y DCB 
+                        (<a href="URL_DEL_ENLACE_AQUI" target="_blank">has click para saber como tramitar tu diploma de egresado</a>)
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="3">
+                        Debes contar con el CERTIFICADO DE INGLÉS nivel A2 y expedido por el centro de idiomas del instituto  (<a href="URL_DEL_ENLACE_AQUI" target="_blank">has click para mayor información https://www.acarrion.edu.pe/idiomas/</a>)
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="3">
+                        Debes contar con el ACTA DE APROBACIÓN del Programa Especial de Titulación - PET (<a href="https://producto.acarrion.edu.pe/titulacionpet-2/" target="_blank">conoce acerca del programa de titulación -PET </a>)
+                    </th>
+                </tr>
+            </table>
+        
+        <h2>¿CÓMO TRAMITO MI TÍTULO PROFESIONAL?</h2>
+<p>Una vez que cuentes con todos los requisitos, podrás iniciar con el trámite:</p>
+<ol>
+  <li>Ingresar a su CarriónNet con su usuario y contraseña 
+    (<a href="https://intranet.uwiener.edu.pe/sso.asp" target="_blank">https://intranet.uwiener.edu.pe/sso.asp</a>)
+  </li>
+  <li>Dirigirse a la opción Trámite académico / trámites diversos</li>
+  <li>Hacer clic en el botón "Registrar"</li>
+  <li>Selecciona tu carrera</li>
+  <li>En la opción "Trámites", seleccionar el trámite requerido: <strong>TÍTULO PROFESIONAL TÉCNICO MALLA LICENCIAMIENTO</strong></li>
+  <li>Selecciona la sede: <strong>7818 - Av. Arequipa 351 – 365 Lima</strong></li>
+  <li>Adjuntar los documentos requeridos</li>
+  <li>Dar clic en <strong>CONTINUAR</strong> y listo, se realizó tu solicitud de trámite</li>
+  <li>A partir de las 24 horas, revisar en <strong>SEGUIMIENTO</strong> que su trámite se encuentre en "Pendiente de pago"</li>
+</ol>
+<p><strong>Precio:</strong> S/ 900<br>
+<strong>Plazo de atención:</strong> 120 días hábiles después del pago</p>
+
+<h2>¿CÓMO DEBO DE PAGAR MI TÍTULO?</h2>
+<p>Cuando tu solicitud de trámite se encuentre <strong>PENDIENTE DE PAGO</strong>, podrás dirigirte a los siguientes bancos:</p>
+<ul>
+  <li><strong>ÚNICOS AFILIADOS:</strong> Banco Scotiabank, BCP, YAPE (no agente)</li>
+  <li>Indica: <strong>Pago al Instituto Carrión</strong></li>
+  <li>Servicio: <strong>Trámites Académicos</strong></li>
+  <li>Brindar tu <strong>Código de alumno en MAYÚSCULA</strong></li>
+</ul>
+
+<h2>¿CUÁNDO ME ENTREGAN MI TÍTULO PROFESIONAL?</h2>
+<p>Después de tu pago, debes acercarte a la sede a dejar los documentos que cargaste a tu CarriónNet. 
+En oficina llenarás la <strong>DECLARACIÓN JURADA</strong>.</p>
+<p>Luego de dejar los documentos, el plazo de atención para la entrega de tu <strong>TÍTULO PROFESIONAL</strong> 
+es de <strong>120 días hábiles</strong>. Se te enviará el documento virtual a tu correo institucional; también podrás recogerlo en físico acercándote a la sede.</p>
+
+<p><strong>Oficina de Grados y Títulos</strong><br>
+Av. Arequipa 351, Lima (1er piso)<br>
+Horario de atención: De lunes a viernes, de 9:00 a.m. a 1:00 p.m. y de 2:00 p.m. a 5:45 p.m.<br>
+Correo: <a href="mailto:gradosytitulos@acarrion.edu.pe">gradosytitulos@acarrion.edu.pe</a></p>
+
+        <!-- Otras secciones de contenido -->
+        <div id="titulo-profesional" class="content-section" style="display: none;">
+            <h2>Normativas para título profesional</h2>
+            <table>
+                <tr>
+                    <th>hola</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>Normativa 001</td>
+                    <td>Requisitos generales para obtención de título</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div id="requisitos-titulo" class="content-section" style="display: none;">
+            <h2>Requisitos para título profesional</h2>
+            <table>
+                <tr>
+                    <th>Requisito</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>Documento 1</td>
+                    <td>Certificado de estudios completo</td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Secciones adicionales PROCEDIMIENTO -->
+        <div id="procedimiento-titulo" class="content-section" style="display: none;">
+            <h2>Procedimiento</h2>
+            <!-- Contenido del procedimiento -->
+        </div>
+        
+        <!-- Agrega las demás secciones de contenido aquí -->
+        <div id="documentacion" class="content-section" style="display: none;">
+            <h2>Documentación requerida</h2>
+            <!-- Contenido de documentación -->
+        </div>
+        
+        <div id="plazos" class="content-section" style="display: none;">
+            <h2>Plazos para trámites</h2>
+            <!-- Contenido de plazos -->
+        </div>
+        
+        <div id="costos" class="content-section" style="display: none;">
+            <h2>Costos asociados</h2>
+            <!-- Contenido de costos -->
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleSubmenu(element) {
+        const submenu = element.nextElementSibling;
+        if (submenu.style.display === "block") {
+            submenu.style.display = "none";
+        } else {
+            submenu.style.display = "block";
+        }
+    }
+    
+    function showContent(sectionId) {
+        // Oculta el estado vacío
+        document.getElementById('empty-content').style.display = 'none';
+        
+        // Oculta todas las secciones de contenido
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.style.display = 'none';
+        });
+        
+        // Muestra la sección solicitada
+        if (sectionId) {
+            document.getElementById(sectionId).style.display = 'block';
+        }
+    }
+    
+    // Mostrar el primer submenú por defecto
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('.submenu').style.display = "block";
+    });
+</script>
+
+
             
    <!-----------------------------------------envcuesta de caritas-------------------------------------------------->         
  
