@@ -2,11 +2,75 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-    <title>CONTACTO CARRION - Instituto Carrión</title>
-  <link rel="stylesheet" href="https://scontent.flim2-6.fna.fbcdn.net/v/t39.30808-6/506410584_1922412321946088_2073086972235835171_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHUkb7njnIpeziW382Hq6I_0VjPq-cTyhXRWM-r5xPKFUsu4bmIU2YuSBtRMh9sPwbVodIUr6Ol6bR8f0cloIDI&_nc_ohc=Z0rcG0LDz00Q7kNvwF2hlpU&_nc_oc=Admf_naPlYPAgShVuDS-voqvW6qHUvpwKg6lV_LhUPPbWAdRjXje2FXsZ_tM-AlKqxs&_nc_zt=23&_nc_ht=scontent.flim2-6.fna&_nc_gid=-XtZrKE6J_1HikVdEhbsHg&oh=00_AfNV9_jiCAwAnitbsFWSKtH3YhDL0mGFALU7li6t8-cI4A&oe=6858F0C9">
+  <title>Header con Buscador Separado</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<title>Encuesta Sí/No</title>
   <style>
-<!----------------------------------------------------------codigo de la encuesta formato--------------------------------------->
-      * {
+.encuesta-container {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .pregunta {
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .opciones {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .opcion {
+            padding: 10px 20px;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            flex: 1;
+            margin: 0 5px;
+            transition: all 0.3s;
+        }
+        .opcion:hover {
+            background-color: #f0f0f0;
+        }
+        .opcion.seleccionada {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .enviar-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        .enviar-btn:hover {
+            background-color: #45a049;
+        }
+        .mensaje {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+        .exito {
+            background-color: #dff0d8;
+            color: #3c763d;
+        }
+        .error {
+            background-color: #f2dede;
+            color: #a94442;
+        }
+
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -22,7 +86,7 @@
     .header-container {
       position: relative;
       width: 100%;
-      height: 280px; /* Altura fija para el contenedor */
+      height: 400px; /* Altura fija para el contenedor */
       overflow: hidden;
     }
 
@@ -88,101 +152,17 @@
       color: black;
       border-radius: 0 0 10px 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-     z-index: 1000;
+      z-index: 1000;
       display: none;
       text-align: left;
-      margin-top: 5px;
-    }
-	.search-result-item:hover {
-      background-color: #f5f5f5;
     }
 
-    .search-result-title {
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-
-    .search-result-desc {
-      font-size: 0.9em;
-      color: #666;
-    }
-
-    .no-results {
-      padding: 15px;
-      color: #666;
-      text-align: center;
-    }
     #search-results div {
       padding: 10px;
-	border-bottom: 1px solid #eee;
-      text-decoration: none;
-      display: block;
-      color: #333;
-      transition: background-color 0.2s;
     }
-
-
-<!-------------------------------------------------------------------------->
-
-    .video-box { flex: 1; max-width: 560px; }
-    .video-box iframe { width: 100%; height: 315px; }
-    .encuesta-container {
-      font-family: Arial, sans-serif;
-      width: 350px;
-      padding: 20px;
-      background-color: white;
-      color: #333;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 20px;
-    }
-    .pregunta { font-size: 18px; margin-bottom: 15px; font-weight: bold; }
-    .opciones { display: flex; justify-content: space-between; margin-bottom: 15px; }
-    .opcion {
-      flex: 1;
-      margin: 0 5px;
-      padding: 10px 20px;
-      text-align: center;
-      border: 2px solid #4CAF50;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s, color 0.3s;
-    }
-    .opcion:hover { background-color: #f0f0f0; }
-    .opcion.seleccionada { background-color: #4CAF50; color: white; }
-    .enviar-btn {
-      width: 100%;
-      padding: 10px;
-      font-size: 16px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .enviar-btn:hover { background-color: #45a049; }
-    .mensaje { margin-top: 15px; padding: 10px; border-radius: 5px; display: none; }
-    .mensaje.exito { background-color: #dff0d8; color: #3c763d; }
-    .mensaje.error { background-color: #f2dede; color: #a94442; }
-    .footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 20px;
-      background: #111;
-      color: #ccc;
-    }
-    .footer-left img { width: 111px; }
-    .footer a { color: #ccc; text-decoration: none; }
-    .footer-right { flex: 1; padding-left: 20px; }
-    .footer-right-row { display: flex; align-items: center; gap: 8px; margin: 8px 0; }
-    .footer-right-row img { width: 22px; }
   </style>
 </head>
 <body>
-
 <!-- Header con imagen -->
 <div class="header-container">
   <img class="header-image" src="https://raw.githubusercontent.com/ConsultasyTramites/Servicioalestudiante/main/SAE_2800x400.png" alt="Banner SAE" width="100%">
@@ -220,10 +200,16 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+<!-- Aquí iría el resto de tu contenido HTML existente -->
+
+
+
+
     <!-- Aquí iría el resto de tu contenido HTML existente -->
+    
 
 <!-LOGO DE PESTAÑA ----------------------------------------------------------------------------------------------------------------------->
-    <link rel="shortcut icon" type="image/*" href="https://ugc.production.linktr.ee/c150853f-f3d4-47aa-8a99-1605e440154e_WhatsApp-Image-2025-01-07-at-4.12.16-AM.jpeg?io=true&size=avatar-v3_0" />
+     <link rel="shortcut icon" type="image/*" href="https://ugc.production.linktr.ee/c150853f-f3d4-47aa-8a99-1605e440154e_WhatsApp-Image-2025-01-07-at-4.12.16-AM.jpeg?io=true&size=avatar-v3_0" />
 
     
     <title>CONTACTO CARRION - Instituto Carrión</title>
@@ -232,9 +218,6 @@
     <meta name="keywords" content="Carrión alumno, portal Carrión alumno, Carrión intranet alumnos, campus virtual Carrión alumno, portal Carrión, contacto Carrión, numero de Carrión, instituto Carrión contacto, Carrión academico, correo Carrión, trámites Carrión, tarifario Carrión, canales de atención Carrión, matrícula Carrión" />
   
 <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------->    
-  
-    
-        
         <!-- Facebook Open Graph data -->
         <meta property="og:title" content="Portal autoatención - Instituto Carrión" />
         <meta property="og:type" content="website" />
@@ -245,7 +228,7 @@
         
         <!-- Twitter Card data -->
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="Portal autoatención - Instituto Carrión">
+        <meta name="twitter:title" content="Portal autoatención - Instituto CARRION">
         <meta name="twitter:description" content="¿Tienes alguna o consulta? Ingresa al portal de autoatención al alumno para que puedas resolver todas tus dudas en cualquier momento.">
         <meta name="twitter:image:src" content="">
         
@@ -259,132 +242,73 @@
     <link rel="stylesheet" href="/feedbacks.css">
     <link href="https://s3.amazonaws.com/assets.helpjuice.com/fontawesome/css/all.min.css" rel="stylesheet" />
     <script src="/feedbacks.js" defer></script>
-    <link rel="stylesheet" href="/knowledgebase.css">
 
-    <script src="/knowledgebase.js" defer></script>
+
     <link href="https://static.helpjuice.com/helpjuice_production/uploads/account/12017/main_css_12017-2900a26f133fa51d34320950a9c4c1fc76632a4b1b02e3e926110bbda2114fed.css" media="all" rel="stylesheet" />
     
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     
-<meta name="question-id" content="2973903"><meta name="category-id" content="669500"><meta name="flow-id" content=""><meta name="recaptcha-site-key" content="6LcpGLYjAAAAAJtaowP1_pw6R12eDC592EcvHBJa"><meta name="require-contact-captcha" content="false"><meta name="current-language" content="es_ES"><meta name="knowledge-base-url" content="https://conecta.sise.edu.pe/?kb_language=es_ES"><meta name="current-user-id" content=""><meta name="ignore-users-analytics" content="false"><meta name="reading-timeout" content="10000"><meta name="account-subdirectory-prefix" content=""><meta name="current-account-id" content="12017"><meta name="account-subdomain" content="sise"><meta name="helpjuice-knowledge-base-url" content="https://sise.helpjuice.com/"></head>
+<meta name="question-id" content="2973319"><meta name="category-id" content="669497"><meta name="flow-id" content=""><meta name="recaptcha-site-key" content="6LcpGLYjAAAAAJtaowP1_pw6R12eDC592EcvHBJa"><meta name="require-contact-captcha" content="false"><meta name="current-language" content="es_ES"><meta name="knowledge-base-url" content="https://www.acarrion.edu.pe/?kb_language=es_ES"><meta name="current-user-id" content=""><meta name="ignore-users-analytics" content="false"><meta name="reading-timeout" content="10000"><meta name="account-subdirectory-prefix" content=""><meta name="current-account-id" content="12017"><meta name="account-subdomain" content="carrión"><meta name="helpjuice-knowledge-base-url" content="https://www.acarrion.edu.pe/"></head>
+
+
+
 <body class="galaxy-theme question_page">
 
 
 <!--START_COMPONENT_ADMIN_NAVBAR-->
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!--END_COMPONENT_ADMIN_NAVBAR-->    
     
-<!--START_COMPONENT_BRANDING_SECTION-->
+<!-------------------------------------------START_COMPONENT_BRANDING_SECTION----------------------------------->
 <div class="col-xs-6 branding hidden" data-helpjuice-component="Branding Section" data-helpjuice-element="Container" data-helpjuice-attributes="visibility,background">
-                <h1 data-helpjuice-element="Branding Title" data-helpjuice-attributes="font_size,color"><a href="/" data-helpjuice-element="Knowledge Link" data-helpjuice-attributes="font_size,color">SISE Knowledge</a></h1>
+                <h1 data-helpjuice-element="Branding Title" data-helpjuice-attributes="font_size,color"><a href="/" data-helpjuice-element="Knowledge Link" data-helpjuice-attributes="font_size,color">CARRION</a></h1>
                 <a href="/" class="logo" data-helpjuice-element="Logo Link" data-helpjuice-attributes="font_size,color"><span class="altLogo" data-helpjuice-element="Alt Logo Span" data-helpjuice-attributes="font_size,color"></span></a>
             </div>
+
 <!--END_COMPONENT_BRANDING_SECTION-->
 
 
             <!--START_COMPONENT_NAVIGATION_SECTION-->
-
-<div class="col-xs-6 navigation hidden" data-helpjuice-component="Navigation Section" data-helpjuice-element="Container" data-helpjuice-attributes="visibility,background">
-                <a href="/contact-us" class="button btn-white" data-helpjuice-element="Contact Us Button" data-helpjuice-attributes="font_size,color">Contact us</a>
-                
-                    <div class="hj-language-switcher desktop">
-                        <div class="current-language">
-                            <span class="flag-icon flag-icon-es"></span>
-                            <span class="language-name">Spanish</span>
-                        </div>
-                        
-                            <div class="languages">
-                                
-                                    
-                                        <div>
-                                            <a href="/en_US" class="">
-                                                <span class="language-code">US</span>
-                                                <span class="flag-icon flag-icon-us"></span>
-                                                <span class="language-name">English (US)</span>
-                                            </a>
-                                        </div>
-                                    
-                                
-                                    
-                                        <div>
-                                            <a href="/es_ES/%C2%BFcomo-descargar-mis-certificados-digitales2" class="current">
-                                                <span class="language-code">ES</span>
-                                                <span class="flag-icon flag-icon-es"></span>
-                                                <span class="language-name">Spanish</span>
-                                            </a>
-                                        </div>
-                                    
-                                
-                            </div>
-                        
-                    </div>
-                
-            </div>
-<!--END_COMPONENT_NAVIGATION_SECTION-->
+		
+<!------------------------------------------END_COMPONENT_NAVIGATION_SECTION------------------------------------->
     
-       
-      <!--------------------baner del buscador -------------------------------------------------------->      
+    
+    <!--------------------------------------------envcuesta de caritas-------------------------->      
  
-<!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
-
-<body>
-   
-            <!-- Breadcrumbs --------------------------->
-
-
-<!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
-<!--ICONO DE HOME LA CASITA ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-       
-            <div class="bread-crumbs-container">
-                <div class="bread-crumbs">
-                    <a href="index.html">
-                        <img src="https://images.freeimages.com/fic/images/icons/1580/devine_icons_part_2/512/home.png" width="20px" alt="Inicio">
-                    </a>
-<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->  
-
-                    <img src="https://docs.cientifica.edu.pe/marketing/sise/helpjuice/Link.png" height="14px" alt=">">
-                    <a href="#" class="bread-crumb-active no-click">Aprende a revisar tu horario de clases</a>
-                </div>
-            </div>
-
-
-
-            <!-- Artículo ------------------------------------------------>
-            <div class="wrapper" id="content-article">
-                <article class="article article-question">
-                    <header>
-                        <div class="title">
-                            <h1>Aprende a revisar tu horario de clases</h1>
-                        </div>
-                    </header>
-                    
-                <!---    <div class="fr-view">
-                        <p>Trámite que permite poner en pausa tu carrera, recuerda siempre verificar los requisitos, consideraciones y tiempo de atención. Mira el tutorial y realiza el trámite correctamente.</p>--->
-                        
-                        <!--------------------------------video de youtube--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-
-<div class="flex-container">
-    <div class="video-box">
-      <iframe src="https://www.youtube.com/embed/7hFPVoPJTJQ?si=N25ULZYcsqCksp_O" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
-
-	
 
 <!-----------------------------------------envcuesta de caritas-------------------------------------------------->         
  
     <!-- Contenido del artículo -->
 </article>
     
-<footer id="footer-article">  
-             
-    <div class="encuesta-container">
-        <div class="pregunta">¿La información te ayudó a resolver tu consulta ? </div>
-<style>
-  .pregunta {
-    text-align: center;
-  }
-</style>
+<footer id="footer-article">                
+   
+            
 
+ <div class="encuesta-container">
+        <div class="pregunta">¿Recomendarías nuestro producto a un amigo?</div>
         <div class="opciones">
             <div class="opcion" onclick="seleccionarOpcion(this, 'Sí')">Sí</div>
             <div class="opcion" onclick="seleccionarOpcion(this, 'No')">No</div>
@@ -463,9 +387,83 @@
             </form>
         </div>
     </div>
+</footer>
+  <!--------------------------------------------------------------fin de la carita de encuesta ------------>    
 
-</div>
-  <!--------------------------------------------------------------fin de la carita de encuesta ------------>    <!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+         
+        <!-- question and category page header -->
+
+  <!--------------------baner del buscador -------------------------------------------------------->      
+ <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+<body>
+
+
+  <!-- Breadcrumbs --------------------------->
+
+
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+
+  <!-----------------------------------------
+
+<!--END_COMPONENT_HEADER_BANNER-->
+        
+        <!-- end of question and category page header -->
+        
+    
+
+    <main id="main-content">
+        <div class="content_for_layout">
+            <!--START_COMPONENT_BREADCRUMBS_CONTAINER_A-->
+<div class="bread-crumbs-container" data-helpjuice-component="Breadcrumbs Container A" data-helpjuice-element="Container" data-helpjuice-attributes="visibility,background">
+    <div class="bread-crumbs">
+
+
+                          
+                  <!--ICONO DE HOME LA CASITA ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+       
+            <div class="bread-crumbs-container">
+                <div class="bread-crumbs">
+                    <a href="index.html">
+                        <img src="https://images.freeimages.com/fic/images/icons/1580/devine_icons_part_2/512/home.png" width="20px" alt="Inicio">
+                    </a>
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->  
+
+                    <img src="https://docs.cientifica.edu.pe/marketing/sise/helpjuice/Link.png" height="14px" alt=">">
+                    <a href="#" class="bread-crumb-active no-click">Como Realizar mis Pagos Virtuales</a>
+                </div>
+            </div>
+
+
+
+            <!-- Artículo ------------------------------------------------>
+            <div class="wrapper" id="content-article">
+                <article class="article article-question">
+                    <header>
+                        <div class="title">
+                            <h1>Como Realizar mis Pagos Virtuales</h1>
+                        </div>
+                    </header>
+                    
+                <!---    <div class="fr-view">
+                        <p>Trámite que permite poner en pausa tu carrera, recuerda siempre verificar los requisitos, consideraciones y tiempo de atención. Mira el tutorial y realiza el trámite correctamente.</p>--->
+                        
+                        <figure class="media">
+                            <div data-oembed-url="https://www.youtube.com/embed/RgMM4RJK-g8?si=W1LUFK60iqWr0hCy">
+ <!--------------------------------video de youtube---------------------------------------------->
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/JkW_RKQyBDE?si=dlRK5nw57ChbGPiV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </figure>
+                    </div>
+                    
+                    <ul class="tags">
+                       <!---       <li><a href="/contact-us##search_query=Guía del Egresado">Guía del Egresado</a></li>------->  
+                    <!---          <li><a href="/contact-us##search_query=microsoft teams">microsoft teams</a></li>------->  
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </main>
 
   <!-- Footer ------------------------------------------------------------------------------------------------>
     <div class="footer">
@@ -516,12 +514,91 @@
         const searchInput = document.getElementById('search');
         const searchResults = document.getElementById('search-results');
         const resultsContainer = document.getElementById('results-container');
-        
+        <!--------------------------------------------envcuesta de caritas-------------------------->      
+ 
+
+<div class="encuesta-container">
+        <div class="pregunta">¿La información te ayudó a resolver tu consulta?</div>
+        <div class="opciones">
+            <div class="opcion" onclick="seleccionarOpcion(this, 'Sí')">Sí</div>
+            <div class="opcion" onclick="seleccionarOpcion(this, 'No')">No</div>
+        </div>
+        <button class="enviar-btn" onclick="enviarRespuesta()">Enviar respuesta</button>
+        <div id="mensaje" class="mensaje"></div>
+    </div>
+
+    <script>
+        let respuestaSeleccionada = null;
+        const scriptURL = 'TU_SCRIPT_URL_AQUI'; // Reemplaza con tu URL de Apps Script
+
+        function seleccionarOpcion(elemento, respuesta) {
+            // Remover selección previa
+            document.querySelectorAll('.opcion').forEach(op => {
+                op.classList.remove('seleccionada');
+            });
+            
+            // Seleccionar nueva opción
+            elemento.classList.add('seleccionada');
+            respuestaSeleccionada = respuesta;
+        }
+
+        function enviarRespuesta() {
+            const mensajeDiv = document.getElementById('mensaje');
+            
+            if (!respuestaSeleccionada) {
+                mostrarMensaje('Por favor selecciona una opción', 'error');
+                return;
+            }
+            
+            // Mostrar mensaje de carga
+            mostrarMensaje('Enviando respuesta...', 'exito');
+            
+            // Enviar datos a Google Sheets
+            fetch(scriptURL, {
+                method: 'POST',
+                body: new URLSearchParams({
+                    'respuesta': respuestaSeleccionada,
+                    'fecha': new Date().toLocaleString(),
+                    'pagina': window.location.href
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    mostrarMensaje('¡Gracias por tu respuesta!', 'exito');
+                    // Opcional: resetear selección después de enviar
+                    setTimeout(() => {
+                        document.querySelectorAll('.opcion').forEach(op => {
+                            op.classList.remove('seleccionada');
+                        });
+                        respuestaSeleccionada = null;
+                        mensajeDiv.style.display = 'none';
+                    }, 3000);
+                } else {
+                    throw new Error('Error en la respuesta del servidor');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                mostrarMensaje('Hubo un error al enviar tu respuesta. Por favor intenta nuevamente.', 'error');
+            });
+        }
+
+        function mostrarMensaje(texto, tipo) {
+            const mensajeDiv = document.getElementById('mensaje');
+            mensajeDiv.textContent = texto;
+            mensajeDiv.className = 'mensaje ' + tipo;
+            mensajeDiv.style.display = 'block';
+        }
+
+
+
+
+      <!--------------------------------------------------------------fin de la carita de encuesta ------------>  
        
     <!-- ------------------------------------Base de datos de búsqueda------------------------------------------->
         const searchDatabase = [
-            { title: "Tutorial Pagos Virtuales", url: "Pagos_Virtuales.html", description: "Guía para realizar pagos virtuales en el sistema" },
-            { title: "Cómo realizar trámites virtuales", url: "Como_Realizar_Tramites_Virtuales.HTML", description: "Procedimiento para trámites en línea" },
+            { title: "Tutorial Pagos Virtuales", url: "Matricula.html", description: "Guía para realizar pagos virtuales en el sistema" },
+            { title: "Cómo realizar trámites virtuales", url: "Como-Realizar-Tramites-Virtuales.html", description: "Procedimiento para trámites en línea" },
             { title: "Acceso a correo institucional", url: "Ingresarcorreoinstitucional.html", description: "Instrucciones para ingresar al correo institucional" },
             { title: "Aprende a ingresar a tus clases virtuales", url: "Aprende_a_ingresar_a_tus_clases virtuales.html", description: "Aprende a ingresar a tus clases virtuales" },
             { title: "Guía del egresado", url: "Guia_del_Egresado.html", description: "Guia del Egresado" },
@@ -593,7 +670,6 @@
         });
     });
     </script>
-
     <!-- Scripts externos -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/pdf.min.js"></script>
