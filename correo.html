@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>CONTACTO CARRION - Instituto Carrión</title>
-  <link rel="stylesheet" href="https://scontent.flim2-6.fna.fbcdn.net/v/t39.30808-6/506410584_1922412321946088_2073086972235835171_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHUkb7njnIpeziW382Hq6I_0VjPq-cTyhXRWM-r5xPKFUsu4bmIU2YuSBtRMh9sPwbVodIUr6Ol6bR8f0cloIDI&_nc_ohc=Z0rcG0LDz00Q7kNvwF2hlpU&_nc_oc=Admf_naPlYPAgShVuDS-voqvW6qHUvpwKg6lV_LhUPPbWAdRjXje2FXsZ_tM-AlKqxs&_nc_zt=23&_nc_ht=scontent.flim2-6.fna&_nc_gid=-XtZrKE6J_1HikVdEhbsHg&oh=00_AfNV9_jiCAwAnitbsFWSKtH3YhDL0mGFALU7li6t8-cI4A&oe=6858F0C9">
-  <style>
+   <style>
 <!----------------------------------------------------------codigo de la encuesta formato--------------------------------------->
 .contenedor-principal {
     display: flex;
@@ -200,7 +199,89 @@
       display: block;
       color: #333;
       transition: background-color 0.2s;
-   
+		
+
+
+.video-popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(13, 27, 42, 0.9);
+      z-index: 2000;
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .video-popup-container {
+      background-color: white;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 900px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .video-popup-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e1e4e8;
+    }
+
+    .video-popup-title {
+      font-size: 20px;
+      font-weight: bold;
+      color: #0d1b2a;
+    }
+
+    .video-popup-close {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #0d1b2a;
+    }
+
+    .video-popup-content {
+      width: 100%;
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      overflow: hidden;
+    }
+
+    .video-popup-content iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Botón para abrir el video */
+    .video-btn {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 20px auto;
+      display: block;
+      transition: background-color 0.3s;
+    }
+
+    .video-btn:hover {
+      background-color: #45a049;
+    }
   </style>
 </head>
 <body>
@@ -209,7 +290,6 @@
 <div class="header-container">
   <img class="header-image" src="https://raw.githubusercontent.com/ConsultasyTramites/Servicioalestudiante/main/SAE_2800x400.png" alt="Banner SAE" width="100%">
 </div>
-
 
 <!-- Contenedor separado para el buscador -->
 <div class="search-container">
@@ -311,7 +391,8 @@
                             <span class="flag-icon flag-icon-es"></span>
                             <span class="language-name">Spanish</span>
                         </div>
-                                                    <div class="languages">
+                        
+                            <div class="languages">
                                 
                                     
                                         <div>
@@ -372,7 +453,7 @@
             
                 
                     
-                        <a href="#" class="bread-crumb-active no-click" data-helpjuice-element="Active Bread Crumb Link" data-helpjuice-attributes="font_size,color">Programa Especial de Titulación - PET</a>
+                        <a href="#" class="bread-crumb-active no-click" data-helpjuice-element="Active Bread Crumb Link" data-helpjuice-attributes="font_size,color">Plataformas Digitales</a>
                     
                 
             
@@ -392,99 +473,197 @@
                 <div class="title" data-helpjuice-element="Article Title" data-helpjuice-attributes="visibility,background">                  
                 </div>
             </header>
-<!---------------- MALLAS CURRICULARES  ---------------------------------------------------------->    
-     
-<div class="wrapper" id="content-article" data-helpjuice-component="Article Feedback Wrapper" style="margin-left: -20px; font-size: 0.9em;">
+ <!---------------- MALLAS CURRICULARES  ---------------------------------------------------------->    
+   <div class="wrapper" id="content-article" data-helpjuice-component="Article Feedback Wrapper" style="margin-left: -20px; font-size: 0.9em;">
     <article class="article article-question" data-controller="feedbacks" data-feedbacks-load-form-value="/admin/feedbacks/comments/new?question_id=3231953">
         <header>
             <div class="title">
-                <h1 style="font-size: 1.2em;">Programa Especial de Titulación - PET</h1>
+                <h1 style="font-size: 1.2em;">Plataformas Digitales</h1>
             </div>
         </header>
- <!----------------¿CÓMO ME MATRICULO AL PROGRAMA ESPECIAL DE TITULACIÓN?---------------------------->       
-        <div class="fr-view" data-action="mouseup->feedbacks#update" data-controller="glossary" data-glossary-url-value="/glossary_terms.json">
+ <!----------------Acceso a tu Correo Carrión------------------------------->       
+              <div class="fr-view" data-action="mouseup->feedbacks#update" data-controller="glossary" data-glossary-url-value="/glossary_terms.json">
             <div class="helpjuice-article-body-content helpjuice-editor-content">
-                <!-- ¿CÓMO ME MATRICULO AL PROGRAMA ESPECIAL DE TITULACIÓN? -->
-                <div class="helpjuice-accordion">
-                    <h2 class="helpjuice-accordion-title" id="salud-y-seguridad-ocupacional" style="font-size: 1.1em;">
-                        ¿CÓMO ME MATRICULO AL PROGRAMA ESPECIAL DE TITULACIÓN?
+                              <div class="helpjuice-accordion">
+                    <h2 class="helpjuice-accordion-title" id="CORREO">
+                       CORREO
+                        <span class="accordion-icon">+</span>
+                    </h2>
+                    <div class="helpjuice-accordion-body">
+                        <div class="pdf-container">
+ <h1>Pasos para acceder a tu correo CARRION</h1>
+    
+    <p><a href="https://www.facebook.com/share/v/1SDFPP3S7W/" target="_blank">Más información en Facebook</a></p>
+    
+    <ol>
+        <li>
+            <strong>Ingresa a Outlook:</strong> 
+            <a href="https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=174&ct=1742660741&rver=7.5.2211.0&wp=MBI_SSL&wreply=https%3a%2f%2foutlook.live.com%2fowa%2f%3fnlp%3d1%26cobrandid%3dab0455a0-8d03-46b9-b18b-df2f57b9e44c%26RpsCsrfState%3d07dcf3bc-9218-fc8d-2123-912dc1ca1652&id=292841&aadredir=1&CBCXT=out&lw=1&fl=dob%2cflname%2cwld&cobrandid=ab0455a0-8d03-46b9-b18b-df2f57b9e44c" target="_blank">
+                https://login.live.com/login.srf...
+            </a>
+        </li>
+        
+        <li>
+            <strong>Escribe tu correo institucional:</strong>
+            <ul>
+                <li>El formato es: código@acarrion.edu.pe</li>
+                <li>(Ejemplo: C23AE02Y72@acarrion.edu.pe)</li>
+            </ul>
+        </li>
+        
+        <li>
+            <strong>Ingresa tu contraseña:</strong>
+            <ul>
+                <li>Usa la contraseña que te proporcionaron o la que hayas actualizado recientemente.</li>
+            </ul>
+        </li>
+        
+        <li>
+            <strong>¿Problemas con tu usuario y contraseña?</strong>
+            <ul>
+                <li>
+                    Por favor llena el siguiente formulario para que uno de nuestros asesores pueda brindarte apoyo: 
+                    <a href="https://forms.office.com/r/sVmHiFWafY" target="_blank">https://forms.office.com/r/sVmHiFWafY</a>
+                </li>
+            </ul>
+        </li>
+    </ol>
+				 </div>
+                        	</div>
+                        <div class="pdf-actions">
+                             
+<!------------------------link pdf de descarga-------------------->
+<!-----<a href="https://drive.google.com/file/d/1YcsF8Q9NH4V0fBD7VN2c4ypeprzW1SjF/view" target="_blank" class="download-btn">Descargar PDF</a>---->
+<!-------------------------------------------------->
+                        </div>
+                    </div>
+                </div>
+                
+    <!----------------------CAMPUS VIRTUAL------------------->
+                  <div class="helpjuice-accordion">
+                    <h2 class="helpjuice-accordion-title" id="Cosmiatria">
+                        CAMPUS VIRTUAL
                         <span class="accordion-icon">+</span>
                     </h2>
                     <div class="helpjuice-accordion-body">
                         <div class="pdf-container">
                            
- <h1>Inscripción en Titulación PET</h1>
-    <p>Puedes realizar tu inscripción en el siguiente enlace:</p>
-    <a href="https://producto.acarrion.edu.pe/titulacionpet-2/" target="_blank">Inscribirse aquí</a>
+<style>  body {
+            color: #000000; /* Negro puro */
+            font-family: Arial, sans-serif;
+        }</style>
+<h1>Bienvenidos al campus virtual Carrión</h1>
+<p style="color: black;">
+  <li style="color: black;">Esta plataforma en línea pone a tu disposición los documentos y materiales de tus clases.</li> 
+  <li style="color: black;">Desde aquí podrás acceder a videoconferencias de tus cursos, efectuar el envío de tus tareas, 
+  y mantenerte informado de las actividades que se realizan en tus cursos.</li>
+</p>
+  <ul>
+    <li style="color: black;">
+  Para acceder, ingresa con tu usuario y contraseña, mediante el siguiente enlace:</li>
+  <a href="https://campusvirtual.acarrion.edu.pe/acceso.cgi" target="_blank" style="color: blue;">Acceso al campus</a>
+</li>
+    <li style="color: black;">
+      Para más información, visita estos tutoriales.
+    </li>
+  </ul>
+
+<!-- Botón para abrir el video -->
+<button id="openVideoBtn">Ver video tutorial</button>
+
+<!-- Contenedor del popup (fondo oscuro) -->
+<div id="videoPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:1000;">
+  <!-- Contenido del popup (video y botón cerrar) -->
+  <div id="popupContent" style="position:relative; width:80%; height:80%; margin:5% auto; background-color:#000;">
+    <button id="closeBtn" style="position:absolute; top:10px; right:10px; z-index:1001;">Cerrar</button>
+    <iframe id="videoFrame" width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
+  </div>
 </div>
 
- <div style="margin-top: 10px;">
-                        <img src="https://scontent.flim2-2.fna.fbcdn.net/v/t39.30808-6/514223775_1935728260614494_2517982559205997914_n.jpg?_nc_cat=100&cb=99be929b-ca288af0&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEUYCb4qcRFcNExxnaverrr0N_0wC3qkdDQ3_TALeqR0NgybcsCfTZcJxdcPzpJH-yVKnsUbqAc2B8AeVzAG6g1&_nc_ohc=B6Gwwzg_-rsQ7kNvwHdbZDA&_nc_oc=AdngvOrtNHWIRKDHgMhMVcB2d4mT_-mZu0xq9Rj-NtM_b571-2CRNsmkVPxx8g9XfAQ&_nc_zt=23&_nc_ht=scontent.flim2-2.fna&_nc_gid=YqhUT27CDylfPTb69aLl-g&oh=00_AfO1zSmnFx6LT8KE9EEUVykqtY0ba-4ZN0KR1q4i5NJ15w&oe=686373AD" alt="Centro de Idiomas" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px;">
+<script>
+  const popup = document.getElementById("videoPopup");
+  const openBtn = document.getElementById("openVideoBtn");
+  const closeBtn = document.getElementById("closeBtn");
+  const videoFrame = document.getElementById("videoFrame");
+  const popupContent = document.getElementById("popupContent");
+
+  const videoURL = "https://www.youtube.com/embed/_QYklKsyFKo?si=IxlPg0rOkPhOoyE7";
+
+  openBtn.addEventListener("click", function () {
+    popup.style.display = "block";
+    videoFrame.src = videoURL;
+  });
+
+  function closePopup() {
+    popup.style.display = "none";
+    videoFrame.src = ""; // Detiene el video
+  }
+
+  closeBtn.addEventListener("click", closePopup);
+
+  popup.addEventListener("click", function (event) {
+    // Solo cerrar si se hace clic en el fondo, no en el contenido
+    if (event.target === popup) {
+      closePopup();
+    }
+  });
+</script>
+</script>
+ </div>
                     </div>
-                        </div>
+                </div>
+
+                       </div>
                         <div class="pdf-actions">
-                            
-<!------------------------link pdf de descarga-------------------->
-<!----- <a href="https://drive.google.com/file/d/1YcsF8Q9NH4V0fBD7VN2c4ypeprzW1SjF/view" target="_blank" class="download-btn">Descargar PDF</a>---->
-<!-------------------------------------------------->
-                        </div>
-                    </div>
-                   </div>
-  <!----------¿CÓMO OBTENGO MI ACTA DE APROBACIÓN DEL PROGRAMA ESPECIAL DE TITULACIÓN?--------- -->
+                         <!----- <a href="https://drive.google.com/file/d/1_bc9_IAk5hLeQMRlNeYBRdr3lNcepf63/view" target="_blank" class="download-btn">Descargar PDF</a>--->
+                       
+
+  <!---------------TEAMS--- -->
                 <div class="helpjuice-accordion">
                     <h2 class="helpjuice-accordion-title" id="farmacia">
-                        ¿CÓMO OBTENGO MI ACTA DE APROBACIÓN DEL PROGRAMA ESPECIAL DE TITULACIÓN?
+                       TEAMS
                         <span class="accordion-icon">+</span>
                     </h2>
                     <div class="helpjuice-accordion-body">
-                        <div class="pdf-container">
-                                
-     <p style="font-size: 0.95em;">
-                        Los alumnos del <strong>PROGRAMA ESPECIAL DE TITULACIÓN</strong> al finalizar con éxito sus 3 módulos reciben su <strong>ACTA DE APROBACIÓN PET</strong> a través de:
-                    </p>
-                    
-                    <ul style="font-size: 0.95em;">
-                        <li>Correo institucional</li>
-                        <li>Correo personal registrado</li>
-                    </ul>
+                 Acceso a Microsoft Teams
+ <p>
+    A través de esta herramienta podrás acceder a reuniones virtuales, compartir archivos, mantener conversaciones organizadas por equipos o grupos, y realizar tus actividades de manera eficiente y segura.
+  </p>
+  <ul>
+    <li>
+      Para acceder, ingresa con tu usuario y contraseña (correo institucional), mediante el siguiente enlace:
+      <a href="https://teams.microsoft.com/v2/" target="_blank">Acceso a Teams</a>
+    </li>
+    <li>
+      Para más información, visita estos tutoriales.
+    </li>
+    <li>
+      Manual de ingreso a las clases Teams. (PDF)
+    </li>
+  </ul>
+<!----------------pdf y esta integrado desde googledocs----------------------------->       
 
-                    <p style="font-size: 0.95em;">
-                        El plazo de atención del envío es de <strong>15 días hábiles</strong> después de haber culminado su 3er módulo.
-                    </p>
+       <div class="pdf-container">
+<iframe
+  src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/ConsultasyTramites/Servicioalestudiante/main/MICTEAMS.pdf&embedded=true"
+  width="100%"
+  height="600px"
+  style="border: none;">
+</iframe>
                         </div>
-                        <div class="pdf-actions">
-                            <!---- <a href="https://drive.google.com/file/d/1_bc9_IAk5hLeQMRlNeYBRdr3lNcepf63/view" target="_blank" class="download-btn">Descargar PDF</a>---->
-                        </div>
+                                               
                     </div>
                 </div>
- </div>
- <!-----------------------¿CUÁNTO TIEMPO DE VALIDEZ TIENE MI CERTIFICADO DE INGLÉS?----------------------->
-                <div class="helpjuice-accordion">
-                    <h2 class="helpjuice-accordion-title" id="fisioterapia">
-                        ¿CUÁNTO TIEMPO DE VALIDEZ TIENE MI CERTIFICADO DE INGLÉS?
-                        <span class="accordion-icon">+</span>
-                    </h2>
-                    <div class="helpjuice-accordion-body">
-                        <div class="pdf-container">
-                          <h1>Vigencia del Acta de Aprobación del PET</h1>
-    
-    <p>Tu <strong>Acta de Aprobación del PET</strong> tiene vigencia de <strong>3 años</strong>. Pasado ese tiempo, si no has tramitado tu <strong>TÍTULO PROFESIONAL</strong>, deberás volver a llevar el <strong>Programa Especial de Titulación</strong>.</p>
-
-
-                        </div>
-                        <div class="pdf-actions">
-                             <!----<a href="https://drive.google.com/file/d/1IYN_jFU0OPBLJsbNcE07fhZNrpsNPCMx/view" target="_blank" class="download-btn">Descargar PDF</a>--->
-                        </div>
-                    </div>
-              
+          
 <!----------------vacio----------------->
-            
-                        
-                        <div class="pdf-actions">
-                             <!----<a href="https://drive.google.com/file/d/1yYYpdPyOgmQkMnyy94xU3ot9XBuDIn6i/view" target="_blank" class="download-btn">Descargar PDF</a>--->
-                        </div>
+                
+                     <!----   <div class="pdf-actions">
+                             <a href="https://drive.google.com/file/d/1AKZFhr9yjC9BTo6cz_I7tGTxiXdSdjq2/view?usp=sharing" target="_blank" class="download-btn">Descargar PDF</a>
+                        </div>-->
                     </div>
                 </div>
+
+ 
 
   <style>
     /* Estilos anteriores se mantienen igual */
@@ -554,7 +733,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   <!-------------------links parte de abajo de pdf-------------------------------------->          
-             <!--<ul class="tags" data-helpjuice-element="Article Tags" data-helpjuice-attributes="visibility">
+          <!---  <ul class="tags" data-helpjuice-element="Article Tags" data-helpjuice-attributes="visibility">
                 
                     <li><a href="/contact-us##search_query=matrícula" data-helpjuice-element="Tag Link" data-helpjuice-attributes="font_size,color">matrícula</a></li>
                 
@@ -566,7 +745,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                     <li><a href="/contact-us##search_query=mayo" data-helpjuice-element="Tag Link" data-helpjuice-attributes="font_size,color">mayo</a></li>
                 
-            </ul>---->
+            </ul>
              <!-----------------------------------------envcuesta de caritas-------------------------------------------------->         
  
     <!-- Contenido del artículo -->
@@ -697,6 +876,10 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="footer-right-row">
                 <img class="footer-right-row-icon" src="https://static.helpjuice.com/helpjuice_production/uploads/upload/image/14255/3184049/1685552418116-social_whatsapp.png" width="22px">
                 <a target="_blank" href="https://api.whatsapp.com/send?phone=51933631733" class="footer-right-row-text"> 933 631 733</a>
+
+<img class="footer-right-row-icon" 
+src="https://scontent.flim2-6.fna.fbcdn.net/v/t39.30808-6/514061005_1935950100592310_8075489603151609274_n.jpg?_nc_cat=101&cb=99be929b-ca288af0&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEI40kXBAHBF2XR18biqoin5RXDlMsGDqTlFcOUywYOpHy7u1AHwlQUDtS2A2EIAlp_jfZQoHZKtgYrnTuSP_w8&_nc_ohc=5Qg85gddXeAQ7kNvwEut3DD&_nc_oc=AdlvErp3RniwkmKobpiCWecdLK8aPZNiN12ZYolSh3X85vWfjM7geVxk-zdy4FKa2DE&_nc_zt=23&_nc_ht=scontent.flim2-6.fna&_nc_gid=T3KvVqRgIw75YhtR7QYmiQ&oh=00_AfNx9YQ42i6q5d_QnfULF3zpFCzFE8B-3eJXfAbrTcv_Ng&oe=6863CBF7" width="30px">
+
             </div>
             <!--<div class="footer-right-row">
                 <img class="footer-right-row-icon" src="https://static.helpjuice.com/helpjuice_production/uploads/upload/image/14255/2928846/social_phoneolid.svg">
