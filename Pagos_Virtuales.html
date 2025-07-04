@@ -566,18 +566,19 @@
 <!--Prueba-->
 <!--START_COMPONENT_ARTICLE_FEEDBACK_WRAPPER-->
 
-<!-----------------------------------zona del PDF---------------------------------------------------------------------------------------------->
+<!---------------------------------ZONA DEL MENU LATERAL IZQUIERDO ------------------------------------------------>
 
     <!-- Contenedor principal con menú lateral y contenido -->
 <div class="main-container">
     <!-- Menú lateral -->
     <div class="sidebar">
         <div class="menu-item">
-            <div class="menu-title" onclick="toggleSubmenu(this)">Conoce tu malla</div>
+            <div class="menu-title" onclick="toggleSubmenu(this)">Mis pagos</div>
             <div class="submenu">
-                <a href="#" onclick="showContent('Pagos')">Pagos en el Instituto Carrión</a>
-                <a href="#" onclick="showContent('comopago')"> ¿Cómo realizar mis pagos?</a>
-                <a href="#" onclick="showContent('banco')">Bancos afiliados</a>
+                <a href="#" onclick="showContent('Pagos')">¿Cómo realizar mis pagos?</a>
+                <a href="#" onclick="showContent('pendiente')">Consulta tus pagos pendientes</a>
+                <a href="#" onclick="showContent('afiliado')">Bancos afiliados y Videotutoriales</a>
+		<a href="#" onclick="showContent('infografia')">Infografía</a>
             </div>
         </div>
         
@@ -609,43 +610,68 @@
         
   <!-- Contenido de PAGOS EN EL INSTITUTO CARRIÓN -->
 <div id="Pagos" class="content-section" style="display: none;">
-  <p>Puedes ver tus deudas pendientes desde tu cuenta de CarrionNet, ingresando a la sección <strong>Pagos</strong>.</p>
+  <h2>¿Cómo realizar mis pagos?</h2>
+  <p>
+    En el <strong>Instituto Carrión</strong> te ofrecemos varias opciones para realizar tus pagos de manera rápida, segura y desde donde estés:
+  </p>
 
-  <p>Allí también encontrarás:</p>
+  <h3>1. Banca Móvil o por Internet</h3>
+  <p>Desde las apps de Scotiabank, Interbank, BBVA o BCP:</p>
   <ul>
-    <li>Información sobre cómo realizar tus pagos.</li>
-    <li>Acceso a nuestros Tarifarios y a la Política de Pagos.</li>
+    <li>Ingresa a la app de tu banco.</li>
+    <li>Ve a <strong>Pago de Servicios</strong>.</li>
+    <li>Busca <em>Instituto Carrión</em> (el nombre puede variar ligeramente según el banco).</li>
+    <li>Selecciona <strong>Pensiones</strong> o <strong>Trámites Académicos</strong>.</li>
+    <li>Ingresa tu <strong>código de estudiante en mayúscula</strong> y confirma el pago.</li>
   </ul>
 
-  <img 
-    src="https://scontent.flim2-5.fna.fbcdn.net/v/t39.30808-6/514414920_1940969776757009_5490060541221370610_n.jpg?_nc_cat=104&amp;cb=99be929b-ca288af0&amp;ccb=1-7&amp;_nc_sid=127cfc&amp;_nc_eui2=AeFfnzOUrDotnGQgwGnvIdwW22XWKaG1RIrbZdYpobVEivAZnb4JocaMZrHGqjsQKZHmed14_83HfFeD8EbpqHNg&amp;_nc_ohc=FWKgsHZRr_sQ7kNvwGhz7V0&amp;_nc_oc=AdkkavvBL02-dc_Q6foL3h9jZXPxgGA4s21q-CAmIuGMNzcpUeQAy0qNKyoLLgzgQ70&amp;_nc_zt=23&amp;_nc_ht=scontent.flim2-5.fna&amp;_nc_gid=UaMx6cMwy_FYMP-fJSzxiw&amp;oh=00_AfPn7TEgYWzZ-FRrLZtqbG9_WYs-BebUDZOE9JLqiUKFNQ&amp;oe=686A2DC2" 
-    alt="Imagen informativa sobre pagos - Instituto Carrión" 
-    style="max-width: 100%; height: auto; margin-top: 15px;" 
-  />
+  <h3>2. Billetera Digital (Yape)</h3>
+  <ul>
+    <li>Abre la app de Yape y ve a <strong>“Yapear servicios”</strong>.</li>
+    <li>En la categoría <strong>Educación</strong>, selecciona <em>Inst. Carrión</em>.</li>
+    <li>Elige el tipo de pago.</li>
+    <li>Ingresa tu código de estudiante, elige el recibo y realiza el pago.</li>
+  </ul>
+
+  <h3>3. Pasarela de pagos</h3>
+  <ul>
+    <li>Ingresa a la pasarela de pagos desde: 
+      <a href="https://pagos.acarrion.edu.pe:8443/login" target="_blank">https://pagos.acarrion.edu.pe:8443/login</a>
+    </li>
+    <li>Introduce tu código de estudiante y contraseña.</li>
+    <li>Selecciona las obligaciones a cancelar.</li>
+    <li>Elige el medio de pago (Visa, MasterCard, etc.).</li>
+    <li>Haz clic en <strong>“Paga aquí”</strong> para completar la operación.</li>
+  </ul>
+
 
 
         </div>
-        
-        <!-- 1------------------------------****Pagos en el Instituto Carrión*****------------------------------------->
- <div id="Pagos" class="content-section" style="display: none;">
-  <p>Puedes ver tus deudas pendientes desde tu cuenta de CarrionNet, ingresando a la sección <strong>Pagos</strong>.</p>
-
+    <!-------------------------------------------------------------------->    
+        <div id="pendiente" class="content-section" style="display: none;">
+          
+             <h2>📌 Consulta tus pagos pendientes</h2>
+  <p>
+    Puedes ver tus deudas pendientes desde tu cuenta de <strong>CarrionNet</strong>, ingresando al menú <strong>Pagos</strong>.
+  </p>
   <p>Allí también encontrarás:</p>
   <ul>
     <li>Información sobre cómo realizar tus pagos.</li>
-    <li>Acceso a nuestros Tarifarios y a la Política de Pagos.</li>
+    <li>Acceso a nuestros <em>Tarifarios</em> y a la <em>Política de Pagos</em>.</li>
   </ul>
-
-  <img
+<img
     class="header-image"
     src="https://raw.githubusercontent.com/ConsultasyTramites/Servicioalestudiante/main/pagos1.JPG"
     alt="Imagen pagos Carrion"
     style="width: 100%; max-width: 800px; display: block; margin: 20px auto; border-radius: 8px;">
 </div>
+
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
     
         
- <!------------------- ¿Cómo realizar mis pagos?-------------------------------------->
-               <div id="comopago" class="content-section" style="display: none;">
+ <!-------------------Bancos afiliados y Videotutoriales----------------------------------->
+               <div id="compago" class="content-section" style="display: none;">
             <h2 class="payment-title">En el Instituto Carrión te ofrecemos varias opciones para realizar tus pagos de manera rápida, segura y desde donde estés:</h2>
           
 <h3 class="method-title">Banca Móvil o por Internet</h3>
@@ -733,9 +759,18 @@
  <span class="tip-icon"></span>
     <p class="tip-text">Si tienes dudas sobre tus pagos, puedes comunicarte con la Oficina de Créditos y Cobranzas o revisar tu estado de cuenta en CarrionNet.</p>
 </div>
+ <!------------------INFOGRAFIA-------------------------------->
+<div id="infografia" class="content-section" style="display: block;">
+    <div class="pdf-container">
+      <iframe
+        src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/ConsultasyTramites/Servicioalestudiante/main/MICTEAMS.pdf&embedded=true"
+        title="Infografía - Mi Teams">
+      </iframe>
+    </div>
+  </div>
 
-<!-- BANCOS AFILIADOS-------------------------------------------------------->
-    <div id="banco" class="content-section" style="display: none;">
+<!-- BANCOS AFILIADOS---------------------------------------------------------------->
+    <div id="afiliado" class="content-section" style="display: none;">
   <h2 class="payment-title">
     En el Instituto Carrión te ofrecemos varias opciones para realizar tus pagos de manera rápida, segura y desde donde estés:
   </h2>
@@ -791,8 +826,9 @@
 </script>
 
 
-            
-   <!-----------------------------------------envcuesta de caritas-------------------------------------------------->         
+
+
+   <!----------------envcuesta de caritas-------------------------------------------------->         
  
     <!-- Contenido del artículo -->
 </article>
