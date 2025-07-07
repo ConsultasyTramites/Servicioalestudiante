@@ -6,42 +6,51 @@
   <link rel="stylesheet" href="https://scontent.flim2-6.fna.fbcdn.net/v/t39.30808-6/506410584_1922412321946088_2073086972235835171_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHUkb7njnIpeziW382Hq6I_0VjPq-cTyhXRWM-r5xPKFUsu4bmIU2YuSBtRMh9sPwbVodIUr6Ol6bR8f0cloIDI&_nc_ohc=Z0rcG0LDz00Q7kNvwF2hlpU&_nc_oc=Admf_naPlYPAgShVuDS-voqvW6qHUvpwKg6lV_LhUPPbWAdRjXje2FXsZ_tM-AlKqxs&_nc_zt=23&_nc_ht=scontent.flim2-6.fna&_nc_gid=-XtZrKE6J_1HikVdEhbsHg&oh=00_AfNV9_jiCAwAnitbsFWSKtH3YhDL0mGFALU7li6t8-cI4A&oe=6858F0C9">
   <style>
 <!----------------------------------------------------------codigo de la encuesta formato--------------------------------------->
-.contenedor-principal {
-    display: flex;
-    justify-content: flex-end; /* Alinea el contenido a la derecha */
-    padding: 20px;
-    /* Opcional: añade un ancho máximo al contenedor principal si es necesario */
-    max-width: 1200px;
-    margin: 0 auto; /* Centra el contenedor principal si tiene max-width */
-}
+ /* Estilos para la encuesta - modificados para alinear a la derecha */
 
-.encuesta-container {
-    font-family: Arial, sans-serif;
-    width: 350px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    background-color: white;
-    color: #333;
-    margin-left: 20px; /* Mantiene el espacio a la izquierda del contenedor */
-    margin-right: 0; /* Elimina cualquier margen derecho */
-    /* Añade posición sticky si quieres que siga al hacer scroll */
-    position: sticky;
-    top: 20px;
-    /* Asegura que no afecte el flujo del contenido principal */
-    align-self: flex-start;
-}
+    .contenedor-principal {
+      display: flex;
+      justify-content: space-between; /* Cambiado de flex-end a space-between */
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative; /* Añadido para posicionamiento relativo */
+    }
+
+    .contenido-principal {
+      width: calc(100% - 400px); /* Ajusta el ancho del contenido principal */
+    }
+
+    .encuesta-container {
+      font-family: Arial, sans-serif;
+      width: 350px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      background-color: white;
+      color: #333;
+      position: sticky;
+      top: 20px;
+      align-self: flex-start;
+      margin-left: 20px;
+      margin-right: 0;
+      right: 20px; /* Añadido para posicionar a la derecha */
+    }
+
     .pregunta {
       font-size: 18px;
       margin-bottom: 15px;
       font-weight: bold;
+      text-align: center;
     }
+    
     .opciones {
       display: flex;
       justify-content: space-between;
       margin-bottom: 15px;
     }
+    
     .opcion {
       padding: 10px 20px;
       border: 2px solid #4CAF50;
@@ -52,13 +61,16 @@
       margin: 0 5px;
       transition: all 0.3s;
     }
+    
     .opcion:hover {
       background-color: #f0f0f0;
     }
+    
     .opcion.seleccionada {
       background-color: #4CAF50;
       color: white;
     }
+    
     .enviar-btn {
       background-color: #4CAF50;
       color: white;
@@ -69,23 +81,28 @@
       font-size: 16px;
       width: 100%;
     }
+    
     .enviar-btn:hover {
       background-color: #45a049;
     }
+    
     .mensaje {
       margin-top: 15px;
       padding: 10px;
       border-radius: 5px;
       display: none;
     }
+    
     .exito {
       background-color: #dff0d8;
       color: #3c763d;
     }
+    
     .error {
       background-color: #f2dede;
       color: #a94442;
     }
+
 <!------------------------------------------------------------------------------------------------------------------------->
      * {
       margin: 0;
@@ -200,7 +217,71 @@
       display: block;
       color: #333;
       transition: background-color 0.2s;
-   
+   <!---------------------------accordion----->
+   /* Estilos para los acordeones - Versión corregida */
+    .accordion-container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+
+    .helpjuice-accordion {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      overflow: hidden;
+      background: #fff;
+      color: #333;
+    }
+
+    .helpjuice-accordion-title {
+      padding: 15px 20px;
+      background: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      transition: background-color 0.3s;
+    }
+
+    .helpjuice-accordion-title:hover {
+      background: #45a049;
+    }
+
+    .accordion-icon {
+      font-size: 1.2em;
+      transition: transform 0.3s ease;
+    }
+
+    .helpjuice-accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      background-color: white;
+    }
+
+    .helpjuice-accordion-body.active {
+      max-height: 2000px; /* Valor suficientemente grande para contenido largo */
+    }
+
+    .helpjuice-accordion-content {
+      padding: 20px;
+    }
+
+    .pdf-container {
+      padding: 10px;
+    }
+
+    .pdf-container a {
+      color: #4CAF50;
+      text-decoration: none;
+    }
+
+    .pdf-container a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -444,59 +525,7 @@
                     </div>
                 </div>
                 
-    <!------------------------¿CÓMO OBTENGO MIS CERTIFICADOS DE PRÁCTICAS?---------------------------->
-             
-<div class="helpjuice-accordion">
-                    <h2 class="helpjuice-accordion-title" id="¿CÓMO OBTENGO MIS CERTIFICADOS DE PRÁCTICAS?">
-                        ¿CÓMO OBTENGO MIS CERTIFICADOS DE PRÁCTICAS?
-                        <span class="accordion-icon">+</span>
-                    </h2>
-                    <div class="helpjuice-accordion-body">
-                        <div class="pdf-container">
-                         
-  <h3>Trámite de Certificados de Prácticas Profesionales</h3>
 
-  <p>Después de haber realizado tus prácticas, debes tramitar los siguientes documentos que acreditan su realización:</p>
-  <ol>
-    <li>Certificado de Práctica INICIAL</li>
-    <li>Certificado de Práctica INTERMEDIA</li>
-    <li>Constancia de Práctica FINAL</li>
-  </ol>
-
-  <h3>Costo</h3>
-  <ol>
-    <li>Certificado de Práctica INICIAL: <strong>S/ 90.00</strong></li>
-    <li>Certificado de Práctica INTERMEDIA: <strong>S/ 90.00</strong></li>
-    <li>Constancia de Práctica FINAL: <strong>S/ 30.00</strong></li>
-  </ol>
-
-  <h3>Medios de Pago</h3>
-  <p>El pago se puede realizar en:</p>
-  <ol>
-    <li>Scotiabank (banco o app)</li>
-    <li>Interbank (solo por app o banca por internet)</li>
-  </ol>
-
-  <p>Al momento de pagar, debes indicar:</p>
-  <ol>
-    <li>Pago para el <strong>Instituto Carrión</strong></li>
-    <li>Servicio: <strong>Pagos Varios</strong></li>
-    <li><strong>DNI de estudiante</strong></li>
-  </ol>
-<h3>Costo</h3>
-  <ol>
-    <li>Certificado de Práctica INICIAL: <strong>S/ 90.00</strong></li>
-    <li>Certificado de Práctica INTERMEDIA: <strong>S/ 90.00</strong></li>
-    <li>Constancia de Práctica FINAL: <strong>S/ 30.00</strong></li>
-  </ol>
-
-                        </div>
-                        <div class="pdf-actions">
-
-                         <!----- <a href="https://drive.google.com/file/d/1_bc9_IAk5hLeQMRlNeYBRdr3lNcepf63/view" target="_blank" class="download-btn">Descargar PDF</a>--->
-                        </div>
-                    </div>
-                </div>
 
   <!-------------------¿DÓNDE TRAMITO MI DIPLOMA DE EGRESADO MALLA ASIGNATURAS Y DCB?---------- -->
                 <div class="helpjuice-accordion">
@@ -592,7 +621,56 @@
                         </div>
                     </div>
                 </div>
+    <!------------------------¿CÓMO OBTENGO MIS CERTIFICADOS DE PRÁCTICAS?---------------------------->
+             
+<div class="helpjuice-accordion">
+    <h2 class="helpjuice-accordion-title">
+     ¿CÓMO OBTENGO MIS CERTIFICADOS DE PRÁCTICAS?
+      <span class="accordion-icon">+</span>
+    </h2>
+    <div class="helpjuice-accordion-body">
+      <div class="helpjuice-accordion-content">
+        <div class="pdf-container">
+         <h3>Trámite de Certificados de Prácticas Profesionales</h3>
 
+  <p>Después de haber realizado tus prácticas, debes tramitar los siguientes documentos que acreditan su realización:</p>
+  <ol>
+    <li>Certificado de Práctica INICIAL</li>
+    <li>Certificado de Práctica INTERMEDIA</li>
+    <li>Constancia de Práctica FINAL</li>
+  </ol>
+
+  <h3>Costo</h3>
+  <ol>
+    <li>Certificado de Práctica INICIAL: <strong>S/ 90.00</strong></li>
+    <li>Certificado de Práctica INTERMEDIA: <strong>S/ 90.00</strong></li>
+    <li>Constancia de Práctica FINAL: <strong>S/ 30.00</strong></li>
+  </ol>
+
+  <h3>Medios de Pago</h3>
+  <p>El pago se puede realizar en:</p>
+  <ol>
+    <li>Scotiabank (banco o app)</li>
+    <li>Interbank (solo por app o banca por internet)</li>
+  </ol>
+
+  <p>Al momento de pagar, debes indicar:</p>
+  <ol>
+    <li>Pago para el <strong>Instituto Carrión</strong></li>
+    <li>Servicio: <strong>Pagos Varios</strong></li>
+    <li><strong>DNI de estudiante</strong></li>
+  </ol>
+<h3>Costo</h3>
+  <ol>
+    <li>Certificado de Práctica INICIAL: <strong>S/ 90.00</strong></li>
+    <li>Certificado de Práctica INTERMEDIA: <strong>S/ 90.00</strong></li>
+    <li>Constancia de Práctica FINAL: <strong>S/ 30.00</strong></li>
+  </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   <style>
     /* Estilos anteriores se mantienen igual */
     .helpjuice-accordion {
@@ -623,7 +701,7 @@
     }
     
     .helpjuice-accordion-body.active {
-        max-height: 650px;
+        max-height: 2000px;
     }
 </style>
 
