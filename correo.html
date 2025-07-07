@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>CONTACTO CARRION - Instituto Carrión</title>
    <style>
-<!----------------------------------------------------------codigo de la encuesta formato----------------------------------->
+<!--------------------------------------------------------codigo de la encuesta formato--------------------------------------->
 .contenedor-principal {
     display: flex;
     justify-content: flex-end; /* Alinea el contenido a la derecha */
@@ -86,7 +86,7 @@
       color: #a94442;
     }
 <!------------------------------------------------------------------------------------------------------------------------->
-   * {
+     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -199,183 +199,89 @@
       display: block;
       color: #333;
       transition: background-color 0.2s;
-    }
-<!----------------------------------------------------------------------------------->
- body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        
-       .header-container {
-    position: relative;
-    width: 100%;
-    height: 280px;
-    overflow: hidden;
-    border: none; /* Asegura que no haya bordes en la imagen encabezado */
-}
-        .main-container {
-            display: flex;
-            min-height: calc(100vh - 80px);
-        }
-        
-        .sidebar {
-            width: 250px;
-            background-color: #f0f0f0;
-            padding: 20px;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-        }
-        
-        .sidebar h2 {
-            margin-top: 0;
-            color: #333;
-        }
-        
-        .menu-item {
-            margin-bottom: 10px;
-        }
-        
-        .menu-title {
-            padding: 10px;
-            background-color: #ddd;
-            cursor: pointer;
-            font-weight: bold;
-            border-radius: 4px;
-        }
-        
-        .menu-title:hover {
-            background-color: #ccc;
-        }
-        
-        .submenu {
-            display: none;
-            padding-left: 15px;
-            margin-top: 5px;
-        }
-        
-        .submenu a {
-            display: block;
-            padding: 8px 10px;
-            color: #333;
-            text-decoration: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        
-        .submenu a:hover {
-            background-color: #ddd;
-        }
-        
-        .content {
-            flex: 1;
-            padding: 30px;
-            background-color: white;
-        }
-        
-        h1 {
-            color: #333;
-            margin: 0;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-        
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-        
-        th {
-            background-color: #f0f0f0;
-        }
-        
-        .faq {
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 4px;
-            margin-top: 20px;
-        }
-        
-        .content-section {
-            display: none;
-        }
-        
-        .content-section.active {
-            display: block;
-        }
-        
-        .empty-state {
-            text-align: center;
-            color: #888;
-            padding: 50px;
-            font-size: 18px;
-        }
-.menu-item a.active {
-        background-color: black;
-        color: white;
-        font-weight: bold;
-    }
-#pasoImg {
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  object-fit: contain;
-}
+		
 
-.video-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 20px;
-        margin-top: 20px;
-    }
-    
-    .video-item {
-        background: #f9f9f9;
-        border-radius: 8px;
-        padding: 15px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    
-    .video-container {
-        position: relative;
-        padding-bottom: 56.25%;
-        height: 0;
-        overflow: hidden;
-        margin-bottom: 10px;
-    }
-    
-    .video-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-    
-    .video-link {
-        display: inline-block;
-        margin-top: 10px;
-        color: #0066cc;
-        text-decoration: none;
-        font-weight: bold;
-    }
-    
-    .video-link:hover {
-        text-decoration: underline;
-    }
-    
-    .video-item h3 {
-        margin-top: 0;
-        color: #333;
+
+.video-popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(13, 27, 42, 0.9);
+      z-index: 2000;
+      display: none;
+      justify-content: center;
+      align-items: center;
     }
 
+    .video-popup-container {
+      background-color: white;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 900px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .video-popup-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e1e4e8;
+    }
+
+    .video-popup-title {
+      font-size: 20px;
+      font-weight: bold;
+      color: #0d1b2a;
+    }
+
+    .video-popup-close {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #0d1b2a;
+    }
+
+    .video-popup-content {
+      width: 100%;
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      overflow: hidden;
+    }
+
+    .video-popup-content iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Botón para abrir el video */
+    .video-btn {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 20px auto;
+      display: block;
+      transition: background-color 0.3s;
+    }
+
+    .video-btn:hover {
+      background-color: #45a049;
+    }
   </style>
 </head>
 <body>
@@ -398,6 +304,7 @@
     </div>
   </div>
 </div>
+
 <!-- ... (resto del HTML existente) ... -->
 
 <script>
@@ -539,7 +446,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     <!-- Aquí iría el resto de tu contenido HTML existente -->
-    
+
 
 <!-LOGO DE PESTAÑA ----------------------------------------------------------------------------------------------------------------------->
     <link rel="shortcut icon" type="image/*" href="https://ugc.production.linktr.ee/c150853f-f3d4-47aa-8a99-1605e440154e_WhatsApp-Image-2025-01-07-at-4.12.16-AM.jpeg?io=true&size=avatar-v3_0" />
@@ -551,21 +458,20 @@ document.addEventListener('DOMContentLoaded', function() {
     <meta name="keywords" content="Carrión alumno, portal Carrión alumno, Carrión intranet alumnos, campus virtual Carrión alumno, portal Carrión, contacto Carrión, numero de Carrión, instituto Carrión contacto, Carrión academico, correo Carrión, trámites Carrión, tarifario Carrión, canales de atención Carrión, matrícula Carrión" />
   
 <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------->    
-    
         
         <!-- Facebook Open Graph data -->
-        <meta property="og:title" content="Portal autoatención - Instituto Carrión" />
+        <meta property="og:title" content="Portal autoatención - Instituto SISE" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://conecta.Carrión.edu.pe/reglamento-de-titulacion-/reglamento-de-titulacion-" />
+  <!-----link de malla curricular--->      <meta property="og:url" content="https://conecta.sise.edu.pe/protege-tus-accesos/protege-tus-accesos" />
         
         <meta property="og:description" content="¿Tienes alguna o consulta? Ingresa al portal de autoatención al alumno para que puedas resolver todas tus dudas en cualquier momento." />
-        <meta property="og:site_name" content="Carrión" />
+        <meta property="og:site_name" content="SISE" />
         
         <!-- Twitter Card data -->
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="Portal autoatención - Instituto Carrión">
+        <meta name="twitter:title" content="Portal autoatención - Instituto SISE">
         <meta name="twitter:description" content="¿Tienes alguna o consulta? Ingresa al portal de autoatención al alumno para que puedas resolver todas tus dudas en cualquier momento.">
-        <meta name="twitter:image:src" content="">
+        <meta name="twitter:image:src" content="https://conecta.sise.edu.pehttps://static.helpjuice.com/helpjuice_production/uploads/upload/image/12017/direct/1745268639149/Pieza%2013%20NUEVOS.png">
         
     
     <!--FontsBarlow-->
@@ -584,7 +490,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     
-<meta name="question-id" content="2553972"><meta name="category-id" content="563822"><meta name="flow-id" content=""><meta name="recaptcha-site-key" content="6LcpGLYjAAAAAJtaowP1_pw6R12eDC592EcvHBJa"><meta name="require-contact-captcha" content="false"><meta name="current-language" content="es_ES"><meta name="knowledge-base-url" content="https://conecta.Carrión.edu.pe/"><meta name="current-user-id" content=""><meta name="ignore-users-analytics" content="false"><meta name="reading-timeout" content="10000"><meta name="account-subdirectory-prefix" content=""><meta name="current-account-id" content="12017"><meta name="account-subdomain" content="Carrión"><meta name="helpjuice-knowledge-base-url" content="https://Carrión.helpjuice.com/"></head>
+<meta name="question-id" content="3231953"><meta name="category-id" content="1019137"><meta name="flow-id" content=""><meta name="recaptcha-site-key" content="6LcpGLYjAAAAAJtaowP1_pw6R12eDC592EcvHBJa"><meta name="require-contact-captcha" content="false"><meta name="current-language" content="es_ES"><meta name="knowledge-base-url" content="https://conecta.sise.edu.pe/?kb_language=es_ES"><meta name="current-user-id" content=""><meta name="ignore-users-analytics" content="false"><meta name="reading-timeout" content="10000"><meta name="account-subdirectory-prefix" content=""><meta name="current-account-id" content="12017"><meta name="account-subdomain" content="sise"><meta name="helpjuice-knowledge-base-url" content="https://sise.helpjuice.com/"></head>
 <body class="galaxy-theme question_page">
 
 
@@ -594,7 +500,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
 <!--START_COMPONENT_BRANDING_SECTION-->
 <div class="col-xs-6 branding hidden" data-helpjuice-component="Branding Section" data-helpjuice-element="Container" data-helpjuice-attributes="visibility,background">
-                <h1 data-helpjuice-element="Branding Title" data-helpjuice-attributes="font_size,color"><a href="/" data-helpjuice-element="Knowledge Link" data-helpjuice-attributes="font_size,color">Carrión Knowledge</a></h1>
+                <h1 data-helpjuice-element="Branding Title" data-helpjuice-attributes="font_size,color"><a href="/" data-helpjuice-element="Knowledge Link" data-helpjuice-attributes="font_size,color">SISE Knowledge</a></h1>
                 <a href="/" class="logo" data-helpjuice-element="Logo Link" data-helpjuice-attributes="font_size,color"><span class="altLogo" data-helpjuice-element="Alt Logo Span" data-helpjuice-attributes="font_size,color"></span></a>
             </div>
 <!--END_COMPONENT_BRANDING_SECTION-->
@@ -622,7 +528,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 
                                     
                                         <div>
-                                            <a href="/es_ES/reglamento-de-titulacion-/reglamento-de-titulacion-" class="current">
+                                            <a href="/es_ES/protege-tus-accesos/protege-tus-accesos" class="current">
                                                 <span class="language-code">ES</span>
                                                 <span class="flag-icon flag-icon-es"></span>
                                                 <span class="language-name">Spanish</span>
@@ -636,8 +542,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
             </div>
 <!--END_COMPONENT_NAVIGATION_SECTION-->
-    
-      <!--------------------baner del buscador -------------------------------------------------------->      
+ <!--------------------baner del buscador -------------------------------------------------------->      
  
 <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
 
@@ -648,10 +553,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
 
-      
-
-
-<main id="main-content">
+         <main id="main-content">
         <div class="content_for_layout">
             <!--START_COMPONENT_BREADCRUMBS_CONTAINER_A-->
 <div class="bread-crumbs-container" data-helpjuice-component="Breadcrumbs Container A" data-helpjuice-element="Container" data-helpjuice-attributes="visibility,background">
@@ -663,305 +565,376 @@ document.addEventListener('DOMContentLoaded', function() {
                 <img src="https://images.freeimages.com/fic/images/icons/1580/devine_icons_part_2/512/home.png" width="20px" data-helpjuice-element="Bread Crumb Image" data-helpjuice-attributes="font_size,color">
             </a>
  <!-------------------------------------slash--------------------------------------------------->
-            <img src="https://images.icon-icons.com/2954/PNG/512/slash_icon_184691.png" height="14px" data-helpjuice-element="Bread Crumb Image" data-helpjuice-attributes="font_size,color">
+            <img src="https://docs.cientifica.edu.pe/marketing/sise/helpjuice/Link.png" height="14px" data-helpjuice-element="Bread Crumb Image" data-helpjuice-attributes="font_size,color">
  <!----------------------------------------------------------------------------------------->           
             
                 
-                    <!---<a href="/es_ES/faq" class="bread-crumb-link" data-helpjuice-element="Bread Crumb Link" data-helpjuice-attributes="font_size,color">FAQ</a>----> 
-                   <!---<img src="https://images.icon-icons.com/2954/PNG/512/slash_icon_184691.png" height="14px" data-helpjuice-element="Bread Crumb Image" data-helpjuice-attributes="font_size,color">----> 
+                    <!----<a href="/es_ES/faq" class="bread-crumb-link" data-helpjuice-element="Bread Crumb Link" data-helpjuice-attributes="font_size,color">FAQ</a>
+                   <img src="https://docs.cientifica.edu.pe/marketing/sise/helpjuice/Link.png" height="14px" data-helpjuice-element="Bread Crumb Image" data-helpjuice-attributes="font_size,color">------>
                 
             
                 
                     
-                        <a href="https://images.icon-icons.com/2954/PNG/512/slash_icon_184691.png" data-helpjuice-attributes="font_size,color">Mis pagos</a>
+                        <a href="#" class="bread-crumb-active no-click" data-helpjuice-element="Active Bread Crumb Link" data-helpjuice-attributes="font_size,color">Plataformas Digitales</a>
                     
                 
             
                 
     </div>
 </div>
-
-
 
 <!--END_COMPONENT_BREADCRUMBS_CONTAINER_A-->
 
 <!--Prueba-->
+
 <!--START_COMPONENT_ARTICLE_FEEDBACK_WRAPPER-->
 
-<!---------------------------------ZONA DEL MENU LATERAL IZQUIERDO ------------------------------------------------>
-
-    <!-- Contenedor principal con menú lateral y contenido -->
-<div class="main-container">
-    <!-- Menú lateral -->
-    <div class="sidebar">
-        <div class="menu-item">
-            <div class="menu-title" onclick="toggleSubmenu(this)">Mis pagos</div>
-            <div class="submenu">
-                <a href="#" onclick="showContent('Pagos')">¿Cómo realizar mis pagos?</a>
-                <a href="#" onclick="showContent('pendiente')">Consulta tus pagos pendientes</a>
-                <a href="#" onclick="showContent('afiliado')">Bancos afiliados y Videotutoriales</a>
-		<a href="#" onclick="showContent('infografia')">Infografía</a>
+<div class="wrapper" id="content-article" data-helpjuice-component="Article Feedback Wrapper" data-helpjuice-element="Container" data-helpjuice-attributes="visibility,background">
+    <article class="article article-question" data-controller="feedbacks" data-feedbacks-load-form-value="/admin/feedbacks/comments/new?question_id=3231953" data-helpjuice-element="Question Article" data-helpjuice-attributes="font_size,color">
+            <header data-helpjuice-element="Article Header" data-helpjuice-attributes="font_size,color">
+                <div class="title" data-helpjuice-element="Article Title" data-helpjuice-attributes="visibility,background">                  
+                </div>
+            </header>
+ <!---------------- MALLAS CURRICULARES  ---------------------------------------------------------->    
+   <div class="wrapper" id="content-article" data-helpjuice-component="Article Feedback Wrapper" style="margin-left: -20px; font-size: 0.9em;">
+    <article class="article article-question" data-controller="feedbacks" data-feedbacks-load-form-value="/admin/feedbacks/comments/new?question_id=3231953">
+        <header>
+            <div class="title">
+                <h1 style="font-size: 1.2em;">Plataformas Digitales</h1>
             </div>
-        </div>
+        </header>
+ <!----------------Acceso a tu Correo Carrión------------------------------->       
+              <div class="fr-view" data-action="mouseup->feedbacks#update" data-controller="glossary" data-glossary-url-value="/glossary_terms.json">
+            <div class="helpjuice-article-body-content helpjuice-editor-content">
+                              <div class="helpjuice-accordion">
+                    <h2 class="helpjuice-accordion-title" id="CORREO">
+                       CORREO
+                        <span class="accordion-icon">+</span>
+                    </h2>
+                    <div class="helpjuice-accordion-body">
+                        <div class="pdf-container">Para más información, visita este tutorial.
+ <h1>Pasos para acceder a tu correo CARRION</h1>
+      
+        <ol>
+        <li>
+            <strong>Ingresa a Outlook:</strong> 
+            <a href="https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=174&ct=1742660741&rver=7.5.2211.0&wp=MBI_SSL&wreply=https%3a%2f%2foutlook.live.com%2fowa%2f%3fnlp%3d1%26cobrandid%3dab0455a0-8d03-46b9-b18b-df2f57b9e44c%26RpsCsrfState%3d07dcf3bc-9218-fc8d-2123-912dc1ca1652&id=292841&aadredir=1&CBCXT=out&lw=1&fl=dob%2cflname%2cwld&cobrandid=ab0455a0-8d03-46b9-b18b-df2f57b9e44c" target="_blank">
+                https://login.live.com/login.srf...
+            </a>
+        </li>
         
-        <!--<div class="menu-item">
-            <div class="menu-title" onclick="toggleSubmenu(this)">Trámite de título profesional</div>
-            <div class="submenu">
-                <a href="#" onclick="showContent('titulo-profesional')">Normativas</a>
-                <a href="#" onclick="showContent('requisitos-titulo')">Requisitos</a>
-                <a href="#" onclick="showContent('procedimiento-titulo')">Procedimiento</a>
-            </div>
-        </div>---->
+        <li>
+            <strong>Escribe tu correo institucional:</strong>
+            <ul>
+                <li>El formato es: código@acarrion.edu.pe</li>
+                <li>(Ejemplo: C23AE02Y72@acarrion.edu.pe)</li>
+            </ul>
+        </li>
         
-        <!--<div class="menu-item">
-            <div class="menu-title" onclick="toggleSubmenu(this)">Preguntas generales</div>
-            <div class="submenu">
-                <a href="#" onclick="showContent('documentacion')">Documentación</a>
-                <a href="#" onclick="showContent('plazos')">Plazos</a>
-                <a href="#" onclick="showContent('costos')">Costos</a>
-            </div>
-        </div>---->
-    </div>
-  
-    <!-- Contenido principal ------------------------------------------------------------>
-    <div class="content">
-        <!-- Estado vacío inicial -->
-        <div id="empty-content" class="empty-state">
-            Seleccione una opción del menú para ver la información correspondiente
-        </div>
+        <li>
+            <strong>Ingresa tu contraseña:</strong>
+            <ul>
+                <li>Usa la contraseña que te proporcionaron o la que hayas actualizado recientemente.</li>
+            </ul>
+        </li>
         
-  <!-- Contenido de PAGOS EN EL INSTITUTO CARRIÓN -->
-<div id="Pagos" class="content-section" style="display: none;">
-  <h2>¿Cómo realizar mis pagos?</h2>
-  <p>
-    En el <strong>Instituto Carrión</strong> te ofrecemos varias opciones para realizar tus pagos de manera rápida, segura y desde donde estés:
-  </p>
+        <li>
+            <strong>¿Problemas con tu usuario y contraseña?</strong>
+            <ul>
+                <li>
+                    Por favor llena el siguiente formulario para que uno de nuestros asesores pueda brindarte apoyo: 
+                    <a href="https://forms.office.com/r/sVmHiFWafY" target="_blank">https://forms.office.com/r/sVmHiFWafY</a>
+                </li>
 
-  <h3>1. Banca Móvil o por Internet</h3>
-  <p>Desde las apps de Scotiabank, Interbank, BBVA o BCP:</p>
-  <ul>
-    <li>Ingresa a la app de tu banco.</li>
-    <li>Ve a <strong>Pago de Servicios</strong>.</li>
-    <li>Busca <em>Instituto Carrión</em> (el nombre puede variar ligeramente según el banco).</li>
-    <li>Selecciona <strong>Pensiones</strong> o <strong>Trámites Académicos</strong>.</li>
-    <li>Ingresa tu <strong>código de estudiante en mayúscula</strong> y confirma el pago.</li>
-  </ul>
-
-  <h3>2. Billetera Digital (Yape)</h3>
-  <ul>
-    <li>Abre la app de Yape y ve a <strong>“Yapear servicios”</strong>.</li>
-    <li>En la categoría <strong>Educación</strong>, selecciona <em>Inst. Carrión</em>.</li>
-    <li>Elige el tipo de pago.</li>
-    <li>Ingresa tu código de estudiante, elige el recibo y realiza el pago.</li>
-  </ul>
-
-  <h3>3. Pasarela de pagos</h3>
-  <ul>
-    <li>Ingresa a la pasarela de pagos desde: 
-      <a href="https://pagos.acarrion.edu.pe:8443/login" target="_blank">https://pagos.acarrion.edu.pe:8443/login</a>
-    </li>
-    <li>Introduce tu código de estudiante y contraseña.</li>
-    <li>Selecciona las obligaciones a cancelar.</li>
-    <li>Elige el medio de pago (Visa, MasterCard, etc.).</li>
-    <li>Haz clic en <strong>“Paga aquí”</strong> para completar la operación.</li>
-  </ul>
-
-
-
-        </div>
-    <!-----------------------Consulta tus pagos pendientes--------------------->    
-        <div id="pendiente" class="content-section" style="display: none;">
-          
-             <h2>Consulta tus pagos pendientes</h2>
-   <p>
-    Revisa fácilmente tu cronograma de pagos desde tu plataforma <strong>CarrionNet</strong>. Solo sigue estos pasos:
-  </p>
-  <ol>
-    <li>
-      Ingresa a 
-      <a href="https://intranet.uwiener.edu.pe/sso.asp" target="_blank">CarrionNet</a> 
-      con tu usuario y contraseña.
-    </li>
-    <li>Haz clic en el menú <strong>Pagos</strong>.</li>
-    <li>Selecciona la opción <strong>Obligaciones por semestre</strong>.</li>
-    <li>Elije tu periodo de estudios (Ej. <em>2025A</em>).</li>
-  </ol>
-  <p><strong>¡Y listo!</strong> Podrás visualizar tus cuotas pendientes y fechas de vencimiento.</p>
-</body>
-
-
-</div>
-
-<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-
-    
-        
- <!-------------------Bancos afiliados y Videotutoriales----------------------------------->
-               <div id="compago" class="content-section" style="display: none;">
-            <h2 class="payment-title">En el Instituto Carrión te ofrecemos varias opciones para realizar tus pagos de manera rápida, segura y desde donde estés:</h2>
-          
-<h3 class="method-title">Banca Móvil o por Internet</h3>
-<p class="method-subtitle">Desde las apps de Scotiabank, Interbank, BBVA o BCP:</p>
-    <ol class="method-steps">
-      <li>Ingresa a la app de tu banco.</li>
-      <li>Ve a <strong>Pago de Servicios</strong>.</li>
-      <li>Busca "Instituto Carrión" (el nombre puede variar ligeramente según el banco).</li>
-      <li>Selecciona <strong>Pensiones</strong> o <strong>Trámites Académicos</strong>.</li>
-      <li>Ingresa tu código de estudiante en mayúscula y confirma el pago.</li>
+<!----------------------LINK DEL VIDEO YOUTUBE---------------->
+<p><a href="https://www.youtube.com/watch?v=GdWAARVL-9I" target="_blank">Para más información, visita este tutorial.</a></p>
+            </ul>
+        </li>
     </ol>
+<!--------------------------------------------------------------->
+				 </div>
+                        	</div>
+                        <div class="pdf-actions">
+                             
+<!------------------------link pdf de descarga-------------------->
+<!-----<a href="https://drive.google.com/file/d/1YcsF8Q9NH4V0fBD7VN2c4ypeprzW1SjF/view" target="_blank" class="download-btn">Descargar PDF</a>---->
+<!-------------------------------------------------->
+                        </div>
+                    </div>
+                </div>
+                
+    <!----------------------CAMPUS VIRTUAL------------------------------------------------->
+                  <div class="helpjuice-accordion">
+                    <h2 class="helpjuice-accordion-title" id="Cosmiatria">
+                        CAMPUS VIRTUAL
+                        <span class="accordion-icon">+</span>
+                    </h2>
+                    <div class="helpjuice-accordion-body">
+                        <div class="pdf-container">
+                           
+<style>  body {
+            color: #000000; /* Negro puro */
+            font-family: Arial, sans-serif;
+        }</style>
+ <h3>👋 ¡Bienvenido a tu Campus Virtual Carrión!</h3>
+  <p>
+    Esta plataforma en línea te permite acceder a los documentos y materiales de tus clases. Desde aquí podrás:
+  </p>
+  <ul>
+    <li>🔹 Ingresar a las videoconferencias de tus cursos</li>
+    <li>🔹 Enviar tus tareas y trabajos</li>
+    <li>🔹 Mantenerte al día con las actividades académicas</li>
+  </ul>
 
-<h3 class="method-title">Billetera Digital (Yape)</h3>
+  <p>📌 Accede con tu usuario y contraseña a través del siguiente enlace:</p>
+  <p>
+    👉 <a href="https://campusvirtual.acarrion.edu.pe/acceso.cgi" target="_blank">https://campusvirtual.acarrion.edu.pe/acceso.cgi</a>
+  </p>
 
- <!----<img src="https://www.yape.com.pe/_next/image?url=https%3A%2F%2Fwww.datocms-assets.com%2F56886%2F1750455723-yapear-servicios-01.png&w=384&q=75">------>
-<div style="max-width: 600px; margin: auto; text-align: center;">
-  <h2>Ahora paga tus servicios desde casa ¡con tu Yape!</h2>
-  <p>Te enseñamos el paso a paso para yapear tus servicios al toque.</p>
+  <p>📽️ ¿Necesitas ayuda para usar el campus? Revisa estos tutoriales:</p>
+  
+  <ul>
+    <li style="color: black;">
+  Para acceder, ingresa con tu usuario y contraseña, mediante el siguiente enlace:</li>
+  <a href="https://campusvirtual.acarrion.edu.pe/acceso.cgi" target="_blank" style="color: blue;">Acceso al campus</a>
+</li>
+    <li style="color: black;">
+      Para más información, visita este tutorial.
+    </li>
+  </ul>
 
-  <div id="carrusel" style="position: relative;">
-    <img id="pasoImg" src="https://scontent.flim2-6.fna.fbcdn.net/v/t39.30808-6/514246850_1940982883422365_2194483539798911127_n.jpg?_nc_cat=107&cb=99be929b-ca288af0&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGw_7mm6WLKBJt6rql4UEfnwCgbN5oh_qXAKBs3miH-pbCOUMmco0XI1zFb4Sq75gnF2QZ84nD3WQk7tJ95AkVW&_nc_ohc=g6h5fBevm4YQ7kNvwHuhcMm&_nc_oc=AdnzgW6MqPDGstwZnpi7H2lxwUrYlK3ob0cqiL8CSBsKRCx_fqkpvN-JfH4H1_t-TQY&_nc_zt=23&_nc_ht=scontent.flim2-6.fna&_nc_gid=S3-uvmyElH1DWShPCqnNfw&oh=00_AfNbDphYnQfBLFSpu3TU7lxOn0yxLi6hyBYFyR0s1LVnYQ&oe=686A2CBD"
-         alt="Paso 1" style="width: 100%; border-radius: 8px;">
+<!-- Botón para abrir el video -->
+<button id="openVideoBtn">Ver video tutorial</button>
 
-    <p id="pasoTexto" style="margin-top: 15px; font-size: 1.1rem;">
-      1. Ingresa a tu app Yape y selecciona el botón “Yapear Servicios”.
-    </p>
-
-    <button onclick="anteriorPaso()" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); background: #fff; border: none; padding: 10px; cursor: pointer;">◀</button>
-    <button onclick="siguientePaso()" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); background: #fff; border: none; padding: 10px; cursor: pointer;">▶</button>
+<!-- Contenedor del popup (fondo oscuro) -->
+<div id="videoPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:1000;">
+  <!-- Contenido del popup (video y botón cerrar) -->
+  <div id="popupContent" style="position:relative; width:80%; height:80%; margin:5% auto; background-color:#000;">
+    <button id="closeBtn" style="position:absolute; top:10px; right:10px; z-index:1001;">Cerrar</button>
+    <iframe id="videoFrame" width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
   </div>
 </div>
 
 <script>
-  const pasos = [
-    {
-      texto: "1. Ingresa a tu app Yape y selecciona el botón “Yapear Servicios”.",
-      imagen: "https://scontent.flim2-6.fna.fbcdn.net/v/t39.30808-6/514246850_1940982883422365_2194483539798911127_n.jpg?_nc_cat=107&cb=99be929b-ca288af0&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGw_7mm6WLKBJt6rql4UEfnwCgbN5oh_qXAKBs3miH-pbCOUMmco0XI1zFb4Sq75gnF2QZ84nD3WQk7tJ95AkVW&_nc_ohc=g6h5fBevm4YQ7kNvwHuhcMm&_nc_oc=AdnzgW6MqPDGstwZnpi7H2lxwUrYlK3ob0cqiL8CSBsKRCx_fqkpvN-JfH4H1_t-TQY&_nc_zt=23&_nc_ht=scontent.flim2-6.fna&_nc_gid=S3-uvmyElH1DWShPCqnNfw&oh=00_AfNbDphYnQfBLFSpu3TU7lxOn0yxLi6hyBYFyR0s1LVnYQ&oe=686A2CBD"
-    },
-    {
-      texto: "2. En la categoría Educación, selecciona Inst. Carrión.",
-      imagen: "https://www.yape.com.pe/_next/image?url=https%3A%2F%2Fwww.datocms-assets.com%2F56886%2F1750455761-yapear-servicios-02.png&w=384&q=75"
-    },
-    {
-      texto: "3. Elige el tipo de pago.",
-      imagen: "https://scontent.flim2-6.fna.fbcdn.net/v/t39.30808-6/514366061_1940978020089518_6953947077046604618_n.jpg?_nc_cat=101&cb=99be929b-ca288af0&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeH-KxJMA5ijowiLOg4ulNi-AInNpZF9qMkAic2lkX2oyX7sDi8ubBYgJLC-Onl0mFyp2XyR4MokhDiHBa4ZNDoF&_nc_ohc=80KpOjaVLRUQ7kNvwHKxSFd&_nc_oc=AdmyP7oMM-NXp2-MydRAaH2CwVPMNM_MV0XUl2hbjOKlno9k_72xKRlNbExhPw_VZoc&_nc_zt=23&_nc_ht=scontent.flim2-6.fna&_nc_gid=hLxjnx9Wmb_AhqZzPAcX6g&oh=00_AfOYAYfRXu22GqZeQdBdJB4OIu2ccDNe8U3gMEb3t7uiGQ&oe=686A08A1"
-    },
-    {
-      texto: "4. Ingresa tu código de estudiante, elige el recibo y realiza el pago.",
-      imagen: "https://scontent.flim2-1.fna.fbcdn.net/v/t39.30808-6/514256146_1940978153422838_8798264277224889667_n.jpg?_nc_cat=105&cb=99be929b-ca288af0&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHvAhsFRFsU8wyXZFXij98MBD-BPOOiBdsEP4E846IF210HOQhY_vGEwAJXl0dTNchdvLBisf06BrtUKy-dTZG9&_nc_ohc=Ic7U1yfwvfEQ7kNvwFPpDEI&_nc_oc=AdkFY7BsRYHILOdFbKQbO3Dk2b7IC-AhXQskMUQkbDlHTVuJZVMTNFEfU9vwQAoRRPA&_nc_zt=23&_nc_ht=scontent.flim2-1.fna&_nc_gid=P3VXDVwE6NQlwPr5YQJl_w&oh=00_AfNOAvCVLZlSMxo64obzkyqdFW4u6FEhMoUzBZWbbuakgA&oe=686A1357"
+  const popup = document.getElementById("videoPopup");
+  const openBtn = document.getElementById("openVideoBtn");
+  const closeBtn = document.getElementById("closeBtn");
+  const videoFrame = document.getElementById("videoFrame");
+  const popupContent = document.getElementById("popupContent");
+
+  const videoURL = "https://www.youtube.com/embed/_QYklKsyFKo?si=IxlPg0rOkPhOoyE7";
+
+  openBtn.addEventListener("click", function () {
+    popup.style.display = "block";
+    videoFrame.src = videoURL;
+  });
+
+  function closePopup() {
+    popup.style.display = "none";
+    videoFrame.src = ""; // Detiene el video
+  }
+
+  closeBtn.addEventListener("click", closePopup);
+
+  popup.addEventListener("click", function (event) {
+    // Solo cerrar si se hace clic en el fondo, no en el contenido
+    if (event.target === popup) {
+      closePopup();
     }
-  ];
-
-  let pasoActual = 0;
-
-  function actualizarCarrusel() {
-    document.getElementById("pasoImg").src = pasos[pasoActual].imagen;
-    document.getElementById("pasoTexto").innerText = pasos[pasoActual].texto;
-  }
-
-  function siguientePaso() {
-    pasoActual = (pasoActual + 1) % pasos.length;
-    actualizarCarrusel();
-  }
-
-  function anteriorPaso() {
-    pasoActual = (pasoActual - 1 + pasos.length) % pasos.length;
-    actualizarCarrusel();
-  }
+  });
 </script>
+</script>
+<li>
+      ¿Problemas con tu usuario y contraseña?
+            <ul>
+                <li>
+                    Por favor llena el siguiente formulario para que uno de nuestros asesores pueda brindarte apoyo: 
+                    <a href="https://forms.office.com/r/sVmHiFWafY" target="_blank">https://forms.office.com/r/sVmHiFWafY</a>
+                </li>
+            </ul>
+        </li>
+ </div>
+                    </div>
+                </div>
 
+                       </div>
+                        <div class="pdf-actions">
+                         <!----- <a href="https://drive.google.com/file/d/1_bc9_IAk5hLeQMRlNeYBRdr3lNcepf63/view" target="_blank" class="download-btn">Descargar PDF</a>--->
+                       
 
- 
-<h3 class="method-title">Pasarela de pagos (CarrionNet)</h3>
+  <!---------------TEAMS--- -->
+                <div class="helpjuice-accordion">
+                    <h2 class="helpjuice-accordion-title" id="farmacia">
+                       TEAMS
+                        <span class="accordion-icon">+</span>
+                    </h2>
+                    <div class="helpjuice-accordion-body">
+                 Acceso a Microsoft Teams
+  <h3>💼 Uso de Microsoft Teams</h3>
+  <p>A través de esta plataforma podrás:</p>
+  <ul>
+    <li>🔹 Acceder a tus reuniones virtuales</li>
+    <li>🔹 Compartir archivos y materiales de clase</li>
+    <li>🔹 Mantener conversaciones organizadas por equipos o grupos</li>
+    <li>🔹 Realizar tus actividades de forma eficiente y segura</li>
+  </ul>
 
- <ol class="method-steps">
-      <li>Ingresa a tu cuenta en CarrionNet o escanea el código QR.</li>
-      <li>Introduce tu código de estudiante y contraseña.</li>
-      <li>Selecciona las obligaciones a cancelar.</li>
-      <li>Elige el medio de pago (Visa, Mastercard, etc.).</li>
-      <li>
-  Haz clic en <strong><a href="https://intranet.uwiener.edu.pe/sso.asp" target="_blank">Paga aquí</a></strong> para completar la operación.
-</li>
-    </ol>
+  <p>
+    📌 Accede con tu usuario y contraseña (correo institucional) a través del siguiente enlace:<br>
+    👉 <a href="https://teams.microsoft.com/v2/" target="_blank">https://teams.microsoft.com/v2/</a>
+  </p>
 
- <span class="tip-icon"></span>
-    <p class="tip-text">Si tienes dudas sobre tus pagos, puedes comunicarte con la Oficina de Créditos y Cobranzas o revisar tu estado de cuenta en CarrionNet.</p>
-</div>
- <!------------------INFOGRAFIA-------------------------------->
-<div id="infografia" class="content-section" style="display: none;">
+  <p>
+    📚 ¿Necesitas ayuda para usar Teams?<br>
+    🔹 <strong>Manual de ingreso a clases en Teams (PDF):</strong>
+          </li>
+  </ul>
+<!----------------pdf y esta integrado desde googledocs----------------------------->       
 
-         <div class="pdf-container">
+       <div class="pdf-container">
 <iframe
-  src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/ConsultasyTramites/Servicioalestudiante/main/PAGO_PENSIONES_TRAMITES_ACADEMICOS.pdf&embedded=true"
+  src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/ConsultasyTramites/Servicioalestudiante/main/MICTEAMS.pdf&embedded=true"
   width="100%"
   height="600px"
   style="border: none;">
 </iframe>
-  </div>
-</div>
+                        </div>
+                                               
+                    </div>
+                </div>
+          
 
-
-<!-- BANCOS AFILIADOS---------------------------------------------------------------->
-    <div id="afiliado" class="content-section" style="display: none;">
-  <h2 class="payment-title">
-    En el Instituto Carrión te ofrecemos varias opciones para realizar tus pagos de manera rápida, segura y desde donde estés:
+ <!-----------CARRION NET------------------------------------------------------------->
+ <div class="helpjuice-accordion">
+  <h2 class="helpjuice-accordion-title" id="farmacia">
+    CARRIONNET
+    <span class="accordion-icon">+</span>
   </h2>
+  <div class="helpjuice-accordion-body">
+    <h3>🎓 ¡Bienvenido(a) a tu plataforma académica CarrionNet!</h3>
+    <p>En esta plataforma podrás acceder a comunicaciones e información académica relevante, como tu horario de clases, cronograma de pagos, notas, trámites virtuales y reglamentos, y mucho más.</p>
 
-  <h3 class="method-title">Banca Móvil o por Internet</h3>
-  <p class="method-subtitle">Desde las apps de Scotiabank, Interbank, BBVA o BCP:</p>
+    <!-- Imagen insertada correctamente -->
+    <img src="https://raw.githubusercontent.com/ConsultasyTramites/Servicioalestudiante/main/CARRIONNET.JPG" alt="Banner SAE" width="100%" style="margin: 15px 0; border-radius: 8px;">
 
-  <ol class="method-steps">
-    <li><a href="https://bcpzonasegura.viabcp.com/#/iniciar-sesion" target="_blank">BCP - Banco de Crédito del Perú</a></li>
-    <li><a href="https://www.bbva.pe/" target="_blank">BBVA Perú</a></li>
-    <li><a href="https://bancaporinternet.interbank.pe/login" target="_blank">Interbank</a></li>
-    <li><a href="https://mi.scotiabank.com.pe/login" target="_blank">Scotiabank Perú</a></li>
-  </ol>
-
-  <h3 class="method-title">🎥 Video tutoriales</h3>
-  <ul>
-    <li><a href="https://www.youtube.com/watch?v=fCw91bBqJX0" target="_blank">Scotiabank</a></li>
-    <li><a href="https://www.youtube.com/watch?v=Hiw30RN4ZIQ" target="_blank">BCP</a></li>
-<li><a href="https://www.youtube.com/watch?v=negvrABsHJ4" target="_blank">BBVA</a></li>
-<li><a href="https://www.youtube.com/watch?v=bRVt5YUQw94" target="_blank">Interbank</a></li>
-<li><a href="https://www.youtube.com/watch?v=Vjv-vNVbCfE" target="_blank">Pasarela de pagos (CarrionNet)</a></li>
-<li><a href="https://www.youtube.com/watch?v=G9regv2UTUw" target="_blank">YAPE</a></li>
-          </ul>
+    <h3>🚀 ¿Cómo ingresar?</h3>
+    <ol>
+      <li>
+        <strong>Paso 1:</strong> Ingresa al siguiente enlace:
+        <a href="https://intranet.uwiener.edu.pe/sso.asp" target="_blank">👉 https://intranet.uwiener.edu.pe/sso.asp</a>
+      </li>
+      <li><strong>Paso 2:</strong> Escribe tu usuario y contraseña (Recuerda que el usuario es tu código de matrícula).</li>
+      <li><strong>Paso 3:</strong> Una vez dentro, podrás acceder a tus horarios, revisar tu historial académico, gestionar trámites, estar al tanto de novedades y más.</li>
     </ol>
-  </div>
-  </div>
+<p>📝 ¿Tienes problemas para acceder? ¿Olvidaste tu contraseña? 
+  <a href="https://forms.office.com/r/sVmHiFWafY" target="_blank">Recupérala con nosotros aquí</a>.
+</p>
+
+
+
+<!----------------pdf y esta integrado desde googledocs----------------------------->       
+
+     <div class="pdf-container">
+<!-----------<iframe
+  src="https://docs.google.com/gview?url=https://raw.githubusercontent.com/ConsultasyTramites/Servicioalestudiante/main/MICTEAMS.pdf&embedded=true"
+  width="100%"
+  height="600px"
+  style="border: none;">
+</iframe>----->
+                        </div>
+                                               
+                    </div>
+                </div>
+                     <!----------------------------------------- <div class="pdf-actions">
+                             <a href="https://drive.google.com/file/d/1AKZFhr9yjC9BTo6cz_I7tGTxiXdSdjq2/view?usp=sharing" target="_blank" class="download-btn">Descargar PDF</a>
+                        </div>-->
+                    </div>
+                </div>
+
+ 
+
+  <style>
+    /* Estilos anteriores se mantienen igual */
+    .helpjuice-accordion {
+        margin-bottom: 15px;
+        border: 1px solid #e1e4e8;
+        border-radius: 6px;
+        overflow: hidden;
+    }
+    
+    .helpjuice-accordion-title {
+        padding: 15px 20px;
+        margin: 0;
+        cursor: pointer;
+        background-color: #f6f8fa;
+        position: relative;
+    }
+    
+    .accordion-icon {
+        position: absolute;
+        right: 20px;
+    }
+    
+    .helpjuice-accordion-body {
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+    }
+    
+    .helpjuice-accordion-body.active {
+        max-height: 650px;
+    }
+</style>
+
 <script>
-    function toggleSubmenu(element) {
-        const submenu = element.nextElementSibling;
-        if (submenu.style.display === "block") {
-            submenu.style.display = "none";
-        } else {
-            submenu.style.display = "block";
-        }
-    }
+// Versión simplificada y compatible
+document.addEventListener('DOMContentLoaded', function() {
+    // Seleccionar todos los acordeones
+    const accordions = document.querySelectorAll('.helpjuice-accordion');
     
-    function showContent(sectionId) {
-        // Oculta el estado vacío
-        document.getElementById('empty-content').style.display = 'none';
+    // Agregar evento click a cada título de acordeón
+    accordions.forEach(accordion => {
+        const title = accordion.querySelector('.helpjuice-accordion-title');
+        const body = accordion.querySelector('.helpjuice-accordion-body');
+        const icon = accordion.querySelector('.accordion-icon');
         
-        // Oculta todas las secciones de contenido
-        document.querySelectorAll('.content-section').forEach(section => {
-            section.style.display = 'none';
+        title.addEventListener('click', function() {
+            // Cerrar todos los demás acordeones
+            accordions.forEach(otherAcc => {
+                if (otherAcc !== accordion) {
+                    otherAcc.querySelector('.helpjuice-accordion-body').classList.remove('active');
+                    otherAcc.querySelector('.accordion-icon').textContent = '+';
+                }
+            });
+            
+            // Alternar el acordeón actual
+            body.classList.toggle('active');
+            icon.textContent = body.classList.contains('active') ? '−' : '+';
         });
-        
-        // Muestra la sección solicitada
-        if (sectionId) {
-            document.getElementById(sectionId).style.display = 'block';
-        }
-    }
-    
-    // Mostrar el primer submenú por defecto
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelector('.submenu').style.display = "block";
     });
+});
 </script>
+   
 
 
 
 
-   <!----------------envcuesta de caritas-------------------------------------------------->         
+  <!-------------------links parte de abajo de pdf-------------------------------------->          
+          <!---  <ul class="tags" data-helpjuice-element="Article Tags" data-helpjuice-attributes="visibility">
+                
+                    <li><a href="/contact-us##search_query=matrícula" data-helpjuice-element="Tag Link" data-helpjuice-attributes="font_size,color">matrícula</a></li>
+                
+                    <li><a href="/contact-us##search_query=accesos" data-helpjuice-element="Tag Link" data-helpjuice-attributes="font_size,color">accesos</a></li>
+                
+                    <li><a href="/contact-us##search_query=correo" data-helpjuice-element="Tag Link" data-helpjuice-attributes="font_size,color">correo</a></li>
+                
+                    <li><a href="/contact-us##search_query=autenticación" data-helpjuice-element="Tag Link" data-helpjuice-attributes="font_size,color">autenticación</a></li>
+                
+                    <li><a href="/contact-us##search_query=mayo" data-helpjuice-element="Tag Link" data-helpjuice-attributes="font_size,color">mayo</a></li>
+                
+            </ul>
+             <!-----------------------------------------envcuesta de caritas-------------------------------------------------->         
  
     <!-- Contenido del artículo -->
 </article>
@@ -1075,7 +1048,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </main>
    <!--Prueba Footer-->
 
-
 <!-- Footer ------------------------------------------------------------------------------------------------>
     <div class="footer">
      <div class="footer-left">
@@ -1092,6 +1064,10 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="footer-right-row">
                 <img class="footer-right-row-icon" src="https://static.helpjuice.com/helpjuice_production/uploads/upload/image/14255/3184049/1685552418116-social_whatsapp.png" width="22px">
                 <a target="_blank" href="https://api.whatsapp.com/send?phone=51933631733" class="footer-right-row-text"> 933 631 733</a>
+
+<img class="footer-right-row-icon" 
+src="https://scontent.flim2-6.fna.fbcdn.net/v/t39.30808-6/514061005_1935950100592310_8075489603151609274_n.jpg?_nc_cat=101&cb=99be929b-ca288af0&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEI40kXBAHBF2XR18biqoin5RXDlMsGDqTlFcOUywYOpHy7u1AHwlQUDtS2A2EIAlp_jfZQoHZKtgYrnTuSP_w8&_nc_ohc=5Qg85gddXeAQ7kNvwEut3DD&_nc_oc=AdlvErp3RniwkmKobpiCWecdLK8aPZNiN12ZYolSh3X85vWfjM7geVxk-zdy4FKa2DE&_nc_zt=23&_nc_ht=scontent.flim2-6.fna&_nc_gid=T3KvVqRgIw75YhtR7QYmiQ&oh=00_AfNx9YQ42i6q5d_QnfULF3zpFCzFE8B-3eJXfAbrTcv_Ng&oe=6863CBF7" width="30px">
+
             </div>
             <!--<div class="footer-right-row">
                 <img class="footer-right-row-icon" src="https://static.helpjuice.com/helpjuice_production/uploads/upload/image/14255/2928846/social_phoneolid.svg">
@@ -1145,7 +1121,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 searchResults.style.display = 'none';
                 return;
             }
-                        
+            
             const results = searchDatabase.filter(item => 
                 item.title.toLowerCase().includes(query.toLowerCase()) || 
                 item.description.toLowerCase().includes(query.toLowerCase())

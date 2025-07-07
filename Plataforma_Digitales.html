@@ -305,25 +305,148 @@
   </div>
 </div>
 
+<!-- ... (resto del HTML existente) ... -->
+
 <script>
+document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.getElementById('search');
   const resultsContainer = document.getElementById('results-container');
   const searchResultsBox = document.getElementById('search-results');
 
-  searchInput.addEventListener('input', function () {
-    const query = this.value.trim().toLowerCase();
-    if (query.length > 0) {
-      resultsContainer.innerHTML = `<p>Mostrando resultados para: <strong>${query}</strong></p>`;
+  // Base de datos de búsqueda mejorada
+  const searchDatabase = [
+    { 
+      title: "Tutorial Mis Pagos", 
+      url: "Pagos_Virtuales.html",
+      description: "Guía para realizar pagos en línea",
+      keywords: ["pagos", "pago", "tutorial pagos", "mis pagos", "tutorial", "banco", "transferencia"]
+    },
+    { 
+      title: "Trámites Académicos", 
+      url: "Como_Realizar_Tramites_Virtuales.html", 
+      description: "Procedimiento para trámites en línea",
+      keywords: ["tramites", "trámites", "académico", "academico", "procedimiento", "virtual", "documentos", "certificados"]
+    },
+    { 
+      title: "1º Ciclo (Ingresantes)", 
+      url: "1Ciclo.html",
+      description: "Información para nuevos estudiantes",
+      keywords: ["ingresantes", "primer ciclo", "1 ciclo", "primero", "nuevo ingreso", "nuevos", "admision", "admisión"]
+    },
+    { 
+      title: "Plataformas digitales", 
+      url: "Plataforma_Digitales.html",
+      description: "Acceso a todas las plataformas del instituto",
+      keywords: ["plataforma", "digital", "acceso", "login", "ingresar", "sistemas", "aula virtual", "portal"]
+    },
+    { 
+      title: "Guía del egresado", 
+      url: "Guia_del_Egresado.html",
+      description: "Proceso de titulación para egresados",
+      keywords: ["egresado", "graduado", "guia", "guía", "titulación", "titulacion", "diploma", "bachiller"]
+    },
+    { 
+      title: "Mallas curriculares", 
+      url: "MallasCurriculares.html",
+      description: "Planes de estudio de todas las carreras",
+      keywords: ["malla", "curricular", "plan", "estudio", "cursos", "asignaturas", "carrera", "programa"]
+    },
+    { 
+      title: "Matrícula (2º a 6º ciclo)", 
+      url: "2Cicloa6Ciclo.html",
+      description: "Proceso de matrícula para ciclos avanzados",
+      keywords: ["matricula", "matrícula", "segundo ciclo", "tercer ciclo", "cuarto ciclo", "quinto ciclo", "sexto ciclo", "inscripción"]
+    },
+    { 
+      title: "Horario de clases", 
+      url: "Horario_de_Clases.html",
+      description: "Cómo consultar tu horario académico",
+      keywords: ["horario", "clases", "horas", "cronograma", "ver horario", "consultar horario", "cursos", "aulas"]
+    }
+  ];
+
+  // Función para normalizar texto (quitar acentos y convertir a minúsculas)
+  function normalizeText(text) {
+    return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  }
+
+  // Función para buscar coincidencias
+  function search(query) {
+    if (query.length < 2) {
+      searchResultsBox.style.display = 'none';
+      return;
+    }
+    
+    const normalizedQuery = normalizeText(query);
+    
+    const results = searchDatabase.filter(item => {
+      // Buscar en título
+      if (normalizeText(item.title).includes(normalizedQuery)) return true;
+      
+      // Buscar en descripción si existe
+      if (item.description && normalizeText(item.description).includes(normalizedQuery)) return true;
+      
+      // Buscar en palabras clave
+      if (item.keywords) {
+        return item.keywords.some(keyword => 
+          normalizeText(keyword).includes(normalizedQuery)
+        );
+      }
+      
+      return false;
+    });
+    
+    displayResults(results);
+  }
+
+  // Función para mostrar resultados
+  function displayResults(results) {
+    resultsContainer.innerHTML = '';
+    
+    if (results.length === 0) {
+      resultsContainer.innerHTML = '<div class="no-results">No se encontraron resultados. Intenta con otras palabras.</div>';
       searchResultsBox.style.display = 'block';
-    } else {
+      return;
+    }
+    
+    results.forEach(result => {
+      const resultItem = document.createElement('a');
+      resultItem.href = result.url;
+      resultItem.innerHTML = `
+        <div class="result-title">${result.title}</div>
+        <div class="result-desc">${result.description || ''}</div>
+      `;
+      resultsContainer.appendChild(resultItem);
+    });
+    
+    searchResultsBox.style.display = 'block';
+  }
+  
+  // Event listeners
+  searchInput.addEventListener('input', function() {
+    search(this.value.trim());
+  });
+  
+  searchInput.addEventListener('focus', function() {
+    if (this.value.length >= 2) {
+      searchResultsBox.style.display = 'block';
+    }
+  });
+  
+  document.addEventListener('click', function(e) {
+    if (!searchResultsBox.contains(e.target) && e.target !== searchInput) {
       searchResultsBox.style.display = 'none';
     }
   });
+});
 </script>
+
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+
     <!-- Aquí iría el resto de tu contenido HTML existente -->
+    
 
 
 <!-LOGO DE PESTAÑA ----------------------------------------------------------------------------------------------------------------------->
@@ -989,12 +1112,12 @@ src="https://scontent.flim2-6.fna.fbcdn.net/v/t39.30808-6/514061005_193595010059
     <!-- ------------------------------------Base de datos de búsqueda------------------------------------------->
         const searchDatabase = [
             { title: "Tutorial Mis Pagos", url: "Matricula.html"},
-            { title: "Tramites Académicos", url: "Como-Realizar-Tramites-Virtuales.html", description: "Procedimiento para trámites en línea" },
+            { title: "Trámites Académicos", url: "Como_Realizar_Tramites_Virtuales.HTML", description: "Procedimiento para trámites en línea" },
             { title: "1º Ciclo (Ingresantes agosto 2025)", url: "1Ciclo.html"},
             { title: "Plataformas digitales", url: "Plataforma_Digitales.html"},
             { title: "Guía del egresado", url: "Guia_del_Egresado.html"},
             { title: "Mallas curriculares", url: "MallasCurriculares.html"},
-	{ title: "Matricula (2º a 6º ciclo)", url: "Atencion_al_Estudiante.html"},
+	{ title: "Matricula (2º a 6º ciclo)", url: "2Cicloa6Ciclo.html"},
 	{ title: "¿Cómo verificar mi horario?", url: "Horario_de_Clases.html"},
         ];
         
@@ -1004,6 +1127,7 @@ src="https://scontent.flim2-6.fna.fbcdn.net/v/t39.30808-6/514061005_193595010059
                 searchResults.style.display = 'none';
                 return;
             }
+            
             
             const results = searchDatabase.filter(item => 
                 item.title.toLowerCase().includes(query.toLowerCase()) || 
