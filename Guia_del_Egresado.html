@@ -5,43 +5,52 @@
   <title>CONTACTO CARRION - Instituto Carrión</title>
   <link rel="stylesheet" href="https://scontent.flim2-6.fna.fbcdn.net/v/t39.30808-6/506410584_1922412321946088_2073086972235835171_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHUkb7njnIpeziW382Hq6I_0VjPq-cTyhXRWM-r5xPKFUsu4bmIU2YuSBtRMh9sPwbVodIUr6Ol6bR8f0cloIDI&_nc_ohc=Z0rcG0LDz00Q7kNvwF2hlpU&_nc_oc=Admf_naPlYPAgShVuDS-voqvW6qHUvpwKg6lV_LhUPPbWAdRjXje2FXsZ_tM-AlKqxs&_nc_zt=23&_nc_ht=scontent.flim2-6.fna&_nc_gid=-XtZrKE6J_1HikVdEhbsHg&oh=00_AfNV9_jiCAwAnitbsFWSKtH3YhDL0mGFALU7li6t8-cI4A&oe=6858F0C9">
   <style>
-<!----------------------------------------------------------codigo de la encuesta formato----------------------------------->
-.contenedor-principal {
-    display: flex;
-    justify-content: flex-end; /* Alinea el contenido a la derecha */
-    padding: 20px;
-    /* Opcional: añade un ancho máximo al contenedor principal si es necesario */
-    max-width: 1200px;
-    margin: 0 auto; /* Centra el contenedor principal si tiene max-width */
-}
+<!----------------------------------------------------------codigo de la encuesta formato--------------------------------------->
+ /* Estilos para la encuesta - modificados para alinear a la derecha */
 
-.encuesta-container {
-    font-family: Arial, sans-serif;
-    width: 350px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    background-color: white;
-    color: #333;
-    margin-left: 20px; /* Mantiene el espacio a la izquierda del contenedor */
-    margin-right: 0; /* Elimina cualquier margen derecho */
-    /* Añade posición sticky si quieres que siga al hacer scroll */
-    position: sticky;
-    top: 20px;
-    /* Asegura que no afecte el flujo del contenido principal */
-    align-self: flex-start;
-}
+    .contenedor-principal {
+      display: flex;
+      justify-content: space-between; /* Cambiado de flex-end a space-between */
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative; /* Añadido para posicionamiento relativo */
+    }
+
+    .contenido-principal {
+      width: calc(100% - 400px); /* Ajusta el ancho del contenido principal */
+    }
+
+    .encuesta-container {
+      font-family: Arial, sans-serif;
+      width: 350px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      background-color: white;
+      color: #333;
+      position: sticky;
+      top: 20px;
+      align-self: flex-start;
+      margin-left: 20px;
+      margin-right: 0;
+      right: 20px; /* Añadido para posicionar a la derecha */
+    }
+
     .pregunta {
       font-size: 18px;
       margin-bottom: 15px;
       font-weight: bold;
+      text-align: center;
     }
+    
     .opciones {
       display: flex;
       justify-content: space-between;
       margin-bottom: 15px;
     }
+    
     .opcion {
       padding: 10px 20px;
       border: 2px solid #4CAF50;
@@ -52,13 +61,16 @@
       margin: 0 5px;
       transition: all 0.3s;
     }
+    
     .opcion:hover {
       background-color: #f0f0f0;
     }
+    
     .opcion.seleccionada {
       background-color: #4CAF50;
       color: white;
     }
+    
     .enviar-btn {
       background-color: #4CAF50;
       color: white;
@@ -69,25 +81,30 @@
       font-size: 16px;
       width: 100%;
     }
+    
     .enviar-btn:hover {
       background-color: #45a049;
     }
+    
     .mensaje {
       margin-top: 15px;
       padding: 10px;
       border-radius: 5px;
       display: none;
     }
+    
     .exito {
       background-color: #dff0d8;
       color: #3c763d;
     }
+    
     .error {
       background-color: #f2dede;
       color: #a94442;
     }
+
 <!------------------------------------------------------------------------------------------------------------------------->
-   * {
+     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -200,129 +217,129 @@
       display: block;
       color: #333;
       transition: background-color 0.2s;
+<!---------------------------accordion----->
+   /* Estilos para los acordeones - Versión corregida */
+    .accordion-container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 20px;
     }
-<!----------------------------------------------------------------------------------->
- body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background-color: #f0f0f0;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        .main-container {
-            display: flex;
-            min-height: calc(100vh - 80px);
-        }
-        
-        .sidebar {
-            width: 250px;
-            background-color: #f0f0f0;
-            padding: 20px;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-        }
-        
-        .sidebar h2 {
-            margin-top: 0;
-            color: #333;
-        }
-        
-        .menu-item {
-            margin-bottom: 10px;
-        }
-        
-        .menu-title {
-            padding: 10px;
-            background-color: #ddd;
-            cursor: pointer;
-            font-weight: bold;
-            border-radius: 4px;
-        }
-        
-        .menu-title:hover {
-            background-color: #ccc;
-        }
-        
-        .submenu {
-            display: none;
-            padding-left: 15px;
-            margin-top: 5px;
-        }
-        
-        .submenu a {
-            display: block;
-            padding: 8px 10px;
-            color: #333;
-            text-decoration: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        
-        .submenu a:hover {
-            background-color: #ddd;
-        }
-        
-        .content {
-            flex: 1;
-            padding: 30px;
-            background-color: white;
-        }
-        
-        h1 {
-            color: #333;
-            margin: 0;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-        
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-        
-        th {
-            background-color: #f0f0f0;
-        }
-        
-        .faq {
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 4px;
-            margin-top: 20px;
-        }
-        
-        .content-section {
-            display: none;
-        }
-        
-        .content-section.active {
-            display: block;
-        }
-        
-        .empty-state {
-            text-align: center;
-            color: #888;
-            padding: 50px;
-            font-size: 18px;
-        }
-.menu-item a.active {
-        background-color: black;
-        color: white;
-        font-weight: bold;
+
+    .helpjuice-accordion {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      overflow: hidden;
+      background: #fff;
+      color: #333;
     }
+
+    .helpjuice-accordion-title {
+      padding: 15px 20px;
+      background: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      transition: background-color 0.3s;
+    }
+
+    .helpjuice-accordion-title:hover {
+      background: #45a049;
+    }
+
+    .accordion-icon {
+      font-size: 1.2em;
+      transition: transform 0.3s ease;
+    }
+
+    .helpjuice-accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      background-color: white;
+    }
+
+    .helpjuice-accordion-body.active {
+      max-height: 2000px; /* Valor suficientemente grande para contenido largo */
+    }
+
+    .helpjuice-accordion-content {
+      padding: 20px;
+    }
+
+    .pdf-container {
+      padding: 10px;
+    }
+
+    .pdf-container a {
+      color: #4CAF50;
+      text-decoration: none;
+    }
+
+    .pdf-container a:hover {
+      text-decoration: underline;
+    }
+
+<!-------------------------------------video------------------->
+.modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.6);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-content {
+      position: relative;
+      width: 90%;
+      max-width: 720px;
+      background-color: #000;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .modal-content iframe {
+      width: 100%;
+      height: 400px;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 28px;
+      color: #fff;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background-color: #0078D4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #005EA2;
+    }
+
+<!------------------------------------------------------------------------------>
   </style>
 </head>
 <body>
@@ -331,6 +348,7 @@
 <div class="header-container">
   <img class="header-image" src="https://raw.githubusercontent.com/ConsultasyTramites/Servicioalestudiante/main/SAE_2800x400.png" alt="Banner SAE" width="100%">
 </div>
+
 <!-- Contenedor separado para el buscador -->
 <div class="search-container">
   <div class="search-wrapper">
@@ -344,6 +362,22 @@
     </div>
   </div>
 </div>
+
+<script>
+  const searchInput = document.getElementById('search');
+  const resultsContainer = document.getElementById('results-container');
+  const searchResultsBox = document.getElementById('search-results');
+
+  searchInput.addEventListener('input', function () {
+    const query = this.value.trim().toLowerCase();
+    if (query.length > 0) {
+      resultsContainer.innerHTML = `<p>Mostrando resultados para: <strong>${query}</strong></p>`;
+      searchResultsBox.style.display = 'block';
+    } else {
+      searchResultsBox.style.display = 'none';
+    }
+  });
+</script>
 
 <!-- ... (resto del HTML existente) ... -->
 
@@ -392,7 +426,7 @@ document.addEventListener('DOMContentLoaded', function() {
       keywords: ["malla", "curricular", "plan", "estudio", "cursos", "asignaturas", "carrera", "programa"]
     },
     { 
-      title: "Matrícula (2º a 6º ciclo)", 
+      title: "Conoce tu malla", 
       url: "2Cicloa6Ciclo.html",
       description: "Proceso de matrícula para ciclos avanzados",
       keywords: ["matricula", "matrícula", "segundo ciclo", "tercer ciclo", "cuarto ciclo", "quinto ciclo", "sexto ciclo", "inscripción"]
@@ -487,6 +521,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <!-- Aquí iría el resto de tu contenido HTML existente -->
 
+
 <!-LOGO DE PESTAÑA ----------------------------------------------------------------------------------------------------------------------->
     <link rel="shortcut icon" type="image/*" href="https://ugc.production.linktr.ee/c150853f-f3d4-47aa-8a99-1605e440154e_WhatsApp-Image-2025-01-07-at-4.12.16-AM.jpeg?io=true&size=avatar-v3_0" />
 
@@ -497,21 +532,20 @@ document.addEventListener('DOMContentLoaded', function() {
     <meta name="keywords" content="Carrión alumno, portal Carrión alumno, Carrión intranet alumnos, campus virtual Carrión alumno, portal Carrión, contacto Carrión, numero de Carrión, instituto Carrión contacto, Carrión academico, correo Carrión, trámites Carrión, tarifario Carrión, canales de atención Carrión, matrícula Carrión" />
   
 <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------->    
-    
         
         <!-- Facebook Open Graph data -->
-        <meta property="og:title" content="Portal autoatención - Instituto Carrión" />
+        <meta property="og:title" content="Portal autoatención - Instituto SISE" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://conecta.Carrión.edu.pe/reglamento-de-titulacion-/reglamento-de-titulacion-" />
+  <!-----link de malla curricular--->      <meta property="og:url" content="https://conecta.sise.edu.pe/protege-tus-accesos/protege-tus-accesos" />
         
         <meta property="og:description" content="¿Tienes alguna o consulta? Ingresa al portal de autoatención al alumno para que puedas resolver todas tus dudas en cualquier momento." />
-        <meta property="og:site_name" content="Carrión" />
+        <meta property="og:site_name" content="SISE" />
         
         <!-- Twitter Card data -->
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="Portal autoatención - Instituto Carrión">
+        <meta name="twitter:title" content="Portal autoatención - Instituto SISE">
         <meta name="twitter:description" content="¿Tienes alguna o consulta? Ingresa al portal de autoatención al alumno para que puedas resolver todas tus dudas en cualquier momento.">
-        <meta name="twitter:image:src" content="">
+        <meta name="twitter:image:src" content="https://conecta.sise.edu.pehttps://static.helpjuice.com/helpjuice_production/uploads/upload/image/12017/direct/1745268639149/Pieza%2013%20NUEVOS.png">
         
     
     <!--FontsBarlow-->
@@ -530,7 +564,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     
-<meta name="question-id" content="2553972"><meta name="category-id" content="563822"><meta name="flow-id" content=""><meta name="recaptcha-site-key" content="6LcpGLYjAAAAAJtaowP1_pw6R12eDC592EcvHBJa"><meta name="require-contact-captcha" content="false"><meta name="current-language" content="es_ES"><meta name="knowledge-base-url" content="https://conecta.Carrión.edu.pe/"><meta name="current-user-id" content=""><meta name="ignore-users-analytics" content="false"><meta name="reading-timeout" content="10000"><meta name="account-subdirectory-prefix" content=""><meta name="current-account-id" content="12017"><meta name="account-subdomain" content="Carrión"><meta name="helpjuice-knowledge-base-url" content="https://Carrión.helpjuice.com/"></head>
+<meta name="question-id" content="3231953"><meta name="category-id" content="1019137"><meta name="flow-id" content=""><meta name="recaptcha-site-key" content="6LcpGLYjAAAAAJtaowP1_pw6R12eDC592EcvHBJa"><meta name="require-contact-captcha" content="false"><meta name="current-language" content="es_ES"><meta name="knowledge-base-url" content="https://conecta.sise.edu.pe/?kb_language=es_ES"><meta name="current-user-id" content=""><meta name="ignore-users-analytics" content="false"><meta name="reading-timeout" content="10000"><meta name="account-subdirectory-prefix" content=""><meta name="current-account-id" content="12017"><meta name="account-subdomain" content="sise"><meta name="helpjuice-knowledge-base-url" content="https://sise.helpjuice.com/"></head>
 <body class="galaxy-theme question_page">
 
 
@@ -540,7 +574,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
 <!--START_COMPONENT_BRANDING_SECTION-->
 <div class="col-xs-6 branding hidden" data-helpjuice-component="Branding Section" data-helpjuice-element="Container" data-helpjuice-attributes="visibility,background">
-                <h1 data-helpjuice-element="Branding Title" data-helpjuice-attributes="font_size,color"><a href="/" data-helpjuice-element="Knowledge Link" data-helpjuice-attributes="font_size,color">Carrión Knowledge</a></h1>
+                <h1 data-helpjuice-element="Branding Title" data-helpjuice-attributes="font_size,color"><a href="/" data-helpjuice-element="Knowledge Link" data-helpjuice-attributes="font_size,color">SISE Knowledge</a></h1>
                 <a href="/" class="logo" data-helpjuice-element="Logo Link" data-helpjuice-attributes="font_size,color"><span class="altLogo" data-helpjuice-element="Alt Logo Span" data-helpjuice-attributes="font_size,color"></span></a>
             </div>
 <!--END_COMPONENT_BRANDING_SECTION-->
@@ -568,7 +602,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 
                                     
                                         <div>
-                                            <a href="/es_ES/reglamento-de-titulacion-/reglamento-de-titulacion-" class="current">
+                                            <a href="/es_ES/protege-tus-accesos/protege-tus-accesos" class="current">
                                                 <span class="language-code">ES</span>
                                                 <span class="flag-icon flag-icon-es"></span>
                                                 <span class="language-name">Spanish</span>
@@ -582,8 +616,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
             </div>
 <!--END_COMPONENT_NAVIGATION_SECTION-->
-    
-      <!--------------------baner del buscador -------------------------------------------------------->      
+ <!--------------------baner del buscador -------------------------------------------------------->      
  
 <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
 
@@ -594,10 +627,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
 
-      
-
-
-<main id="main-content">
+         <main id="main-content">
         <div class="content_for_layout">
             <!--START_COMPONENT_BREADCRUMBS_CONTAINER_A-->
 <div class="bread-crumbs-container" data-helpjuice-component="Breadcrumbs Container A" data-helpjuice-element="Container" data-helpjuice-attributes="visibility,background">
@@ -609,429 +639,342 @@ document.addEventListener('DOMContentLoaded', function() {
                 <img src="https://images.freeimages.com/fic/images/icons/1580/devine_icons_part_2/512/home.png" width="20px" data-helpjuice-element="Bread Crumb Image" data-helpjuice-attributes="font_size,color">
             </a>
  <!-------------------------------------slash--------------------------------------------------->
-            <img src="https://images.icon-icons.com/2954/PNG/512/slash_icon_184691.png" height="14px" data-helpjuice-element="Bread Crumb Image" data-helpjuice-attributes="font_size,color">
+            <img src="https://docs.cientifica.edu.pe/marketing/sise/helpjuice/Link.png" height="14px" data-helpjuice-element="Bread Crumb Image" data-helpjuice-attributes="font_size,color">
  <!----------------------------------------------------------------------------------------->           
             
                 
-                    <!---<a href="/es_ES/faq" class="bread-crumb-link" data-helpjuice-element="Bread Crumb Link" data-helpjuice-attributes="font_size,color">FAQ</a>----> 
-                   <!---<img src="https://images.icon-icons.com/2954/PNG/512/slash_icon_184691.png" height="14px" data-helpjuice-element="Bread Crumb Image" data-helpjuice-attributes="font_size,color">----> 
+                    <!----<a href="/es_ES/faq" class="bread-crumb-link" data-helpjuice-element="Bread Crumb Link" data-helpjuice-attributes="font_size,color">FAQ</a>
+                   <img src="https://docs.cientifica.edu.pe/marketing/sise/helpjuice/Link.png" height="14px" data-helpjuice-element="Bread Crumb Image" data-helpjuice-attributes="font_size,color">------>
                 
             
                 
                     
-                        <a href="https://images.icon-icons.com/2954/PNG/512/slash_icon_184691.png" data-helpjuice-attributes="font_size,color">Guía del Egresado</a>
+                        <a href="#" class="bread-crumb-active no-click" data-helpjuice-element="Active Bread Crumb Link" data-helpjuice-attributes="font_size,color">Conoce tu malla</a>
                     
                 
             
                 
     </div>
 </div>
-
-
 
 <!--END_COMPONENT_BREADCRUMBS_CONTAINER_A-->
 
 <!--Prueba-->
+
 <!--START_COMPONENT_ARTICLE_FEEDBACK_WRAPPER-->
 
-<!-----------------------------------zona del PDF---------------------------------------------------------------------------------------------->
+<div class="wrapper" id="content-article" data-helpjuice-component="Article Feedback Wrapper" data-helpjuice-element="Container" data-helpjuice-attributes="visibility,background">
+    <article class="article article-question" data-controller="feedbacks" data-feedbacks-load-form-value="/admin/feedbacks/comments/new?question_id=3231953" data-helpjuice-element="Question Article" data-helpjuice-attributes="font_size,color">
+            <header data-helpjuice-element="Article Header" data-helpjuice-attributes="font_size,color">
+                <div class="title" data-helpjuice-element="Article Title" data-helpjuice-attributes="visibility,background">                   <h1>Conoce tu malla</h1>
+                </div>
+            </header>
+ <!-- Contenedor principal para los acordeones -->
+<div class="accordion-container">
 
-    <!-- Contenedor principal con menú lateral y contenido -->
-<div class="main-container">
-    <!-- Menú lateral -->
-    <div class="sidebar">
-        <div class="menu-item">
-            <div class="menu-title" onclick="toggleSubmenu(this)">Conoce tu malla</div>
-            <div class="submenu">
-                <a href="#" onclick="showContent('malla-asignatura')">MALLA POR ASIGNATURA alumnos matriculados hasta 2013-2.</a>
-                <a href="#" onclick="showContent('malla-dcb')">Malla DCB - Modular (Si iniciaste a estudiar en el 2014 al 2018-2)</a>
-                <a href="#" onclick="showContent('Malla-Licenciamiento')">Malla Licenciamiento (Si iniciaste a estudiar en el 2019 a la actualidad)</a>
-            </div>
-        </div>
-        <!---------------------------------segundo menu desplegable --------------------->
-       <!-<div class="menu-item">
-            <div class="menu-title" onclick="toggleSubmenu(this)">Trámite</div>
-            <div class="submenu">
-                <a href="#" onclick="showContent('titulo-profesional')">Normativas</a>
-                <a href="#" onclick="showContent('requisitos-titulo')">Requisitos</a>
-                <a href="#" onclick="showContent('procedimiento-titulo')">Procedimiento</a>
-            </div>
-        </div>
+  <!-- Primer acordeón ----------------------------Malla dcb - modular (Si iniciaste a estudiar en el 2014 al 2018-2)-------------------------->
+  <div class="helpjuice-accordion">
+    <h2 class="helpjuice-accordion-title">
+     Malla dcb - modular (Si iniciaste a estudiar en el 2014 al 2018-2)
+      <span class="accordion-icon">+</span>
+    </h2>
+    <div class="helpjuice-accordion-body">
+      <div class="helpjuice-accordion-content">
+        <div class="pdf-container">
+          <h3>Requisitos para tramitar tu Título Profesional Técnico</h3>
+<ul>
+  <li>Debes contar con el <strong>DIPLOMA DE EGRESADO MALLA ASIGNATURAS Y DCB</strong> (<a href="MallaDC.html">Haz clic aquí para saber cómo tramitarlo.</a>)</li>
+  <li>Debes contar con el <strong>Certificado de Inglés</strong> (nivel A2) expedido por el centro de idiomas del instituto. Puedes obtener mayor información aquí: <a href="idiomasDCB.html" target="_blank">Idiomas Carrion</a></li>
+  <li>Debes contar con el <strong>Acta de Aprobación del Programa Especial de Titulación (PET)</strong>. Conoce más sobre el PET aquí: <a href="PET.html" target="_blank">Titulación PET</a></li>
+</ul>
 
-        <!---------------------------------tercer menu desplegable --------------------->
-       <!---<div class="menu-item">
-            <div class="menu-title" onclick="toggleSubmenu(this)">Trámiteional</div>
-            <div class="submenu">
-                <a href="#" onclick="showContent('titulo-profesional')">Normativas</a>
-                <a href="#" onclick="showContent('requisitos-titulo')">Requisitos</a>
-                <a href="#" onclick="showContent('procedimiento-titulo')">Procedimiento</a>
-            </div>
-	</div>
-  </div>
-    <!-- Contenido principal --------------------------------->
-        <div class="content">
-        <!-- Estado vacío inicial -->
-        <div id="empty-content" class="empty-state">
-            Seleccione una opción del menú para ver la información correspondiente
-        </div>
- 
-   <!----------------------- Contenido para Malla por Asignatura ------------------------------------------------>
-        <div id="malla-asignatura" class="content-section" style="display: none;">
-            <h2>Requisitos para iniciar el trámite de tu Título Profesional Técnico</h2>
-            <table>
-                <tr>
-                    <th colspan="3">
-                        Debes contar con el DIPLOMA DE EGRESADO MALLA ASIGNATURAS Y DCB 
-                        (<a href="MallaDC.html" target="_blank">Haz clic aquí para saber cómo tramitarlo.</a>)
-                    </th>
-                </tr>
-                <tr>
-                    <th colspan="3">
-                        Debes contar con el Certificado de Inglés (nivel A2) expedido por el centro de idiomas del instituto. Puedes obtener mayor información aquí:(<a href="idiomasDCB.html" target="_blank">https://www.acarrion.edu.pe/idiomas</a>)
-                    </th>
-                </tr>
-                <tr>
-                    <th colspan="3">
-                        Debes contar con el Acta de Aprobación del Programa Especial de Titulación (PET). Puedes conocer más sobre el PET aquí:(<a href="PET.html" target="_blank">https://producto.acarrion.edu.pe/titulacionpet-2/</a>)
-                    </th>
-                </tr>
-            </table>
-
-            <h2>¿CÓMO TRAMITO MI TÍTULO PROFESIONAL?</h2>
-            <h3>Pasos para Iniciar tu Trámite</h3>
-
-  <p>Una vez que cuentes con todos los requisitos, podrás iniciar tu trámite siguiendo estos pasos:</p>
-
-  <ol>
-    <li>Ingresa a <a href="https://intranet.uwiener.edu.pe/sso.asp" target="_blank">CarrionNet</a> con tu usuario y contraseña.</li>
-    <li>Dirígete a la opción <strong>Trámites académicos / Trámites diversos</strong>.</li>
-    <li>Haz clic en el botón <strong>Registrar</strong>.</li>
-    <li>Selecciona tu carrera.</li>
-    <li>En la opción Trámites, elige: <strong>TÍTULO PROFESIONAL TÉCNICO MALLA ASIGNATURAS Y DCB</strong>.</li>
-    <li>Selecciona la sede: <strong>7818 - Av. Arequipa 351 – 365 Lima</strong>.</li>
-    <li>Adjunta los documentos requeridos.</li>
-    <li>Haz clic en <strong>Continuar</strong> para finalizar tu solicitud.</li>
-    <li>A partir de las 24 horas, ingresa a la opción <strong>Seguimiento</strong> y verifica que el estado de tu trámite figure como <strong>Pendiente de pago</strong>.</li>
-  </ol>
-
-            <h2>¿CÓMO DEBO DE PAGAR MI TÍTULO?</h2>
-           <h3>Realización del Pago</h3>
-
-  <p>Cuando el estado de tu solicitud figure como <strong>Pendiente de pago</strong>, podrás realizar el abono en los siguientes canales autorizados:</p>
-
-  <h2>Bancos Afiliados</h2>
-  <ul>
-    <li>Scotiabank</li>
-    <li>BCP</li>
-    <li>Yape (solo en ventanilla o app, no disponible en agentes)</li>
-  </ul>
-
-  <h2>Pasos para el Pago</h2>
-  <ol>
-    <li>Indica que realizarás un pago al <strong>Instituto Carrión</strong>.</li>
-    <li>Selecciona el concepto: <strong>Trámites Académicos</strong>.</li>
-    <li>Proporciona tu <strong>código de alumno</strong> en mayúsculas.</li>
-  </ol>
-
-
-            <h2>¿CUÁNDO ME ENTREGAN MI TÍTULO PROFESIONAL?</h2>
-           <h3>Entrega de Documentos y Emisión del Título</h3>
-
-  <p>Después de realizar el pago, deberás acercarte a la sede para entregar físicamente los documentos que cargaste en CarrionNet.</p>
-  <p>Recuerda que en oficina deberás completar y firmar la <strong>Declaración Jurada</strong>.</p>
-
-  <p>Una vez entregados los documentos, el plazo de atención para la emisión de tu <strong>Título Profesional Técnico</strong> es de <strong>120 días hábiles</strong>.</p>
-  <p>El documento será enviado en formato digital a tu correo institucional. Además, podrás recoger el título físico acercándote a la sede.</p>
-
-  <h2>Oficina de Grados y Títulos</h2>
-  <ul>
-    <li><strong>📍 Dirección:</strong> Av. Arequipa 351, Lima (1er piso)</li>
-    <li><strong>🕘 Horario de atención:</strong> Lunes a viernes, de 9:00 a.m. a 1:00 p.m. y de 2:00 p.m. a 5:45 p.m.</li>
-    <li><strong>✉️ Correo:</strong> <a href="mailto:gradosytitulos@acarrion.edu.pe">gradosytitulos@acarrion.edu.pe</a></li>
-  </ul>
-
-</body>
-
-        </div>
-
-<!-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------> 
-
-
-
-
-
-
-
-
-
-        <!-- 1--------------------------------Contenido para Malla DCB --------------------------------------------------------------------------->
-        <div id="malla-dcb" class="content-section" style="display: none;">
-            <h2>Requisitos para iniciar el trámite para obtener tu titulo profesional </h2>
-            <table>
-                <tr>
-                    <th colspan="3">
-                        Debes contar con el Diploma de Egresado (Malla Asignaturas y DCB). 
-			<!--<a href="Tramitar_Bachiller.html" class="faq-square">---->
-                        <a href="Tramitar_Bachiller.html" target="_blank">Haz clic aquí para saber cómo tramitarlo.</a>
-                    </th>
-                </tr>
-                <tr>
-                    <th colspan="3">
-                        Debes contar con el Certificado de Inglés (nivel A2) expedido por el centro de idiomas del instituto. Puedes obtener mayor información aquí: <a href="idiomasDCB.html" target="_blank">clic aquí</a>
-                    </th>
-                </tr>
-                <tr>
-                    <th colspan="3">
-                        Debes contar con el Acta de Aprobación del Programa Especial de Titulación (PET). Puedes conocer más sobre el PET aquí: 
-		<a href="ACTA_PET.html">https://producto.acarrion.edu.pe/titulacionpet-2/</a>
-                    </th>
-                </tr>
-            </table>
-
-            <h3>¿CÓMO TRAMITO MI TÍTULO PROFESIONAL?</h3>
-           <h2>Pasos para Iniciar tu Trámite</h2>
-
-  <p>Una vez que cuentes con todos los requisitos, podrás iniciar tu trámite siguiendo estos pasos:</p>
-
-  <ol>
-    <li>Ingresa a <a href="https://intranet.uwiener.edu.pe/sso.asp" target="_blank">CarrionNet</a> con tu usuario y contraseña.</li>
-    <li>Dirígete a la opción <strong>Trámites académicos / Trámites diversos</strong>.</li>
-    <li>Haz clic en el botón <strong>Registrar</strong>.</li>
-    <li>Selecciona tu carrera.</li>
-    <li>En la opción Trámites, elige: <strong>TÍTULO PROFESIONAL TÉCNICO MALLA ASIGNATURAS Y DCB</strong>.</li>
-    <li>Selecciona la sede: <strong>7818 - Av. Arequipa 351 – 365 Lima</strong>.</li>
-    <li>Adjunta los documentos requeridos.</li>
-    <li>Haz clic en <strong>Continuar</strong> para finalizar tu solicitud.</li>
-    <li>A partir de las 24 horas, ingresa a la opción <strong>Seguimiento</strong> y verifica que el estado de tu trámite figure como <strong>Pendiente de pago</strong>.</li>
-  </ol>
-
-  <h2>Información Adicional</h2>
-  <p><strong>Costo del trámite:</strong> S/ 900.00</p>
-  <p><strong>Plazo de atención:</strong> 120 días hábiles a partir del pago</p>
-
-            <h3>¿CÓMO DEBO DE PAGAR MI TÍTULO?</h3>
-             <h4>Canales de Pago Autorizados</h4>
-
-  <p>Cuando el estado de tu solicitud figure como <strong>Pendiente de pago</strong>, podrás realizar el abono en los siguientes canales autorizados:</p>
-
-  <h2>Bancos Afiliados</h2>
-  <ul>
-    <li>Scotiabank</li>
-    <li>BCP</li>
-    <li>Yape <em>(solo en ventanilla o app, no disponible en agentes)</em></li>
-  </ul>
-
-  <h2>Pasos para el Pago</h2>
-  <ol>
-    <li>Indica que realizarás un pago al <strong>Instituto Carrión</strong>.</li>
-    <li>Selecciona el concepto: <strong>Trámites Académicos</strong>.</li>
-    <li>Proporciona tu <strong>código de alumno</strong> en mayúsculas.</li>
-  </ol>
-
-
-
-            <h3>¿CUANDO ME ENTREGAN MI TÍTULO PROFESIONAL?</h3>
-            <h1>Entrega de Documentos y Emisión del Título</h1>
-
-  <p>Después de realizar el pago, deberás acercarte a la sede para entregar físicamente los documentos que cargaste en CarrionNet.</p>
-  <p>Recuerda que en oficina deberás completar y firmar la <strong>Declaración Jurada</strong>.</p>
-
-  <p>Una vez entregados los documentos, el plazo de atención para la emisión de tu <strong>Título Profesional Técnico</strong> es de <strong>120 días hábiles</strong>.</p>
-  <p>El documento será enviado en formato digital a tu correo institucional. Además, podrás recoger el título físico acercándote a la sede.</p>
-
-  <h2>Oficina de Grados y Títulos</h2>
-  <ul>
-    <li><strong>📍 Dirección:</strong> Av. Arequipa 351, Lima (1er piso)</li>
-    <li><strong>🕘 Horario de atención:</strong> Lunes a viernes, de 9:00 a.m. a 1:00 p.m. y de 2:00 p.m. a 5:45 p.m.</li>
-    <li><strong>✉️ Correo:</strong> <a href="mailto:gradosytitulos@acarrion.edu.pe">gradosytitulos@acarrion.edu.pe</a></li>
-  </ul>
-
-
-
-        </div>
- <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-
-
-        
-        <!-- Malla  Licenciamiento (Si empezaste a estudiar en el 2019 a la actualidad)-->
-        <div id="Malla-Licenciamiento" class="content-section" style="display: none;">
-            <h2>Requisitos para iniciar el trámite para obtener tu título profesional</h2>
-            <table>
-                <tr>
-                    <th colspan="3">
-                        Debes contar con el Debes contar con el Diploma de Egresado (Malla Licenciamiento)(<a href="Diploma.html" target="_blank">Haz click para saber como tramitar tu diploma de egresado</a>)
-                    </th>
-                </tr>
-                <tr>
-                    <th colspan="3">
-                        Debes contar con el Grado de Bachiller <a href="Tramitar_Egresado.html" target="_blank">
-    (haz clic para saber cómo tramitar tu grado de bachiller)
-  </a>
-
-<li>Certificado original de Estudios Secundarios</li>
-<li>DNI o Carné de Extranjería (8 x 13 cm).</li>
-<li> 02 fotografías (Tamaño pasaporte, papel mate, fondo blanco, con uniforme de la Carrera). “La misma que debe traer al momento de entregar su expediente”.</li>
-
-                    </th>
-                </tr>
-                <tr>
-                    <th colspan="3">
-                        Debes contar con el ACTA DE APROBACIÓN del Programa Especial de Titulación - PET (<a href="TITULACION_PET.html" target="_blank">conoce acerca del programa de titulación -PET </a>)
-                    </th>
-                </tr>
-            </table>
-        
-        <h3>¿CÓMO TRAMITO MI TÍTULO PROFESIONAL?</h3>
-<h2>Pasos para Registrar tu Solicitud</h2>
-
-  <p>Una vez que cuentes con todos los requisitos, sigue estos pasos para registrar tu solicitud:</p>
-
-  <ol>
-    <li>Ingresa a <a href="https://intranet.uwiener.edu.pe/sso.asp" target="_blank">CarrionNet</a> con tu usuario y contraseña.</li>
-    <li>Dirígete a la opción <strong>Trámites académicos / Trámites diversos</strong>.</li>
-    <li>Haz clic en el botón <strong>Registrar</strong>.</li>
-    <li>Selecciona tu carrera.</li>
-    <li>En la opción Trámites, elige: <strong>TÍTULO PROFESIONAL TÉCNICO – MALLA LICENCIAMIENTO</strong>.</li>
-    <li>Selecciona la sede: <strong>7818 - Av. Arequipa 351 – 365, Lima</strong>.</li>
-    <li>Adjunta los documentos requeridos.</li>
-    <li>Haz clic en <strong>Continuar</strong> para completar el registro de tu solicitud.</li>
-    <li>Después de 24 horas, ingresa a la opción <strong>Seguimiento</strong> y verifica que el estado del trámite figure como <strong>Pendiente de pago</strong>.</li>
-  </ol>
-
-  <h2>Información Adicional</h2>
-  <p><strong>Costo del trámite:</strong> S/ 900.00</p>
-  <p><strong>Plazo de atención:</strong> 120 días hábiles a partir del pago</p>
-</body>
-
+<h3>¿CÓMO TRAMITO MI TÍTULO PROFESIONAL?</h3>
+<h3>Pasos para Iniciar tu Trámite</h3>
+<ol>
+  <li>Ingresa a <strong>CarrionNet</strong> con tu usuario y contraseña.</li>
+  <li>Dirígete a la opción <strong>Trámites académicos / Trámites diversos</strong>.</li>
+  <li>Haz clic en el botón <strong>Registrar</strong>.</li>
+  <li>Selecciona tu carrera.</li>
+  <li>En la opción Trámites, elige: <strong>TÍTULO PROFESIONAL TÉCNICO MALLA ASIGNATURAS Y DCB</strong>.</li>
+  <li>Selecciona la sede: <strong>7818 - Av. Arequipa 351 – 365 Lima</strong>.</li>
+  <li>Adjunta los documentos requeridos.</li>
+  <li>Haz clic en <strong>Continuar</strong> para finalizar tu solicitud.</li>
+  <li>Después de 24 horas, ingresa a la opción <strong>Seguimiento</strong> y verifica que el estado del trámite figure como <strong>Pendiente de pago</strong>.</li>
+</ol>
 
 <h3>¿CÓMO DEBO DE PAGAR MI TÍTULO?</h3>
- <h2>Pago del Trámite</h2>
+<h4>Realización del Pago</h4>
+<p>Cuando el estado de tu solicitud figure como <strong>Pendiente de pago</strong>, podrás realizar el abono en los siguientes canales autorizados:</p>
 
-  <p>Cuando el estado de tu solicitud figure como <strong>Pendiente de pago</strong>, podrás realizar el abono en los siguientes canales autorizados:</p>
+<h4>Bancos Afiliados</h4>
+<ul>
+  <li>Scotiabank</li>
+  <li>BCP</li>
+  <li>Yape <em>(solo en ventanilla o app, no disponible en agentes)</em></li>
+</ul>
 
-  <h2>Bancos Afiliados</h2>
-  <ul>
-    <li>Scotiabank</li>
-    <li>BCP</li>
-    <li>Yape <em>(solo en ventanilla o app, no disponible en agentes)</em></li>
-  </ul>
+<h4>Pasos para el Pago</h4>
+<ol>
+  <li>Indica que realizarás un pago al <strong>Instituto Carrión</strong>.</li>
+  <li>Selecciona el concepto: <strong>Trámites Académicos</strong>.</li>
+  <li>Proporciona tu <strong>código de alumno</strong> en mayúsculas.</li>
+</ol>
 
-  <h2>Pasos para el Pago</h2>
-  <ol>
-    <li>Indica que realizarás un pago al <strong>Instituto Carrión</strong>.</li>
-    <li>Selecciona el concepto: <strong>Trámites Académicos</strong>.</li>
-    <li>Proporciona tu <strong>código de alumno</strong> en mayúsculas.</li>
-  </ol>
+<h2>¿CUÁNDO ME ENTREGAN MI TÍTULO PROFESIONAL?</h2>
+<h3>Entrega de Documentos y Emisión del Título</h3>
+<ul>
+  <li>Después del pago, entrega físicamente los documentos que cargaste en CarrionNet en la sede correspondiente.</li>
+  <li>Completa y firma la <strong>Declaración Jurada</strong> en oficina.</li>
+  <li>El plazo de atención es de <strong>120 días hábiles</strong> desde la entrega.</li>
+  <li>Tu título será enviado en formato digital a tu correo institucional. También puedes recoger el título físico.</li>
+</ul>
 
-<h3>¿CUANDO ME ENTREGAN MI TÍTULO PROFESIONAL?</h3>
-<h2>Entrega de Documentos y Emisión del Título</h2>
-
-  <p>Después de realizar el pago, deberás acercarte a la sede para entregar físicamente los documentos que cargaste en CarrionNet.</p>
-  <p>Recuerda que en oficina deberás completar y firmar la <strong>Declaración Jurada</strong>.</p>
-
-  <p>Una vez entregados los documentos, el plazo de atención para la emisión de tu <strong>Título Profesional Técnico</strong> es de <strong>120 días hábiles</strong>.</p>
-  <p>El documento será enviado en formato digital a tu correo institucional. Además, podrás recoger el título físico acercándote a la sede.</p>
-
-  <h2>Oficina de Grados y Títulos</h2>
-  <ul>
-    <li><strong>📍 Dirección:</strong> Av. Arequipa 351, Lima (1er piso)</li>
-    <li><strong>🕘 Horario de atención:</strong> Lunes a viernes, de 9:00 a.m. a 1:00 p.m. y de 2:00 p.m. a 5:45 p.m.</li>
-    <li><strong>✉️ Correo:</strong> <a href="mailto:gradosytitulos@acarrion.edu.pe">gradosytitulos@acarrion.edu.pe</a></li>
-  </ul>
-</div>
-
-<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-
-
-
-        <!-- Otras secciones de contenido -->
-
-     <div id="titulo-profesional" class="content-section" style="display: none;">
-            <h2>Normativas para título profesional</h2>
-            <table>
-                <tr>
-                    <th>hola</th>
-                    <th>Descripción</th>
-                </tr>
-                <tr>
-                    <td>Normativa 001</td>
-                    <td>Requisitos generales para obtención de título</td>
-                </tr>
-            </table>
+<h4>Oficina de Grados y Títulos</h4>
+<ul>
+  <li><strong>📍 Dirección:</strong> Av. Arequipa 351, Lima (1er piso)</li>
+  <li><strong>🕘 Horario de atención:</strong> Lunes a viernes, de 9:00 a.m. a 1:00 p.m. y de 2:00 p.m. a 5:45 p.m.</li>
+  <li><strong>✉️ Correo:</strong> <a href="mailto:gradosytitulos@acarrion.edu.pe">gradosytitulos@acarrion.edu.pe</a></li>
+</ul>
         </div>
-        
-      <div id="requisitos-titulo" class="content-section" style="display: none;">
-            <h2>Requisitos para título profesional</h2>
-            <table>
-                <tr>
-                    <th>Requisito</th>
-                    <th>Descripción</th>
-                </tr>
-                <tr>
-                    <td>Documento 1</td>
-                    <td>Certificado de estudios completo</td>
-                </tr>
-            </table>
-        </div>
-        
-        <!-- Secciones adicionales PROCEDIMIENTO -->
-     <div id="procedimiento-titulo" class="content-section" style="display: none;">
-            <h2>Procedimiento</h2>
-            <!-- Contenido del procedimiento -->
-        </div>
-       
-        <!-- Agrega las demás secciones de contenido aquí -->
-        <div id="documentacion" class="content-section" style="display: none;">
-            <h2>Documentación requerida</h2>
-            <!-- Contenido de documentación -->
-        </div>
-        
-        <div id="plazos" class="content-section" style="display: none;">
-            <h2>Plazos para trámites</h2>
-
-            <!-- Contenido de plazos------------------------------------------>
-          
-        <div id="costos" class="content-section" style="display: none;">
-            <h2>Costos asociados</h2>
-            <!-- Contenido de costos -->
-        </div>
+      </div>
     </div>
-</div>
+  </div>
+
+  <!-- Segundo acordeón -----------Malla por asignatura alumnos matriculados hasta 2013-2.------------------------------------------->
+  <div class="helpjuice-accordion">
+    <h2 class="helpjuice-accordion-title">
+      Malla por asignatura alumnos matriculados hasta 2013-2
+      <span class="accordion-icon">+</span>
+    </h2>
+    <div class="helpjuice-accordion-body">
+      <div class="helpjuice-accordion-content">
+        <div class="pdf-container">
+       <h3>Requisitos para iniciar el trámite para obtener tu título profesional</h3>
+<ul>
+  <li>Debes contar con el <strong>Diploma de Egresado (Malla Asignaturas y DCB)</strong>. <a href="Tramitar_Bachiller.html">Haz clic aquí para saber cómo tramitarlo.</a></li>
+  <li>Debes contar con el <strong>Certificado de Inglés</strong> (nivel A2) expedido por el centro de idiomas del instituto. <a href="idiomasDCB.html">Puedes obtener mayor información aquí</a></li>
+  <li>Debes contar con el <strong>Acta de Aprobación del Programa Especial de Titulación (PET)</strong>. <a href="ACTA_PET.html" target="_blank">Conoce más sobre el PET aquí</a></li>
+</ul>
+
+<h3>¿CÓMO TRAMITO MI TÍTULO PROFESIONAL?</h3>
+<h4>Pasos para Iniciar tu Trámite</h4>
+<ol>
+  <li>Ingresa a <strong>CarrionNet</strong> con tu usuario y contraseña.</li>
+  <li>Dirígete a la opción <strong>Trámites académicos / Trámites diversos</strong>.</li>
+  <li>Haz clic en el botón <strong>Registrar</strong>.</li>
+  <li>Selecciona tu carrera.</li>
+  <li>En la opción Trámites, elige: <strong>TÍTULO PROFESIONAL TÉCNICO MALLA ASIGNATURAS Y DCB</strong>.</li>
+  <li>Selecciona la sede: <strong>7818 - Av. Arequipa 351 – 365 Lima</strong>.</li>
+  <li>Adjunta los documentos requeridos.</li>
+  <li>Haz clic en <strong>Continuar</strong> para finalizar tu solicitud.</li>
+  <li>A partir de las 24 horas, ingresa a la opción <strong>Seguimiento</strong> y verifica que el estado de tu trámite figure como <strong>Pendiente de pago</strong>.</li>
+</ol>
+
+<h3>Información Adicional</h3>
+<ul>
+  <li><strong>Costo del trámite:</strong> S/ 900.00</li>
+  <li><strong>Plazo de atención:</strong> 120 días hábiles a partir del pago</li>
+</ul>
+
+<h3>¿CÓMO DEBO DE PAGAR MI TÍTULO?</h3>
+<h4>Canales de Pago Autorizados</h4>
+<ul>
+  <li>Scotiabank</li>
+  <li>BCP</li>
+  <li>Yape <em>(solo en ventanilla o app, no disponible en agentes)</em></li>
+</ul>
+
+<h4>Pasos para el Pago</h4>
+<ol>
+  <li>Indica que realizarás un pago al <strong>Instituto Carrión</strong>.</li>
+  <li>Selecciona el concepto: <strong>Trámites Académicos</strong>.</li>
+  <li>Proporciona tu <strong>código de alumno</strong> en mayúsculas.</li>
+</ol>
+
+<h3>¿CUÁNDO ME ENTREGAN MI TÍTULO PROFESIONAL?</h3>
+<h4>Entrega de Documentos y Emisión del Título</h4>
+<ul>
+  <li>Después del pago, acércate a la sede para entregar físicamente los documentos que cargaste en CarrionNet.</li>
+  <li>Completa y firma la <strong>Declaración Jurada</strong> en oficina.</li>
+  <li>El plazo de atención para la emisión del título es de <strong>120 días hábiles</strong>.</li>
+  <li>El documento se enviará en formato digital a tu correo institucional. También puedes recoger el título físico en la sede.</li>
+</ul>
+
+<h4>Oficina de Grados y Títulos</h4>
+<ul>
+  <li><strong>📍 Dirección:</strong> Av. Arequipa 351, Lima (1er piso)</li>
+  <li><strong>🕘 Horario de atención:</strong> Lunes a viernes, de 9:00 a.m. a 1:00 p.m. y de 2:00 p.m. a 5:45 p.m.</li>
+  <li><strong>✉️ Correo:</strong> <a href="mailto:gradosytitulos@acarrion.edu.pe">gradosytitulos@acarrion.edu.pe</a></li>
+</ul>
+
+          <!-- Resto del contenido... -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tercer acordeón ---------Malla Licenciamiento (Si iniciaste a estudiar en el 2019 a la actualidad)--------------------------------------->
+  <div class="helpjuice-accordion">
+    <h2 class="helpjuice-accordion-title">
+      Malla Licenciamiento (Si iniciaste a estudiar en el 2019 a la actualidad)
+      <span class="accordion-icon">+</span>
+    </h2>
+    <div class="helpjuice-accordion-body">
+      <div class="helpjuice-accordion-content">
+        <div class="pdf-container">
+         
+<h3>Requisitos para iniciar el trámite para obtener tu título profesional</h3>
+<ul>
+  <li>Debes contar con el <strong>Diploma de Egresado (Malla Licenciamiento)</strong> (<a href="Diploma.html">Haz click para saber cómo tramitar tu diploma de egresado</a>)</li>
+  <li>Debes contar con el <strong>Grado de Bachiller</strong> (<a href="Tramitar_Egresado.html">Haz clic para saber cómo tramitar tu grado de bachiller</a>)</li>
+  <li><strong>Certificado original de Estudios Secundarios</strong></li>
+  <li><strong>DNI o Carné de Extranjería</strong> (8 x 13 cm)</li>
+  <li>02 fotografías (Tamaño pasaporte, papel mate, fondo blanco, con uniforme de la Carrera).<br>“La misma que debe traer al momento de entregar su expediente”.</li>
+  <li>Debes contar con el <strong>ACTA DE APROBACIÓN</strong> del Programa Especial de Titulación - PET (<a href="TITULACION_PET.html">Conoce acerca del programa de titulación - PET</a>)</li>
+</ul>
+
+<h3>¿CÓMO TRAMITO MI TÍTULO PROFESIONAL?</h3>
+<h4>Pasos para Registrar tu Solicitud</h4>
+<ol>
+  <li>Ingresa a <strong>CarrionNet</strong> con tu usuario y contraseña.</li>
+  <li>Dirígete a la opción <strong>Trámites académicos / Trámites diversos</strong>.</li>
+  <li>Haz clic en el botón <strong>Registrar</strong>.</li>
+  <li>Selecciona tu carrera.</li>
+  <li>En la opción Trámites, elige: <strong>TÍTULO PROFESIONAL TÉCNICO – MALLA LICENCIAMIENTO</strong>.</li>
+  <li>Selecciona la sede: <strong>7818 - Av. Arequipa 351 – 365, Lima</strong>.</li>
+  <li>Adjunta los documentos requeridos.</li>
+  <li>Haz clic en <strong>Continuar</strong> para completar el registro de tu solicitud.</li>
+  <li>Después de 24 horas, ingresa a la opción <strong>Seguimiento</strong> y verifica que el estado del trámite figure como <strong>Pendiente de pago</strong>.</li>
+</ol>
+
+<h3>Información Adicional</h3>
+<ul>
+  <li><strong>Costo del trámite:</strong> S/ 900.00</li>
+  <li><strong>Plazo de atención:</strong> 120 días hábiles a partir del pago</li>
+</ul>
+
+<h3>¿CÓMO DEBO DE PAGAR MI TÍTULO?</h3>
+<h4>Pago del Trámite</h4>
+<p>Cuando el estado de tu solicitud figure como <strong>Pendiente de pago</strong>, podrás realizar el abono en los siguientes canales autorizados:</p>
+<h4>Bancos Afiliados</h4>
+<ul>
+  <li>Scotiabank</li>
+  <li>BCP</li>
+  <li>Yape <em>(solo en ventanilla o app, no disponible en agentes)</em></li>
+</ul>
+
+<h4>Pasos para el Pago</h4>
+<ol>
+  <li>Indica que realizarás un pago al <strong>Instituto Carrión</strong>.</li>
+  <li>Selecciona el concepto: <strong>Trámites Académicos</strong>.</li>
+  <li>Proporciona tu <strong>código de alumno</strong> en mayúsculas.</li>
+</ol>
+
+<h3>¿CUÁNDO ME ENTREGAN MI TÍTULO PROFESIONAL?</h3>
+<h4>Entrega de Documentos y Emisión del Título</h4>
+<ul>
+  <li>Después de realizar el pago, deberás acercarte a la sede para entregar físicamente los documentos que cargaste en CarrionNet.</li>
+  <li>Recuerda que en oficina deberás completar y firmar la <strong>Declaración Jurada</strong>.</li>
+  <li>Una vez entregados los documentos, el plazo de atención para la emisión de tu <strong>Título Profesional Técnico</strong> es de <strong>120 días hábiles</strong>.</li>
+  <li>El documento será enviado en formato digital a tu correo institucional. Además, podrás recoger el título físico acercándote a la sede.</li>
+</ul>
+
+<h4>Oficina de Grados y Títulos</h4>
+<ul>
+  <li><strong>📍 Dirección:</strong> Av. Arequipa 351, Lima (1er piso)</li>
+  <li><strong>🕘 Horario de atención:</strong> Lunes a viernes, de 9:00 a.m. a 1:00 p.m. y de 2:00 p.m. a 5:45 p.m.</li>
+  <li><strong>✉️ Correo:</strong> <a href="mailto:gradosytitulos@acarrion.edu.pe">gradosytitulos@acarrion.edu.pe</a></li>
+</ul>
+
+<!-- Resto del contenido... -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+ 
+<style>
+    /* Estilos anteriores se mantienen igual */
+    .helpjuice-accordion {
+        margin-bottom: 15px;
+        border: 1px solid #e1e4e8;
+        border-radius: 6px;
+        overflow: hidden;
+    }
+    
+    .helpjuice-accordion-title {
+        padding: 15px 20px;
+        margin: 0;
+        cursor: pointer;
+        background-color: #f6f8fa;
+        position: relative;
+    }
+    
+    .accordion-icon {
+        position: absolute;
+        right: 20px;
+    }
+    
+    .helpjuice-accordion-body {
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+    }
+    
+    .helpjuice-accordion-body.active {
+        max-height: 2000px;
+    }
+</style>
 
 <script>
-    function toggleSubmenu(element) {
-        const submenu = element.nextElementSibling;
-        if (submenu.style.display === "block") {
-            submenu.style.display = "none";
-        } else {
-            submenu.style.display = "block";
-        }
-    }
+// Versión simplificada y compatible
+document.addEventListener('DOMContentLoaded', function() {
+    // Seleccionar todos los acordeones
+    const accordions = document.querySelectorAll('.helpjuice-accordion');
     
-    function showContent(sectionId) {
-        // Oculta el estado vacío
-        document.getElementById('empty-content').style.display = 'none';
+    // Agregar evento click a cada título de acordeón
+    accordions.forEach(accordion => {
+        const title = accordion.querySelector('.helpjuice-accordion-title');
+        const body = accordion.querySelector('.helpjuice-accordion-body');
+        const icon = accordion.querySelector('.accordion-icon');
         
-        // Oculta todas las secciones de contenido
-        document.querySelectorAll('.content-section').forEach(section => {
-            section.style.display = 'none';
-        });
-        
-        // Muestra la sección solicitada
-        if (sectionId) {
-            document.getElementById(sectionId).style.display = 'block';
-        }
-    }
-    
-    // Mostrar el primer submenú por defecto
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelector('.submenu').style.display = "block";
-    });
-</script>
-
-
+        title.addEventListener('click', function() {
+            // Cerrar todos los demás acordeones
+            accordions.forEach(otherAcc => {
+                if (otherAcc !== accordion) {
+                    otherAcc.querySelector('.helpjuice-accordion-body').classList.remove('active');
+                    otherAcc.querySelector('.accordion-icon').textContent = '+';
+                }
+            });
             
-   <!-----------------------------------------envcuesta de caritas-------------------------------------------------->         
+            // Alternar el acordeón actual
+            body.classList.toggle('active');
+            icon.textContent = body.classList.contains('active') ? '−' : '+';
+        });
+    });
+});
+</script>
+   
+
+
+
+  <!-------------------links parte de abajo de pdf-------------------------------------->          
+             <!--<ul class="tags" data-helpjuice-element="Article Tags" data-helpjuice-attributes="visibility">
+                
+                    <li><a href="/contact-us##search_query=matrícula" data-helpjuice-element="Tag Link" data-helpjuice-attributes="font_size,color">matrícula</a></li>
+                
+                    <li><a href="/contact-us##search_query=accesos" data-helpjuice-element="Tag Link" data-helpjuice-attributes="font_size,color">accesos</a></li>
+                
+                    <li><a href="/contact-us##search_query=correo" data-helpjuice-element="Tag Link" data-helpjuice-attributes="font_size,color">correo</a></li>
+                
+                    <li><a href="/contact-us##search_query=autenticación" data-helpjuice-element="Tag Link" data-helpjuice-attributes="font_size,color">autenticación</a></li>
+                
+                    <li><a href="/contact-us##search_query=mayo" data-helpjuice-element="Tag Link" data-helpjuice-attributes="font_size,color">mayo</a></li>
+                
+            </ul>---->
+             <!-----------------------------------------envcuesta de caritas-------------------------------------------------->         
  
     <!-- Contenido del artículo -->
 </article>
@@ -1145,7 +1088,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </main>
    <!--Prueba Footer-->
 
-
 <!-- Footer ------------------------------------------------------------------------------------------------>
     <div class="footer">
      <div class="footer-left">
@@ -1197,16 +1139,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const resultsContainer = document.getElementById('results-container');
         
        
-    <!-- ------------------------------------Base de datos de búsqueda------------------------------------------->
+   <!-- ------------------------------------Base de datos de búsqueda------------------------------------------->
         const searchDatabase = [
-            { title: "Tutorial Mis Pagos", url: "Matricula.html"},
-            { title: "Trámites Académicos", url: "Como_Realizar_Tramites_Virtuales.HTML", description: "Procedimiento para trámites en línea" },
-            { title: "1º Ciclo (Ingresantes agosto 2025)", url: "1Ciclo.html"},
-            { title: "Plataformas digitales", url: "Plataforma_Digitales.html"},
-            { title: "Guía del egresado", url: "Guia_del_Egresado.html"},
-            { title: "Mallas curriculares", url: "MallasCurriculares.html"},
-	{ title: "Matricula (2º a 6º ciclo)", url: "2Cicloa6Ciclo.html"},
-	{ title: "¿Cómo verificar mi horario?", url: "Horario_de_Clases.html"},
+            { title: "Mis Pagos", url: "Pagos_Virtuales.html", description: "Guía para realizar pagos virtuales en el sistema" },
+            { title: "Tramites Académicos", url: "Como_Realizar_Tramites_Virtuales.HTML", description: "Procedimiento para trámites en línea" },
+            { title: "Acceso a correo institucional", url: "Ingresarcorreoinstitucional.html", description: "Instrucciones para ingresar al correo institucional" },
+            { title: "Aprende a ingresar a tus clases virtuales", url: "Aprende_a_ingresar_a_tus_clases virtuales.html", description: "Aprende a ingresar a tus clases virtuales" },
+            { title: "Guía del egresado", url: "Guia_del_Egresado.html", description: "Guia del Egresado" },
+            { title: "Mallas curriculares", url: "MallasCurriculares.html", description: "Mallas curriculares" },
+{ title: "Atencion al Estudiante", url: "Atencion_al_Estudiante.html", description: "Atencion al Estudiante" },
+{ title: "Mi horario de clases", url: "Horario_de_Clases.html", description: "Cómo verificar mi horario" }
         ];
         
         // Función para buscar coincidencias
@@ -1215,7 +1157,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 searchResults.style.display = 'none';
                 return;
             }
-            
+
             const results = searchDatabase.filter(item => 
                 item.title.toLowerCase().includes(query.toLowerCase()) || 
                 item.description.toLowerCase().includes(query.toLowerCase())
