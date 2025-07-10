@@ -200,6 +200,71 @@
       display: block;
       color: #333;
       transition: background-color 0.2s;
+<!---------------------------accordion----->
+   /* Estilos para los acordeones - Versión corregida */
+    .accordion-container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+
+    .helpjuice-accordion {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      overflow: hidden;
+      background: #fff;
+      color: #333;
+    }
+
+    .helpjuice-accordion-title {
+      padding: 15px 20px;
+      background: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      transition: background-color 0.3s;
+    }
+
+    .helpjuice-accordion-title:hover {
+      background: #45a049;
+    }
+
+    .accordion-icon {
+      font-size: 1.2em;
+      transition: transform 0.3s ease;
+    }
+
+    .helpjuice-accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      background-color: white;
+    }
+
+    .helpjuice-accordion-body.active {
+      max-height: 2000px; /* Valor suficientemente grande para contenido largo */
+    }
+
+    .helpjuice-accordion-content {
+      padding: 20px;
+    }
+
+    .pdf-container {
+      padding: 10px;
+    }
+
+    .pdf-container a {
+      color: #4CAF50;
+      text-decoration: none;
+    }
+
+    .pdf-container a:hover {
+      text-decoration: underline;
+    }
    
   </style>
 </head>
@@ -224,23 +289,145 @@
   </div>
 </div>
 
+<!-- ... (resto del HTML existente) ... -->
+
 <script>
+document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.getElementById('search');
   const resultsContainer = document.getElementById('results-container');
   const searchResultsBox = document.getElementById('search-results');
 
-  searchInput.addEventListener('input', function () {
-    const query = this.value.trim().toLowerCase();
-    if (query.length > 0) {
-      resultsContainer.innerHTML = `<p>Mostrando resultados para: <strong>${query}</strong></p>`;
+  // Base de datos de búsqueda mejorada
+  const searchDatabase = [
+    { 
+      title: "Tutorial Mis Pagos", 
+      url: "Pagos_Virtuales.html",
+      description: "Guía para realizar pagos en línea",
+      keywords: ["pagos", "pago", "tutorial pagos", "mis pagos", "tutorial", "banco", "transferencia"]
+    },
+    { 
+      title: "Trámites Académicos", 
+      url: "Como_Realizar_Tramites_Virtuales.html", 
+      description: "Procedimiento para trámites en línea",
+      keywords: ["tramites", "trámites", "académico", "academico", "procedimiento", "virtual", "documentos", "certificados"]
+    },
+    { 
+      title: "1º Ciclo (Ingresantes)", 
+      url: "1Ciclo.html",
+      description: "Información para nuevos estudiantes",
+      keywords: ["ingresantes", "primer ciclo", "1 ciclo", "primero", "nuevo ingreso", "nuevos", "admision", "admisión"]
+    },
+    { 
+      title: "Plataformas digitales", 
+      url: "Plataforma_Digitales.html",
+      description: "Acceso a todas las plataformas del instituto",
+      keywords: ["plataforma", "digital", "acceso", "login", "ingresar", "sistemas", "aula virtual", "portal"]
+    },
+    { 
+      title: "Guía del egresado", 
+      url: "Guia_del_Egresado.html",
+      description: "Proceso de titulación para egresados",
+      keywords: ["egresado", "graduado", "guia", "guía", "titulación", "titulacion", "diploma", "bachiller"]
+    },
+    { 
+      title: "Mallas curriculares", 
+      url: "MallasCurriculares.html",
+      description: "Planes de estudio de todas las carreras",
+      keywords: ["malla", "curricular", "plan", "estudio", "cursos", "asignaturas", "carrera", "programa"]
+    },
+    { 
+      title: "Matrícula (2º a 6º ciclo)", 
+      url: "2Cicloa6Ciclo.html",
+      description: "Proceso de matrícula para ciclos avanzados",
+      keywords: ["matricula", "matrícula", "segundo ciclo", "tercer ciclo", "cuarto ciclo", "quinto ciclo", "sexto ciclo", "inscripción"]
+    },
+    { 
+      title: "Horario de clases", 
+      url: "Horario_de_Clases.html",
+      description: "Cómo consultar tu horario académico",
+      keywords: ["horario", "clases", "horas", "cronograma", "ver horario", "consultar horario", "cursos", "aulas"]
+    }
+  ];
+
+  // Función para normalizar texto (quitar acentos y convertir a minúsculas)
+  function normalizeText(text) {
+    return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  }
+
+  // Función para buscar coincidencias
+  function search(query) {
+    if (query.length < 2) {
+      searchResultsBox.style.display = 'none';
+      return;
+    }
+    
+    const normalizedQuery = normalizeText(query);
+    
+    const results = searchDatabase.filter(item => {
+      // Buscar en título
+      if (normalizeText(item.title).includes(normalizedQuery)) return true;
+      
+      // Buscar en descripción si existe
+      if (item.description && normalizeText(item.description).includes(normalizedQuery)) return true;
+      
+      // Buscar en palabras clave
+      if (item.keywords) {
+        return item.keywords.some(keyword => 
+          normalizeText(keyword).includes(normalizedQuery)
+        );
+      }
+      
+      return false;
+    });
+    
+    displayResults(results);
+  }
+
+  // Función para mostrar resultados
+  function displayResults(results) {
+    resultsContainer.innerHTML = '';
+    
+    if (results.length === 0) {
+      resultsContainer.innerHTML = '<div class="no-results">No se encontraron resultados. Intenta con otras palabras.</div>';
       searchResultsBox.style.display = 'block';
-    } else {
+      return;
+    }
+    
+    results.forEach(result => {
+      const resultItem = document.createElement('a');
+      resultItem.href = result.url;
+      resultItem.innerHTML = `
+        <div class="result-title">${result.title}</div>
+        <div class="result-desc">${result.description || ''}</div>
+      `;
+      resultsContainer.appendChild(resultItem);
+    });
+    
+    searchResultsBox.style.display = 'block';
+  }
+  
+  // Event listeners
+  searchInput.addEventListener('input', function() {
+    search(this.value.trim());
+  });
+  
+  searchInput.addEventListener('focus', function() {
+    if (this.value.length >= 2) {
+      searchResultsBox.style.display = 'block';
+    }
+  });
+  
+  document.addEventListener('click', function(e) {
+    if (!searchResultsBox.contains(e.target) && e.target !== searchInput) {
       searchResultsBox.style.display = 'none';
     }
   });
+});
 </script>
 
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 
     <!-- Aquí iría el resto de tu contenido HTML existente -->
 
@@ -389,31 +576,22 @@
 <div class="wrapper" id="content-article" data-helpjuice-component="Article Feedback Wrapper" data-helpjuice-element="Container" data-helpjuice-attributes="visibility,background">
     <article class="article article-question" data-controller="feedbacks" data-feedbacks-load-form-value="/admin/feedbacks/comments/new?question_id=3231953" data-helpjuice-element="Question Article" data-helpjuice-attributes="font_size,color">
             <header data-helpjuice-element="Article Header" data-helpjuice-attributes="font_size,color">
-                <div class="title" data-helpjuice-element="Article Title" data-helpjuice-attributes="visibility,background">                  
+                <div class="title" data-helpjuice-element="Article Title" data-helpjuice-attributes="visibility,background">                   <h1>GRADO DE BACHILLER</h1>
                 </div>
             </header>
- <!---------------- MALLAS CURRICULARES  ---------------------------------------------------------->    
-     
-          <div class="wrapper" id="content-article" data-helpjuice-component="Article Feedback Wrapper">
-    <article class="article article-question" data-controller="feedbacks" data-feedbacks-load-form-value="/admin/feedbacks/comments/new?question_id=3231953">
-        <header>
-            <div class="title">
-                <h1>GRADO DE BACHILLER</h1>
-            </div>
-        </header>
- <!----------------¿QUÉ NECESITO PARA TRAMITAR MI GRADO DE BACHILLER?------------------------------->       
-        <div class="fr-view" data-action="mouseup->feedbacks#update" data-controller="glossary" data-glossary-url-value="/glossary_terms.json">
-            <div class="helpjuice-article-body-content helpjuice-editor-content">
-                <!-- v -->
-                <div class="helpjuice-accordion">
-                    <h2 class="helpjuice-accordion-title" id="salud-y-seguridad-ocupacional">
-                      ¿Qué necesito para tramitar mi grado de bachiller?
-                        <span class="accordion-icon">+</span>
-                    </h2>
-                    <div class="helpjuice-accordion-body">
-                        <div class="pdf-container">
+ <!-- Contenedor principal para los acordeones -->
+<div class="accordion-container">
 
-                  <h3>Requisitos para Tramitar el Grado de Bachiller</h3>
+  <!-- ¿QUÉ NECESITO PARA TRAMITAR MI GRADO DE BACHILLER?---------------------->
+  <div class="helpjuice-accordion">
+    <h2 class="helpjuice-accordion-title">
+    ¿Qué necesito para tramitar mi grado de bachiller?
+      <span class="accordion-icon">+</span>
+    </h2>
+    <div class="helpjuice-accordion-body">
+      <div class="helpjuice-accordion-content">
+        <div class="pdf-container">
+          <h3>Requisitos para Tramitar el Grado de Bachiller</h3>
   <p>Por favor asegúrate de cumplir con los siguientes requisitos y presentar la documentación indicada:</p>
   <ol>
     <li>Certificado original de Estudios Secundarios.</li>
@@ -429,35 +607,21 @@
                         <p style="font-size: 0.85em; margin-bottom: 0;">
                             <strong>Importante:</strong> Verifica que el nombre del instituto aparezca correctamente CÓMO "Instituto Carrión" al realizar el pago.
                         </p>
-</div>
-</body>
-
-
-                        </div>
-                        <div class="pdf-actions">
-                            <a 
-<!------------------------link pdf de descarga-------------------->
-<!-----href="https://drive.google.com/file/d/1YcsF8Q9NH4V0fBD7VN2c4ypeprzW1SjF/view" target="_blank" class="download-btn">Descargar PDF</a>---->
-<!-------------------------------------------------->
-                        </div>
-                    </div>
-                </div>
-                
-    <!---------------------¿DÓNDE TRAMITO MI GRADO DE BACHILLER?------------------->
-                  <div class="helpjuice-accordion">
-                    <h2 class="helpjuice-accordion-title" id="Cosmiatria">
-                        ¿Dónde tramito mi grado de bachiller?
-                        <span class="accordion-icon">+</span>
-                    </h2>
-                    <div class="helpjuice-accordion-body">
-                        <div class="pdf-container">
-                           
-<style>  body {
-            color: #000000; /* Negro puro */
-            font-family: Arial, sans-serif;
-        }</style>
-
-  <h1>Pasos para Tramitar el Grado de Bachiller</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+ <!-- ¿DÓNDE TRAMITO MI GRADO DE BACHILLER?-------------------------------------->
+  <div class="helpjuice-accordion">
+    <h2 class="helpjuice-accordion-title">
+      ¿Dónde tramito mi grado de bachiller?
+      <span class="accordion-icon">+</span>
+    </h2>
+    <div class="helpjuice-accordion-body">
+      <div class="helpjuice-accordion-content">
+        <div class="pdf-container">
+         <h1>Pasos para Tramitar el Grado de Bachiller</h1>
   <p>Todos los trámites se gestionan a través de tu plataforma <strong>CarrionNet</strong>. Sigue los siguientes pasos:</p>
   <ol>
     <li>Ingresa a CarrionNet con tu usuario y contraseña desde el siguiente enlace: 
@@ -477,26 +641,25 @@
                         <p style="font-size: 0.85em; margin-bottom: 0;">
                             <strong>Importante:</strong> Verifica que el nombre del instituto aparezca correctamente CÓMO "Instituto Carrión" al realizar el pago.
                         </p>
-<div>
 
-                       </div>
-                        <div class="pdf-actions">
-                         <!----- <a href="https://drive.google.com/file/d/1_bc9_IAk5hLeQMRlNeYBRdr3lNcepf63/view" target="_blank" class="download-btn">Descargar PDF</a>--->
-                        </div>
-                    </div>
-                </div>
-
-  
- <!-----------------¿CÓMO REALIZO EL PAGO?----------->
-                <div class="helpjuice-accordion">
-                    <h2 class="helpjuice-accordion-title" id="fisioterapia">
-                        ¿Cómo realizo el pago?
-                        <span class="accordion-icon">+</span>
-                    </h2>
-                    <div class="helpjuice-accordion-body">
-                        <div class="pdf-container">
-                              
-     <p style="font-size: 0.95em;">
+          <!-- Resto del contenido... -->
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+ 
+  <!--¿CÓMO REALIZO EL PAGO?--------------------------------------------------------------------->
+  <div class="helpjuice-accordion">
+    <h2 class="helpjuice-accordion-title">
+     ¿Cómo realizo el pago?
+      <span class="accordion-icon">+</span>
+    </h2>
+    <div class="helpjuice-accordion-body">
+      <div class="helpjuice-accordion-content">
+        <div class="pdf-container">
+         
+  <p style="font-size: 0.95em;">
                         CUÁNDO tu solicitud de trámite se encuentre <strong style="color: #d9534f;">PENDIENTE DE PAGO</strong>, podrás dirigirte a los siguientes bancos:
                     </p>
                     
@@ -517,25 +680,23 @@
                         <li>Brindar tu <strong>Código de alumno en MAYÚSCULAS</strong></li>
                     </ol>
 
-                    <div style="margin-top: 15px; padding: 10px; background-color: #fff8e1; border-left: 4px solid #ffc107;">
-                        <p style="font-size: 0.85em; margin-bottom: 0;">
-                            <strong>Importante:</strong> Verifica que el nombre del instituto aparezca correctamente CÓMO "Instituto Carrión" al realizar el pago.
-                        </p>
-                        </div>
-                        <div class="pdf-actions">
-                             <!----<a href="https://drive.google.com/file/d/1IYN_jFU0OPBLJsbNcE07fhZNrpsNPCMx/view" target="_blank" class="download-btn">Descargar PDF</a>--->
-                        </div>
-                    </div>
-                </div>
-<!-----------------¿CUÁNDO ME ENTREGAN MI GRADO DE BACHILLER?--------->
-                <div class="helpjuice-accordion">
-                    <h2 class="helpjuice-accordion-title" id="fisioterapia">
-                        ¿Cuándo me entregan mi grado de bachiller?
-                        <span class="accordion-icon">+</span>
-                    </h2>
-                    <div class="helpjuice-accordion-body">
-                        <div class="pdf-container">
-                          <h1>Entrega de Documentos Posterior al Pago</h1>
+
+<!-- Resto del contenido... -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <!-- ¿Cuándo me entregan mi grado de bachiller?--------------------------------------------------->
+ <div class="helpjuice-accordion">
+    <h2 class="helpjuice-accordion-title">
+     ¿Cuándo me entregan mi grado de bachiller?
+      <span class="accordion-icon">+</span>
+    </h2>
+    <div class="helpjuice-accordion-body">
+      <div class="helpjuice-accordion-content">
+        <div class="pdf-container">
+           <h1>Entrega de Documentos Posterior al Pago</h1>
   <p>Después de realizar el pago, debes acercarte a la sede para entregar los documentos que cargaste en <strong>CarrionNet</strong>. Recuerda que, en oficina, también deberás llenar y firmar la <strong>Declaración Jurada</strong>.</p>
 
   <p>Una vez entregados los documentos, el plazo de atención para la emisión de tu <strong>Grado de Bachiller</strong> es de <strong>120 días hábiles</strong>. El documento será enviado en formato digital a tu correo institucional y, si lo deseas, también podrás recoger la versión física en la sede.</p>
@@ -547,67 +708,50 @@
     <li>✉️ <strong>Correo:</strong> <a href="mailto:gradosytitulos@acarrion.edu.pe">gradosytitulos@acarrion.edu.pe</a></li>
   </ul>
 
-                    </div>
-
-                   <div style="margin-top: 15px; padding: 10px; background-color: #fff8e1; border-left: 4px solid #ffc107;">
-                        <p style="font-size: 0.9em; margin-bottom: 0;">
-                            <strong>Nota:</strong> No olvides llevar tu DNI original CUÁNDO acudas a la oficina para cualquier trámite.
-                        </p>
-                        </div>
-                        <div class="pdf-actions">
-                             <!----<a href="https://drive.google.com/file/d/1IYN_jFU0OPBLJsbNcE07fhZNrpsNPCMx/view" target="_blank" class="download-btn">Descargar PDF</a>--->
-                        </div>
-                    </div>
-              
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
 
-<!---------------¿DÓNDE TRAMITO MI DIPLOMA DE EGRESADO MALLA ASIGNATURAS Y DCB?---- -->
-                <!---<div class="helpjuice-accordion">
-                    <h2 class="helpjuice-accordion-title" id="farmacia">
-                       ¿DÓNDE TRAMITO MI DIPLOMA DE EGRESADO MALLA ASIGNATURAS Y DCB?
-                        <span class="accordion-icon">+</span>
-                    </h2>
-                    <div class="helpjuice-accordion-body">
-                        <div class="pdf-container">
-                        
- <p style="font-size: 0.95em;">Todos los trámites son realizados a través de tu Carrionnet:</p>
-                    
-                    <ol style="font-size: 0.95em; padding-left: 20px;">
-                        <li>Ingresar a tu CarriónNet con tu usuario y contraseña (<a href="https://intranet.uwiener.edu.pe/sso.asp" target="_blank" style="color: #0066cc; text-decoration: underline;">https://intranet.uwiener.edu.pe/sso.asp</a>)</li>
-                        <li>Dirigirse a la opción <strong>Trámite académico / trámites diversos</strong></li>
-                        <li>Hacer clic en el botón <strong>"Registrar"</strong></li>
-                        <li>Selecciona tu carrera</li>
-                        <li>En la opción <strong>"Trámites"</strong> seleccionar: <strong>DIPLOMA DE EGRESADO MALLA ASIGNATURAS Y DCB</strong></li>
-                        <li>Selecciona la sede: <strong>7818 - Av. Arequipa 351–365 Lima</strong></li>
-                        <li>Adjuntar los documentos requeridos</li>
-                        <li>Dar clic en <strong>CONTINUAR</strong> para completar tu solicitud</li>
-                        <li>Revisar en <strong>SEGUIMIENTO</strong> después de 24 horas (debe aparecer CÓMO <strong>"Pendiente de pago"</strong>)</li>
-                    </ol>
-
-                    <div style="margin-top: 15px; padding: 10px; background-color: #fff8e1; border-left: 4px solid #ffc107;">
-                            <strong>Nota:</strong> Verifica que todos los documentos adjuntos cumplan con los requisitos antes de enviar tu solicitud.
-                        </p>
-                        </div>
-</div>
-                        <div class="pdf-actions">
-                            <!---- <a href="https://drive.google.com/file/d/1_bc9_IAk5hLeQMRlNeYBRdr3lNcepf63/view" target="_blank" class="download-btn">Descargar PDF</a>---->
-                        </div>
-                    </div>
-</div>
 
 
-<!----------------¿CÓMO OBTENGO MI CONSTANCIA DE INGLÉS?---------->
-                <div class="helpjuice-accordion">
-                    <h2 class="helpjuice-accordion-title" id="fisioterapia">
-                        ¿Cómo obtengo mi constancia de inglés?
-                        <span class="accordion-icon">+</span>
-                    </h2>
-                    <div class="helpjuice-accordion-body">
-                        <div class="pdf-container">
-                              
-     <p>
+
+<!--CONSTANCIA DE INGLÉS-->
+
+
+            <header data-helpjuice-element="Article Header" data-helpjuice-attributes="font_size,color">
+                <div class="title" data-helpjuice-element="Article Title" data-helpjuice-attributes="visibility,background">                   <h1>CONSTANCIA DE INGLÉS</h1>
+                </div>
+            </header>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- ¿CÓMO OBTENGO MI CONSTANCIA DE INGLÉS?--------------------->
+ <div class="helpjuice-accordion">
+    <h2 class="helpjuice-accordion-title">
+     ¿Cómo obtengo mi constancia de inglés?
+      <span class="accordion-icon">+</span>
+    </h2>
+    <div class="helpjuice-accordion-body">
+      <div class="helpjuice-accordion-content">
+        <div class="pdf-container">
+          <p>
   Los estudiantes del Centro de Idiomas reciben su <strong>Certificado de Inglés</strong> al culminar su nivel de estudio. 
   El envío se realiza por única vez al <em>correo institucional y personal</em> del estudiante.
 </p>
@@ -619,25 +763,23 @@
                         <p style="font-size: 0.85em; margin-bottom: 0;">
                             <strong>Importante:</strong> Verifica que el nombre del instituto aparezca correctamente CÓMO "Instituto Carrión" al realizar el pago.
                         </p>
-</div>
-                        </div>
-                        <div class="pdf-actions">
-                             <!----<a href="https://drive.google.com/file/d/1IYN_jFU0OPBLJsbNcE07fhZNrpsNPCMx/view" target="_blank" class="download-btn">Descargar PDF</a>--->
-                        </div>
-                    </div>
-                </div>
 
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
 
-<!---------------¿CUÁNTO TIEMPO DE VALIDEZ TIENE MI CONSTANCIA DE INGLÉS?---------->
-                <div class="helpjuice-accordion">
-                    <h2 class="helpjuice-accordion-title" id="fisioterapia">
-                        ¿Cuánto tiempo de validez tiene mi constancia de inglés?
-                        <span class="accordion-icon">+</span>
-                    </h2>
-                    <div class="helpjuice-accordion-body">
-                        <div class="pdf-container">
-                              
-    <p>
+  <!-- ¿CUÁNTO TIEMPO DE VALIDEZ TIENE MI CONSTANCIA DE INGLÉS?------------------------------------------------>
+ <div class="helpjuice-accordion">
+    <h2 class="helpjuice-accordion-title">
+     ¿Cuánto tiempo de validez tiene mi constancia de inglés?
+      <span class="accordion-icon">+</span>
+    </h2>
+    <div class="helpjuice-accordion-body">
+      <div class="helpjuice-accordion-content">
+        <div class="pdf-container">
+           <p>
   Tu <strong>Certificado de Inglés</strong> emitido por el Centro de Idiomas tiene una <strong>vigencia de 5 años</strong>. 
   Transcurrido ese tiempo y no habiendo tramitado tu <strong>Título Profesional</strong>, 
   deberás contactarte con el Centro de Idiomas para validar tu <em>nivel de inglés</em>.
@@ -646,25 +788,23 @@
                         <p style="font-size: 0.85em; margin-bottom: 0;">
                             <strong>Importante:</strong> Verifica que el nombre del instituto aparezca correctamente CÓMO "Instituto Carrión" al realizar el pago.
                         </p>
-</div>
-                        </div>
-                        <div class="pdf-actions">
-                             <!----<a href="https://drive.google.com/file/d/1IYN_jFU0OPBLJsbNcE07fhZNrpsNPCMx/view" target="_blank" class="download-btn">Descargar PDF</a>--->
-                        </div>
-                    </div>
-                </div>
 
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
 
-<!---------------¿DÓNDE PUEDO INSCRIBIRME PARA LLEVAR EL CURSO DE INGLÉS?------->
-                <div class="helpjuice-accordion">
-                    <h2 class="helpjuice-accordion-title" id="fisioterapia">
-                        ¿Dónde puedo inscribirme para llevar el curso de inglés?
-                        <span class="accordion-icon">+</span>
-                    </h2>
-                    <div class="helpjuice-accordion-body">
-                        <div class="pdf-container">
-                              
-     <p>
+<!-- ¿DÓNDE PUEDO INSCRIBIRME PARA LLEVAR EL CURSO DE INGLÉS?---------------------------------------------->
+ <div class="helpjuice-accordion">
+    <h2 class="helpjuice-accordion-title">
+      ¿Dónde puedo inscribirme para llevar el curso de inglés?
+      <span class="accordion-icon">+</span>
+    </h2>
+    <div class="helpjuice-accordion-body">
+      <div class="helpjuice-accordion-content">
+        <div class="pdf-container">
+<p>
   Puedes realizar tu inscripción en el siguiente enlace: 
   <a href="https://www.acarrion.edu.pe/idiomas" target="_blank">
     https://www.acarrion.edu.pe/idiomas
@@ -674,17 +814,13 @@
                         <p style="font-size: 0.85em; margin-bottom: 0;">
                             <strong>Importante:</strong> Verifica que el nombre del instituto aparezca correctamente CÓMO "Instituto Carrión" al realizar el pago.
                         </p>
-</div>
-                        </div>
-                        <div class="pdf-actions">
-                             <!----<a href="https://drive.google.com/file/d/1IYN_jFU0OPBLJsbNcE07fhZNrpsNPCMx/view" target="_blank" class="download-btn">Descargar PDF</a>--->
-                        </div>
-                    </div>
-                </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-
-  <style>
+<style>
     /* Estilos anteriores se mantienen igual */
     .helpjuice-accordion {
         margin-bottom: 15px;
@@ -714,9 +850,10 @@
     }
     
     .helpjuice-accordion-body.active {
-        max-height: 650px;
+        max-height: 2000px;
     }
 </style>
+
 
 <script>
 // Versión simplificada y compatible
