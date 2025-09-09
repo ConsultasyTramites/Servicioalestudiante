@@ -43,12 +43,6 @@
             gap: 10px;
         }
 
-        .header p {
-            margin: 10px 0 0;
-            opacity: 0.9;
-            font-size: 16px;
-        }
-
         .status-badge {
             position: absolute;
             top: 20px;
@@ -67,31 +61,6 @@
             height: 8px;
             border-radius: 50%;
             background: #4cd964;
-        }
-
-        .instructions {
-            padding: 25px;
-            background-color: #f9fafc;
-            border-bottom: 1px solid #eaeef2;
-        }
-
-        .instructions h2 {
-            margin-top: 0;
-            color: #4e8cff;
-            font-size: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .steps {
-            padding-left: 20px;
-            margin-bottom: 0;
-        }
-
-        .steps li {
-            margin-bottom: 12px;
-            line-height: 1.5;
         }
 
         .chat-container {
@@ -241,115 +210,6 @@
             }
         }
 
-        .footer {
-            padding: 20px;
-            text-align: center;
-            color: #6b7280;
-            font-size: 14px;
-            background-color: #f9fafc;
-            border-top: 1px solid #eaeef2;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .url-info {
-            background: #f3f4f6;
-            padding: 12px;
-            border-radius: 8px;
-            font-family: monospace;
-            word-break: break-all;
-            font-size: 13px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .url-status {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-weight: 600;
-            color: #4caf50;
-        }
-
-        .status-check {
-            width: 12px;
-            height: 12px;
-            background: #4caf50;
-            border-radius: 50%;
-        }
-
-        code {
-            background-color: #f3f4f6;
-            padding: 3px 6px;
-            border-radius: 4px;
-            font-family: monospace;
-            color: #dc2626;
-        }
-
-        .suggested-questions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .suggested-question {
-            background: #f3f4f6;
-            border: 1px solid #e5e7eb;
-            border-radius: 16px;
-            padding: 8px 16px;
-            font-size: 13px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .suggested-question:hover {
-            background: #e5e7eb;
-            transform: translateY(-2px);
-        }
-
-        .connection-test {
-            margin-top: 15px;
-            padding: 10px;
-            background: #e8f5e9;
-            border-radius: 8px;
-            border-left: 4px solid #4caf50;
-        }
-
-        .test-button {
-            background: #4caf50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            padding: 8px 16px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        .test-result {
-            margin-top: 10px;
-            padding: 10px;
-            border-radius: 4px;
-            font-family: monospace;
-            font-size: 12px;
-            display: none;
-        }
-
-        .success {
-            background: #e8f5e9;
-            color: #2e7d32;
-            border: 1px solid #c8e6c9;
-        }
-
-        .error {
-            background: #ffebee;
-            color: #c62828;
-            border: 1px solid #ffcdd2;
-        }
-
         @media (max-width: 768px) {
             .container {
                 margin: 10px;
@@ -377,33 +237,10 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>💬 Chatbot Integrado con Google Apps Script</h1>
-            <p>Conectado exitosamente a tu hoja de cálculo de Google</p>
+            <h1>💬 Chatbot Integrado</h1>
             <div class="status-badge">
                 <div class="status-dot"></div>
                 <span>Conectado</span>
-            </div>
-        </div>
-        
-        <div class="instructions">
-            <h2>📋 Instrucciones de uso:</h2>
-            <ol class="steps">
-                <li>Este chatbot está configurado con tu ID de hoja de cálculo: <code>1zrY4onxXcCv59Ect_k_R3MOJIJJa-4wYB11AdfLkcaE</code></li>
-                <li>La URL de tu Apps Script se ha integrado correctamente en el código.</li>
-                <li>Puedes probar el chatbot escribiendo mensajes en el cuadro de abajo o usando las preguntas sugeridas.</li>
-            </ol>
-            
-            <div class="connection-test">
-                <p><strong>Probar conexión con Apps Script:</strong></p>
-                <button class="test-button" onclick="testConnection()">Probar Conexión</button>
-                <div id="test-result" class="test-result"></div>
-            </div>
-            
-            <div class="suggested-questions">
-                <div class="suggested-question" onclick="askQuestion('¿Qué productos tienen disponibles?')">¿Qué productos tienen disponibles?</div>
-                <div class="suggested-question" onclick="askQuestion('¿Cuáles son sus precios?')">¿Cuáles son sus precios?</div>
-                <div class="suggested-question" onclick="askQuestion('¿Cómo puedo contactarlos?')">¿Cómo puedo contactarlos?</div>
-                <div class="suggested-question" onclick="askQuestion('¿Ofrecen garantía?')">¿Ofrecen garantía?</div>
             </div>
         </div>
         
@@ -412,16 +249,10 @@
                 <div class="chat-title">
                     <span>💬 Asistente Virtual</span>
                 </div>
-                <div class="status">
-                    <div class="url-status">
-                        <div class="status-check"></div>
-                        <span>Apps Script Conectado</span>
-                    </div>
-                </div>
             </div>
             <div class="chat-body">
                 <div class="message bot-message">
-                    ¡Hola! Soy tu asistente virtual conectado a Google Sheets. ¿En qué puedo ayudarte hoy?
+                    ¡Hola! Soy tu asistente virtual. ¿En qué puedo ayudarte hoy?
                 </div>
                 <div id="chat-messages"></div>
                 <div class="typing-indicator" id="typing-indicator">
@@ -439,29 +270,15 @@
                 </button>
             </div>
         </div>
-        
-        <div class="footer">
-            <div class="url-info">
-                <span>🔗 URL de Apps Script:</span>
-                <span>https://script.google.com/macros/s/AKfycbweqKRSEWwZXlD2-fSCJvEOJj30Hwx0PAhhBKZo9ovpyv5eLZGiM31fQwasYvKS41GP/exec</span>
-            </div>
-            <p>Chatbot integrado con Google Apps Script | ID de hoja: 1zrY4onxXcCv59Ect_k_R3MOJIJJa-4wYB11AdfLkcaE</p>
-        </div>
     </div>
 
     <script>
         const userInput = document.getElementById('user-input');
         const chatMessages = document.getElementById('chat-messages');
         const typingIndicator = document.getElementById('typing-indicator');
-        const testResult = document.getElementById('test-result');
         
-        // URL de tu Apps Script - ACTUALIZADA
+        // URL de tu Apps Script
         const scriptUrl = 'https://script.google.com/macros/s/AKfycbweqKRSEWwZXlD2-fSCJvEOJj30Hwx0PAhhBKZo9ovpyv5eLZGiM31fQwasYvKS41GP/exec';
-        
-        function askQuestion(question) {
-            userInput.value = question;
-            sendMessage();
-        }
         
         function sendMessage() {
             const message = userInput.value.trim();
@@ -557,43 +374,6 @@
             };
             
             xhr.send(JSON.stringify({pregunta: message}));
-        }
-        
-        function testConnection() {
-            testResult.style.display = 'block';
-            testResult.className = 'test-result';
-            testResult.textContent = 'Probando conexión con Apps Script...';
-            
-            const xhr = new XMLHttpRequest();
-            xhr.open('POST', scriptUrl, true);
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4) {
-                    if (xhr.status === 200) {
-                        try {
-                            const data = JSON.parse(xhr.responseText);
-                            testResult.classList.add('success');
-                            testResult.innerHTML = '<strong>Conexión exitosa!</strong><br>Respuesta recibida: ' + 
-                                JSON.stringify(data, null, 2);
-                        } catch (e) {
-                            testResult.classList.add('error');
-                            testResult.innerHTML = '<strong>Error parseando respuesta:</strong><br>' + 
-                                xhr.responseText;
-                        }
-                    } else {
-                        testResult.classList.add('error');
-                        testResult.innerHTML = '<strong>Error de conexión:</strong> Código HTTP ' + xhr.status;
-                    }
-                }
-            };
-            
-            xhr.onerror = function() {
-                testResult.classList.add('error');
-                testResult.textContent = 'Error de red. Verifica tu conexión a internet.';
-            };
-            
-            xhr.send(JSON.stringify({pregunta: 'test de conexión'}));
         }
         
         // Enfocar el input al cargar la página
