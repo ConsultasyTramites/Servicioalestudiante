@@ -178,20 +178,177 @@
         grid-template-rows: repeat(8, 1fr);
       }
     }
+/* Estilos para el botón flotante del chat */
+    #chatButton {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #0078FF;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        padding: 15px;
+        font-size: 20px;
+        cursor: pointer;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        z-index: 10000;
+    }
+
+    /* Contenedor del chatbot (inicialmente oculto) */
+    #chatbot-container {
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        width: 350px;
+        height: 500px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        display: none;
+        flex-direction: column;
+        z-index: 10000;
+        overflow: hidden;
+    }
+
+    /* Cabecera del chatbot */
+    .chat-header {
+        background: linear-gradient(135deg, #4e8cff 0%, #3b73db 100%);
+        color: white;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Cuerpo del chat */
+    .chat-body {
+        height: 350px;
+        background-color: #f9f9f9;
+        overflow-y: auto;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Estilos para los mensajes */
+    .message {
+        margin-bottom: 15px;
+        padding: 12px 16px;
+        border-radius: 18px;
+        max-width: 80%;
+        word-wrap: break-word;
+        line-height: 1.4;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .user-message {
+        background: linear-gradient(135deg, #4e8cff 0%, #3b73db 100%);
+        color: white;
+        margin-left: auto;
+        border-bottom-right-radius: 5px;
+    }
+
+    .bot-message {
+        background: white;
+        color: #333;
+        border: 1px solid #e1e4e8;
+        border-bottom-left-radius: 5px;
+    }
+
+    /* Área de entrada de texto */
+    .chat-input {
+        display: flex;
+        padding: 15px;
+        border-top: 1px solid #e1e4e8;
+        background-color: white;
+    }
+
+    .chat-input input {
+        flex: 1;
+        padding: 12px 15px;
+        border: 1px solid #d1d5db;
+        border-radius: 24px;
+        margin-right: 10px;
+        font-size: 14px;
+        outline: none;
+    }
+
+    .chat-input button {
+        background: linear-gradient(135deg, #4e8cff 0%, #3b73db 100%);
+        color: white;
+        border: none;
+        border-radius: 24px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-weight: 600;
+    }
+
+    /* Botón de cerrar */
+    .close-chat {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    /* Footer styles */
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      background-color: #0d1b2a;
+      color: white;
+    }
+
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .footer-left-rights {
+      margin-top: 10px;
+      font-size: 12px;
+    }
+
+    .footer-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .footer-right-question {
+      margin-bottom: 10px;
+    }
+
+    .footer-right-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+
+    .footer-right-row-icon {
+      margin-right: 10px;
+    }
+
+    .footer-right-row-text {
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer-right-schedule {
+      margin-top: 10px;
+      font-size: 12px;
+    }
+
+    .Comunidad-Carrión {
+      margin-top: 15px;
+    }
   </style>
 
 <!-----------------------------------------CHAT BOT TEMPORAL-------------------------------------------------->
-<script>
-(function() {
-	var script = document.createElement('script');
-	script.dataset.bot = "6853757ca3b17ae27fd70828";
-	script.dataset.zindex = "99999";
-	script.src = "https://panel.chatfuel.com/widgets/chat-widget/chat-widget.js";
-	script.async = true;
-	script.defer = true;
-	document.getElementsByTagName('head')[0].appendChild(script);
-})()
-</script>
+
 <!--------------------------------------------FIN DE CHATBOT TEMPORAL------------------------------------>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -657,7 +814,7 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
       <!-- Cuadrado 3 -->
       <a href="1Ciclo.html" class="faq-square">
         <div class="faq-image-container">
-          <img src="https://raw.githubusercontent.com/ConsultasyTramites/Servicioalestudiante/main/1er_ciclo.png" alt="1º Ciclo (Ingresantes agosto 2025)" class="faq-image">
+          <img src="https://raw.githubusercontent.com/ConsultasyTramites/Servicioalestudiante/main/1er_ciclo.png" alt="1º Ciclo (Ingresantes noviembre 2025)" class="faq-image">
         </div>
         <div class="faq-text">1º Ciclo (Ingresantes agosto 2025)</div>
       </a>
@@ -715,19 +872,7 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
   </div>
                 
             
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                  
-            
-                
+                 
             
            
 <!--START_COMPONENT_ALL_CATEGORIES_CONTAINER-->
@@ -772,56 +917,7 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
                         <p data-helpjuice-element="Paragraph Extension Courses Description" data-helpjuice-attributes="font_size,color">Matrícula Cursos de Extensión e Idiomas</p>
                     </a>
                 
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
+      
                     <a href="/es_ES/programa-de-titulación" class="box titulacion" data-helpjuice-element="Link Degree Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/486238/programa_de_titulacion.png"></img></span>
                         <p data-helpjuice-element="Paragraph Degree Description" data-helpjuice-attributes="font_size,color">Programa de titulación</p>
@@ -830,148 +926,14 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
                 
             
                 
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
+                    
                     <a href="/es_ES/matricula" class="box carrerasprofesionales" data-helpjuice-element="Link Careers Professional Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/1004326/down-net_http20250313-2-vn1p0320250313-2-6zvn6l.png"></img></span>
                         <p data-helpjuice-element="Paragraph Careers Professional Description" data-helpjuice-attributes="font_size,color">Matrícula</p>
                     </a>
                 
                 
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
+               
                 
                     <a href="/es_ES/edutips-Carrión" class="box edutips" data-helpjuice-element="Link Degree Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/1031071/down-net_http20250526-2-23id4y20250526-2-pav7df.png"></img></span>
@@ -979,91 +941,18 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
                     </a>
                 
             
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
+             
                 
                     <a href="/es_ES/clases-virtuales-carrera-cpex" class="box cpex" data-helpjuice-element="Link Cpex Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/351790/clases_virtuales.png"></img></span>
                         <p data-helpjuice-element="Paragraph Cpex Description" data-helpjuice-attributes="font_size,color">Clases virtuales Carrera CPEX</p>
                     </a>
                 
-                
-                
-                
-            
-                
-                
-                
-                
-                
+             
                     <a href="/es_ES/bachiller-técnico" class="box titulacion" data-helpjuice-element="Link Degree Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/486235/bachiller_t%C3%A9cnico.png"></img></span>
                         <p data-helpjuice-element="Paragraph Degree Description" data-helpjuice-attributes="font_size,color">Bachiller técnico</p>
                     </a>
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
                 
             
                 
@@ -1075,109 +964,7 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
                 
                 
                 
-                
-                
             
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
                 
                     <a href="/es_ES/tramites-y-documentos-carreras-cpex" class="box cpex" data-helpjuice-element="Link Cpex Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/296875/tramites.png"></img></span>
@@ -1198,19 +985,7 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
                     </a>
                 
                 
-                
             
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
                 
                     <a href="/es_ES/titulo-profesional" class="box titulacion" data-helpjuice-element="Link Degree Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/486236/titulo_profesional.png"></img></span>
@@ -1219,56 +994,7 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
                 
                 
             
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
+      
                 
                     <a href="/es_ES/notas-y-asistencias" class="box carrerasprofesionales" data-helpjuice-element="Link Careers Professional Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/1004333/down-net_http20250313-2-5ldgyb20250313-2-58egqu.png"></img></span>
@@ -1276,102 +1002,7 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
                     </a>
                 
                 
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
+                    
                 
                 
                     <a href="/es_ES/pagos-carreras-cpex" class="box cpex" data-helpjuice-element="Link Cpex Box" data-helpjuice-attributes="font_size,color">
@@ -1379,98 +1010,21 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
                         <p data-helpjuice-element="Paragraph Cpex Description" data-helpjuice-attributes="font_size,color">Pagos carreras CPEX</p>
                     </a>
                 
-                
-                
-                
-            
-                
-                
-                
+                  
                 
                     <a href="/es_ES/comunicado-de-extensión-e-idiomas" class="box cursosdeextensioneidiomas" data-helpjuice-element="Link Extension Courses Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/333499/comunicados.png"></img></span>
                         <p data-helpjuice-element="Paragraph Extension Courses Description" data-helpjuice-attributes="font_size,color">Comunicado de Extensión e Idiomas</p>
                     </a>
                 
-                
-                
-            
-                
-                
-                
-                
-                
+                  
                     <a href="/es_ES/comunicados-titulación" class="box titulacion" data-helpjuice-element="Link Degree Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/333504/comunicados.png"></img></span>
                         <p data-helpjuice-element="Paragraph Degree Description" data-helpjuice-attributes="font_size,color">Comunicados Titulación</p>
                     </a>
                 
                 
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
+                     
                 
                     <a href="/es_ES/canales-de-atencion-y-autogestion" class="box carrerasprofesionales" data-helpjuice-element="Link Careers Professional Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/1004335/down-net_http20250313-2-pevaqd20250313-2-4h0jlr.png"></img></span>
@@ -1478,111 +1032,7 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
                     </a>
                 
                 
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
+                 
                 
                     <a href="/es_ES/acceso-a-la-plataforma-de-extensión-e-idiomas" class="box cursosdeextensioneidiomas" data-helpjuice-element="Link Extension Courses Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/435905/acceso_al_av.png"></img></span>
@@ -1590,40 +1040,7 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
                     </a>
                 
                 
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
+                  
                 
                     <a href="/es_ES/pagos-Titulacion" class="box titulacion" data-helpjuice-element="Link Degree Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/597439/pagos_222222223.PNG"></img></span>
@@ -1631,105 +1048,14 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
                     </a>
                 
                 
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
+                    
                     <a href="/es_ES/inicio-de-clase" class="box carrerasprofesionales" data-helpjuice-element="Link Careers Professional Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/1004337/down-net_http20250313-2-hc545420250313-2-iuimpt.png"></img></span>
                         <p data-helpjuice-element="Paragraph Careers Professional Description" data-helpjuice-attributes="font_size,color">Inicio de clase</p>
                     </a>
                 
                 
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
+                 
                 
                     <a href="/es_ES/Comunicados-Carreras-CPEX" class="box cpex" data-helpjuice-element="Link Cpex Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/308506/comunicados.png"></img></span>
@@ -1737,207 +1063,22 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
                     </a>
                 
                 
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
                     <a href="/es_ES/ingles-estudiante-Carrión" class="box cursosdeextensioneidiomas" data-helpjuice-element="Link Extension Courses Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/620524/Icono_ingl%C3%A9s.JPG"></img></span>
                         <p data-helpjuice-element="Paragraph Extension Courses Description" data-helpjuice-attributes="font_size,color">Inglés Estudiante Carrión</p>
                     </a>
                 
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
+             
                     <a href="/es_ES/pagos" class="box carrerasprofesionales" data-helpjuice-element="Link Careers Professional Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/1004338/down-net_http20250313-2-c6t1wu20250313-2-t14nrv.png"></img></span>
                         <p data-helpjuice-element="Paragraph Careers Professional Description" data-helpjuice-attributes="font_size,color">Pagos</p>
                     </a>
                 
-                
-                
-                
-                
             
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
                     <a href="/es_ES/club-de-beneficios-cpex" class="box cpex" data-helpjuice-element="Link Cpex Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/524753/beneficios.png"></img></span>
                         <p data-helpjuice-element="Paragraph Cpex Description" data-helpjuice-attributes="font_size,color">Club de beneficios</p>
                     </a>
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
                 
                 
                 
@@ -1947,628 +1088,19 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
                     </a>
                 
                 
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
+              
                     <a href="/es_ES/comunicados" class="box carrerasprofesionales" data-helpjuice-element="Link Careers Professional Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/1004339/down-net_http20250313-2-mgdhp420250313-2-y18lvf.png"></img></span>
                         <p data-helpjuice-element="Paragraph Careers Professional Description" data-helpjuice-attributes="font_size,color">Comunicados</p>
                     </a>
                 
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
+                  
                     <a href="/es_ES/club-de-beneficios-carreras-profesionales" class="box carrerasprofesionales" data-helpjuice-element="Link Careers Professional Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/1004364/down-net_http20250313-2-pd1hch20250313-2-vl6wu9.png"></img></span>
                         <p data-helpjuice-element="Paragraph Careers Professional Description" data-helpjuice-attributes="font_size,color">Club de beneficios</p>
                     </a>
                 
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-                
-            
-                
-
-                
-                
-                
-                
-                
-            
+     
         </div>
     </div>
 </div>
@@ -2681,163 +1213,7 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
         <div class="row">
             
                 
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
+    
                 
                     <div class="category">
                         <a href="/es_ES/Titulación-" class="card Titulación">
@@ -2849,325 +1225,7 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
                 
             
                 
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
+      
                 
             
         </div>
@@ -3179,58 +1237,7 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
 <div class="all-categories">
     <div class="cat-data">
             
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
+                   
                 
                     <a href="/es_ES/programa-de-titulación" class="box titulacion">
                         <span class="icon"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/486238/programa_de_titulacion.png"></img></span>
@@ -3238,161 +1245,7 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
                     </a>
                 
             
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
+                          
                     <a href="/es_ES/bachiller-técnico" class="box titulacion">
                         <span class="icon"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/486235/bachiller_t%C3%A9cnico.png"></img></span>
                         <p>Bachiller técnico</p>
@@ -3400,1255 +1253,27 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
                 
             
                 
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
+              
                     <a href="/es_ES/titulo-profesional" class="box titulacion">
                         <span class="icon"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/486236/titulo_profesional.png"></img></span>
                         <p>Titulo profesional</p>
                     </a>
                 
             
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
+           
                 
                     <a href="/es_ES/comunicados-titulación" class="box titulacion">
                         <span class="icon"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/333504/comunicados.png"></img></span>
                         <p>Comunicados Titulación</p>
                     </a>
                 
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
+
                     <a href="/es_ES/pagos-Titulacion" class="box titulacion">
                         <span class="icon"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/597439/pagos_222222223.PNG"></img></span>
                         <p>Pagos</p>
                     </a>
                 
             
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
             
      </div>
 </div>-->
@@ -4795,5 +1420,195 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
     <!-- Scripts externos -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/pdf.min.js"></script>
+<!-- Botón flotante del chat -->
+<button id="chatButton">
+  <i class="fas fa-comments"></i>
+</button>
+
+<!-- Contenedor del chatbot -->
+<div id="chatbot-container">
+  <div class="chat-header">
+    <!-- Logo y nombre con la nueva imagen -->
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <img src="https://fv5-6.files.fm/thumb_show.php?i=hc2spr53j3&view&v=1&PHPSESSID=0aa0e33631fdf388d2a08e2bc40716d6e81e6da6" 
+           alt="Logo Dany" 
+           style="width: 28px; height: 28px; border-radius: 50%; object-fit: cover;">
+      <span style="font-weight: bold;">Dany</span>
+    </div>
+    <button class="close-chat">&times;</button>
+  </div>
+  
+  <div class="chat-body" id="chatMessages">
+    <div class="message bot-message">
+      ¡Hola! Soy Dany, el asistente virtual del Instituto Carrión. ¿En qué puedo ayudarte hoy?
+    </div>
+  </div>
+  
+  <div class="chat-input">
+    <input type="text" id="userInput" placeholder="Escribe tu mensaje...">
+    <button id="sendMessage">Enviar</button>
+  </div>
+</div>
+
+<script>
+  // Funcionalidad del chatbot
+  document.addEventListener('DOMContentLoaded', function() {
+    const chatButton = document.getElementById('chatButton');
+    const chatbotContainer = document.getElementById('chatbot-container');
+    const closeChat = document.querySelector('.close-chat');
+    const sendMessageButton = document.getElementById('sendMessage');
+    const userInput = document.getElementById('userInput');
+    const chatMessages = document.getElementById('chatMessages');
+    
+    // Abrir chatbot
+    chatButton.addEventListener('click', function() {
+      chatbotContainer.style.display = 'flex';
+    });
+    
+    // Cerrar chatbot
+    closeChat.addEventListener('click', function() {
+      chatbotContainer.style.display = 'none';
+    });
+    
+    // Enviar mensaje
+    function sendMessage() {
+      const message = userInput.value.trim();
+      if (message === '') return;
+      
+      // Agregar mensaje del usuario
+      const userMessageElement = document.createElement('div');
+      userMessageElement.classList.add('message', 'user-message');
+      userMessageElement.textContent = message;
+      chatMessages.appendChild(userMessageElement);
+      
+      // Limpiar input
+      userInput.value = '';
+      
+      // Scroll al final
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      
+      // Simular respuesta después de un breve retraso
+      setTimeout(() => {
+        const botResponse = getBotResponse(message);
+        const botMessageElement = document.createElement('div');
+        botMessageElement.classList.add('message', 'bot-message');
+        botMessageElement.innerHTML = botResponse; // Aquí se coloca el contenido HTML para que los enlaces sean clicables
+        chatMessages.appendChild(botMessageElement);
+        
+        // Scroll al final
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }, 1000);
+    }
+    
+    // Enviar con botón
+    sendMessageButton.addEventListener('click', sendMessage);
+    
+    // Enviar con Enter
+    userInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        sendMessage();
+      }
+    });
+    
+    // Respuestas predefinidas del bot con enlaces clickeables
+    function getBotResponse(message) {
+      const lowerMessage = message.toLowerCase();
+
+      if (lowerMessage.includes('matrícula') || lowerMessage.includes('matricula')) {
+        return 'Para información sobre matrícula, puedes visitar: <a href="https://portal-autoatencion.carrion.edu.pe/Matrícula" target="_blank" style="color: #0078FF;">https://portal-autoatencion.carrion.edu.pe/Matrícula</a>';
+      } else if (lowerMessage.includes('pago') || lowerMessage.includes('pagos')) {
+        return 'Para consultas sobre pagos, visita: <a href="https://portal-autoatencion.carrion.edu.pe/Pagos" target="_blank" style="color: #0078FF;">https://portal-autoatencion.carrion.edu.pe/Pagos</a>';
+      } else if (lowerMessage.includes('trámite') || lowerMessage.includes('tramite')) {
+        return 'Para información sobre trámites documentarios: <a href="https://portal-autoatencion.carrion.edu.pe/Trámites-Documentarios" target="_blank" style="color: #0078FF;">https://portal-autoatencion.carrion.edu.pe/Trámites-Documentarios</a>';
+      } else if (lowerMessage.includes('horario') || lowerMessage.includes('atención')) {
+        return 'Nuestro horario de atención es de lunes a viernes de 8:00 am a 8:00 pm. Teléfono: (01) 418-3636';
+      } else if (lowerMessage.includes('hola') || lowerMessage.includes('buenos días') || lowerMessage.includes('buenas tardes')) {
+        return '¡Hola! ¿En qué puedo ayudarte? Puedo asistirte con información sobre matrícula, pagos, trámites y más.';
+      } else {
+        return 'Gracias por tu mensaje. Para una atención más personalizada, puedes contactarnos al (01) 418-3636 o escribirnos a servicioalestudiante@carrion.edu.pe';
+      }
+    }
+    
+    // Funcionalidad de búsqueda
+    const searchInput = document.getElementById('search');
+    const searchResults = document.getElementById('search-results');
+    
+    // Datos de ejemplo para la búsqueda
+    const searchData = [
+      { title: 'Matrícula', url: 'https://portal-autoatencion.carrion.edu.pe/Matrícula' },
+      { title: 'Pagos', url: 'https://portal-autoatencion.carrion.edu.pe/Pagos' },
+      { title: 'Trámites Documentarios', url: 'https://portal-autoatencion.carrion.edu.pe/Trámites-Documentarios' },
+      { title: 'Convalidaciones', url: 'https://portal-autoatencion.carrion.edu.pe/Convalidaciones-y-Recognocimientos' },
+      { title: 'Consultas Académicas', url: 'https://portal-autoatencion.carrion.edu.pe/Consultas-Académicas' },
+      { title: 'Bienestar', url: 'https://portal-autoatencion.carrion.edu.pe/Bienestar' },
+      { title: 'Convenios y Descuentos', url: 'https://portal-autoatencion.carrion.edu.pe/Convenios-y-Descuentos' },
+      { title: 'Educación a Distancia', url: 'https://portal-autoatencion.carrion.edu.pe/Educación-a-Distancia' }
+    ];
+    
+    searchInput.addEventListener('input', function() {
+      const query = this.value.toLowerCase();
+      const resultsContainer = document.getElementById('results-container');
+      resultsContainer.innerHTML = '';
+      
+      if (query.length > 2) {
+        const filteredResults = searchData.filter(item => 
+          item.title.toLowerCase().includes(query)
+        );
+        
+        if (filteredResults.length > 0) {
+          searchResults.style.display = 'block';
+          filteredResults.forEach(result => {
+            const resultElement = document.createElement('div');
+            resultElement.innerHTML = `<a href="${result.url}" style="color: black; text-decoration: none;">${result.title}</a>`;
+            resultsContainer.appendChild(resultElement);
+          });
+        } else {
+          searchResults.style.display = 'none';
+        }
+      } else {
+        searchResults.style.display = 'none';
+      }
+    });
+    
+    // Ocultar resultados al hacer clic fuera
+    document.addEventListener('click', function(e) {
+      if (!chatbotContainer.contains(e.target) && e.target !== chatButton) {
+        chatbotContainer.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+<style>
+  /* Imagen de fondo del chat */
+  #chatbot-container .chat-body {
+    background-image: url('https://fv5-6.files.fm/thumb_show.php?i=z2rgtnebyz&view&v=1&PHPSESSID=0aa0e33631fdf388d2a08e2bc40716d6e81e6da6');
+    background-size: cover;
+    background-position: right;
+    background-repeat: no-repeat;
+    opacity: 0.8; /* Añadir un poco de transparencia */
+  }
+
+  /* Filtro de transparencia en el fondo del chat */
+  .chat-body {
+    position: relative;
+  }
+
+  .chat-body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Filtro de opacidad */
+    z-index: 1;
+  }
+
+  .chat-body .message {
+    z-index: 2; /* Asegurar que el texto se muestre encima del fondo */
+  }
+</style>
+
 </body>
 </html>
