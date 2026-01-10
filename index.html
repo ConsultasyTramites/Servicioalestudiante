@@ -178,7 +178,7 @@
         grid-template-rows: repeat(8, 1fr);
       }
     }
-/* Estilos para el botón flotante del chat */
+ /* Estilos para el botón flotante del chat */
     #chatButton {
         position: fixed;
         bottom: 20px;
@@ -345,12 +345,134 @@
     .Comunidad-Carrión {
       margin-top: 15px;
     }
+/* ===== POPUP INICIAL ===== */
+#startupAd{
+  position: fixed;
+  inset: 0;
+  display: none;               /* el JS lo cambia a flex */
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,.65);
+  z-index: 200000;             /* por encima de todo */
+  padding: 20px;
+}
+
+.startupAd-card img{
+  width: 100%;
+  height: 520px;            /* ajusta: 450 / 520 / 600 */
+  object-fit: cover;        /* o "contain" si no quieres recorte */
+  display: block;
+}
+
+
+.startupAd-card img{
+  width: 100%;
+  display: block;
+  height: auto;
+}
+
+.startupAd-close{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background: rgba(0,0,0,.6);
+  color: #fff;
+  font-size: 22px;
+  line-height: 36px;
+}
+
+.startupAd-hint{
+  padding: 10px 14px;
+  text-align: center;
+  font-weight: 700;
+  color: #111;
+  background: #fff;
+}
+
+.footer{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background: #ffffff;
+  color: #0d1b2a;
+  border-top: 26px solid #0d1b2a;
+
+  /* franja azul arriba del footer */
+  border-top: 26px solid #0d1b2a;
+}
+
+/* Botón flotante del chat (DERECHA) */
+#chatButton{
+  position: fixed !important;
+  right: 20px !important;
+  left: auto !important;
+  bottom: 20px !important;
+
+  width: 80px;
+  height: 80px;
+  background-color: #0078FF;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 10000;
+}
+
+#chatButton i{
+  font-size: 35px;
+  color: white;
+}
+
+/* “colita” del globo */
+#chatButton::after{
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 15px solid #0078FF;
+}
+
+
   </style>
 
 <!-----------------------------------------CHAT BOT TEMPORAL-------------------------------------------------->
+<link rel="shortcut icon" type="image/*" href="https://ugc.production.linktr.ee/c150853f-f3d4-47aa-8a99-1605e440154e_WhatsApp-Image-2025-01-07-at-4.12.16-AM.jpeg?io=true&size=avatar-v3_0" />
+    
+  <title>CONTACTO CARRION - Instituto Carrión</title>
+  <meta id="descripcionSitio" name="description" content="¿Tienes alguna o consulta? Ingresa al portal de autoatención al alumno para que puedas resolver todas tus dudas en cualquier momento." />
+  <meta name="keywords" content="Carrión alumno, portal Carrión alumno, Carrión intranet alumnos, campus virtual Carrión alumno, portal Carrión, contacto Carrión, numero de Carrión, instituto Carrión contacto, Carrión academico, correo Carrión, trámites Carrión, tarifario Carrión, canales de atención Carrión, matríula Carrión" />
+    
+  <!--FontsBarlow-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Barlow:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://helpjuice-static.s3.amazonaws.com/assets.helpjuice.com/country-flags/flags.min.css">
+  <link rel="stylesheet" href="/feedbacks.css">
+  <link href="https://s3.amazonaws.com/assets.helpjuice.com/fontawesome/css/all.min.css" rel="stylesheet" />
+  <script src="/feedbacks.js" defer></script>
+  <link rel="stylesheet" href="/knowledgebase.css">
+  <script src="/knowledgebase.js" defer></script>
+  <link href="https://static.helpjuice.com/helpjuice_production/uploads/account/12017/main_css_12017-2900a26f133fa51d34320950a9c4c1fc76632a4b1b02e3e926110bbda2114fed.css" media="all" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
 
 <!--------------------------------------------FIN DE CHATBOT TEMPORAL------------------------------------>
-</head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TT5V9CZ5HP"></script>
 <script>
@@ -362,6 +484,23 @@
 </script>
 
 <body>
+<!-- ===== POPUP IMAGEN AL CARGAR (NUEVO) ===== -->
+  <div id="startupAd" aria-hidden="true">
+    <div class="startupAd-card" role="dialog" aria-label="Anuncio">
+      <!-- Botón cerrar (opcional, pero recomendado) -->
+      <button class="startupAd-close" id="startupAdClose" aria-label="Cerrar">×</button>
+
+      <!-- Click en imagen => redirige a Google -->
+      <a href="https://intranet.acarrion.edu.pe/sso.asp" id="startupAdLink">
+        <img
+          src="https://fv5-5.files.fm/thumb_show.php?i=c8p24h5f69&view&v=1&PHPSESSID=836e5ab338e297a3bb5ba77a50e8ab3cf9bee22c"
+          alt="Imagen de bienvenida"
+        />
+      </a>
+
+      <div class="startupAd-hint">Visitanos</div>
+    </div>
+  </div>
 
 <!-- Header con imagen -->
 <div class="header-container">
@@ -595,15 +734,12 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
 <!--END_COMPONENT_NAVIGATION_SECTION----------------------------------------------->
     
-         <!--------------------baner del buscador -------------------------------------------------------->      
- <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
-<body>
+         <!--------------------baner del buscador -------------------------------------------------------  
+ 
 
 
-  <!-- Breadcrumbs --------------------------->
-
-
-<!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+ <!- Breadcrumbs ---------------------------
+<!--------------------------------------------------------------------------------------------------------------
 
 
   <!-----------------------------------------END_COMPONENT_HEADER_BANNER_B--------------------------------------------------->
@@ -814,9 +950,9 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
       <!-- Cuadrado 3 -->
       <a href="1Ciclo.html" class="faq-square">
         <div class="faq-image-container">
-          <img src="https://raw.githubusercontent.com/ConsultasyTramites/Servicioalestudiante/main/1er_ciclo.png" alt="1º Ciclo (Ingresantes noviembre 2025)" class="faq-image">
+          <img src="https://raw.githubusercontent.com/ConsultasyTramites/Servicioalestudiante/main/1er_ciclo.png" alt="1º Ciclo (Ingresantes agosto 2025)" class="faq-image">
         </div>
-        <div class="faq-text">1º Ciclo (Ingresantes noviembre 2025)</div>
+        <div class="faq-text">1º Ciclo (Ingresantes agosto 2025)</div>
       </a>
 <!-- Cuadrado 7 -->
       <a href="2Cicloa6Ciclo.html" class="faq-square">
@@ -870,8 +1006,6 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
       </a>
     </div>
   </div>
-                
-            
                  
             
            
@@ -905,66 +1039,64 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
                     </a>
                 
                 
-                
-                
-            
-                
-                
-                
+               
                 
                     <a href="/es_ES/Matrícula-Cursos-de-Extensión-e-Idiomas" class="box cursosdeextensioneidiomas" data-helpjuice-element="Link Extension Courses Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/297022/matricula.png"></img></span>
                         <p data-helpjuice-element="Paragraph Extension Courses Description" data-helpjuice-attributes="font_size,color">Matrícula Cursos de Extensión e Idiomas</p>
                     </a>
                 
-      
+          
+                
                     <a href="/es_ES/programa-de-titulación" class="box titulacion" data-helpjuice-element="Link Degree Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/486238/programa_de_titulacion.png"></img></span>
                         <p data-helpjuice-element="Paragraph Degree Description" data-helpjuice-attributes="font_size,color">Programa de titulación</p>
                     </a>
                 
                 
-            
+             
                 
-                    
+                
                     <a href="/es_ES/matricula" class="box carrerasprofesionales" data-helpjuice-element="Link Careers Professional Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/1004326/down-net_http20250313-2-vn1p0320250313-2-6zvn6l.png"></img></span>
                         <p data-helpjuice-element="Paragraph Careers Professional Description" data-helpjuice-attributes="font_size,color">Matrícula</p>
                     </a>
                 
                 
-               
-                
+            
+              
                     <a href="/es_ES/edutips-Carrión" class="box edutips" data-helpjuice-element="Link Degree Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/1031071/down-net_http20250526-2-23id4y20250526-2-pav7df.png"></img></span>
                         <p data-helpjuice-element="Paragraph Edutips Description" data-helpjuice-attributes="font_size,color">Edutips</p>
                     </a>
                 
             
-             
+                 
+                
                 
                     <a href="/es_ES/clases-virtuales-carrera-cpex" class="box cpex" data-helpjuice-element="Link Cpex Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/351790/clases_virtuales.png"></img></span>
                         <p data-helpjuice-element="Paragraph Cpex Description" data-helpjuice-attributes="font_size,color">Clases virtuales Carrera CPEX</p>
                     </a>
                 
-             
+                
+              
+                
+                
                     <a href="/es_ES/bachiller-técnico" class="box titulacion" data-helpjuice-element="Link Degree Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/486235/bachiller_t%C3%A9cnico.png"></img></span>
                         <p data-helpjuice-element="Paragraph Degree Description" data-helpjuice-attributes="font_size,color">Bachiller técnico</p>
                     </a>
                 
-            
                 
-                
+           
                     <a href="/es_ES/tramites-y-documentos" class="box carrerasprofesionales" data-helpjuice-element="Link Careers Professional Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/1004332/down-net_http20250313-2-cup3ib20250313-2-7amchh.png"></img></span>
                         <p data-helpjuice-element="Paragraph Careers Professional Description" data-helpjuice-attributes="font_size,color">Trámites y documentos</p>
                     </a>
                 
                 
-                
-            
+                   
                 
                     <a href="/es_ES/tramites-y-documentos-carreras-cpex" class="box cpex" data-helpjuice-element="Link Cpex Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/296875/tramites.png"></img></span>
@@ -972,12 +1104,7 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
                     </a>
                 
                 
-                
-                
-            
-                
-                
-                
+                  
                 
                     <a href="/es_ES/Pagos-Cursos-de-Extensión-e-Idiomas" class="box cursosdeextensioneidiomas" data-helpjuice-element="Link Extension Courses Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/297024/pagos.png"></img></span>
@@ -985,7 +1112,7 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
                     </a>
                 
                 
-            
+                
                 
                     <a href="/es_ES/titulo-profesional" class="box titulacion" data-helpjuice-element="Link Degree Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/486236/titulo_profesional.png"></img></span>
@@ -994,7 +1121,8 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
                 
                 
             
-      
+                
+                         
                 
                     <a href="/es_ES/notas-y-asistencias" class="box carrerasprofesionales" data-helpjuice-element="Link Careers Professional Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/1004333/down-net_http20250313-2-5ldgyb20250313-2-58egqu.png"></img></span>
@@ -1002,29 +1130,29 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
                     </a>
                 
                 
-                    
-                
-                
+                 
                     <a href="/es_ES/pagos-carreras-cpex" class="box cpex" data-helpjuice-element="Link Cpex Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/296876/pagos.png"></img></span>
                         <p data-helpjuice-element="Paragraph Cpex Description" data-helpjuice-attributes="font_size,color">Pagos carreras CPEX</p>
                     </a>
                 
-                  
                 
+                 
                     <a href="/es_ES/comunicado-de-extensión-e-idiomas" class="box cursosdeextensioneidiomas" data-helpjuice-element="Link Extension Courses Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/333499/comunicados.png"></img></span>
                         <p data-helpjuice-element="Paragraph Extension Courses Description" data-helpjuice-attributes="font_size,color">Comunicado de Extensión e Idiomas</p>
                     </a>
                 
-                  
+                    
+                
+                
                     <a href="/es_ES/comunicados-titulación" class="box titulacion" data-helpjuice-element="Link Degree Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/333504/comunicados.png"></img></span>
                         <p data-helpjuice-element="Paragraph Degree Description" data-helpjuice-attributes="font_size,color">Comunicados Titulación</p>
                     </a>
                 
                 
-                     
+                  
                 
                     <a href="/es_ES/canales-de-atencion-y-autogestion" class="box carrerasprofesionales" data-helpjuice-element="Link Careers Professional Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/1004335/down-net_http20250313-2-pevaqd20250313-2-4h0jlr.png"></img></span>
@@ -1032,7 +1160,10 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
                     </a>
                 
                 
+                
                  
+                
+                
                 
                     <a href="/es_ES/acceso-a-la-plataforma-de-extensión-e-idiomas" class="box cursosdeextensioneidiomas" data-helpjuice-element="Link Extension Courses Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/435905/acceso_al_av.png"></img></span>
@@ -1040,22 +1171,23 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
                     </a>
                 
                 
-                  
                 
-                    <a href="/es_ES/pagos-Titulacion" class="box titulacion" data-helpjuice-element="Link Degree Box" data-helpjuice-attributes="font_size,color">
+                        <a href="/es_ES/pagos-Titulacion" class="box titulacion" data-helpjuice-element="Link Degree Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/597439/pagos_222222223.PNG"></img></span>
                         <p data-helpjuice-element="Paragraph Degree Description" data-helpjuice-attributes="font_size,color">Pagos</p>
                     </a>
                 
                 
-                    
+            
+                           
                     <a href="/es_ES/inicio-de-clase" class="box carrerasprofesionales" data-helpjuice-element="Link Careers Professional Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/1004337/down-net_http20250313-2-hc545420250313-2-iuimpt.png"></img></span>
                         <p data-helpjuice-element="Paragraph Careers Professional Description" data-helpjuice-attributes="font_size,color">Inicio de clase</p>
                     </a>
                 
                 
-                 
+                          
+                
                 
                     <a href="/es_ES/Comunicados-Carreras-CPEX" class="box cpex" data-helpjuice-element="Link Cpex Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/308506/comunicados.png"></img></span>
@@ -1063,24 +1195,40 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
                     </a>
                 
                 
+                
+                      
+                      
+                
+                
+                
                     <a href="/es_ES/ingles-estudiante-Carrión" class="box cursosdeextensioneidiomas" data-helpjuice-element="Link Extension Courses Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/620524/Icono_ingl%C3%A9s.JPG"></img></span>
                         <p data-helpjuice-element="Paragraph Extension Courses Description" data-helpjuice-attributes="font_size,color">Inglés Estudiante Carrión</p>
                     </a>
                 
-             
+                      
+                
+            
+                
+                
                     <a href="/es_ES/pagos" class="box carrerasprofesionales" data-helpjuice-element="Link Careers Professional Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/1004338/down-net_http20250313-2-c6t1wu20250313-2-t14nrv.png"></img></span>
                         <p data-helpjuice-element="Paragraph Careers Professional Description" data-helpjuice-attributes="font_size,color">Pagos</p>
                     </a>
                 
-            
+                
+                
+                
+                      
+                
+                
                     <a href="/es_ES/club-de-beneficios-cpex" class="box cpex" data-helpjuice-element="Link Cpex Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/524753/beneficios.png"></img></span>
                         <p data-helpjuice-element="Paragraph Cpex Description" data-helpjuice-attributes="font_size,color">Club de beneficios</p>
                     </a>
                 
                 
+                      
                 
                     <a href="/es_ES/Ingles-Estudiante-externo" class="box cursosdeextensioneidiomas" data-helpjuice-element="Link Extension Courses Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/604236/Icono_ingl%C3%A9s_2.JPG"></img></span>
@@ -1088,19 +1236,26 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
                     </a>
                 
                 
-              
+                     
+                
                     <a href="/es_ES/comunicados" class="box carrerasprofesionales" data-helpjuice-element="Link Careers Professional Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/1004339/down-net_http20250313-2-mgdhp420250313-2-y18lvf.png"></img></span>
                         <p data-helpjuice-element="Paragraph Careers Professional Description" data-helpjuice-attributes="font_size,color">Comunicados</p>
                     </a>
                 
-                  
+                
+                             
+                
                     <a href="/es_ES/club-de-beneficios-carreras-profesionales" class="box carrerasprofesionales" data-helpjuice-element="Link Careers Professional Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/1004364/down-net_http20250313-2-pd1hch20250313-2-vl6wu9.png"></img></span>
                         <p data-helpjuice-element="Paragraph Careers Professional Description" data-helpjuice-attributes="font_size,color">Club de beneficios</p>
                     </a>
                 
-     
+              
+                
+                
+                   
+            
         </div>
     </div>
 </div>
@@ -1213,8 +1368,7 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
         <div class="row">
             
                 
-    
-                
+                        
                     <div class="category">
                         <a href="/es_ES/Titulación-" class="card Titulación">
                             <span class="icon"><span><i class="far fa-external-link"></i></span></span>
@@ -1224,10 +1378,7 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
                     </div>
                 
             
-                
-      
-                
-            
+               
         </div>
     </div>
 </div>
@@ -1237,101 +1388,96 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
 <div class="all-categories">
     <div class="cat-data">
             
-                   
-                
+                 
                     <a href="/es_ES/programa-de-titulación" class="box titulacion">
                         <span class="icon"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/486238/programa_de_titulacion.png"></img></span>
                         <p>Programa de titulación</p>
                     </a>
                 
-            
-                          
+                    
                     <a href="/es_ES/bachiller-técnico" class="box titulacion">
                         <span class="icon"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/486235/bachiller_t%C3%A9cnico.png"></img></span>
                         <p>Bachiller técnico</p>
                     </a>
                 
             
-                
-              
+                               
                     <a href="/es_ES/titulo-profesional" class="box titulacion">
                         <span class="icon"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/486236/titulo_profesional.png"></img></span>
                         <p>Titulo profesional</p>
                     </a>
                 
             
-           
+                
+                                   
                 
                     <a href="/es_ES/comunicados-titulación" class="box titulacion">
                         <span class="icon"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/333504/comunicados.png"></img></span>
                         <p>Comunicados Titulación</p>
                     </a>
                 
-
+                        
+                               
                     <a href="/es_ES/pagos-Titulacion" class="box titulacion">
                         <span class="icon"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/597439/pagos_222222223.PNG"></img></span>
                         <p>Pagos</p>
                     </a>
                 
-            
-            
-     </div>
-</div>-->
-
-
-
-
-
-
-
-
-
+        
 
          </div>
     </main>
     <!--Prueba Footer-->
 <!-- Footer ------------------------------------------------------------------------------------------------>
-    <div class="footer">
-     <div class="footer-left">
-  <a href="https://www.acarrion.edu.pe/" class="card2">
-    <img width="111.36px" src="https://www.acarrion.edu.pe/wp-content/uploads/2023/09/63951235c7969e4beeb83e89_carrion-logo-dark.svg" alt="Logo Instituto Carrion">
-  </a>
-  <span class="footer-left-rights">
-    © 2025 Instituto CARRION.<br/> Todos los derechos reservados.
-  </span>
-</div>
-
-        <div class="footer-right">
-            <span class="footer-right-question">Si el motivo de tu consulta no fue resuelto, puedes comunicarte a:</span>
-            <div class="footer-right-row">
-                <img class="footer-right-row-icon" src="https://static.helpjuice.com/helpjuice_production/uploads/upload/image/14255/3184049/1685552418116-social_whatsapp.png" width="22px">
-                <a target="_blank" href="https://api.whatsapp.com/send?phone=51933631733" class="footer-right-row-text"> 933 631 733</a>
-            </div>
-            <!--<div class="footer-right-row">
-                <img class="footer-right-row-icon" src="https://static.helpjuice.com/helpjuice_production/uploads/upload/image/14255/2928846/social_phoneolid.svg">
-                <a href="#" class="footer-right-row-text">(01) 610 6400</a>
-            </div>-->
-            <span class="footer-right-schedule">De lunes a viernes de 7:00 a.m. a 10:00 p.m. Sábados de 8:00 a.m. a 6:00 p.m.
-
-<!--<br />
-
-<p style="text-align: center; font-size: 13px; opacity: 0.7; margin: 16px 0; display: inline-block; width: 100%;">
-    <a style="font-weight: 700; color: black; text-decoration: none;" href="https://helpjuice.com/?utm_campaign=customer_kb">
-        Knowledge Base Software powered by Helpjuice
+   <div class="footer">
+  <div class="footer-left">
+    <a href="https://www.acarrion.edu.pe/" class="card2">
+      <img width="111.36px"
+           src="https://www.acarrion.edu.pe/wp-content/uploads/2023/09/63951235c7969e4beeb83e89_carrion-logo-dark.svg"
+           alt="Logo Instituto Carrion">
     </a>
-</p>-->             
-        <div class="Comunidad-Carrión">
-  <span class="footer-right-question">
-    Tenemos una Comunidad Facebook especialmente diseñado para ti. ¡Únete ahora mismo!
-  </span>
-  <div class="footer-right-row" style="display: flex; align-items: center; gap: 8px; white-space: nowrap;">
-    <img class="footer-right-row-icon" src="https://images.icon-icons.com/2657/PNG/256/facebook_icon_161067.png" width="22px">
-    <a target="_blank" href="https://www.facebook.com/groups/1830554624395062/?ref=share&mibextid=NSMWBT" style="text-decoration: none; font-weight: bold; color: #1877f2; white-space: nowrap;">Comunidad Carrión</a>
+
+    <span class="footer-left-rights">
+      © 2025 Instituto CARRION.<br/> Todos los derechos reservados.
+    </span>
+  </div>
+
+  <div class="footer-right">
+    <span class="footer-right-question">Si el motivo de tu consulta no fue resuelto, puedes comunicarte a:</span>
+
+    <div class="footer-right-row">
+      <img class="footer-right-row-icon"
+           src="https://static.helpjuice.com/helpjuice_production/uploads/upload/image/14255/3184049/1685552418116-social_whatsapp.png"
+           width="22px">
+      <a target="_blank"
+         href="https://api.whatsapp.com/send?phone=51933631733"
+         class="footer-right-row-text"> 933 631 733</a>
+    </div>
+
+    <span class="footer-right-schedule">
+      De lunes a viernes de 7:00 a.m. a 10:00 p.m. Sábados de 8:00 a.m. a 6:00 p.m.
+    </span>
+
+    <div class="Comunidad-Carrión">
+      <span class="footer-right-question">
+        Tenemos una Comunidad Facebook especialmente diseñado para ti. ¡Únete ahora mismo!
+      </span>
+
+      <div class="footer-right-row" style="display: flex; align-items: center; gap: 8px; white-space: nowrap;">
+        <img class="footer-right-row-icon"
+             src="https://images.icon-icons.com/2657/PNG/256/facebook_icon_161067.png"
+             width="22px">
+        <a target="_blank"
+           href="https://www.facebook.com/groups/1830554624395062/?ref=share&mibextid=NSMWBT"
+           style="text-decoration: none; font-weight: bold; color: #1877f2; white-space: nowrap;">
+          Comunidad Carrión
+        </a>
+      </div>
+    </div>
+
   </div>
 </div>
-            </div>
-        </div>
-    </div>
+
     
     <!-- Scripts ---------------------------------------------------------------------------------->
     <script>
@@ -1341,11 +1487,11 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
         const resultsContainer = document.getElementById('results-container');
         
        
-    <!-- ------------------------------------Base de datos de búsqueda------------------------------------------->
+    // ------------------------------------Base de datos de búsqueda-------------------------------------------
         const searchDatabase = [
             { title: "Tutorial Mis Pagos", url: "Matricula.html"},
             { title: "Trámites Académicos", url: "Como_Realizar_Tramites_Virtuales.HTML", description: "Procedimiento para trámites en línea" },
-            { title: "1º Ciclo (Ingresantes noviembre 2025)", url: "1Ciclo.html"},
+            { title: "1º Ciclo (Ingresantes agosto 2025)", url: "1Ciclo.html"},
             { title: "Plataformas digitales", url: "Plataforma_Digitales.html"},
             { title: "Guía del egresado", url: "Guia_del_Egresado.html"},
             { title: "Mallas curriculares", url: "MallasCurriculares.html"},
@@ -1420,17 +1566,21 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
     <!-- Scripts externos -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/pdf.min.js"></script>
-<!-- Botón flotante del chat -->
-<button id="chatButton">
-  <i class="fas fa-comments"></i>
+
+
+
+<!-- Botón flotante del chat con forma de globo de llamada -->
+<button id="chatButton" aria-label="Abrir chat">
+  <i class="fas fa-comment"></i>
 </button>
 
-<!-- Contenedor del chatbot -->
+
+<!--Contenedor del chatbot -->
 <div id="chatbot-container">
   <div class="chat-header">
     <!-- Logo y nombre con la nueva imagen -->
     <div style="display: flex; align-items: center; gap: 10px;">
-      <img src="https://fv5-6.files.fm/thumb_show.php?i=hc2spr53j3&view&v=1&PHPSESSID=0aa0e33631fdf388d2a08e2bc40716d6e81e6da6" 
+      <img src="https://files.fm/f/83rfp9tzqj" 
            alt="Logo Dany" 
            style="width: 28px; height: 28px; border-radius: 50%; object-fit: cover;">
       <span style="font-weight: bold;">Dany</span>
@@ -1451,8 +1601,9 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
 </div>
 
 <script>
+   
   // Funcionalidad del chatbot
-  document.addEventListener('DOMContentLoaded', function() {
+  // document.addEventListener('DOMContentLoaded', function() {
     const chatButton = document.getElementById('chatButton');
     const chatbotContainer = document.getElementById('chatbot-container');
     const closeChat = document.querySelector('.close-chat');
@@ -1576,17 +1727,83 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
         chatbotContainer.style.display = 'none';
       }
     });
-  });
+ 
+ /*document.addEventListener('DOMContentLoaded', function () {*/
+      /* ==========================
+         POPUP IMAGEN AL INICIAR
+         ========================== */
+      const startupAd = document.getElementById('startupAd');
+      const startupAdClose = document.getElementById('startupAdClose');
+
+      // Mostrar apenas cargue el DOM
+      startupAd.style.display = 'flex';
+      startupAd.setAttribute('aria-hidden', 'false');
+
+      // Cerrar con botón X
+      startupAdClose.addEventListener('click', function (e) {
+        e.preventDefault();
+        startupAd.style.display = 'none';
+        startupAd.setAttribute('aria-hidden', 'true');
+      });
+
+      // Cerrar si hacen click en el fondo oscuro (no en la tarjeta)
+      startupAd.addEventListener('click', function (e) {
+        if (e.target === startupAd) {
+          startupAd.style.display = 'none';
+          startupAd.setAttribute('aria-hidden', 'true');
+        }
+      });
+
+      // Cerrar con ESC
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && startupAd.style.display === 'flex') {
+          startupAd.style.display = 'none';
+          startupAd.setAttribute('aria-hidden', 'true');
+        }
+      });
 </script>
 
 <style>
   /* Imagen de fondo del chat */
   #chatbot-container .chat-body {
-    background-image: url('https://fv5-6.files.fm/thumb_show.php?i=z2rgtnebyz&view&v=1&PHPSESSID=0aa0e33631fdf388d2a08e2bc40716d6e81e6da6');
+    background-image: url('https://fv5-6.files.fm/thumb_show.php?i=yw3hceywmq&view&v=1&PHPSESSID=0aa0e33631fdf388d2a08e2bc40716d6e81e6da6');
     background-size: cover;
-    background-position: right;
+    background-position: center;
     background-repeat: no-repeat;
     opacity: 0.8; /* Añadir un poco de transparencia */
+  }
+
+  /* Estilo para el logo flotante con globo de llamada */
+  #chatButton {
+    width: 80px;
+    height: 80px;
+    background-color: #0078FF;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  #chatButton i {
+    font-size: 35px;
+    color: white;
+  }
+
+  /* Flecha para el globo de llamada */
+  #chatButton div {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 15px solid #0078FF;
   }
 
   /* Filtro de transparencia en el fondo del chat */
@@ -1609,6 +1826,8 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
     z-index: 2; /* Asegurar que el texto se muestre encima del fondo */
   }
 </style>
+
+
 
 </body>
 </html>
