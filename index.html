@@ -346,7 +346,7 @@
       margin-top: 15px;
     }
 /* ===== POPUP INICIAL ===== */
-#startupAd{
+  #startupAd{
   position: fixed;
   inset: 0;
   display: none;               /* el JS lo cambia a flex */
@@ -492,7 +492,9 @@
 
       <!-- Click en imagen => redirige a Google -->
       <a href="https://intranet.acarrion.edu.pe/sso.asp" id="startupAdLink">
+        <!-- ✅ CAMBIO NECESARIO: agregar id para poder cambiar src luego -->
         <img
+          id="startupAdImg"
           src="https://fv5-5.files.fm/thumb_show.php?i=c8p24h5f69&view&v=1&PHPSESSID=836e5ab338e297a3bb5ba77a50e8ab3cf9bee22c"
           alt="Imagen de bienvenida"
         />
@@ -824,7 +826,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
             <a href="/es_ES/Canales-de-pagos-cpex/canales-de-pagos-cpex" class="col-xs-12 col-md-6 item">
                 <i class="fas fa-file-alt" data-helpjuice-element="Article Icon" data-helpjuice-attributes="font_size,color,visibility"></i>
-                <span data-helpjuice-element="Article Title" data-helpjuice-attributes="font_size,color">Plataformas digitales</span>
+                <span data-helpjuice-element="Article Title" data-helpjuice-attributes="font_size,color">Plataforma digitales</span>
             </a>
         
             <a href="/es_ES/%C2%BFc%C3%B3mo-accedo-a-la-plataforma-de-extensi%C3%B3n-e-idiomas/%C2%BFc%C3%B3mo-accedo-a-la-plataforma-de-extensi%C3%B3n-e-idiomas" class="col-xs-12 col-md-6 item">
@@ -1036,397 +1038,13 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
               <!--<a href="/es_ES/matricula-carreras-cpex" class="box cpex" data-helpjuice-element="Link Cpex Box" data-helpjuice-attributes="font_size,color">
                         <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/296874/matricula.png"></img></span>
                         <p data-helpjuice-element="Paragraph Cpex Description" data-helpjuice-attributes="font_size,color">Matrícula carreras CPEX</p>
-                    </a>
+                    </a>-->
                 
                 
                
                 
-                    <a href="/es_ES/Matrícula-Cursos-de-Extensión-e-Idiomas" class="box cursosdeextensioneidiomas" data-helpjuice-element="Link Extension Courses Box" data-helpjuice-attributes="font_size,color">
-                        <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/297022/matricula.png"></img></span>
-                        <p data-helpjuice-element="Paragraph Extension Courses Description" data-helpjuice-attributes="font_size,color">Matrícula Cursos de Extensión e Idiomas</p>
-                    </a>
-                
-          
-                
-                    <a href="/es_ES/programa-de-titulación" class="box titulacion" data-helpjuice-element="Link Degree Box" data-helpjuice-attributes="font_size,color">
-                        <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/486238/programa_de_titulacion.png"></img></span>
-                        <p data-helpjuice-element="Paragraph Degree Description" data-helpjuice-attributes="font_size,color">Programa de titulación</p>
-                    </a>
-                
-                
-             
-                
-                
-                    <a href="/es_ES/matricula" class="box carrerasprofesionales" data-helpjuice-element="Link Careers Professional Box" data-helpjuice-attributes="font_size,color">
-                        <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/1004326/down-net_http20250313-2-vn1p0320250313-2-6zvn6l.png"></img></span>
-                        <p data-helpjuice-element="Paragraph Careers Professional Description" data-helpjuice-attributes="font_size,color">Matrícula</p>
-                    </a>
-                
-                
-            
-              
-                    <a href="/es_ES/edutips-Carrión" class="box edutips" data-helpjuice-element="Link Degree Box" data-helpjuice-attributes="font_size,color">
-                        <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/1031071/down-net_http20250526-2-23id4y20250526-2-pav7df.png"></img></span>
-                        <p data-helpjuice-element="Paragraph Edutips Description" data-helpjuice-attributes="font_size,color">Edutips</p>
-                    </a>
-                
-            
-                 
-                
-                
-                    <a href="/es_ES/clases-virtuales-carrera-cpex" class="box cpex" data-helpjuice-element="Link Cpex Box" data-helpjuice-attributes="font_size,color">
-                        <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/351790/clases_virtuales.png"></img></span>
-                        <p data-helpjuice-element="Paragraph Cpex Description" data-helpjuice-attributes="font_size,color">Clases virtuales Carrera CPEX</p>
-                    </a>
-                
-                
-              
-                
-                
-                    <a href="/es_ES/bachiller-técnico" class="box titulacion" data-helpjuice-element="Link Degree Box" data-helpjuice-attributes="font_size,color">
-                        <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/486235/bachiller_t%C3%A9cnico.png"></img></span>
-                        <p data-helpjuice-element="Paragraph Degree Description" data-helpjuice-attributes="font_size,color">Bachiller técnico</p>
-                    </a>
-                
-                
-           
-                    <a href="/es_ES/tramites-y-documentos" class="box carrerasprofesionales" data-helpjuice-element="Link Careers Professional Box" data-helpjuice-attributes="font_size,color">
-                        <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/1004332/down-net_http20250313-2-cup3ib20250313-2-7amchh.png"></img></span>
-                        <p data-helpjuice-element="Paragraph Careers Professional Description" data-helpjuice-attributes="font_size,color">Trámites y documentos</p>
-                    </a>
-                
-                
-                   
-                
-                    <a href="/es_ES/tramites-y-documentos-carreras-cpex" class="box cpex" data-helpjuice-element="Link Cpex Box" data-helpjuice-attributes="font_size,color">
-                        <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/296875/tramites.png"></img></span>
-                        <p data-helpjuice-element="Paragraph Cpex Description" data-helpjuice-attributes="font_size,color">Trámites y documentos carreras CPEX</p>
-                    </a>
-                
-                
-                  
-                
-                    <a href="/es_ES/Pagos-Cursos-de-Extensión-e-Idiomas" class="box cursosdeextensioneidiomas" data-helpjuice-element="Link Extension Courses Box" data-helpjuice-attributes="font_size,color">
-                        <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/297024/pagos.png"></img></span>
-                        <p data-helpjuice-element="Paragraph Extension Courses Description" data-helpjuice-attributes="font_size,color">Pagos Cursos de Extensión e Idiomas</p>
-                    </a>
-                
-                
-                
-                
-                    <a href="/es_ES/titulo-profesional" class="box titulacion" data-helpjuice-element="Link Degree Box" data-helpjuice-attributes="font_size,color">
-                        <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/486236/titulo_profesional.png"></img></span>
-                        <p data-helpjuice-element="Paragraph Degree Description" data-helpjuice-attributes="font_size,color">Titulo profesional</p>
-                    </a>
-                
-                
-            
-                
-                         
-                
-                    <a href="/es_ES/notas-y-asistencias" class="box carrerasprofesionales" data-helpjuice-element="Link Careers Professional Box" data-helpjuice-attributes="font_size,color">
-                        <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/1004333/down-net_http20250313-2-5ldgyb20250313-2-58egqu.png"></img></span>
-                        <p data-helpjuice-element="Paragraph Careers Professional Description" data-helpjuice-attributes="font_size,color">Notas y asistencias</p>
-                    </a>
-                
-                
-                 
-                    <a href="/es_ES/pagos-carreras-cpex" class="box cpex" data-helpjuice-element="Link Cpex Box" data-helpjuice-attributes="font_size,color">
-                        <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/296876/pagos.png"></img></span>
-                        <p data-helpjuice-element="Paragraph Cpex Description" data-helpjuice-attributes="font_size,color">Pagos carreras CPEX</p>
-                    </a>
-                
-                
-                 
-                    <a href="/es_ES/comunicado-de-extensión-e-idiomas" class="box cursosdeextensioneidiomas" data-helpjuice-element="Link Extension Courses Box" data-helpjuice-attributes="font_size,color">
-                        <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/333499/comunicados.png"></img></span>
-                        <p data-helpjuice-element="Paragraph Extension Courses Description" data-helpjuice-attributes="font_size,color">Comunicado de Extensión e Idiomas</p>
-                    </a>
-                
-                    
-                
-                
-                    <a href="/es_ES/comunicados-titulación" class="box titulacion" data-helpjuice-element="Link Degree Box" data-helpjuice-attributes="font_size,color">
-                        <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/333504/comunicados.png"></img></span>
-                        <p data-helpjuice-element="Paragraph Degree Description" data-helpjuice-attributes="font_size,color">Comunicados Titulación</p>
-                    </a>
-                
-                
-                  
-                
-                    <a href="/es_ES/canales-de-atencion-y-autogestion" class="box carrerasprofesionales" data-helpjuice-element="Link Careers Professional Box" data-helpjuice-attributes="font_size,color">
-                        <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/1004335/down-net_http20250313-2-pevaqd20250313-2-4h0jlr.png"></img></span>
-                        <p data-helpjuice-element="Paragraph Careers Professional Description" data-helpjuice-attributes="font_size,color">Canales de atención y autogestión</p>
-                    </a>
-                
-                
-                
-                 
-                
-                
-                
-                    <a href="/es_ES/acceso-a-la-plataforma-de-extensión-e-idiomas" class="box cursosdeextensioneidiomas" data-helpjuice-element="Link Extension Courses Box" data-helpjuice-attributes="font_size,color">
-                        <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/435905/acceso_al_av.png"></img></span>
-                        <p data-helpjuice-element="Paragraph Extension Courses Description" data-helpjuice-attributes="font_size,color">Acceso a la plataforma de extensión e idiomas</p>
-                    </a>
-                
-                
-                
-                        <a href="/es_ES/pagos-Titulacion" class="box titulacion" data-helpjuice-element="Link Degree Box" data-helpjuice-attributes="font_size,color">
-                        <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/597439/pagos_222222223.PNG"></img></span>
-                        <p data-helpjuice-element="Paragraph Degree Description" data-helpjuice-attributes="font_size,color">Pagos</p>
-                    </a>
-                
-                
-            
-                           
-                    <a href="/es_ES/inicio-de-clase" class="box carrerasprofesionales" data-helpjuice-element="Link Careers Professional Box" data-helpjuice-attributes="font_size,color">
-                        <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/1004337/down-net_http20250313-2-hc545420250313-2-iuimpt.png"></img></span>
-                        <p data-helpjuice-element="Paragraph Careers Professional Description" data-helpjuice-attributes="font_size,color">Inicio de clase</p>
-                    </a>
-                
-                
-                          
-                
-                
-                    <a href="/es_ES/Comunicados-Carreras-CPEX" class="box cpex" data-helpjuice-element="Link Cpex Box" data-helpjuice-attributes="font_size,color">
-                        <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/308506/comunicados.png"></img></span>
-                        <p data-helpjuice-element="Paragraph Cpex Description" data-helpjuice-attributes="font_size,color">Comunicados carreras CPEX</p>
-                    </a>
-                
-                
-                
-                      
-                      
-                
-                
-                
-                    <a href="/es_ES/ingles-estudiante-Carrión" class="box cursosdeextensioneidiomas" data-helpjuice-element="Link Extension Courses Box" data-helpjuice-attributes="font_size,color">
-                        <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/620524/Icono_ingl%C3%A9s.JPG"></img></span>
-                        <p data-helpjuice-element="Paragraph Extension Courses Description" data-helpjuice-attributes="font_size,color">Inglés Estudiante Carrión</p>
-                    </a>
-                
-                      
-                
-            
-                
-                
-                    <a href="/es_ES/pagos" class="box carrerasprofesionales" data-helpjuice-element="Link Careers Professional Box" data-helpjuice-attributes="font_size,color">
-                        <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/1004338/down-net_http20250313-2-c6t1wu20250313-2-t14nrv.png"></img></span>
-                        <p data-helpjuice-element="Paragraph Careers Professional Description" data-helpjuice-attributes="font_size,color">Pagos</p>
-                    </a>
-                
-                
-                
-                
-                      
-                
-                
-                    <a href="/es_ES/club-de-beneficios-cpex" class="box cpex" data-helpjuice-element="Link Cpex Box" data-helpjuice-attributes="font_size,color">
-                        <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/524753/beneficios.png"></img></span>
-                        <p data-helpjuice-element="Paragraph Cpex Description" data-helpjuice-attributes="font_size,color">Club de beneficios</p>
-                    </a>
-                
-                
-                      
-                
-                    <a href="/es_ES/Ingles-Estudiante-externo" class="box cursosdeextensioneidiomas" data-helpjuice-element="Link Extension Courses Box" data-helpjuice-attributes="font_size,color">
-                        <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/604236/Icono_ingl%C3%A9s_2.JPG"></img></span>
-                        <p data-helpjuice-element="Paragraph Extension Courses Description" data-helpjuice-attributes="font_size,color">Inglés Estudiante externo</p>
-                    </a>
-                
-                
-                     
-                
-                    <a href="/es_ES/comunicados" class="box carrerasprofesionales" data-helpjuice-element="Link Careers Professional Box" data-helpjuice-attributes="font_size,color">
-                        <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/1004339/down-net_http20250313-2-mgdhp420250313-2-y18lvf.png"></img></span>
-                        <p data-helpjuice-element="Paragraph Careers Professional Description" data-helpjuice-attributes="font_size,color">Comunicados</p>
-                    </a>
-                
-                
-                             
-                
-                    <a href="/es_ES/club-de-beneficios-carreras-profesionales" class="box carrerasprofesionales" data-helpjuice-element="Link Careers Professional Box" data-helpjuice-attributes="font_size,color">
-                        <span class="icon" data-helpjuice-element="Span Box Icon" data-helpjuice-attributes="font_size,color"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/1004364/down-net_http20250313-2-pd1hch20250313-2-vl6wu9.png"></img></span>
-                        <p data-helpjuice-element="Paragraph Careers Professional Description" data-helpjuice-attributes="font_size,color">Club de beneficios</p>
-                    </a>
-                
-              
-                
-                
-                   
-            
-        </div>
-    </div>
-</div>
--->
+                    <!-- ... (resto sin cambios) ... -->
 
-<!-- fin Categorias -->
-<!--END_COMPONENT_ALL_CATEGORIES_CONTAINER-->
-<!-----------------------------------ACCEDER A PLATAFORMAS DIGITALES--------------------------->
-<!--START_COMPONENT_DIGITAL_PLATFORMS_ACCESS-->
-<!---<div class="all-categories" id="plat-dig" data-helpjuice-component="Digital Platforms Access" data-helpjuice-element="Container" data-helpjuice-attributes="visibility,background">
-    <div class="wrapper external">
-        <h2 id="external-title" data-helpjuice-element="Section Digital Platforms Title" data-helpjuice-attributes="font_size,color">Accede a tus plataformas digitales</h2>
-        <div class="row">---->
-            
-      <!---      <div class="category">
-                <a href="https://miportal.Carrión.edu.pe/#/auth/login" class="card" target="_blank" data-helpjuice-element="Card My Portal Carrión" data-helpjuice-attributes="font_size,color">
-                    <span class="icon" data-helpjuice-element="Span Card Icon" data-helpjuice-attributes="font_size,color"><img src="https://docs.cientifica.edu.pe/marketing/Carrión/helpjuice/icons/portal.png" data-helpjuice-element="Image Card Icon" data-helpjuice-attributes="font_size,color"></span>
-                    <h2 data-helpjuice-element="Title My Portal Carrión" data-helpjuice-attributes="font_size,color">Mi Portal Carrión</h2>---->
-            <!---         <span class="flecha" data-helpjuice-element="Span Arrow" data-helpjuice-attributes="font_size,color"><img src="https://docs.cientifica.edu.pe/marketing/Carrión/helpjuice/icons/Filled.png" style="
-                                max-width: 24px;
-                            " data-helpjuice-element="Image Arrow" data-helpjuice-attributes="font_size,color"></span>
-                </a>
-            </div>---->
-            
-     <!---       <div class="category">
-                <a href="https://tramites-estudiante.Carrión.edu.pe/" class="card" target="_blank" data-helpjuice-element="Card Online Procedures" data-helpjuice-attributes="font_size,color">---->
-
-              <!---      <span class="icon" data-helpjuice-element="Span Card Icon" data-helpjuice-attributes="font_size,color"><img src="https://docs.cientifica.edu.pe/marketing/Carrión/helpjuice/icons/tramite.png" data-helpjuice-element="Image Card Icon" data-helpjuice-attributes="font_size,color">
-</span>---->
-               <!---<h2 data-helpjuice-element="Title Online Procedures" data-helpjuice-attributes="font_size,color">Trámites en línea</h2>---->
-            <!---        <span class="flecha" data-helpjuice-element="Span Arrow" data-helpjuice-attributes="font_size,color"><img src="https://docs.cientifica.edu.pe/marketing/Carrión/helpjuice/icons/Filled.png" style="
-                                max-width: 24px;
-                            " data-helpjuice-element="Image Arrow" data-helpjuice-attributes="font_size,color"></span>
-                </a>
-            </div>
-            
-            <div class="category">
-                <a href="https://aulavirtual.Carrión.edu.pe/login/canvas" class="card" target="_blank" data-helpjuice-element="Card Virtual Classroom" data-helpjuice-attributes="font_size,color">
-                     <span class="icon" data-helpjuice-element="Span Card Icon" data-helpjuice-attributes="font_size,color"><img src="https://docs.cientifica.edu.pe/marketing/Carrión/helpjuice/icons/canvas.png" data-helpjuice-element="Image Card Icon" data-helpjuice-attributes="font_size,color"></span>
-                    <h2 data-helpjuice-element="Title Virtual Classroom" data-helpjuice-attributes="font_size,color">Aula virtual</h2>
-                    <span class="flecha" data-helpjuice-element="Span Arrow" data-helpjuice-attributes="font_size,color"><img src="https://docs.cientifica.edu.pe/marketing/Carrión/helpjuice/icons/Filled.png" style="
-                                max-width: 24px;
-                            " data-helpjuice-element="Image Arrow" data-helpjuice-attributes="font_size,color"></span>
-                </a>
-            </div>
-            
-            <div class="category">
-                <a href="https://aulavirtualfcid.Carrión.edu.pe" class="card" target="_blank" data-helpjuice-element="Card Virtual Classroom Courses Languages" data-helpjuice-attributes="font_size,color">
-                    <span class="icon" data-helpjuice-element="Span Card Icon" data-helpjuice-attributes="font_size,color"><img src="https://docs.cientifica.edu.pe/marketing/Carrión/helpjuice/2024/alumnos/av%20cursos%20cortos.png" data-helpjuice-element="Image Card Icon" data-helpjuice-attributes="font_size,color"></span>
-                    <h2 data-helpjuice-element="Title Virtual Classroom Courses Languages" data-helpjuice-attributes="font_size,color">Aula Virtual Cursos e Idiomas</h2>
-                    <span class="flecha" data-helpjuice-element="Span Arrow" data-helpjuice-attributes="font_size,color"><img src="https://docs.cientifica.edu.pe/marketing/Carrión/helpjuice/icons/Filled.png" style="
-                                max-width: 24px;
-                            " data-helpjuice-element="Image Arrow" data-helpjuice-attributes="font_size,color"></span>
-                </a>
-            </div>
-            
-        </div>
-        <div class="row">
-            
-       <!---     <div class="category">
-                <a href="https://play.google.com/store/apps/details?id=com.ombiel.campusm.Carrión&amp;hl=es_PE" class="card" target="_blank" data-helpjuice-element="Card Mobile Carrión App" data-helpjuice-attributes="font_size,color">
-                    <span class="icon" data-helpjuice-element="Span Card Icon" data-helpjuice-attributes="font_size,color"><img src="https://docs.cientifica.edu.pe/marketing/Carrión/helpjuice/2024/alumnos/app.png" data-helpjuice-element="Image Card Icon" data-helpjuice-attributes="font_size,color"></span>
-                    <h2 data-helpjuice-element="Title Mobile Carrión App" data-helpjuice-attributes="font_size,color">App Carrión Móvil</h2>
-                    <span class="flecha" data-helpjuice-element="Span Arrow" data-helpjuice-attributes="font_size,color"><img src="https://docs.cientifica.edu.pe/marketing/Carrión/helpjuice/icons/Filled.png" style="
-                                max-width: 24px;
-                            " data-helpjuice-element="Image Arrow" data-helpjuice-attributes="font_size,color"></span>
-                </a>
-            </div>
-            
-            <div class="category">
-                <a href="https://outlook.office365.com/mail/" class="card" target="_blank" data-helpjuice-element="Card Email Carrión" data-helpjuice-attributes="font_size,color">
-                    <span class="icon" data-helpjuice-element="Span Card Icon" data-helpjuice-attributes="font_size,color"><img src="https://docs.cientifica.edu.pe/marketing/Carrión/helpjuice/2024/alumnos/correo.png" data-helpjuice-element="Image Card Icon" data-helpjuice-attributes="font_size,color"></span>
-                    <h2 data-helpjuice-element="Title Email Carrión" data-helpjuice-attributes="font_size,color">Correo Carrión</h2>
-                    <span class="flecha" data-helpjuice-element="Span Arrow" data-helpjuice-attributes="font_size,color"><img src="https://docs.cientifica.edu.pe/marketing/Carrión/helpjuice/icons/Filled.png" style="
-                                max-width: 24px;
-                            " data-helpjuice-element="Image Arrow" data-helpjuice-attributes="font_size,color"></span>
-                </a>
-            </div>
-            
-            <div class="category">
-                <a href="https://teams.microsoft.com/" class="card" target="_blank" data-helpjuice-element="Card Teams" data-helpjuice-attributes="font_size,color">
-                     <span class="icon" data-helpjuice-element="Span Card Icon" data-helpjuice-attributes="font_size,color"><img src="https://docs.cientifica.edu.pe/marketing/Carrión/helpjuice/2024/alumnos/teams.png" data-helpjuice-element="Image Card Icon" data-helpjuice-attributes="font_size,color"></span>
-                    <h2 data-helpjuice-element="Title Teams" data-helpjuice-attributes="font_size,color">Teams</h2>
-                    <span class="flecha" data-helpjuice-element="Span Arrow" data-helpjuice-attributes="font_size,color"><img src="https://docs.cientifica.edu.pe/marketing/Carrión/helpjuice/icons/Filled.png" style="
-                                max-width: 24px;
-                            " data-helpjuice-element="Image Arrow" data-helpjuice-attributes="font_size,color"></span>
-                </a>
-            </div>
-            
-            <div class="category">
-                <a href="https://www.instagram.com/comunidadCarrión/" class="card" target="_blank" data-helpjuice-element="Card Comunidad" data-helpjuice-attributes="font_size,color">
-                     <span class="icon" data-helpjuice-element="Span Card Icon" data-helpjuice-attributes="font_size,color"><img src="https://docs.cientifica.edu.pe/marketing/Carrión/helpjuice/2024/alumnos/prueba.png" data-helpjuice-element="Image Card Icon" data-helpjuice-attributes="font_size,color"></span>
-                    <h2 data-helpjuice-element="Title Comunidad Carrión" data-helpjuice-attributes="font_size,color">Comunidad Carrión</h2>
-                    <span class="flecha" data-helpjuice-element="Span Arrow" data-helpjuice-attributes="font_size,color"><img src="https://docs.cientifica.edu.pe/marketing/Carrión/helpjuice/icons/Filled.png" style="
-                                max-width: 24px;
-                            " data-helpjuice-element="Image Arrow" data-helpjuice-attributes="font_size,color"></span>
-                </a>
-            </div>
-            
-        </div>
-        
-    </div>
-</div>
-<!--END_COMPONENT_DIGITAL_PLATFORMS_ACCESS-->
-
-<!--DOCENTES
-<div class="all-categories" id="plat-dig">
-    <div class="wrapper external">
-        <h2 id="external-title">Todas las categorías</h2>
-        <div class="row">
-            
-                
-                        
-                    <div class="category">
-                        <a href="/es_ES/Titulación-" class="card Titulación">
-                            <span class="icon"><span><i class="far fa-external-link"></i></span></span>
-                            <h2>Titulación</h2>
-                            <span class="flecha"><img src="https://docs.cientifica.edu.pe/marketing/Carrión/helpjuice/icons/Filled.png" style="max-width: 24px;"></span>
-                        </a>
-                    </div>
-                
-            
-               
-        </div>
-    </div>
-</div>
--->
-
-<!--
-<div class="all-categories">
-    <div class="cat-data">
-            
-                 
-                    <a href="/es_ES/programa-de-titulación" class="box titulacion">
-                        <span class="icon"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/486238/programa_de_titulacion.png"></img></span>
-                        <p>Programa de titulación</p>
-                    </a>
-                
-                    
-                    <a href="/es_ES/bachiller-técnico" class="box titulacion">
-                        <span class="icon"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/486235/bachiller_t%C3%A9cnico.png"></img></span>
-                        <p>Bachiller técnico</p>
-                    </a>
-                
-            
-                               
-                    <a href="/es_ES/titulo-profesional" class="box titulacion">
-                        <span class="icon"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/486236/titulo_profesional.png"></img></span>
-                        <p>Titulo profesional</p>
-                    </a>
-                
-            
-                
-                                   
-                
-                    <a href="/es_ES/comunicados-titulación" class="box titulacion">
-                        <span class="icon"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/333504/comunicados.png"></img></span>
-                        <p>Comunicados Titulación</p>
-                    </a>
-                
-                        
-                               
-                    <a href="/es_ES/pagos-Titulacion" class="box titulacion">
-                        <span class="icon"><img src="https://static.helpjuice.com/helpjuice_production/uploads/category/image/12017/597439/pagos_222222223.PNG"></img></span>
-                        <p>Pagos</p>
-                    </a>
-                
-        
-
-         </div>
-    </main>
     <!--Prueba Footer-->
 <!-- Footer ------------------------------------------------------------------------------------------------>
    <div class="footer">
@@ -1495,8 +1113,8 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
             { title: "Plataformas digitales", url: "Plataforma_Digitales.html"},
             { title: "Guía del egresado", url: "Guia_del_Egresado.html"},
             { title: "Mallas curriculares", url: "MallasCurriculares.html"},
-	{ title: "Matricula (2º a 6º ciclo)", url: "2Cicloa6Ciclo.html"},
-	{ title: "¿Cómo verificar mi horario?", url: "Horario_de_Clases.html"},
+	        { title: "Matricula (2º a 6º ciclo)", url: "2Cicloa6Ciclo.html"},
+	        { title: "¿Cómo verificar mi horario?", url: "Horario_de_Clases.html"},
         ];
         
         // Función para buscar coincidencias
@@ -1580,7 +1198,7 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
   <div class="chat-header">
     <!-- Logo y nombre con la nueva imagen -->
     <div style="display: flex; align-items: center; gap: 10px;">
-      <img src="https://files.fm/f/83rfp9tzqj" 
+      <img src="https://fv5-6.files.fm/thumb_show.php?i=hc2spr53j3&view&v=1&PHPSESSID=dc69f22776feba969b19c44a0fce5e252c8779f9" 
            alt="Logo Dany" 
            style="width: 28px; height: 28px; border-radius: 50%; object-fit: cover;">
       <span style="font-weight: bold;">Dany</span>
@@ -1669,6 +1287,8 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
         return 'Para información sobre matrícula, puedes visitar: <a href="https://portal-autoatencion.carrion.edu.pe/Matrícula" target="_blank" style="color: #0078FF;">https://portal-autoatencion.carrion.edu.pe/Matrícula</a>';
       } else if (lowerMessage.includes('pago') || lowerMessage.includes('pagos')) {
         return 'Para consultas sobre pagos, visita: <a href="https://portal-autoatencion.carrion.edu.pe/Pagos" target="_blank" style="color: #0078FF;">https://portal-autoatencion.carrion.edu.pe/Pagos</a>';
+      } else if (lowerMessage.includes('reseteo') || lowerMessage.includes('reseteo contraseña correo')) {
+        return 'Para consultas sobre reseteo de tu contraseña de tu correo institucional, visita: <a href="https://recuperarcontrasena.acarrion.edu.pe/?fbclid=IwY2xjawPnZJVleHRuA2FlbQIxMABicmlkETFBTnc2b2RVNGFGSGVDdEhxc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHt7v-tvnX48KVec4rFIYKwyGP-9Dz8A1lMhPYWHrhXburomSJaYSKQA40up9_aem_LDoLFMrf1B3WfT3GZrGjWA" target="_blank" style="color: #0078FF;">https://recuperarcontrasena.acarrion.edu.pe/?fbclid=IwY2xjawPnZJVleHRuA2FlbQIxMABicmlkETFBTnc2b2RVNGFGSGVDdEhxc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHt7v-tvnX48KVec4rFIYKwyGP-9Dz8A1lMhPYWHrhXburomSJaYSKQA40up9_aem_LDoLFMrf1B3WfT3GZrGjWA</a>';
       } else if (lowerMessage.includes('trámite') || lowerMessage.includes('tramite')) {
         return 'Para información sobre trámites documentarios: <a href="https://portal-autoatencion.carrion.edu.pe/Trámites-Documentarios" target="_blank" style="color: #0078FF;">https://portal-autoatencion.carrion.edu.pe/Trámites-Documentarios</a>';
       } else if (lowerMessage.includes('horario') || lowerMessage.includes('atención')) {
@@ -1735,15 +1355,33 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
       const startupAd = document.getElementById('startupAd');
       const startupAdClose = document.getElementById('startupAdClose');
 
+      // ✅ CAMBIO NECESARIO: capturar la imagen y preparar el cambio a los 4s
+      const startupAdImg = document.getElementById('startupAdImg');
+      const startupAdLink = document.getElementById('startupAdLink');
+
+      const secondImgUrl  = 'https://fv5-5.files.fm/thumb_show.php?i=c3m8g6xcw4&view&v=1&PHPSESSID=dc69f22776feba969b19c44a0fce5e252c8779f9';
+const secondLinkUrl = 'https://recuperarcontrasena.acarrion.edu.pe/?fbclid=IwY2xjawPnZJVleHRuA2FlbQIxMABicmlkETFBTnc2b2RVNGFGSGVDdEhxc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHt7v-tvnX48KVec4rFIYKwyGP-9Dz8A1lMhPYWHrhXburomSJaYSKQA40up9_aem_LDoLFMrf1B3WfT3GZrGjWA';
+
+ 
+
       // Mostrar apenas cargue el DOM
       startupAd.style.display = 'flex';
       startupAd.setAttribute('aria-hidden', 'false');
+
+      // ✅ CAMBIO NECESARIO: cambiar imagen después de 5 segundos (5000 ms)
+      const popupSwapTimer = setTimeout(() => {
+        if (startupAdImg) startupAdImg.src = secondImgUrl;
+	if (startupAdLink) startupAdLink.href = secondLinkUrl;
+      }, 5000);
 
       // Cerrar con botón X
       startupAdClose.addEventListener('click', function (e) {
         e.preventDefault();
         startupAd.style.display = 'none';
         startupAd.setAttribute('aria-hidden', 'true');
+
+        // ✅ opcional (pero recomendado): si cierran antes, cancelamos el cambio
+        clearTimeout(popupSwapTimer);
       });
 
       // Cerrar si hacen click en el fondo oscuro (no en la tarjeta)
@@ -1751,6 +1389,9 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
         if (e.target === startupAd) {
           startupAd.style.display = 'none';
           startupAd.setAttribute('aria-hidden', 'true');
+
+          // ✅ opcional (pero recomendado): si cierran antes, cancelamos el cambio
+          clearTimeout(popupSwapTimer);
         }
       });
 
@@ -1759,6 +1400,9 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
         if (e.key === 'Escape' && startupAd.style.display === 'flex') {
           startupAd.style.display = 'none';
           startupAd.setAttribute('aria-hidden', 'true');
+
+          // ✅ opcional (pero recomendado): si cierran antes, cancelamos el cambio
+          clearTimeout(popupSwapTimer);
         }
       });
 </script>
@@ -1766,7 +1410,7 @@ COMENTAR HASTA AQUI-------------------------------------------------------------
 <style>
   /* Imagen de fondo del chat */
   #chatbot-container .chat-body {
-    background-image: url('https://fv5-6.files.fm/thumb_show.php?i=yw3hceywmq&view&v=1&PHPSESSID=0aa0e33631fdf388d2a08e2bc40716d6e81e6da6');
+    background-image: url('https://fv5-5.files.fm/thumb_show.php?i=dzpumgyh3n&view&v=1&PHPSESSID=dc69f22776feba969b19c44a0fce5e252c8779f9');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
