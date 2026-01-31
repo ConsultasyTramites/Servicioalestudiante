@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mi página</title>
+  <style>
+    :root{
+      --bg: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: rgba(17,24,39,0.12);
+      --shadow: 0 6px 22px rgba(17,24,39,0.08);
+      --padding: 16px;
+      --max-width: 1100px;
+    }
+
+    *{ box-sizing: border-box; }
+
+    body{
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    header{
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-banner{
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .header-banner img{
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    main{
+      flex: 1;
+      padding: 24px var(--padding);
+      max-width: var(--max-width);
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .card{
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .grid{
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      margin-top: 14px;
+    }
+
+    @media (min-width: 640px){
+      .grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (min-width: 960px){
+      .grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    .btn{
+      appearance: none;
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 14px;
+      padding: 12px 14px;
+      text-align: left;
+      cursor: pointer;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+      transition: transform .08s ease, box-shadow .12s ease, border-color .12s ease;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(17,24,39,0.10);
+      border-color: rgba(37,99,235,0.35);
+    }
+    .btn:active{ transform: translateY(0); }
+    .btn small{
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .viewer{
+      margin-top: 18px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .viewer-head{
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .viewer-title{
+      font-weight: 700;
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .viewer-note{
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .viewer-actions{
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .viewer-body{
+      padding: 12px;
+    }
+
+    /* Link contenedor de la imagen (solo visible cuando hay selección) */
+    #viewerLink{
+      display: none;
+      text-decoration: none;
+    }
+    #viewerLink.active{
+      display: block;
+    }
+
+    /* Imagen: se oculta solo si no tiene src */
+    #viewerImg{
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      opacity: 0;
+      transition: opacity .18s ease;
+    }
+    #viewerImg:not([src]){
+      display: none; /* sin src, no aparece */
+    }
+    #viewerImg.show{
+      opacity: 1;
+    }
+
+    footer{
+      border-top: 1px solid var(--border);
+      padding: 16px var(--padding);
+      color: var(--muted);
+      font-size: 14px;
+      background: var(--bg);
+    }
+
+    .footer-inner{
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    a{ color: #2563eb; text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-banner">
+      <img
+        src="https://fv5-6.files.fm/thumb_show.php?i=jx5n8z73va&view&v=1&PHPSESSID=dc69f22776feba969b19c44a0fce5e252c8779f9"
+        alt="Encabezado"
+      />
+    </div>
+  </header>
+
+  <main>
+    <div class="card">
+      <h1 style="margin-top:0;">Guía para sobrevivir el primer ciclo</h1>
+      <p style="margin:0;color:var(--muted);">
+        ¡Bienvenido a tu primer ciclo! 🎉
+Esta guía está hecha para ayudarte a sobrevivirlo sin dramas.
+Solo toca el botón que tenga que ver con tu duda y verás un flyer con QR o los pasos que necesitas seguir.
+Además, si haces clic en el flyer, te llevará directo al lugar donde realizaras los pasos que se te indican. ¡Así de fácil!
+
+      </p>
+
+      <div class="grid" id="botonera"></div>
+
+      <div class="viewer" aria-live="polite">
+        <div class="viewer-head">
+          <div>
+            <p class="viewer-title" id="viewerTitle">Vista previa</p>
+            <p class="viewer-note" id="viewerNote">Selecciona una opción para mostrar la imagen.</p>
+          </div>
+
+          <div class="viewer-actions">
+             <a class="btn" id="btnGo" href="#" target="_blank" rel="noopener"
+                style="max-width:220px;text-align:center; display:none;">
+               Ir al enlace
+               <small>Abrir en nueva pestaña</small>
+             </a>
+
+            <button class="btn" id="btnClear" type="button" style="max-width:220px;text-align:center;">
+              Limpiar vista
+              <small>Ocultar imagen</small>
+            </button>
+          </div>
+        </div>
+
+        <div class="viewer-body">
+          <a id="viewerLink" href="#" target="_blank" rel="noopener">
+            <img id="viewerImg" alt="Imagen seleccionada" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© 2026 Instituto CARRION.
+Todos los derechos reservados.</span>
+      <span>
+        <a href="#">Política de privacidad</a> ·
+        <a href="#">Contacto</a>
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    // Cada item: img (imagen) + url (a dónde redirige al click en la imagen)
+    // Cambia los url: "#" por tus enlaces reales.
+    const DATOS = {
+      "Acceso a correo institucional": {
+        img: "https://fv5-6.files.fm/thumb_show.php?i=9jvyzhdcx3&view&v=1&PHPSESSID=dc69f22776feba969b19c44a0fce5e252c8779f9",
+        url: "https://www.office.com/"
+      },
+      "Teams": {
+        img: "https://fv5-6.files.fm/thumb_show.php?i=9k53m36j92&view&v=1&PHPSESSID=dc69f22776feba969b19c44a0fce5e252c8779f9",
+        url: "https://www.microsoft.com/es-es/microsoft-teams/log-in"
+      },
+      "Ubica tu sede": {
+        img: "https://fv5-5.files.fm/thumb_show.php?i=wc9krwbgf2&view&v=1&PHPSESSID=dc69f22776feba969b19c44a0fce5e252c8779f9",
+        url: "https://consultasytramites.github.io/Servicioalestudiante/1Ciclo.html"
+      },
+      "Horario de clase": {
+        img: "https://fv5-6.files.fm/thumb_show.php?i=kr3cjabmhu&view&v=1&PHPSESSID=dc69f22776feba969b19c44a0fce5e252c8779f9",
+        url: "https://consultasytramites.github.io/Servicioalestudiante/Horario_de_Clases.html"
+      },
+      "Acceso a CarriónNet (usuario/contraseña)": {
+        img: "https://fv5-6.files.fm/thumb_show.php?i=tnjcdkc2rc&view&v=1&PHPSESSID=dc69f22776feba969b19c44a0fce5e252c8779f9",
+        url: "https://intranet.acarrion.edu.pe/sso.asp"
+      },
+      "Emisión de Carnet Medio Pasaje": {
+        img: "https://fv5-5.files.fm/thumb_show.php?i=6988bwydvb&view&v=1&PHPSESSID=dc69f22776feba969b19c44a0fce5e252c8779f9",
+        url: "#"
+      },
+      "Acceso a Canvas": {
+        img: "https://fv5-6.files.fm/thumb_show.php?i=7txx7f8ncc&view&v=1&PHPSESSID=dc69f22776feba969b19c44a0fce5e252c8779f9",
+        url: "https://acarrion.instructure.com/"
+      },
+      "Cronograma de pago": {
+        img: "https://fv5-6.files.fm/thumb_show.php?i=v75v5pmv2k&view&v=1&PHPSESSID=dc69f22776feba969b19c44a0fce5e252c8779f9",
+        url: "https://consultasytramites.github.io/Servicioalestudiante/Pagos_Virtuales.html#"
+      },
+      "Reingreso": {
+        img: "https://fv5-5.files.fm/thumb_show.php?i=bdq85t7zes&view&v=1&PHPSESSID=dc69f22776feba969b19c44a0fce5e252c8779f9",
+        url: "https://forms.office.com/pages/responsepage.aspx?id=E7z54CaJykKzOFKgpp0gLC018m09ZAVNlX6iF13BsdtUNTZIWUVEWU5DWlFZQUZBQ1pYRkVPWTc5Sy4u&route=shorturl"
+      },
+      "Registro de matrícula": {
+        img: "https://dummyimage.com/1200x600/8b5cf6/ffffff&text=Registro+de+matricula",
+        url: "#"
+      },
+      //"Cambio de sede": {
+       // img: "https://dummyimage.com/1200x600/14b8a6/111827&text=Cambio+de+sede",
+       // url: "#"
+      //},
+      "Justificación de inasistencia": {
+        img: "https://fv5-5.files.fm/thumb_show.php?i=efs9zewu5t&view&v=1&PHPSESSID=dc69f22776feba969b19c44a0fce5e252c8779f9",
+        url: "https://files.fm/f/vtt76ffgz7"
+      }
+    };
+
+    const botonera   = document.getElementById("botonera");
+    const viewerImg  = document.getElementById("viewerImg");
+    const viewerTitle= document.getElementById("viewerTitle");
+    const viewerNote = document.getElementById("viewerNote");
+    const btnClear   = document.getElementById("btnClear");
+
+    const viewerLink = document.getElementById("viewerLink");
+    const btnGo      = document.getElementById("btnGo");
+
+    function mostrarImagen(titulo, imgUrl, linkUrl){
+      viewerTitle.textContent = titulo;
+      viewerNote.textContent = "Cargando imagen…";
+
+      // Preparar enlace destino
+      viewerLink.href = linkUrl || "#";
+      btnGo.href = linkUrl || "#";
+
+      const tieneLink = linkUrl && linkUrl !== "#";
+      btnGo.style.display = tieneLink ? "inline-block" : "none";
+
+      // Activar contenedor de imagen
+      viewerLink.classList.add("active");
+
+      // Reset imagen
+      viewerImg.classList.remove("show");
+      viewerImg.removeAttribute("src"); // fuerza a recargar y aplica CSS :not([src]) => hidden
+
+      // Cargar imagen DIRECTO en el <img> (más confiable)
+      viewerImg.onload = () => {
+        requestAnimationFrame(() => viewerImg.classList.add("show"));
+        viewerNote.textContent = tieneLink
+          ? "Imagen cargada. Ahora haz clic en la imagen para ir al enlace."
+          : "Imagen cargada. Falta configurar el enlace (url) de esta opción.";
+        viewerLink.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      };
+
+      viewerImg.onerror = () => {
+        viewerTitle.textContent = "Error";
+        viewerNote.textContent = "No se pudo cargar la imagen. Revisa el URL de la imagen.";
+        viewerLink.classList.remove("active");
+        btnGo.style.display = "none";
+        viewerImg.classList.remove("show");
+        viewerImg.removeAttribute("src");
+      };
+
+      // Asignar src al final
+      viewerImg.src = imgUrl;
+    }
+
+    // Click en la imagen => redirige (si hay link real)
+    viewerLink.addEventListener("click", (e) => {
+      const href = viewerLink.getAttribute("href");
+      if (!href || href === "#") {
+        e.preventDefault();
+        alert("Aún no has configurado el enlace (url) para esta opción. Cambia el campo 'url' en DATOS.");
+      }
+    });
+
+    // Crear botones
+    Object.keys(DATOS).forEach((titulo) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "btn";
+      btn.innerHTML = `${titulo}<small>Ver imagen</small>`;
+      btn.addEventListener("click", () => {
+        const item = DATOS[titulo];
+        mostrarImagen(titulo, item.img, item.url);
+      });
+      botonera.appendChild(btn);
+    });
+
+    btnClear.addEventListener("click", () => {
+      viewerTitle.textContent = "Vista previa";
+      viewerNote.textContent = "Selecciona una opción para mostrar la imagen.";
+
+      viewerImg.classList.remove("show");
+      viewerImg.removeAttribute("src");
+      viewerImg.alt = "";
+
+      viewerLink.classList.remove("active");
+      viewerLink.href = "#";
+
+      btnGo.style.display = "none";
+      btnGo.href = "#";
+    });
+  </script>
+</body>
+</html>
