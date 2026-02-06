@@ -1,0 +1,47 @@
+             <div class="helpjuice-accordion">
+                    <h2 class="helpjuice-accordion-title" id="fisioterapia">
+                        Ubica tu sede Carrión
+                        <span class="accordion-icon"> </span>
+                    </h2>
+                    <div class="helpjuice-accordion-body">
+                        <div class="pdf-container">
+                        
+    <h2>📍 Sedes del Instituto Carrión</h2>
+<ul>
+  <li><a href="#" onclick="mostrarMapa('Av. Arequipa 351, Lima')">Sede Central</a></li>
+ <li><a href="#" onclick="mostrarMapa('Av. República de Chile 388, Jesús María, Lima')">Sede República de Chile</a></li>
+  <li><a href="#" onclick="mostrarMapa('Av. Próceres 1813, Lima')">Sede San Juan de Lurigancho</a></li>
+  <li><a href="#" onclick="mostrarMapa('Av. Universitaria 3750, Lima')">Sede Los Olivos</a></li>
+  <li><a href="#" onclick="mostrarMapa('Av. Alfredo Mendiola 3365, Lima')">Sede Mendiola (Megaplaza)</a></li>
+  <li><a href="#" onclick="mostrarMapa('Av. San Juan 799, Lima')">Sede San Juan de Miraflores 1</a></li>
+  <li><a href="#" onclick="mostrarMapa('Av. San Juan 759, Lima')">Sede San Juan de Miraflores 2</a></li>
+<li><a href="#" onclick="mostrarMapa('Av. San Juan 643, Lima')">Sede San Juan de Miraflores 3</a></li>
+  <li><a href="#" onclick="mostrarMapa('Av. Circunvalación 2139, Lima')">Sede San Luis</a></li>
+</ul>
+
+<div style="margin-top: 20px;">
+  <iframe
+    id="mapaSede"
+    width="100%"
+    height="400"
+    frameborder="0"
+    style="border:0"
+    allowfullscreen
+    src="https://www.google.com/maps?q=Av. Arequipa 351, Lima&output=embed">
+  </iframe>
+</div>
+
+<script>
+  function mostrarMapa(direccion) {
+    const mapa = document.getElementById("mapaSede");
+    const url = `https://maps.google.com/maps?&q=${encodeURIComponent(direccion)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+    mapa.src = url;
+  }
+</script>
+
+                       </div>
+                        <div class="pdf-actions">
+                             <!----<a href="https://drive.google.com/file/d/1IYN_jFU0OPBLJsbNcE07fhZNrpsNPCMx/view" target="_blank" class="download-btn">Descargar PDF</a>--->
+                        </div>
+                    </div>
+                </div>
