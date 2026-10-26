@@ -4,10 +4,6 @@
   <meta charset="UTF-8" />
   <title>CONTACTO CARRION - Instituto Carrión</title>
 
-  <!-- ❌ OJO: este link era una imagen, no una hoja CSS. Lo dejo comentado para que no rompa estilos.
-  <link rel="stylesheet" href="https://scontent.flim2-6.fna.fbcdn.net/v/t39.30808-6/506410584_1922412321946088_2073086972235835171_n.jpg?...">
-  -->
-
   <!--FontsBarlow-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -519,11 +515,11 @@
       <div class="footer-right-row">
         <img
           class="footer-right-row-icon"
-          src="https://static.helpjuice.com/helpjuice_production/uploads/upload/image/14255/3184049/1685552418116-social_whatsapp.png"
+          src="https://fv5-6.files.fm/thumb_show.php?i=rgaskbbqwhu8c7zf&view&v=1&PHPSESSID=8b24c608a0d1668148457ec8cd9f2b348262bb4d"
           width="22px"
-          alt="WhatsApp"
+          alt="Telegram"
         />
-        <a target="_blank" href="https://api.whatsapp.com/send?phone=51933631733" style="color:#0d1b2a; text-decoration:none;">
+        <a target="_blank" href="https://t.me/+51933631733" style="color:#0d1b2a; text-decoration:none;">
           933 631 733
         </a>
       </div>
@@ -570,14 +566,14 @@
           alt="Logo Dany"
           style="width:28px; height:28px; border-radius:50%; object-fit:cover;"
         />
-        <span style="font-weight:bold;">Dany</span>
+        <span style="font-weight:bold;">Dany (IA)</span>
       </div>
       <button class="close-chat" aria-label="Cerrar chat">&times;</button>
     </div>
 
     <div class="chat-body" id="chatMessages">
       <div class="message bot-message">
-        ¡Hola! Soy Dany, el asistente virtual del Instituto Carrión. ¿En qué puedo ayudarte hoy?
+        ¡Hola! Soy Dany, el asistente virtual con Inteligencia Artificial del Instituto Carrión. ¿En qué trámite o consulta te puedo ayudar hoy?
       </div>
     </div>
 
@@ -591,66 +587,17 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/pdf.min.js"></script>
 
+  <!-- SCRIPT 1: Lógica de la página (Buscador, Popup, UI del chat) -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
 
-      /* =========================================================
-         ✅ POPUP: DESACTIVADO COMO TEXTO
-         Para ACTIVAR luego:
-         1) cambia POPUP_ENABLED a true
-         2) descomenta el bloque "if (POPUP_ENABLED) { ... }"
-         ========================================================= */
-
-      const POPUP_ENABLED = false; // 👈 AHORA ESTÁ DESACTIVADO
-
-      // const startupAd = document.getElementById('startupAd');
-      // const startupAdClose = document.getElementById('startupAdClose');
-      // const startupAdImg = document.getElementById('startupAdImg');
-      // const startupAdLink = document.getElementById('startupAdLink');
-
-      // const secondImgUrl  = 'https://fv5-5.files.fm/thumb_show.php?i=c3m8g6xcw4&view&v=1&PHPSESSID=dc69f22776feba969b19c44a0fce5e252c8779f9';
-      // const secondLinkUrl = 'https://recuperarcontrasena.acarrion.edu.pe/?fbclid=IwY2xjawPnZJVleHRuA2FlbQIxMABicmlkETFBTnc2b2RVNGFGSGVDdEhxc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHt7v-tvnX48KVec4rFIYKwyGP-9Dz8A1lMhPYWHrhXburomSJaYSKQA40up9_aem_LDoLFMrf1B3WfT3GZrGjWA';
-
-      // if (POPUP_ENABLED) {
-      //   // Mostrar al cargar
-      //   startupAd.style.display = 'flex';
-      //   startupAd.setAttribute('aria-hidden', 'false');
-
-      //   // Cambiar imagen y link a los 5s
-      //   const popupSwapTimer = setTimeout(() => {
-      //     if (startupAdImg) startupAdImg.src = secondImgUrl;
-      //     if (startupAdLink) startupAdLink.href = secondLinkUrl;
-      //   }, 5000);
-
-      //   // Cerrar con X
-      //   startupAdClose.addEventListener('click', function (e) {
-      //     e.preventDefault();
-      //     startupAd.style.display = 'none';
-      //     startupAd.setAttribute('aria-hidden', 'true');
-      //     clearTimeout(popupSwapTimer);
-      //   });
-
-      //   // Cerrar al click en fondo
-      //   startupAd.addEventListener('click', function (e) {
-      //     if (e.target === startupAd) {
-      //       startupAd.style.display = 'none';
-      //       startupAd.setAttribute('aria-hidden', 'true');
-      //       clearTimeout(popupSwapTimer);
-      //     }
-      //   });
-
-      //   // Cerrar con ESC
-      //   document.addEventListener('keydown', function (e) {
-      //     if (e.key === 'Escape' && startupAd.style.display === 'flex') {
-      //       startupAd.style.display = 'none';
-      //       startupAd.setAttribute('aria-hidden', 'true');
-      //       clearTimeout(popupSwapTimer);
-      //     }
-      //   });
-      // }
+      /* =========================
+         POPUP: DESACTIVADO
+         ========================= */
+      const POPUP_ENABLED = false;
 
       /* =========================
-         BUSCADOR (UNA SOLA VERSIÓN)
+         BUSCADOR
          ========================= */
       const searchInput = document.getElementById('search');
       const resultsContainer = document.getElementById('results-container');
@@ -770,14 +717,11 @@
       });
 
       /* =========================
-         CHATBOT
+         UI DEL CHATBOT (Abrir/Cerrar)
          ========================= */
       const chatButton = document.getElementById('chatButton');
       const chatbotContainer = document.getElementById('chatbot-container');
       const closeChat = document.querySelector('.close-chat');
-      const sendMessageButton = document.getElementById('sendMessage');
-      const userInput = document.getElementById('userInput');
-      const chatMessages = document.getElementById('chatMessages');
 
       chatButton.addEventListener('click', function () {
         chatbotContainer.style.display = 'flex';
@@ -787,61 +731,99 @@
         chatbotContainer.style.display = 'none';
       });
 
-      function getBotResponse(message) {
-        const lowerMessage = (message || '').toLowerCase();
-
-        if (lowerMessage.includes('matrícula') || lowerMessage.includes('matricula')) {
-          return 'Para información sobre matrícula, puedes visitar: <a href="https://portal-autoatencion.carrion.edu.pe/Matrícula" target="_blank" style="color:#0078FF;">https://portal-autoatencion.carrion.edu.pe/Matrícula</a>';
-        } else if (lowerMessage.includes('pago') || lowerMessage.includes('pagos')) {
-          return 'Para consultas sobre pagos, visita: <a href="https://portal-autoatencion.carrion.edu.pe/Pagos" target="_blank" style="color:#0078FF;">https://portal-autoatencion.carrion.edu.pe/Pagos</a>';
-        } else if (lowerMessage.includes('reseteo') || lowerMessage.includes('reseteo contraseña correo') || lowerMessage.includes('contraseña correo')) {
-          return 'Para reseteo de tu contraseña del correo institucional, visita: <a href="https://recuperarcontrasena.acarrion.edu.pe/" target="_blank" style="color:#0078FF;">https://recuperarcontrasena.acarrion.edu.pe/</a>';
-        } else if (lowerMessage.includes('trámite') || lowerMessage.includes('tramite')) {
-          return 'Para trámites documentarios: <a href="https://portal-autoatencion.carrion.edu.pe/Trámites-Documentarios" target="_blank" style="color:#0078FF;">https://portal-autoatencion.carrion.edu.pe/Trámites-Documentarios</a>';
-        } else if (lowerMessage.includes('horario') || lowerMessage.includes('atención')) {
-          return 'Nuestro horario de atención es de lunes a viernes de 8:00 am a 8:00 pm. Teléfono: (01) 418-3636';
-        } else if (lowerMessage.includes('hola') || lowerMessage.includes('buenos días') || lowerMessage.includes('buenas tardes')) {
-          return '¡Hola! ¿En qué puedo ayudarte? Puedo asistirte con información sobre matrícula, pagos, trámites y más.';
-        } else {
-          return 'Gracias por tu mensaje. Para una atención más personalizada, puedes contactarnos al (01) 418-3636 o escribirnos a servicioalestudiante@carrion.edu.pe';
-        }
-      }
-
-      function sendMessage() {
-        const message = userInput.value.trim();
-        if (!message) return;
-
-        const userMessageElement = document.createElement('div');
-        userMessageElement.classList.add('message', 'user-message');
-        userMessageElement.textContent = message;
-        chatMessages.appendChild(userMessageElement);
-
-        userInput.value = '';
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-
-        setTimeout(() => {
-          const botResponse = getBotResponse(message);
-          const botMessageElement = document.createElement('div');
-          botMessageElement.classList.add('message', 'bot-message');
-          botMessageElement.innerHTML = botResponse;
-          chatMessages.appendChild(botMessageElement);
-          chatMessages.scrollTop = chatMessages.scrollHeight;
-        }, 600);
-      }
-
-      sendMessageButton.addEventListener('click', sendMessage);
-
-      userInput.addEventListener('keypress', function (e) {
-        if (e.key === 'Enter') sendMessage();
-      });
-
       // Cerrar chatbot si hacen click fuera
       document.addEventListener('click', function (e) {
-        if (!chatbotContainer.contains(e.target) && e.target !== chatButton) {
+        if (!chatbotContainer.contains(e.target) && e.target !== chatButton && !chatButton.contains(e.target)) {
           chatbotContainer.style.display = 'none';
         }
       });
 
+    });
+  </script>
+
+  <!-- SCRIPT 2: INTELIGENCIA ARTIFICIAL (Protegido vía Cloudflare Worker) -->
+  <script>
+    // ⚠️ 1. PEGA AQUÍ LA URL DE TU WORKER EN CLOUDFLARE ⚠️
+    const WORKER_URL = 'https://dany-proxy.consultasytramitescarrion.workers.dev'; 
+    
+    // ⚠️ 2. PEGA AQUÍ EL NOMBRE DEL STORE QUE CREASTE EN COLAB ⚠️
+    const STORE_NAME = 'fileSearchStores/baseconocimientocarrion-pxyikkl2qsbh'; 
+
+    const sendMessageButton = document.getElementById('sendMessage');
+    const userInput = document.getElementById('userInput');
+    const chatMessages = document.getElementById('chatMessages');
+
+    async function sendMessage() {
+      const message = userInput.value.trim();
+      if (!message) return;
+
+      // 1. Mostrar mensaje del usuario
+      const userMessageElement = document.createElement('div');
+      userMessageElement.classList.add('message', 'user-message');
+      userMessageElement.textContent = message;
+      chatMessages.appendChild(userMessageElement);
+
+      userInput.value = '';
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      // 2. Mostrar indicador de "Escribiendo..."
+      const typingElement = document.createElement('div');
+      typingElement.classList.add('message', 'bot-message');
+      typingElement.id = 'typing-indicator';
+      typingElement.innerHTML = '<i>Dany está escribiendo...</i>';
+      chatMessages.appendChild(typingElement);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      try {
+        // 3. Llamar a TU Worker de Cloudflare (La API Key está segura allá)
+        const response = await fetch(WORKER_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message: message,
+            storeName: STORE_NAME
+          })
+        });
+
+        if (!response.ok) throw new Error('Error en la red o en el Worker');
+
+        const data = await response.json();
+
+        // 4. Extraer el texto de la respuesta
+        let botText = "No pude obtener una respuesta.";
+        if (data.candidates && data.candidates[0].content.parts[0].text) {
+           botText = data.candidates[0].content.parts[0].text;
+        } else if (data.error) {
+           botText = "Error de Google: " + data.error.message;
+        }
+
+        // 5. Quitar indicador y mostrar respuesta
+        document.getElementById('typing-indicator').remove();
+        
+        const botMessageElement = document.createElement('div');
+        botMessageElement.classList.add('message', 'bot-message');
+        let formattedText = botText.replace(/\n/g, '<br>');
+        botMessageElement.innerHTML = formattedText;
+        
+        chatMessages.appendChild(botMessageElement);
+        
+      } catch (error) {
+        console.error("Error definitivo:", error);
+        document.getElementById('typing-indicator').remove();
+        
+        const errorElement = document.createElement('div');
+        errorElement.classList.add('message', 'bot-message');
+        errorElement.style.color = 'red';
+        errorElement.innerHTML = "Lo siento, hubo un problema de conexión. Intenta de nuevo más tarde.";
+        chatMessages.appendChild(errorElement);
+      }
+
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    sendMessageButton.addEventListener('click', sendMessage);
+    userInput.addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') sendMessage();
     });
   </script>
 </body>
