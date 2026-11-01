@@ -804,8 +804,64 @@
         botMessageElement.classList.add('message', 'bot-message');
         let formattedText = botText.replace(/\n/g, '<br>');
         botMessageElement.innerHTML = formattedText;
+
+        // 👇 NUEVO: Botones de encuesta con retraso de 2 minutos 👇
+        const voteContainer = document.createElement('div');
+        voteContainer.style.marginTop = "10px";
+        voteContainer.style.borderTop = "1px solid #eee";
+        voteContainer.style.paddingTop = "5px";
+        voteContainer.style.fontSize = "12px";
+        voteContainer.style.textAlign = "right";
+        voteContainer.style.display = "none"; // Ocultos por defecto
+        
+        const safePregunta = encodeURIComponent(message);
+        const safeRespuesta = encodeURIComponent(botText);
+
+        voteContainer.innerHTML = `
+          <span style="color:#666; margin-right:5px;">¿Fue útil?</span>
+          <button class="vote-btn" data-vote="1" data-pregunta="${safePregunta}" data-respuesta="${safeRespuesta}" style="background:none; border:none; cursor:pointer; font-size:16px;">👍</button>
+          <button class="vote-btn" data-vote="-1" data-pregunta="${safePregunta}" data-respuesta="${safeRespuesta}" style="background:none; border:none; cursor:pointer; font-size:16px;">👎</button>
+        `;
+        botMessageElement.appendChild(voteContainer);
         
         chatMessages.appendChild(botMessageElement);
+
+        // ⏱️ TEMPORIZADOR: Mostrar botones después de 2 minutos (120,000 ms)
+        if (window.feedbackTimer) {
+            clearTimeout(window.feedbackTimer);
+        }
+        
+        window.feedbackTimer = setTimeout(() => {
+          voteContainer.style.display = "block"; // Hacemos visibles los botones
+          chatMessages.scrollTop = chatMessages.scrollHeight; // Bajamos el scroll
+        }, 120000); // 120000 ms = 2 minutos
+
+        // 👇 Lógica para enviar el voto al Worker 👇
+        voteContainer.querySelectorAll('.vote-btn').forEach(btn => {
+          btn.addEventListener('click', async (e) => {
+            const voto = e.target.getAttribute('data-vote');
+            const pregunta = decodeURIComponent(e.target.getAttribute('data-pregunta'));
+            const respuesta = decodeURIComponent(e.target.getAttribute('data-respuesta'));
+
+            voteContainer.innerHTML = '<span style="color:#666;">Enviando...</span>';
+
+            try {
+              await fetch(WORKER_URL + '/voto', { 
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  pregunta: pregunta,
+                  respuesta: respuesta,
+                  voto: parseInt(voto)
+                })
+              });
+              voteContainer.innerHTML = '<span style="color:green;">¡Gracias por tu opinión!</span>';
+            } catch (err) {
+              voteContainer.innerHTML = '<span style="color:red;">Error al enviar</span>';
+            }
+          });
+        });
+        // 👆 FIN DEL NUEVO BLOQUE 👆
         
       } catch (error) {
         console.error("Error definitivo:", error);
